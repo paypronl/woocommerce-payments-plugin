@@ -20,7 +20,7 @@ class PayProApi {
       "params"  => json_encode($this->params)
     );
 
-    $url = 'https:/www.paypro.nl/post_api/';
+    $url = 'https://www.paypro.nl/post_api/';
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
