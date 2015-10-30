@@ -2,7 +2,7 @@
 
 class PayPro_WC_Woocommerce
 {
-	var $post_data_key = '_paypro_payment_hash';
+    var $post_data_key = '_paypro_payment_hash';
 
     /**
      * Returns a WooCommerce order by id
@@ -33,15 +33,15 @@ class PayPro_WC_Woocommerce
      */
     public function setOrderPaymentHash($order_id, $payment_hash)
     {
-    	add_post_meta($order_id, $this->post_data_key, $payment_hash, true);
+        add_post_meta($order_id, $this->post_data_key, $payment_hash, true);
     }
 
     /**
      * Gets a payment hash by order id
      */
-	public function getOrderPaymentHash($order_id)
+    public function getOrderPaymentHash($order_id)
     {
-    	return get_post_meta($order_id, $this->post_data_key, true);
+        return get_post_meta($order_id, $this->post_data_key, true);
     }
 
     /**

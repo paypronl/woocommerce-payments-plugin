@@ -2,28 +2,28 @@
 
 abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 {
-	protected $default_title;
+    protected $default_title;
 
-	protected $default_description;
+    protected $default_description;
 
-	protected $default_logo;
+    protected $default_logo;
 
     protected $issuer;
 
     /**
      * Constructs a Payment Gateway
      */ 
-	public function __construct()
-	{
-		$this->plugin_id = 'paypro';
-		$this->id = strtolower(get_class($this));
-		$this->method_title = 'PayPro - ' . $this->getTitle();
+    public function __construct()
+    {
+        $this->plugin_id = 'paypro';
+        $this->id = strtolower(get_class($this));
+        $this->method_title = 'PayPro - ' . $this->getTitle();
 
-		$this->init_form_fields();
-		$this->init_settings();
+        $this->init_form_fields();
+        $this->init_settings();
 
-		$this->title = $this->get_option('title');
-		$this->display_logo = $this->get_option('display_logo') == 'yes';
+        $this->title = $this->get_option('title');
+        $this->display_logo = $this->get_option('display_logo') == 'yes';
 
         if($this->display_logo)
             $this->icon = $this->getIconUrl();
@@ -34,13 +34,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         add_action('woocommerce_api_' . $this->id, array($this, 'callback'));
 
-		add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
-	}
+        add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
+    }
 
     /**
      * This generates the options fields for specific gateways
      */
-	public function init_form_fields()
+    public function init_form_fields()
     {
         $this->form_fields = array(
             'enabled' => array(
@@ -49,14 +49,14 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
                 'label'       => sprintf(__('Enable %s', 'woocommerce-paypro'), $this->getTitle()),
                 'default'     => 'yes'
             ),
-           	'title' => array(
+            'title' => array(
                 'title'       => __('Title', 'woocommerce-paypro'),
                 'type'        => 'text',
                 'description' => sprintf(__('This controls the title which the user sees during checkout. Default <code>%s</code>', 'woocommerce-paypro'), $this->getTitle()),
                 'default'     => $this->getTitle(),
                 'desc_tip'    => true,
             ),
-     		'display_logo' => array(
+            'display_logo' => array(
                 'title'       => __('Display logo', 'woocommerce-paypro'),
                 'type'        => 'checkbox',
                 'label'       => __('Display logo on checkout page. Default <code>enabled</code>', 'paypro-payments-gateways-woocommerce'),
@@ -69,7 +69,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
                 'default'     => $this->getDescription(),
                 'desc_tip'    => true,
             ),
-    	);
+        );
     }
 
     /**
@@ -191,7 +191,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
     /**
      * Return the selected issuer
      */
-	protected function getSelectedIssuer()
+    protected function getSelectedIssuer()
     {
         $issuer_id = PayPro_WC_Plugin::PLUGIN_ID . '_issuer_' . $this->id;
         if(!empty($_POST[$issuer_id]))
