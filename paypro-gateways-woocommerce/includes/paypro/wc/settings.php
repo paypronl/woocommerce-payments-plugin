@@ -5,23 +5,23 @@ class PayPro_WC_Settings
     /**
      * Returns if plugin is in test mode
      */
-	public function testMode()
-	{
-		return trim(get_option(PayPro_WC_Plugin::getSettingId('test-mode'))) === 'yes';
-	}
+    public function testMode()
+    {
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('test-mode'))) === 'yes';
+    }
 
     /**
      * Returns if plugin is in debug mode
      */
-	public function debugMode()
-	{
-		return trim(get_option(PayPro_WC_Plugin::getSettingId('debug-mode'))) === 'yes';
-	}
+    public function debugMode()
+    {
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('debug-mode'))) === 'yes';
+    }
 
     /**
      * Returns the API key
      */
-	public function apiKey()
+    public function apiKey()
     {
         return trim(get_option(PayPro_WC_Plugin::getSettingId('api-key')));
     }
@@ -39,7 +39,7 @@ class PayPro_WC_Settings
      */
     public function paymentDescription()
     {
-    	return trim(get_option(PayPro_WC_Plugin::getSettingId('payment-description')));
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('payment-description')));
     }
 
     /**
@@ -47,6 +47,6 @@ class PayPro_WC_Settings
      */
     public function automaticCancellation()
     {
-    	return trim(get_option(PayPro_WC_Plugin::getSettingId('automatic-cancellation'))) === 'yes';
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('automatic-cancellation'))) === 'yes';
     }
 }

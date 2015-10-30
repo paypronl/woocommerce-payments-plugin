@@ -1,11 +1,11 @@
 <?php
 class PayPro_WC_Api
 {
-	/**
-	 * Parses the API url to an order.
-	 * Only usable on an WooCommerce API call
-	 */
-	public function getOrderFromApiUrl()
+    /**
+     * Parses the API url to an order.
+     * Only usable on an WooCommerce API call
+     */
+    public function getOrderFromApiUrl()
     {
         // Check if the request has valid query params
         if(!isset($_GET['order_id']) || empty($_GET['order_id']) || !isset($_GET['order_key']) || empty($_GET['order_key']))
@@ -39,10 +39,10 @@ class PayPro_WC_Api
         return $order;
     }
 
-	/**
-	 * Returns a payment hash by order
-	 * Only usable on an WooCommerce API call
-	 */
+    /**
+     * Returns a payment hash by order
+     * Only usable on an WooCommerce API call
+     */
     public function getPaymentHashFromOrder($order)
     {
         // Get payment hash
@@ -58,10 +58,10 @@ class PayPro_WC_Api
         return $payment_hash;
     }
 
-	/**
-	 * Get PayPro sale status from payment hash
-	 * Only usable on an WooCommerce API call
-	 */
+    /**
+     * Get PayPro sale status from payment hash
+     * Only usable on an WooCommerce API call
+     */
     public function getSaleStatusFromPaymentHash($payment_hash)
     {   
         // Get status of this order from PayPro API

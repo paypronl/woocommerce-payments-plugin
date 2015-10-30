@@ -1,4 +1,5 @@
 <?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
+
 /**
  * Plugin Name: PayPro Gateways - WooCommerce
  * Plugin URI: https://www.paypro.nl/
@@ -20,13 +21,13 @@ load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-wo
  * Checks if Woocommerce is active, autoloads classes and initializes the plugin.
  */
 function paypro_plugin_init()
-{	
-	// Check if WooCommerce is active
-	if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option( 'active_plugins')))) 
-	{
-		PayPro_WC_Autoload::register();
-		PayPro_WC_Plugin::init();
-	}
+{   
+    // Check if WooCommerce is active
+    if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option( 'active_plugins')))) 
+    {
+        PayPro_WC_Autoload::register();
+        PayPro_WC_Plugin::init();
+    }
 }
 
 /**
@@ -35,68 +36,68 @@ function paypro_plugin_init()
  */ 
 function paypro_wc_plugin_activation()
 {
-	$errors = false;
-	$error_list = '<table style="width: 600px;">';
+    $errors = false;
+    $error_list = '<table style="width: 600px;">';
 
-	// Check if OpenSSL is activated
-	$error_list .= '<tr>';
-	if(function_exists('openssl_sign') && defined('OPENSSL_VERSION_TEXT'))
-	{
-		$error_list .= '<td>OpenSSL installed</td><td style="color: green;">Ok</td>';
-	}
-	else
-	{
-		$error_list .= '<td>OpenSSL not installed</td><td><span style="color: red;">Error</td>';	
-		$errors = true;
-	}
-	$error_list .= '</tr>';
-
-	// Check if Curl is activated
-	if(function_exists('curl_init'))
-  {
-  	$error_list .= '<td>Curl installed</td><td style="color: green;">Ok</td>';
-  }
-  else
-  {
-    $error_list .= '<td>Curl not installed</td><td><span style="color: red;">Error</td>';	
-    $errors = true;
-  }
-
-	// Check if the WooCommerce plugin is active
-	$error_list .= '<tr>';
-  if (is_plugin_active('woocommerce/woocommerce.php'))
-  {
-      $error_list .= '<td>WooCommerce plugin is active</td><td style="color: green;">Ok</td>';
-
-      $error_list .= '</tr><tr>';
-
-      // Check if WooCommerce is the correct version (>= 2.2)
-      if (WC()->version >= '2.2.0')
-      {
-        $error_list .= '<td>WooCommerce version is good</td><td style="color: green;">Ok</td>';
-      }
-      else
-      {
-        $error_list .= '<td>WooCommerce version (' . WC()->version . ') is wrong, should be >=2.2</td><td style="color: red;">Error</td>';
+    // Check if OpenSSL is activated
+    $error_list .= '<tr>';
+    if(function_exists('openssl_sign') && defined('OPENSSL_VERSION_TEXT'))
+    {
+        $error_list .= '<td>OpenSSL installed</td><td style="color: green;">Ok</td>';
+    }
+    else
+    {
+        $error_list .= '<td>OpenSSL not installed</td><td><span style="color: red;">Error</td>';    
         $errors = true;
-      }
-  }
-  else
-  {
-  	$error_list .= '<td>WooCommerce plugin is not active</td><td style="color: red;">Error</td>';
-  	$errors = true;
-  }
+    }
+    $error_list .= '</tr>';
 
- 	$error_list .= '</tr></table>';
+    // Check if Curl is activated
+    if(function_exists('curl_init'))
+    {
+        $error_list .= '<td>Curl installed</td><td style="color: green;">Ok</td>';
+    }
+    else
+    {
+        $error_list .= '<td>Curl not installed</td><td><span style="color: red;">Error</td>';   
+        $errors = true;
+    }
 
-  // Show error page if there are errors
-  if($errors)
-  {
-  	$title = __('Could not activate plugin WooCommerce PayPro', 'paypro-gateways-woocommerce');
-  	$content = '<h1><strong>' . $title . '</strong></h1><br />' . $error_list;
-  	wp_die($content, $title, array('back_link' => true));
-  	return;
-  }
+    // Check if the WooCommerce plugin is active
+    $error_list .= '<tr>';
+    if (is_plugin_active('woocommerce/woocommerce.php'))
+    {
+        $error_list .= '<td>WooCommerce plugin is active</td><td style="color: green;">Ok</td>';
+
+        $error_list .= '</tr><tr>';
+
+        // Check if WooCommerce is the correct version (>= 2.2)
+        if (WC()->version >= '2.2.0')
+        {
+            $error_list .= '<td>WooCommerce version is good</td><td style="color: green;">Ok</td>';
+        }
+        else
+        {
+            $error_list .= '<td>WooCommerce version (' . WC()->version . ') is wrong, should be >=2.2</td><td style="color: red;">Error</td>';
+            $errors = true;
+        }
+    }
+    else
+    {
+        $error_list .= '<td>WooCommerce plugin is not active</td><td style="color: red;">Error</td>';
+        $errors = true;
+    }
+
+    $error_list .= '</tr></table>';
+
+    // Show error page if there are errors
+    if($errors)
+    {
+        $title = __('Could not activate plugin WooCommerce PayPro', 'paypro-gateways-woocommerce');
+        $content = '<h1><strong>' . $title . '</strong></h1><br />' . $error_list;
+        wp_die($content, $title, array('back_link' => true));
+        return;
+    }
 }
 
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');

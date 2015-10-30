@@ -2,12 +2,12 @@
 
 class PayPro_WC_Plugin
 {
-	const PLUGIN_ID = 'paypro-gateways-woocommerce';
-	const PLUGIN_TITLE = 'PayPro Payment Gateways for Woocommerce';
-	const PLUGIN_VERSION = '0.0.1';
+    const PLUGIN_ID = 'paypro-gateways-woocommerce';
+    const PLUGIN_TITLE = 'PayPro Payment Gateways for Woocommerce';
+    const PLUGIN_VERSION = '0.0.1';
 
-	public static $paypro_gateways = array(
-		'PayPro_WC_Gateway_Ideal',
+    public static $paypro_gateways = array(
+        'PayPro_WC_Gateway_Ideal',
         'PayPro_WC_Gateway_Paypal',
         'PayPro_WC_Gateway_Mistercash',
         'PayPro_WC_Gateway_Afterpay',
@@ -15,41 +15,41 @@ class PayPro_WC_Plugin
         'PayPro_WC_Gateway_Sofort',
         'PayPro_WC_Gateway_Mastercard',
         'PayPro_WC_Gateway_Visa',
-	);
+    );
 
-	public static $paypro_api;
+    public static $paypro_api;
     public static $settings;
     public static $woocommerce;
     public static $wc_api;
 
-	private static $initialized = false;
+    private static $initialized = false;
 
-	private function __construct() {}
+    private function __construct() {}
 
     /**
      * Initalizes the plugin
      */
-	public static function init() 
-	{
-		if(self::$initialized)
-			return;
+    public static function init() 
+    {
+        if(self::$initialized)
+            return;
 
         // Add filters and actions
-		add_filter('woocommerce_payment_gateways_settings',   array(__CLASS__, 'addSettingsFields'));
+        add_filter('woocommerce_payment_gateways_settings',   array(__CLASS__, 'addSettingsFields'));
 
-		add_filter('woocommerce_payment_gateways',            array(__CLASS__, 'addGateways'));
+        add_filter('woocommerce_payment_gateways',            array(__CLASS__, 'addGateways'));
 
         add_action('woocommerce_api_paypro_return',           array(__CLASS__, 'onReturn'));
 
         // Initialize all PayPro classes we need
-		self::$settings = new PayPro_WC_Settings();
+        self::$settings = new PayPro_WC_Settings();
         self::$woocommerce = new PayPro_WC_Woocommerce();
         self::$wc_api = new PayPro_WC_Api();
-		self::$paypro_api = new PayProApiHelper();
-		self::$paypro_api->init(self::$settings->apiKey(), self::$settings->testMode());
+        self::$paypro_api = new PayProApiHelper();
+        self::$paypro_api->init(self::$settings->apiKey(), self::$settings->testMode());
 
-		$initialized = true;
-	}
+        $initialized = true;
+    }
 
     /**
      * Callback function that gets called when PayPro redirects back to the site
@@ -101,7 +101,7 @@ class PayPro_WC_Plugin
     /**
      * Adds all PayPro gateways to the list of gateways
      */
-	public static function addGateways (array $gateways)
+    public static function addGateways (array $gateways)
     {
         return array_merge($gateways, self::$paypro_gateways);
     }
@@ -111,19 +111,19 @@ class PayPro_WC_Plugin
      */
     public static function addSettingsFields(array $settings)
     {
-    	$paypro_settings = array(
-    		array(
-    			'id'         => self::getSettingId('title'),
-    			'title'      => __('PayPro settings', 'paypro-gateways-woocommerce'),
-    			'type'       => 'title',
-    			'desc'       => __('The following options are required to use the plugin and are used by all PayPro payment methods', 'paypro-gateways-woocommerce'),
-    		),
-    		array(
-    			'id'         => self::getSettingId('api-key'),
-    			'title'      => __('PayPro API key', 'paypro-gateways-woocommerce'),
-    			'type'       => 'text',
-    			'desc_tip'   => __('API key used by the PayPro API.', 'paypro-gateways-woocommerce'), 
-    		),
+        $paypro_settings = array(
+            array(
+                'id'         => self::getSettingId('title'),
+                'title'      => __('PayPro settings', 'paypro-gateways-woocommerce'),
+                'type'       => 'title',
+                'desc'       => __('The following options are required to use the plugin and are used by all PayPro payment methods', 'paypro-gateways-woocommerce'),
+            ),
+            array(
+                'id'         => self::getSettingId('api-key'),
+                'title'      => __('PayPro API key', 'paypro-gateways-woocommerce'),
+                'type'       => 'text',
+                'desc_tip'   => __('API key used by the PayPro API.', 'paypro-gateways-woocommerce'), 
+            ),
             array(
                 'id'         => self::getSettingId('product-id'),
                 'title'      => __('PayPro Product ID', 'paypro-gateways-woocommerce'),
@@ -143,33 +143,33 @@ class PayPro_WC_Plugin
                 'type'       => 'checkbox',
                 'desc_tip'   => __('If a payment is cancelled automatically set the order on cancelled too.', 'paypro-gateways-woocommerce'),
             ),
-    		array(
-    			'id'         => self::getSettingId('test-mode'),
-    			'title'      => __('Enable test mode', 'paypro-gateways-woocommerce'),
-    			'type'       => 'checkbox',
-    			'desc_tip'   => __('Puts the API in test mode.', 'paypro-gateways-woocommerce'),
-    		),
+            array(
+                'id'         => self::getSettingId('test-mode'),
+                'title'      => __('Enable test mode', 'paypro-gateways-woocommerce'),
+                'type'       => 'checkbox',
+                'desc_tip'   => __('Puts the API in test mode.', 'paypro-gateways-woocommerce'),
+            ),
             array(
                 'id'         => self::getSettingId('debug-mode'),
                 'title'      => __('Enable debug mode', 'paypro-gateways-woocommerce'),
                 'type'       => 'checkbox',
                 'desc_tip'   => __('Enables the PayPro plugin to output debug information to the Woocommerce logs.', 'paypro-gateways-woocommerce'),
             ),
-    		array(
-    			'id'         => self::getSettingId('sectionend'),
-    			'type'       => 'sectionend',
-    		),
-    	);
+            array(
+                'id'         => self::getSettingId('sectionend'),
+                'type'       => 'sectionend',
+            ),
+        );
 
-    	return self::mergeSettings($settings, $paypro_settings);
+        return self::mergeSettings($settings, $paypro_settings);
     }
 
     /**
      * Returns a setting ID by its name
      */
-	public static function getSettingId ($setting)
+    public static function getSettingId ($setting)
     {
-    	return PayPro_WC_Plugin::PLUGIN_ID . '_' . trim($setting);
+        return PayPro_WC_Plugin::PLUGIN_ID . '_' . trim($setting);
     }
 
     /**
@@ -229,5 +229,4 @@ class PayPro_WC_Plugin
     {
         return untrailingslashit(plugins_url($path, plugin_basename(self::PLUGIN_ID . '/' . self::PLUGIN_ID . '.php')));
     }
-
 }
