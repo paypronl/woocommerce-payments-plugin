@@ -9,3 +9,4 @@ Met deze plugin voegt u makkelijk en snel alle PayPro betaalopties toe aan uw Wo
 ## Contributie
 
 ## Licentie
+[MIT license](http://opensource.org/licenses/MIT)
