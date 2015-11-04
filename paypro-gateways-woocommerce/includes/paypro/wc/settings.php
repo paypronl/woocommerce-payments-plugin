@@ -27,14 +27,6 @@ class PayPro_WC_Settings
     }
 
     /**
-     * Returns the product id
-     */
-    public function productId()
-    {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('product-id')));
-    }
-
-    /**
      * Returns the payment description
      */
     public function paymentDescription()
