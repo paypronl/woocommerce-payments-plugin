@@ -41,6 +41,8 @@ class PayPro_WC_Plugin
 
         add_action('woocommerce_api_paypro_return',           array(__CLASS__, 'onReturn'));
 
+        add_action('woocommerce_api_paypro_cancel',           array(__CLASS__, 'onCancel'));
+
         // Initialize all PayPro classes we need
         self::$settings = new PayPro_WC_Settings();
         self::$woocommerce = new PayPro_WC_Woocommerce();
@@ -95,6 +97,22 @@ class PayPro_WC_Plugin
 
         self::debug(__CLASS__ . ': OnReturn - Order is not pending, redirect to order received page');
         wp_safe_redirect($order->get_checkout_order_received_url());
+        exit;
+    }
+
+    /**
+     * Callback function that gets called when a customer cancels the payment directly
+     */
+    public static function onCancel()
+    {
+        self::debug(__CLASS__ . ': OnCancel - URL: http' . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+
+        $order = self::$wc_api->getOrderFromApiUrl();
+
+        $order->add_order_note(__('PayPro - Customer cancelled payment. Redirected him back to his cart.'));
+        self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order->id . '. Redirecting back to cart.');
+
+        wp_safe_redirect(WC_Cart::get_cart_url());
         exit;
     }
 

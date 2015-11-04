@@ -104,6 +104,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             'description'       => $paymentDescription,
             'return_url'        => $this->getReturnUrl($order),
             'postback_url'      => $this->getCallbackUrl($order),
+            'cancel_url'        => $this->getCancelUrl($order),
             'custom'            => $order->id . '|' . $order->order_key,
             'consumer_name'     => $order->billing_first_name . ' ' . $order->billing_last_name,
             'consumer_address'  => $order->billing_address_1,
@@ -209,6 +210,15 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
     {
         $return_url = WC()->api_request_url('paypro_return');
         return add_query_arg(array('order_id' => $order->id, 'order_key' => $order->order_key), $return_url);
+    }
+
+    /**
+     * Returns the cancel url which PayPro calls if a customer cancels the transaction
+     */
+    protected function getCancelUrl(WC_Order $order)
+    {
+        $cancel_url = WC()->api_request_url('paypro_cancel');
+        return add_query_arg(array('order_id' => $order->id, 'order_key' => $order->order_key), $cancel_url);
     }
 
     /**
