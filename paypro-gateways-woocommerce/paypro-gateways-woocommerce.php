@@ -23,7 +23,7 @@ load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-wo
 function paypro_plugin_init()
 {   
     // Check if WooCommerce is active
-    if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option( 'active_plugins')))) 
+    if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option( 'active_plugins'))) || class_exists('WooCommerce')) 
     {
         PayPro_WC_Autoload::register();
         PayPro_WC_Plugin::init();
