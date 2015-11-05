@@ -29,7 +29,7 @@ class PayProApiHelper
 
     public function createPayment(array $data)
     {
-        $this->api->command = 'create_product_payment';
+        $this->api->command = 'create_payment';
         $this->setParams($data);
         return $this->execute();
     }

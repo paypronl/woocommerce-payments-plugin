@@ -97,19 +97,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         if(empty($paymentDescription))
             $paymentDescription = 'Order ' . $order->id;
 
-        // Get the PayPro product ID
-        $product_id = get_post_meta($post->ID, 'paypro-id', true);
-
-        // Check if PayPro product ID is set
-        if(!isset($product_id) || empty($product_id))
-        {
-            PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order->id . ' - Message: PayPro product ID is empty.');
-            return array('result' => 'failure');
-        }
-
         // Set the order variables for PayPro
         $data = array(
-            'product_id'        => $product_id,
             'pay_method'        => $this->getSelectedIssuer(),
             'amount'            => round($order->get_total() * 100),
             'description'       => $paymentDescription,
@@ -125,6 +114,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             'consumer_phoneno'  => $order->billing_phone,
             'consumer_email'    => $order->billing_email
         );
+
+        // Add product_id if the setting is set
+        if(!empty($product_id))
+            $data['product_id'] = (int)$product_id;
 
         // Call PayPro API to create a payment
         $result = PayPro_WC_Plugin::$paypro_api->createPayment($data);

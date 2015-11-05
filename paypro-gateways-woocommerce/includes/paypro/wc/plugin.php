@@ -143,6 +143,12 @@ class PayPro_WC_Plugin
                 'desc_tip'   => __('API key used by the PayPro API.', 'paypro-gateways-woocommerce'), 
             ),
             array(
+                'id'         => self::getSettingId('product-id'),
+                'title'      => __('PayPro Product ID', 'paypro-gateways-woocommerce'),
+                'type'       => 'text',
+                'desc_tip'   => __('Product ID to connect a sale to a product. Not required.', 'paypro-gateways-woocommerce'), 
+            ),
+            array(
                 'id'         => self::getSettingId('payment-description'),
                 'title'      => __('Description', 'paypro-gateways-woocommerce'),
                 'type'       => 'text',
