@@ -171,7 +171,7 @@ msgstr "Kan de plugin WooCommerce PayPro niet activeren."
 
 #. Plugin Name of the plugin/theme
 msgid "PayPro Gateways - WooCommerce"
-msgstr "PayPro Gateways -WooCommerce"
+msgstr "PayPro Gateways - WooCommerce"
 
 #. #-#-#-#-#  paypro-gateways-woocommerce.pot (PayPro Gateways - WooCommerce 0.9.0)  #-#-#-#-#
 #. Plugin URI of the plugin/theme
