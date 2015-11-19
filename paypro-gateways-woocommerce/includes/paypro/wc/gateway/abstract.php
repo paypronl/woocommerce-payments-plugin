@@ -47,7 +47,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
                 'title'       => __('Enable/Disable', 'woocommerce-paypro'),
                 'type'        => 'checkbox',
                 'label'       => sprintf(__('Enable %s', 'woocommerce-paypro'), $this->getTitle()),
-                'default'     => 'yes'
+                'default'     => 'no'
             ),
             'title' => array(
                 'title'       => __('Title', 'woocommerce-paypro'),
