@@ -157,6 +157,13 @@ msgid ""
 msgstr ""
 "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
 
+#: includes/paypro/wc/plugin.php:259
+msgid ""
+"PayPro API key not set. PayPro payment methods will not be displayed in the "
+"checkout process."
+msgstr "PayPro API sleutel niet ingevuld. PayPro betaal methoden worden niet getoont "
+"in het betalingsproces."
+
 #: includes/paypro/wc/woocommerce.php:61 includes/paypro/wc/woocommerce.php:63
 msgid "PayPro payment cancelled (%s)"
 msgstr "PayPro betaling geannulleerd (%s)"
