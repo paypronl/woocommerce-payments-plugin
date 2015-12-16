@@ -29,12 +29,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             $this->icon = $this->getIconUrl();
 
         $this->description = $this->get_option('description');
-
         $this->default_status = 'pending';
 
         add_action('woocommerce_api_' . $this->id, array($this, 'callback'));
-
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
+
+        if(!$this->isValid())
+            $this->enabled = 'no';
     }
 
     /**
@@ -179,6 +180,23 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         }
 
         PayPro_WC_Plugin::debug($this->id . ': Callback - Order is not pending, so leaving it alone');
+    }
+
+    /**
+     * Checks if the gateway is valid and ready for use
+     */
+    protected function isValid()
+    {
+        PayPro_WC_Plugin::debug(PayPro_WC_Plugin::$settings->apiKey());
+        PayPro_WC_Plugin::debug($this->enabled);
+
+        if(empty(PayPro_WC_Plugin::$settings->apiKey()) && $this->enabled === 'yes')
+        {
+            PayPro_WC_Plugin::debug($this->id . ': Cannot enable PayPro payment methods without setting the API key first.');
+            return false;
+        }
+
+        return true;
     }
 
     /**

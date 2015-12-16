@@ -43,6 +43,8 @@ class PayPro_WC_Plugin
 
         add_action('woocommerce_api_paypro_cancel',           array(__CLASS__, 'onCancel'));
 
+        add_action('admin_notices',                           array(__CLASS__, 'addApiKeyReminder'));
+
         // Initialize all PayPro classes we need
         self::$settings = new PayPro_WC_Settings();
         self::$woocommerce = new PayPro_WC_Woocommerce();
@@ -246,5 +248,17 @@ class PayPro_WC_Plugin
     public static function getPluginUrl ($path = '')
     {
         return untrailingslashit(plugins_url($path, plugin_basename(self::PLUGIN_ID . '/' . self::PLUGIN_ID . '.php')));
+    }
+
+    public static function addApiKeyReminder()
+    {
+        if(empty(self::$settings->apiKey()))
+        {
+            echo sprintf(
+                '<div class="error"><p><strong>PayPro</strong> - %s</p></div>', 
+                __('PayPro API key not set. PayPro payment methods will not be displayed in the checkout process.', 
+                    'paypro-gateways-woocommerce')
+            );
+        }
     }
 }
