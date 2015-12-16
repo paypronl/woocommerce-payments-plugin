@@ -68,9 +68,10 @@ class PayPro_WC_Woocommerce
     /**
      * Complete a WooCommerce order
      */ 
-    public function completeOrder($order, $payment_hash)
+    public function completeOrder(WC_Order $order, $payment_hash)
     {
         $order->update_status('processing', sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
+        $order->reduce_order_stock();
         $order->payment_complete();
 
         $this->removeOrderPaymentHash($order->id);
