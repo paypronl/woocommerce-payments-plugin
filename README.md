@@ -1,5 +1,5 @@
-![PayPro](https://paypro.nl/images/logo-ie.png)
-# PayPro Gateways - WooCommerce [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+![PayPro](https://paypro.nl/images/logo-ie.png) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+# PayPro Gateways - WooCommerce
 
 With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop. Currently the plugin supports the following gateways:
 
