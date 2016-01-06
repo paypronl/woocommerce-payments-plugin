@@ -1,6 +1,17 @@
-# WooCommerce plugin for PayPro payment gateways.[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+![PayPro](https://paypro.nl/images/logo-ie.png)
+# PayPro Gateways - WooCommerce [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
-With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop.
+With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop. Currently the plugin supports the following gateways:
+
+- iDEAL 
+- PayPal
+- MisterCash / Bancontact
+- Sofort
+- Afterpay
+- SEPA Incasso
+- Mastercard
+- Visa
+
 
 ## Requirements
 
@@ -44,7 +55,7 @@ When you use affiliate marketing or you want to use the mastercard or visa gatew
 You can find your product ID at 'Webshop Koppelen'.
 
 ## Contributing
-If you want to contribute to this project you can fork the repository. Create a new branch, add your feature and create a pull request. We will look at the 
+If you want to contribute to this project you can fork the repository. Create a new branch, add your feature and create a pull request. We will look at your request and determine if we want to add it.
 
-## Licentie
+## License
 [MIT license](http://opensource.org/licenses/MIT)
