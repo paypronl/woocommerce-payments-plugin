@@ -27,19 +27,17 @@ With this plugin you easily add all PayPro payment gateways to your WooCommerce 
 ### Automatic installation
 1. In the Wordpress admin panel go to Plugins -> New Plugin. Search for 'PayPro Gateways - WooCommerce'.
 2. Go to Plugins -> Installed plugins. Here activate the plugin named 'PayPro Gateways - WooCommerce'.
-3. If you get no pop-ups the plugin has succesfully activated, if not reslove the issues that are displayed.
-4. Set your PayPro API key at WooCommerce -> Settings -> Checkout under the section PayPro.
-5. Now select the payment methods you want and activate them.
-6. Your webshop is now ready to use PayPro gateways.
+3. Set your PayPro API key at WooCommerce -> Settings -> Checkout under the section PayPro.
+4. Now select the payment methods you want and activate them.
+5. Your webshop is now ready to use PayPro gateways.
 
 ### Manual installation
 1. Download the package at [wordpress.org](https://wordpress.org/plugins/paypro-gateways-woocommerce) or clone the repository.
 2. Upload the directory 'paypro-gateways-woocommerce' to the plugin directory. You can find the plugin directory in the 'wp-content' directory.
 3. Go to Plugins -> Installed plugins. Here activate the plugin named 'PayPro Gateways - WooCommerce'.
-4. If you get no pop-ups the plugin has succesfully activated, if not reslove the issues that are displayed.
-5. Set your PayPro API key at WooCommerce -> Settings -> Checkout under the section PayPro.
-6. Now select the payment methods you want and activate them.
-7. Your webshop is now ready to use PayPro gateways.
+4. Set your PayPro API key at WooCommerce -> Settings -> Checkout under the section PayPro.
+5. Now select the payment methods you want and activate them.
+6. Your webshop is now ready to use PayPro gateways.
 
 ### Support
 Do you need help installing the PayPro plugin, please contact support@paypro.nl.
