@@ -1,6 +1,6 @@
 ![PayPro](https://paypro.nl/images/logo-ie.png)
 # PayPro Gateways - WooCommerce
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop. Currently the plugin supports the following gateways:
 
@@ -63,4 +63,4 @@ If you want to contribute to this project you can fork the repository. Create a 
 Did you find a bug and want to report it? Create a new issue where you clearly specify what the issue is and how it can be reproduced. Also make sure it is the actual plugin that creates the bug by disabling all unnecessary plugins.
 
 ## License
-[MIT license](http://opensource.org/licenses/MIT)
+[GPLv2](http://opensource.org/licenses/GPL-2.0)
