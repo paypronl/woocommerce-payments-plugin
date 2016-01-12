@@ -53,9 +53,6 @@ When you use affiliate marketing or you want to use the mastercard or visa gatew
 #### Where do I find my product ID?
 You can find your product ID at 'Webshop Koppelen'.
 
-## Tests
-Need some information about tests here.
-
 ## Contributing
 If you want to contribute to this project you can fork the repository. Create a new branch, add your feature and create a pull request. We will look at your request and determine if we want to add it.
 
