@@ -118,7 +118,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         // Add product_id if the setting is set
         if(!empty($product_id))
-            $data['product_id'] = (int)$product_id;
+            $data['product_id'] = intval($product_id);
 
         // Call PayPro API to create a payment
         $result = PayPro_WC_Plugin::$paypro_api->createPayment($data);
@@ -130,14 +130,22 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             return array('result' => 'failure');
         }
 
+        // Sanitize and validate payment hash
+        $payment_hash = sanitize_key($result['data']['payment_hash']);
+        if(empty($payment_hash) && !strlen($payment_hash) === 40)
+        {
+            PayPro_WC_Plugin::debug($this->id . ': Invalid payment hash for order ' . $order->id . ' - Payment hash: ' . $payment_hash);
+            return array('result' => 'failure');
+        }
+
         // Succesfull payment created, lets log it and add a note to the payment
-        PayPro_WC_Plugin::debug($this->id . ': Payment created for ' . $order->id . ' - Payment hash: ' . $result['data']['payment_hash']);
+        PayPro_WC_Plugin::debug($this->id . ': Payment created for ' . $order->id . ' - Payment hash: ' . $payment_hash);
 
         // Set order information
-        $order->add_order_note(sprintf(__('%s payment in process (%s)', 'woocommerce-paypro'), $this->method_title, $result['data']['payment_hash']));
+        $order->add_order_note(sprintf(__('%s payment in process (%s)', 'woocommerce-paypro'), $this->method_title, $payment_hash));
         PayPro_WC_Plugin::$woocommerce->setOrderPaymentHash($order->id, $result['data']['payment_hash']);
 
-        return array('result' => 'success', 'redirect' => $result['data']['payment_url']);
+        return array('result' => 'success', 'redirect' => esc_url_raw($result['data']['payment_url']));
     }
 
     /**
@@ -213,8 +221,9 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
     protected function getSelectedIssuer()
     {
         $issuer_id = PayPro_WC_Plugin::PLUGIN_ID . '_issuer_' . $this->id;
+
         if(!empty($_POST[$issuer_id]))
-            return $_POST[$issuer_id];
+           return strval($_POST[$issuer_id]);
         elseif(!empty($this->issuer))
             return $this->issuer;
         else
