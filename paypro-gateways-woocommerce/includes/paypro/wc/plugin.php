@@ -252,7 +252,7 @@ class PayPro_WC_Plugin
 
     public static function addApiKeyReminder()
     {
-        if(empty(self::$settings->apiKey()))
+        if(!self::$settings->apiKey())
         {
             echo sprintf(
                 '<div class="error"><p><strong>PayPro</strong> - %s</p></div>', 

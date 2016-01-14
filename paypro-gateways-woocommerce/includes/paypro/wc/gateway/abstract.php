@@ -190,7 +190,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         PayPro_WC_Plugin::debug(PayPro_WC_Plugin::$settings->apiKey());
         PayPro_WC_Plugin::debug($this->enabled);
 
-        if(empty(PayPro_WC_Plugin::$settings->apiKey()) && $this->enabled === 'yes')
+        if((!PayPro_WC_Plugin::$settings->apiKey()) && $this->enabled === 'yes')
         {
             PayPro_WC_Plugin::debug($this->id . ': Cannot enable PayPro payment methods without setting the API key first.');
             return false;
