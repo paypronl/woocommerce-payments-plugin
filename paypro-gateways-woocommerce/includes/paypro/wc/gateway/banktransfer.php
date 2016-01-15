@@ -8,7 +8,7 @@ class PayPro_WC_Gateway_BankTransfer extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'directdebit/sepa-once';
+        $this->issuer = 'banktransfer/sepa';
         $this->has_fields = FALSE;
 
         parent::__construct();
