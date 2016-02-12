@@ -224,7 +224,7 @@ class PayPro_WC_Plugin
             if (isset($setting['id']) && $setting['id'] == 'payment_gateways_options'
                 && (!isset($setting['type']) || $setting['type'] != 'sectionend')
             ) {
-                $insert_after_index = $index;
+                $insert_after_index = $index + 1;
                 break;
             }
         }
