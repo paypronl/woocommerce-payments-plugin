@@ -29,11 +29,11 @@ class PayPro_WC_Woocommerce
     }
 
     /**
-     * Sets a payment hash for an order id
+     * Sets or updates the payment hash for an order id
      */
     public function setOrderPaymentHash($order_id, $payment_hash)
     {
-        add_post_meta($order_id, $this->post_data_key, $payment_hash, true);
+        update_post_meta($order_id, $this->post_data_key, $payment_hash, true);
     }
 
     /**
