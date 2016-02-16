@@ -9,7 +9,7 @@ With this plugin you easily add all PayPro payment gateways to your WooCommerce 
 - MisterCash / Bancontact
 - Sofort
 - Afterpay
-- SEPA Incasso
+- SEPA Overboeking
 - Mastercard
 - Visa
 
