@@ -245,11 +245,14 @@ class PayPro_WC_Plugin
     /**
      * Get plugin URL
      */
-    public static function getPluginUrl ($path = '')
+    public static function getPluginUrl($path = '')
     {
         return untrailingslashit(plugins_url($path, plugin_basename(self::PLUGIN_ID . '/' . self::PLUGIN_ID . '.php')));
     }
 
+    /**
+     * Shows a reminder when the API key is not set.
+     */
     public static function addApiKeyReminder()
     {
         if(!self::$settings->apiKey())

@@ -15,8 +15,8 @@ class PayPro_WC_Api
             exit;
         }
 
-        $order_id = $_GET['order_id'];
-        $order_key = $_GET['order_key'];
+        $order_id = intval($_GET['order_id']);
+        $order_key = sanitize_key($_GET['order_key']);
 
         // Check if order_id is a known order
         $order = PayPro_WC_Plugin::$woocommerce->getOrder($order_id);
