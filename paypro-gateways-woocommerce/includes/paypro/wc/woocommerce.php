@@ -29,27 +29,27 @@ class PayPro_WC_Woocommerce
     }
 
     /**
-     * Sets or updates the payment hash for an order id
+     * Adds a payment hashes to the order post meta
      */
-    public function setOrderPaymentHash($order_id, $payment_hash)
+    public function addOrderPaymentHash($order_id, $payment_hash)
     {
-        update_post_meta($order_id, $this->post_data_key, $payment_hash, true);
+        add_post_meta($order_id, $this->post_data_key, $payment_hash, false);
     }
 
     /**
-     * Gets a payment hash by order id
+     * Gets all payment hashes for an order from the post meta
      */
-    public function getOrderPaymentHash($order_id)
+    public function getOrderPaymentHashes($order_id)
     {
-        return get_post_meta($order_id, $this->post_data_key, true);
+        return get_post_meta($order_id, $this->post_data_key, false);
     }
 
     /**
-     * Removes an order id from the post meta
+     * Removes all payments hashes for an order from the post meta
      */
-    public function removeOrderPaymentHash($order_id)
+    public function removeOrderPaymentHashes($order_id)
     {
-        delete_post_meta($order_id, $this->post_data_key, true);
+        delete_post_meta($order_id, $this->post_data_key);
     }
 
     /**
@@ -74,6 +74,6 @@ class PayPro_WC_Woocommerce
         $order->reduce_order_stock();
         $order->payment_complete();
 
-        $this->removeOrderPaymentHash($order->id);
+        $this->removeOrderPaymentHashes($order->id);
     }
 }

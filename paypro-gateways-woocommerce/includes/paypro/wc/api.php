@@ -40,40 +40,68 @@ class PayPro_WC_Api
     }
 
     /**
-     * Returns a payment hash by order
+     * Returns all payment hashes by order
      * Only usable on an WooCommerce API call
      */
-    public function getPaymentHashFromOrder($order)
+    public function getPaymentHashesFromOrder($order)
     {
         // Get payment hash
-        $payment_hash = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHash($order->id);
+        $payment_hashes = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHashes($order->id);
 
-        if(!$payment_hash)
+        if(empty($payment_hashes))
         {
             header(' ', true, 401);
             PayPro_WC_Plugin::debug(__CLASS__ . ': Not a valid payment hash found for this order - id: ' . $order_id);
             exit;
         }
 
-        return $payment_hash;
+        return $payment_hashes;
     }
 
     /**
      * Get PayPro sale status from payment hash
      * Only usable on an WooCommerce API call
      */
-    public function getSaleStatusFromPaymentHash($payment_hash)
+    public function getSaleStatusFromPaymentHashes($payment_hashes)
     {   
         // Get status of this order from PayPro API
-        $result = PayPro_WC_Plugin::$paypro_api->getSaleStatus($payment_hash);
+        $results = array();
+        foreach($payment_hashes as $payment_hash)
+        {
+            $result = PayPro_WC_Plugin::$paypro_api->getSaleStatus($payment_hash);
+            if($result['errors'])
+                PayPro_WC_Plugin::debug(__CLASS__ . ': Failed to get sale status from PayPro API - message: ' . $result['message'] . ', payment_hash: ' . $payment_hash);
+            else
+                array_push($results, array('hash' => $payment_hash, 'status' => $result['data']['current_status']));
+        }
 
-        if($result['errors'])
+        // Could not get status, so throw and log
+        if(empty($results))
         {
             header(' ', true, 500);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Failed to get sale status from PayPro API - message: ' . $result['message'] . ', payment_hash: ' . $payment_hash);
+            PayPro_WC_Plugin::debug(__CLASS__ . ': Could not get the status for these payment hashes: ' . implode(', ', $payment_hashes));
             exit;
         }
 
-        return $result['data']['current_status'];
+        return $this->determineSaleStatus($results);
+    }
+
+    /**
+     * Determines what the order status should be based on the payment statuses.
+     * Returns open, completed or cancelled.
+     */
+    private function determineSaleStatus($sale_statuses)
+    {
+        foreach($sale_statuses as $sale)
+        {
+            if($sale['status'] != 'open' && $sale['status'] != 'cancelled')
+                return array('hash' => $sale['hash'], 'status' => 'completed');
+            elseif($sale['status'] == 'open')
+                $result = $sale;
+            elseif($sale['status'] == 'cancelled' && !$result)
+                $result = $sale;
+        }
+
+        return empty($result) ? 'open' : $result;
     }
 }

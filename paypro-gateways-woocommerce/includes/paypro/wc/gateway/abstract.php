@@ -143,7 +143,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         // Set order information
         $order->add_order_note(sprintf(__('%s payment in process (%s)', 'woocommerce-paypro'), $this->method_title, $payment_hash));
-        PayPro_WC_Plugin::$woocommerce->setOrderPaymentHash($order->id, $result['data']['payment_hash']);
+        PayPro_WC_Plugin::$woocommerce->addOrderPaymentHash($order->id, $result['data']['payment_hash']);
 
         return array('result' => 'success', 'redirect' => esc_url_raw($result['data']['payment_url']));
     }
@@ -161,25 +161,25 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         // Only handle order if it is still pending
         if(PayPro_WC_Plugin::$woocommerce->hasOrderStatus($order, 'pending'))
         {
-            $payment_hash = PayPro_WC_Plugin::$wc_api->getPaymentHashFromOrder($order);
-            $payment_status = PayPro_WC_Plugin::$wc_api->getSaleStatusFromPaymentHash($payment_hash);
+            $payment_hashes = PayPro_WC_Plugin::$wc_api->getPaymentHashesFromOrder($order);
+            $sale = PayPro_WC_Plugin::$wc_api->getSaleStatusFromPaymentHashes($payment_hashes);
 
             // Check status and do appropiate response
-            if(strcasecmp($payment_status, 'cancelled') === 0)
+            if(strcasecmp($sale['status'], 'cancelled') === 0)
             {
-                PayPro_WC_Plugin::$woocommerce->cancelOrder($order, $payment_hash);
+                PayPro_WC_Plugin::$woocommerce->cancelOrder($order, $sale['hash']);
                 PayPro_WC_Plugin::debug($this->id . ': Callback - Payment cancelled for order: ' . $order->id);
             }
             else
             {
-                if(strcasecmp($payment_status, 'open') !== 0)
+                if(strcasecmp($sale['status'], 'open') !== 0)
                 {
-                    PayPro_WC_Plugin::$woocommerce->completeOrder($order, $payment_hash);
+                    PayPro_WC_Plugin::$woocommerce->completeOrder($order, $sale['hash']);
                     PayPro_WC_Plugin::debug($this->id . ': Callback - Payment completed for order: ' . $order->id);
                 }
                 else
                 {
-                    $order->add_order_note(__('PayPro payment pending (' .  $payment_hash . ')'));
+                    $order->add_order_note(__('PayPro payment pending (' .  $sale['hash'] . ')'));
                     PayPro_WC_Plugin::debug($this->id . ': Callback - Payment still open for order: ' . $order->id);
                 }
             }
