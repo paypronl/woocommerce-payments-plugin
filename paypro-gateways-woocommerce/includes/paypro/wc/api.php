@@ -87,21 +87,19 @@ class PayPro_WC_Api
     }
 
     /**
-     * Determines what the order status should be based on the payment statuses.
-     * Returns open, completed or cancelled.
+     * Determines what the order status should be, based on the payment statuses
+     * Returns an array with the status and the payment_hash
      */
     private function determineSaleStatus($sale_statuses)
     {
         foreach($sale_statuses as $sale)
         {
-            if($sale['status'] != 'open' && $sale['status'] != 'cancelled')
+            if($sale['status'] != 'open')
                 return array('hash' => $sale['hash'], 'status' => 'completed');
-            elseif($sale['status'] == 'open')
-                $result = $sale;
-            elseif($sale['status'] == 'cancelled' && !$result)
+            else
                 $result = $sale;
         }
 
-        return empty($result) ? 'open' : $result;
+        return empty($result) ? array('status' => 'open', 'hash' => 'unknown') : $result;
     }
 }
