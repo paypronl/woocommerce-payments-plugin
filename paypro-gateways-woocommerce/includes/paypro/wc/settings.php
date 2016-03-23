@@ -49,4 +49,12 @@ class PayPro_WC_Settings
     {
         return trim(get_option(PayPro_WC_Plugin::getSettingId('automatic-cancellation'))) === 'yes';
     }
+
+    /**
+     * Returns the order status setting for when a payment has been completed
+     */
+    public function paymentCompleteStatus()
+    {
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('payment-complete-status')));
+    }
 }
