@@ -67,13 +67,13 @@ class PayPro_WC_Plugin
         // Only handle order if it is still pending
         if(self::$woocommerce->hasOrderStatus($order, 'pending'))
         {
-            $payment_hash = self::$wc_api->getPaymentHashFromOrder($order);
-            $payment_status = self::$wc_api->getSaleStatusFromPaymentHash($payment_hash);
+            $payment_hashes = self::$wc_api->getPaymentHashesFromOrder($order);
+            $sale = self::$wc_api->getSaleStatusFromPaymentHashes($payment_hashes);
 
             // Check status and do appropiate response
-            if(strcasecmp($payment_status, 'cancelled') === 0)
+            if(strcasecmp($sale['status'], 'cancelled') === 0)
             {
-                self::$woocommerce->cancelOrder($order, $payment_hash);
+                self::$woocommerce->cancelOrder($order, $sale['hash']);
                 self::debug(__CLASS__ . ': OnReturn - Payment cancelled for order: ' . $order->id);
 
                 wp_safe_redirect($order->get_cancel_order_url());
@@ -81,14 +81,14 @@ class PayPro_WC_Plugin
             } 
             else
             {
-                if(strcasecmp($payment_status, 'open') !== 0)
+                if(strcasecmp($sale['status'], 'open') !== 0)
                 {
-                    self::$woocommerce->completeOrder($order, $payment_hash);
+                    self::$woocommerce->completeOrder($order, $sale['hash']);
                     self::debug(__CLASS__ . ': OnReturn - Payment completed for order: ' . $order->id);
                 }
                 else
                 {
-                    $order->add_order_note(__('PayPro payment pending (' .  $payment_hash . ')'));
+                    $order->add_order_note(__('PayPro payment pending (' .  $sale['hash'] . ')'));
                     self::debug(__CLASS__ . ': OnReturn - Payment still open for order: ' . $order->id);
                 }
 
