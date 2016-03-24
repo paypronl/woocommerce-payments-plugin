@@ -71,7 +71,7 @@ class PayPro_WC_Woocommerce
     public function completeOrder(WC_Order $order, $payment_hash)
     {
         $status = PayPro_WC_Plugin::$settings->paymentCompleteStatus();
-        if(empty(PayPro_WC_Plugin::$settings->paymentCompleteStatus()))
+        if(empty($status))
             $status = 'wc-processing';
 
         $order->update_status($status, sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
