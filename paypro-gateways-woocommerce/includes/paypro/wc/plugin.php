@@ -158,6 +158,14 @@ class PayPro_WC_Plugin
                 'css'        => 'width: 350px',
             ),
             array(
+                'id'         => self::getSettingId('payment-complete-status'),
+                'title'      => __('Payment Complete Status', 'paypro-gateways-woocommerce'),
+                'type'       => 'select',
+                'default'    => 'wc-processing',
+                'options'    => wc_get_order_statuses(),
+                'desc_tip'   => __('Set the status of the order after a completed payment. Default: Processing', 'paypro-gateways-woocommerce'), 
+            ),
+            array(
                 'id'         => self::getSettingId('automatic-cancellation'),
                 'title'      => __('Enable automatic cancellation', 'paypro-gateways-woocommerce'),
                 'type'       => 'checkbox',

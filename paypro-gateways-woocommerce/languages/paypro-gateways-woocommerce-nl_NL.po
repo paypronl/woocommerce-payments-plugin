@@ -1,52 +1,52 @@
-# Copyright (C) 2015 PayPro Gateways - WooCommerce
+# Copyright (C) 2016 PayPro Gateways - WooCommerce
 # This file is distributed under the same license as the PayPro Gateways - WooCommerce package.
 msgid ""
 msgstr ""
-"Project-Id-Version: PayPro Gateways - WooCommerce 0.9.0\n"
+"Project-Id-Version: PayPro Gateways - WooCommerce 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/paypro-gateways-"
 "woocommerce\n"
-"POT-Creation-Date: 2015-10-13 13:30:09+00:00\n"
+"POT-Creation-Date: 2016-03-23 14:11:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: includes/paypro/wc/gateway/abstract.php:47
+#: includes/paypro/wc/gateway/abstract.php:48
 msgid "Enable/Disable"
 msgstr "Activeer/Deactiveer"
 
-#: includes/paypro/wc/gateway/abstract.php:49
+#: includes/paypro/wc/gateway/abstract.php:50
 msgid "Enable %s"
 msgstr "Activeer %s"
 
-#: includes/paypro/wc/gateway/abstract.php:53
+#: includes/paypro/wc/gateway/abstract.php:54
 msgid "Title"
 msgstr "Titel"
 
-#: includes/paypro/wc/gateway/abstract.php:55
+#: includes/paypro/wc/gateway/abstract.php:56
 msgid ""
 "This controls the title which the user sees during checkout. Default <code>"
 "%s</code>"
 msgstr ""
-"Dit is de titel die de klant te zien krijgt tijdens de betaling. "
+"Dit is de titel die de klant te zien krijgt tijdens de betaling."
 "Standaard <code>%s</code>"
 
-#: includes/paypro/wc/gateway/abstract.php:60
+#: includes/paypro/wc/gateway/abstract.php:61
 msgid "Display logo"
 msgstr "Toon logo"
 
-#: includes/paypro/wc/gateway/abstract.php:62
+#: includes/paypro/wc/gateway/abstract.php:63
 msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr "Toon logo op betalings pagina. Stadaard <code>geactiveerd</code>"
 
-#: includes/paypro/wc/gateway/abstract.php:66
-#: includes/paypro/wc/plugin.php:135
+#: includes/paypro/wc/gateway/abstract.php:67
+#: includes/paypro/wc/plugin.php:155
 msgid "Description"
 msgstr "Beschrijving"
 
-#: includes/paypro/wc/gateway/abstract.php:68
+#: includes/paypro/wc/gateway/abstract.php:69
 msgid ""
 "Payment method description that the customer will see on your checkout. "
 "Default <code>%s</code>"
@@ -54,11 +54,11 @@ msgstr ""
 "Betalings methode beschrijving die de gebruiker te zien krijgt bij de betaling. "
 "Standaard <code>%s</code>"
 
-#: includes/paypro/wc/gateway/abstract.php:92
+#: includes/paypro/wc/gateway/abstract.php:93
 msgid "Awaiting payment confirmation"
 msgstr "Wachtend op betaling"
 
-#: includes/paypro/wc/gateway/abstract.php:135
+#: includes/paypro/wc/gateway/abstract.php:145
 msgid "%s payment in process (%s)"
 msgstr "%s betaling in gang (%s)"
 
@@ -68,7 +68,7 @@ msgstr "Afterpay"
 
 #: includes/paypro/wc/gateway/banktransfer.php:19
 msgid "Bank Transfer"
-msgstr "SEPA Incasso"
+msgstr "SEPA Overboeking"
 
 #: includes/paypro/wc/gateway/ideal.php:18
 msgid "iDEAL"
@@ -88,7 +88,7 @@ msgstr "Mistercash / Bancontact"
 
 #: includes/paypro/wc/gateway/paypal.php:19
 msgid "Paypal"
-msgstr "Paypal"
+msgstr "PayPal"
 
 #: includes/paypro/wc/gateway/sofort.php:19
 msgid "Sofort"
@@ -98,81 +98,97 @@ msgstr "Sofort"
 msgid "Visa"
 msgstr "Visa"
 
-#: includes/paypro/wc/plugin.php:117
+#: includes/paypro/wc/plugin.php:114
+msgid "PayPro - Customer cancelled payment. Redirected him back to his cart."
+msgstr "PayPro - Klant beëindigde de betaling. De klant teruggestuurd naar zijn winkelwagen"
+
+#: includes/paypro/wc/plugin.php:137
 msgid "PayPro settings"
 msgstr "PayPro Instellingen"
 
-#: includes/paypro/wc/plugin.php:119
+#: includes/paypro/wc/plugin.php:139
 msgid ""
 "The following options are required to use the plugin and are used by all "
 "PayPro payment methods"
 msgstr ""
-"The volgende opties zijn nodig voor de plugin en worden door alle betaal "
+"De volgende opties zijn nodig voor de plugin en worden door alle betaal "
 "methoden gebruikt."
 
-#: includes/paypro/wc/plugin.php:123
+#: includes/paypro/wc/plugin.php:143
 msgid "PayPro API key"
 msgstr "PayPro API sleutel"
 
-#: includes/paypro/wc/plugin.php:125
+#: includes/paypro/wc/plugin.php:145
 msgid "API key used by the PayPro API."
 msgstr "API sleutel voor de PayPro API"
 
-#: includes/paypro/wc/plugin.php:129
+#: includes/paypro/wc/plugin.php:149
 msgid "PayPro Product ID"
 msgstr "PayPro Product ID"
 
-#: includes/paypro/wc/plugin.php:131
+#: includes/paypro/wc/plugin.php:151
 msgid "Product ID to connect a sale to a product. Not required."
-msgstr "Product ID om een order aan een aankoop te koppelen. Niet verplicht."
+msgstr "Product ID om een order aan een product te koppelen. Niet verplicht."
 
-#: includes/paypro/wc/plugin.php:137
+#: includes/paypro/wc/plugin.php:157
 msgid "Payment description send to PayPro."
 msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
 
-#: includes/paypro/wc/plugin.php:142
+#: includes/paypro/wc/plugin.php:162
+msgid "Payment Complete Status"
+msgstr "Betaling succesvol afgerond status"
+
+#: includes/paypro/wc/plugin.php:166
+msgid ""
+"Set the status of the order after a completed payment. Default: Processing"
+msgstr ""
+"Bepaald de status van een order als er een succesvolle betaling is gedaan. "
+"Standaard: In Behandeling"
+
+#: includes/paypro/wc/plugin.php:170
 msgid "Enable automatic cancellation"
 msgstr "Activeer automatisch afkeuren."
 
-#: includes/paypro/wc/plugin.php:144
+#: includes/paypro/wc/plugin.php:172
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr "Als een betaling geannuleerd is automatisch de order ook afkeuren."
 
-#: includes/paypro/wc/plugin.php:148
+#: includes/paypro/wc/plugin.php:176
 msgid "Enable test mode"
 msgstr "Activeer test modus"
 
-#: includes/paypro/wc/plugin.php:150
+#: includes/paypro/wc/plugin.php:178
 msgid "Puts the API in test mode."
 msgstr "Zet de API in test modus."
 
-#: includes/paypro/wc/plugin.php:154
+#: includes/paypro/wc/plugin.php:182
 msgid "Enable debug mode"
 msgstr "Activeer debug modus"
 
-#: includes/paypro/wc/plugin.php:156
+#: includes/paypro/wc/plugin.php:184
 msgid ""
 "Enables the PayPro plugin to output debug information to the Woocommerce "
 "logs."
 msgstr ""
 "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
 
-#: includes/paypro/wc/plugin.php:259
+#: includes/paypro/wc/plugin.php:270
 msgid ""
 "PayPro API key not set. PayPro payment methods will not be displayed in the "
 "checkout process."
-msgstr "PayPro API sleutel niet ingevuld. PayPro betaal methoden worden niet getoont "
+msgstr ""
+"PayPro API sleutel niet ingevuld. PayPro betaal methoden worden niet getoont "
 "in het betalingsproces."
 
 #: includes/paypro/wc/woocommerce.php:61 includes/paypro/wc/woocommerce.php:63
 msgid "PayPro payment cancelled (%s)"
 msgstr "PayPro betaling geannulleerd (%s)"
 
-#: includes/paypro/wc/woocommerce.php:73
+#: includes/paypro/wc/woocommerce.php:77
 msgid "PayPro payment succeeded (%s)"
 msgstr "PayPro betaling succesvol (%s)"
 
-#: paypro-gateways-woocommerce.php:95
+#: paypro-gateways-woocommerce.php:96
 msgid "Could not activate plugin WooCommerce PayPro"
 msgstr "Kan de plugin WooCommerce PayPro niet activeren."
 
@@ -180,16 +196,20 @@ msgstr "Kan de plugin WooCommerce PayPro niet activeren."
 msgid "PayPro Gateways - WooCommerce"
 msgstr "PayPro Gateways - WooCommerce"
 
-#. #-#-#-#-#  paypro-gateways-woocommerce.pot (PayPro Gateways - WooCommerce 0.9.0)  #-#-#-#-#
+#. #-#-#-#-#  paypro-gateways-woocommerce.pot (PayPro Gateways - WooCommerce 1.0.1)  #-#-#-#-#
 #. Plugin URI of the plugin/theme
-#. #-#-#-#-#  paypro-gateways-woocommerce.pot (PayPro Gateways - WooCommerce 0.9.0)  #-#-#-#-#
+#. #-#-#-#-#  paypro-gateways-woocommerce.pot (PayPro Gateways - WooCommerce 1.0.1)  #-#-#-#-#
 #. Author URI of the plugin/theme
 msgid "https://www.paypro.nl/"
 msgstr "https://www.paypro.nl/"
 
 #. Description of the plugin/theme
-msgid "A plugin for WooCommerce to add PayPro payment gateways."
-msgstr "Een plugin voor WooCommerce die PayPro betaal mogelijkheden toevoegd."
+msgid ""
+"With this plugin you easily add all PayPro payment gateways to your "
+"WooCommerce webshop."
+msgstr ""
+"Een plugin voor WooCommerce die gemakkelijk alle PayPro betaal "
+"mogelijkheden toevoegd."
 
 #. Author of the plugin/theme
 msgid "PayPro"
