@@ -14,7 +14,7 @@ class PayProApiHelper
     public function init($apiKey, $testMode = false)
     {
         $this->api = new PayProApi($apiKey);
-        $this->testMode = $testMode;
+        $this->testMode = $testMode ? true : false;
     }
 
     public function getIdealIssuers()
