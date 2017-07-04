@@ -17,9 +17,9 @@ class PayProApi {
 
     function execute() {
         $data_to_post = array(
-            "apikey"  => $this->apikey,
-            "command" => $this->command,
-            "params"  => json_encode($this->params)
+            'apikey'  => $this->apikey,
+            'command' => $this->command,
+            'params'  => json_encode($this->params)
         );
 
         $url = 'https://www.paypro.nl/post_api/';
