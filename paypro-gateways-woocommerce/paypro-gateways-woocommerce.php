@@ -4,7 +4,7 @@
  * Plugin Name: PayPro Gateways - WooCommerce
  * Plugin URI: https://www.paypro.nl/
  * Description: With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Text Domain: paypro-gateways-woocommerce
