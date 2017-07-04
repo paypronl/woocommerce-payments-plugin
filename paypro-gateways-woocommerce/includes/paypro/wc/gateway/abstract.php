@@ -96,7 +96,22 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         $product_id = PayPro_WC_Plugin::$settings->productId();
 
         if(empty($paymentDescription))
-            $paymentDescription = 'Order ' . $order->id;
+            $paymentDescription = 'Order ' . $order->get_order_number();
+
+        $test = PayPro_WC_Plugin::$woocommerce->woocommerce3();
+
+        PayPro_WC_Plugin::debug(print_r($test));
+
+        // Get all order information
+        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+        $first_name = PayPro_WC_Plugin::$woocommerce->getFirstName($order);
+        $last_name = PayPro_WC_Plugin::$woocommerce->getLastName($order);
+        $address = PayPro_WC_Plugin::$woocommerce->getAddress($order);
+        $postcode = PayPro_WC_Plugin::$woocommerce->getPostcode($order);
+        $city = PayPro_WC_Plugin::$woocommerce->getCity($order);
+        $country = PayPro_WC_Plugin::$woocommerce->getCountry($order);
+        $phonenumber = PayPro_WC_Plugin::$woocommerce->getPhonenumber($order);
+        $email = PayPro_WC_Plugin::$woocommerce->getEmail($order);
 
         // Set the order variables for PayPro
         $data = array(
@@ -106,14 +121,14 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             'return_url'        => $this->getReturnUrl($order),
             'postback_url'      => $this->getCallbackUrl($order),
             'cancel_url'        => $this->getCancelUrl($order),
-            'custom'            => $order->id . '|' . $order->order_key,
-            'consumer_name'     => $order->billing_first_name . ' ' . $order->billing_last_name,
-            'consumer_address'  => $order->billing_address_1,
-            'consumer_postal'   => $order->billing_postcode,
-            'consumer_city'     => $order->billing_city,
-            'consumer_country'  => $order->billing_country,
-            'consumer_phoneno'  => $order->billing_phone,
-            'consumer_email'    => $order->billing_email
+            'custom'            => $order_id . '|' . $order_key,
+            'consumer_name'     => $first_name . ' ' . $last_name,
+            'consumer_address'  => $address,
+            'consumer_postal'   => $postcode,
+            'consumer_city'     => $city,
+            'consumer_country'  => $country,
+            'consumer_phoneno'  => $phonenumber,
+            'consumer_email'    => $email
         );
 
         // Add product_id if the setting is set
@@ -126,7 +141,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         // If there is an error log it
         if($result['errors'] === true)
         {
-            PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order->id . ' - Message: ' .$result['message']);
+            PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order_id . ' - Message: ' .$result['message']);
             return array('result' => 'failure');
         }
 
@@ -134,16 +149,16 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         $payment_hash = sanitize_key($result['data']['payment_hash']);
         if(empty($payment_hash) && !strlen($payment_hash) === 40)
         {
-            PayPro_WC_Plugin::debug($this->id . ': Invalid payment hash for order ' . $order->id . ' - Payment hash: ' . $payment_hash);
+            PayPro_WC_Plugin::debug($this->id . ': Invalid payment hash for order ' . $order_id . ' - Payment hash: ' . $payment_hash);
             return array('result' => 'failure');
         }
 
         // Succesfull payment created, lets log it and add a note to the payment
-        PayPro_WC_Plugin::debug($this->id . ': Payment created for ' . $order->id . ' - Payment hash: ' . $payment_hash);
+        PayPro_WC_Plugin::debug($this->id . ': Payment created for ' . $order_id . ' - Payment hash: ' . $payment_hash);
 
         // Set order information
         $order->add_order_note(sprintf(__('%s payment in process (%s)', 'woocommerce-paypro'), $this->method_title, $payment_hash));
-        PayPro_WC_Plugin::$woocommerce->addOrderPaymentHash($order->id, $result['data']['payment_hash']);
+        PayPro_WC_Plugin::$woocommerce->addOrderPaymentHash($order_id, $result['data']['payment_hash']);
 
         return array('result' => 'success', 'redirect' => esc_url_raw($result['data']['payment_url']));
     }
@@ -157,6 +172,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         // Get order from 
         $order = PayPro_WC_Plugin::$wc_api->getOrderFromApiUrl();
+        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
 
         // Only handle order if it is still pending
         if(PayPro_WC_Plugin::$woocommerce->hasOrderStatus($order, 'pending'))
@@ -168,19 +184,19 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             if(strcasecmp($sale['status'], 'cancelled') === 0)
             {
                 PayPro_WC_Plugin::$woocommerce->cancelOrder($order, $sale['hash']);
-                PayPro_WC_Plugin::debug($this->id . ': Callback - Payment cancelled for order: ' . $order->id);
+                PayPro_WC_Plugin::debug($this->id . ': Callback - Payment cancelled for order: ' . $order_id);
             }
             else
             {
                 if(strcasecmp($sale['status'], 'open') !== 0)
                 {
                     PayPro_WC_Plugin::$woocommerce->completeOrder($order, $sale['hash']);
-                    PayPro_WC_Plugin::debug($this->id . ': Callback - Payment completed for order: ' . $order->id);
+                    PayPro_WC_Plugin::debug($this->id . ': Callback - Payment completed for order: ' . $order_id);
                 }
                 else
                 {
                     $order->add_order_note(__('PayPro payment pending (' .  $sale['hash'] . ')'));
-                    PayPro_WC_Plugin::debug($this->id . ': Callback - Payment still open for order: ' . $order->id);
+                    PayPro_WC_Plugin::debug($this->id . ': Callback - Payment still open for order: ' . $order_id);
                 }
             }
 
@@ -232,8 +248,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
      */
     protected function getReturnUrl(WC_Order $order)
     {
+        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
+        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+
         $return_url = WC()->api_request_url('paypro_return');
-        return add_query_arg(array('order_id' => $order->id, 'order_key' => $order->order_key), $return_url);
+        return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key), $return_url);
     }
 
     /**
@@ -241,8 +260,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
      */
     protected function getCancelUrl(WC_Order $order)
     {
+        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
+        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+
         $cancel_url = WC()->api_request_url('paypro_cancel');
-        return add_query_arg(array('order_id' => $order->id, 'order_key' => $order->order_key), $cancel_url);
+        return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key), $cancel_url);
     }
 
     /**
@@ -250,8 +272,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
      */ 
     protected function getCallbackUrl(WC_Order $order)
     {
+        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
+        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+
         $callback_url = WC()->api_request_url(strtolower(get_class($this)));
-        return add_query_arg(array('order_id' => $order->id, 'order_key' => $order->order_key,), $callback_url);
+        return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key,), $callback_url);
     }
 
     abstract public function getTitle();  
