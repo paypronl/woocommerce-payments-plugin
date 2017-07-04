@@ -98,10 +98,6 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         if(empty($paymentDescription))
             $paymentDescription = 'Order ' . $order->get_order_number();
 
-        $test = PayPro_WC_Plugin::$woocommerce->woocommerce3();
-
-        PayPro_WC_Plugin::debug(print_r($test));
-
         // Get all order information
         $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
         $first_name = PayPro_WC_Plugin::$woocommerce->getFirstName($order);
