@@ -6,7 +6,7 @@ With this plugin you easily add all PayPro payment gateways to your WooCommerce 
 
 - iDEAL 
 - PayPal
-- MisterCash / Bancontact
+- Bancontact
 - Sofort
 - Afterpay
 - SEPA Overboeking
