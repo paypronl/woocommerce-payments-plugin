@@ -62,7 +62,7 @@ class PayPro_WC_Woocommerce
         else
             $order->add_order_note(sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
 
-        $this->removeOrderPaymentHash($order->id);
+        $this->removeOrderPaymentHash($this->getOrderId($order));
     }
 
     /**
@@ -75,9 +75,149 @@ class PayPro_WC_Woocommerce
             $status = 'wc-processing';
 
         $order->update_status($status, sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
-        $order->reduce_order_stock();
+        wc_reduce_stock_levels($this->getOrderId($order));
         $order->payment_complete();
 
-        $this->removeOrderPaymentHashes($order->id);
+        $this->removeOrderPaymentHashes($this->getOrderId($order));
+    }
+
+    /**
+     * Checks if this is woocommerce 3.0+
+     */
+    public function woocommerce3()
+    {
+        if(version_compare(WC()->version, '3.0', '>='))
+            return true;
+        return false;
+    }
+
+    /**
+     * Gets the order id
+     */
+    public function getOrderId($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $order_id = $this->woocommerce3() ? $order->get_id() : $order->id;
+        else
+            $order_id = NULL;
+
+        return $order_id;
+    }
+
+    /**
+     * Gets the order key
+     */
+    public function getOrderKey($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $order_key = $this->woocommerce3() ? $order->get_order_key() : $order->order_key;
+        else
+            $order_key = NULL;
+
+        return $order_key;
+    }
+
+    /**
+     * Gets the first name
+     */
+    public function getFirstname($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $first_name = $this->woocommerce3() ? $order->get_billing_first_name() : $order->billing_first_name;
+        else
+            $first_name = NULL;
+
+        return $first_name;
+    }
+
+    /**
+     * Gets the last name
+     */
+    public function getLastName($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $order_key = $this->woocommerce3() ? $order->get_billing_last_name() : $order->billing_last_name;
+        else
+            $order_key = NULL;
+
+        return $order_key;
+    }
+
+    /**
+     * Gets the address
+     */
+    public function getAddress($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $address = $this->woocommerce3() ? $order->get_billing_address_1() : $order->billing_address_1;
+        else
+            $address = NULL;
+
+        return $address;
+    }
+
+    /**
+     * Gets the postcode
+     */
+    public function getPostcode($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $postcode = $this->woocommerce3() ? $order->get_billing_postcode() : $order->billing_postcode;
+        else
+            $postcode = NULL;
+
+        return $postcode;
+    }
+
+    /**
+     * Gets the city
+     */
+    public function getCity($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $city = $this->woocommerce3() ? $order->get_billing_city() : $order->billing_city;
+        else
+            $city = NULL;
+
+        return $city;
+    }
+
+    /**
+     * Gets the country
+     */
+    public function getCountry($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $country = $this->woocommerce3() ? $order->get_billing_country() : $order->billing_country;
+        else
+            $country = NULL;
+
+        return $country;
+    }
+
+     /**
+     * Gets the phonenumber
+     */
+    public function getPhonenumber($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $phonenumber = $this->woocommerce3() ? $order->get_billing_phone() : $order->billing_phone;
+        else
+            $phonenumber = NULL;
+
+        return $phonenumber;
+    }
+
+    /**
+     * Gets the email
+     */
+    public function getEmail($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $email = $this->woocommerce3() ? $order->get_billing_email() : $order->billing_email;
+        else
+            $email = NULL;
+
+        return $email;
     }
 }

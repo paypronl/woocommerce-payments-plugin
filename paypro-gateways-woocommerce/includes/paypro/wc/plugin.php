@@ -63,6 +63,7 @@ class PayPro_WC_Plugin
         self::debug(__CLASS__ . ': OnReturn - URL: http' . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
 
         $order = self::$wc_api->getOrderFromApiUrl();
+        $order_id = self::$woocommerce->getOrderId($order);
 
         // Only handle order if it is still pending
         if(self::$woocommerce->hasOrderStatus($order, 'pending'))
@@ -74,7 +75,7 @@ class PayPro_WC_Plugin
             if(strcasecmp($sale['status'], 'cancelled') === 0)
             {
                 self::$woocommerce->cancelOrder($order, $sale['hash']);
-                self::debug(__CLASS__ . ': OnReturn - Payment cancelled for order: ' . $order->id);
+                self::debug(__CLASS__ . ': OnReturn - Payment cancelled for order: ' . $order_id);
 
                 wp_safe_redirect($order->get_cancel_order_url());
                 exit;
@@ -84,12 +85,12 @@ class PayPro_WC_Plugin
                 if(strcasecmp($sale['status'], 'open') !== 0)
                 {
                     self::$woocommerce->completeOrder($order, $sale['hash']);
-                    self::debug(__CLASS__ . ': OnReturn - Payment completed for order: ' . $order->id);
+                    self::debug(__CLASS__ . ': OnReturn - Payment completed for order: ' . $order_id);
                 }
                 else
                 {
                     $order->add_order_note(__('PayPro payment pending (' .  $sale['hash'] . ')'));
-                    self::debug(__CLASS__ . ': OnReturn - Payment still open for order: ' . $order->id);
+                    self::debug(__CLASS__ . ': OnReturn - Payment still open for order: ' . $order_id);
                 }
 
                 wp_safe_redirect($order->get_checkout_order_received_url());
@@ -110,9 +111,10 @@ class PayPro_WC_Plugin
         self::debug(__CLASS__ . ': OnCancel - URL: http' . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
 
         $order = self::$wc_api->getOrderFromApiUrl();
+        $order_id = self::$woocommerce->getOrderId($order);
 
         $order->add_order_note(__('PayPro - Customer cancelled payment. Redirected him back to his cart.'));
-        self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order->id . '. Redirecting back to cart.');
+        self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order_id . '. Redirecting back to cart.');
 
         wp_safe_redirect(WC_Cart::get_cart_url());
         exit;
@@ -212,12 +214,19 @@ class PayPro_WC_Plugin
         // Only write log if debug mode enabled
         if(self::$settings->debugMode())
         {
-            static $logger;
+            if(self::$woocommerce->woocommerce3()) {
+                $logger = wc_get_logger();
+                $context = array('source' => 'paypro-gateways-woocommerce');
 
-            if(empty($logger))
-                $logger = new WC_Logger();
+                $logger->debug($message, $context);
+            } else {
+                static $logger;
 
-            $logger->add(self::PLUGIN_ID . '-' . date('Y-m-d'), $message);
+                if(empty($logger))
+                    $logger = new WC_Logger();
+
+                $logger->add(self::PLUGIN_ID . '-' . date('Y-m-d'), $message);
+            }
         }
     }
 

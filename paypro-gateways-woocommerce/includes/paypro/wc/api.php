@@ -45,8 +45,10 @@ class PayPro_WC_Api
      */
     public function getPaymentHashesFromOrder($order)
     {
+        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
+
         // Get payment hash
-        $payment_hashes = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHashes($order->id);
+        $payment_hashes = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHashes($order_id);
 
         if(empty($payment_hashes))
         {

@@ -16,7 +16,7 @@ class PayPro_WC_Gateway_Mistercash extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Mistercash / Bancontact', 'paypro-gateways-woocommerce');
+        return __('Bancontact', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()
