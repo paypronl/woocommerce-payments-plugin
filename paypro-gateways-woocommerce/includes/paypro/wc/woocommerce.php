@@ -75,7 +75,7 @@ class PayPro_WC_Woocommerce
             $status = 'wc-processing';
 
         $order->update_status($status, sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
-        wc_reduce_stock_levels($this->getOrderId($order));
+        $this->woocommerce3() ? wc_reduce_stock_levels($this->getOrderId($order)) : $order->reduce_order_stock();
         $order->payment_complete();
 
         $this->removeOrderPaymentHashes($this->getOrderId($order));
