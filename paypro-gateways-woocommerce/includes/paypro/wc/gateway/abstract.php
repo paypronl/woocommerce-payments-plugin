@@ -128,7 +128,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         );
 
         // Add product_id if the setting is set
-        if(!empty($product_id))
+        if(is_int($product_id) && $product_id > 0)
             $data['product_id'] = intval($product_id);
 
         // Call PayPro API to create a payment
