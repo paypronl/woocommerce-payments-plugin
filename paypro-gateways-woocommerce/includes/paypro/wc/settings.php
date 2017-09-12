@@ -31,7 +31,7 @@ class PayPro_WC_Settings
      */
     public function productId()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('product-id')));
+        return intval(trim(get_option(PayPro_WC_Plugin::getSettingId('product-id'))));
     }
 
     /**
