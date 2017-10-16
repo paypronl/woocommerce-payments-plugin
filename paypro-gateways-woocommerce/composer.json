@@ -1,0 +1,5 @@
+{
+  "require": {
+    "paypro/paypro-php-v1": "~1.0"
+  }
+}

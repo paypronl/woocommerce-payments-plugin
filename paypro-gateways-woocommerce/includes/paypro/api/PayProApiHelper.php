@@ -1,7 +1,5 @@
 <?php
 
-require_once('PayProApi.php');
-
 class PayProApiHelper 
 {
     var $apiKey;
@@ -13,7 +11,7 @@ class PayProApiHelper
 
     public function init($apiKey, $testMode = false)
     {
-        $this->api = new PayProApi($apiKey);
+        $this->api = new \PayPro\Client($apiKey);
         $this->testMode = $testMode ? true : false;
     }
 
@@ -30,7 +28,7 @@ class PayProApiHelper
     public function createPayment(array $data)
     {
         $this->api->command = 'create_payment';
-        $this->setParams($data);
+        $this->api->setParams($data);
         return $this->execute();
     }
 
@@ -39,12 +37,6 @@ class PayProApiHelper
         $this->api->command = 'get_sale';
         $this->api->set_param('payment_hash', $payment_hash);
         return $this->execute();
-    }
-
-    public function setParams(array $data)
-    {
-        foreach($data as $key => $value)
-            $this->api->set_param($key, $value);
     }
 
     private function execute()
