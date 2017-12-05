@@ -157,12 +157,38 @@ class PayPro_WC_Woocommerce
     }
 
     /**
+     * Gets the shipping address
+     */
+    public function getShippingAddress($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $address = $this->woocommerce3() ? $order->get_shipping_address_1() : $order->shipping_address_1;
+        else
+            $address = NULL;
+
+        return $address;
+    }
+
+    /**
      * Gets the postcode
      */
     public function getPostcode($order)
     {
         if(is_a($order, 'WC_Order'))
             $postcode = $this->woocommerce3() ? $order->get_billing_postcode() : $order->billing_postcode;
+        else
+            $postcode = NULL;
+
+        return $postcode;
+    }
+
+    /**
+     * Gets the shipping postcode
+     */
+    public function getShippingPostcode($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $postcode = $this->woocommerce3() ? $order->get_shipping_postcode() : $order->shipping_postcode;
         else
             $postcode = NULL;
 
@@ -183,12 +209,38 @@ class PayPro_WC_Woocommerce
     }
 
     /**
+     * Gets the shipping city
+     */
+    public function getShippingCity($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $city = $this->woocommerce3() ? $order->get_shipping_city() : $order->shipping_city;
+        else
+            $city = NULL;
+
+        return $city;
+    }
+
+    /**
      * Gets the country
      */
     public function getCountry($order)
     {
         if(is_a($order, 'WC_Order'))
             $country = $this->woocommerce3() ? $order->get_billing_country() : $order->billing_country;
+        else
+            $country = NULL;
+
+        return $country;
+    }
+
+    /**
+     * Gets the shipping country
+     */
+    public function getShippingCountry($order)
+    {
+        if(is_a($order, 'WC_Order'))
+            $country = $this->woocommerce3() ? $order->get_shipping_country() : $order->shipping_country;
         else
             $country = NULL;
 
