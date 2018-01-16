@@ -108,6 +108,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         $country = PayPro_WC_Plugin::$woocommerce->getCountry($order);
         $phonenumber = PayPro_WC_Plugin::$woocommerce->getPhonenumber($order);
         $email = PayPro_WC_Plugin::$woocommerce->getEmail($order);
+        $shippingAddress = PayPro_WC_Plugin::$woocommerce->getShippingAddress($order);
+        $shippingCity = PayPro_WC_Plugin::$woocommerce->getShippingCity($order);
+        $shippingCountry = PayPro_WC_Plugin::$woocommerce->getShippingCountry($order);
+        $shippingPostcode = PayPro_WC_Plugin::$woocommerce->getShippingPostcode($order);
 
         // Set the order variables for PayPro
         $data = array(
@@ -124,7 +128,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             'consumer_city'     => $city,
             'consumer_country'  => $country,
             'consumer_phoneno'  => $phonenumber,
-            'consumer_email'    => $email
+            'consumer_email'    => $email,
+            'shipping_address'  => $shippingAddress,
+            'shipping_postal'   => $shippingPostcode,
+            'shipping_city'     => $shippingCity,
+            'shipping_country'  => $shippingCountry
         );
 
         // Add product_id if the setting is set
