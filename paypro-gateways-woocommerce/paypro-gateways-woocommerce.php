@@ -12,6 +12,7 @@
  * @author PayPro BV
  */
 
+require('vendor/autoload.php');
 require_once('includes/paypro/wc/autoload.php');
 
 load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
