@@ -4,7 +4,8 @@
 
 With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop. Currently the plugin supports the following gateways:
 
-- iDEAL 
+- iDEAL
+- iDEAL QR
 - PayPal
 - Bancontact
 - Sofort
