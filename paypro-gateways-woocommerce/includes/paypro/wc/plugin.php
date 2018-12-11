@@ -4,10 +4,11 @@ class PayPro_WC_Plugin
 {
     const PLUGIN_ID = 'paypro-gateways-woocommerce';
     const PLUGIN_TITLE = 'PayPro Gateways - WooCommerce';
-    const PLUGIN_VERSION = '1.2.4';
+    const PLUGIN_VERSION = '1.3.0';
 
     public static $paypro_gateways = array(
         'PayPro_WC_Gateway_Ideal',
+        'PayPro_WC_Gateway_Idealqr',
         'PayPro_WC_Gateway_Paypal',
         'PayPro_WC_Gateway_Mistercash',
         'PayPro_WC_Gateway_Afterpay',

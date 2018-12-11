@@ -75,13 +75,17 @@ msgstr "iDEAL"
 msgid "Select your bank"
 msgstr "Selecteer uw bank"
 
+#: includes/paypro/wc/gateway/idealqr.php:18
+msgid "iDEAL QR"
+msgstr "iDEAL QR"
+
 #: includes/paypro/wc/gateway/mastercard.php:19
 msgid "Mastercard"
 msgstr "Mastercard"
 
 #: includes/paypro/wc/gateway/mistercash.php:19
-msgid "Mistercash / Bancontact"
-msgstr "Mistercash / Bancontact"
+msgid "Bancontact"
+msgstr "Bancontact"
 
 #: includes/paypro/wc/gateway/paypal.php:19
 msgid "Paypal"
