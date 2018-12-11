@@ -33,7 +33,6 @@ class PayPro_WC_Autoload
         }
         elseif(stripos($class_name, 'PayProApi') === 0)
         {
-            require_once($base_path . '/paypro/api/PayProApi.php');
             require_once($base_path . '/paypro/api/PayProApiHelper.php');
         }
     }
