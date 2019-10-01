@@ -161,6 +161,18 @@ class PayPro_WC_Plugin
                 'css'        => 'width: 350px',
             ),
             array(
+                'id'         => self::getSettingId('vat-percentage-dynamic'),
+                'title'      => __('Dynamic VAT percentage', 'paypro-gateways-woocommerce'),
+                'type'       => 'checkbox',
+                'desc_tip'   => __(
+                    '
+                        When enabled, the VAT percentage inside PayPro will be based on the highest VAT percentage used in the order.
+                        When disabled, the VAT percentage inside PayPro will be based on the VAT percentage of the PayPro Product ID (if provided) or the merchant details.
+                    ',
+                    'paypro-gateways-woocommerce'
+                )
+            ),
+            array(
                 'id'         => self::getSettingId('payment-complete-status'),
                 'title'      => __('Payment Complete Status', 'paypro-gateways-woocommerce'),
                 'type'       => 'select',
