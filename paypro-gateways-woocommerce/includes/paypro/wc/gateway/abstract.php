@@ -112,6 +112,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         $shippingCity = PayPro_WC_Plugin::$woocommerce->getShippingCity($order);
         $shippingCountry = PayPro_WC_Plugin::$woocommerce->getShippingCountry($order);
         $shippingPostcode = PayPro_WC_Plugin::$woocommerce->getShippingPostcode($order);
+        $vatPercentage = PayPro_WC_Plugin::$woocommerce->getVatPercentage($order);
 
         // Set the order variables for PayPro
         $data = array(
@@ -132,7 +133,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             'shipping_address'  => $shippingAddress,
             'shipping_postal'   => $shippingPostcode,
             'shipping_city'     => $shippingCity,
-            'shipping_country'  => $shippingCountry
+            'shipping_country'  => $shippingCountry,
+            'vat'               => $vatPercentage
         );
 
         // Add product_id if the setting is set

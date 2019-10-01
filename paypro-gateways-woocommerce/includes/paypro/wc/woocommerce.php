@@ -272,4 +272,23 @@ class PayPro_WC_Woocommerce
 
         return $email;
     }
+
+    /**
+     * Gets the vat percentage of the order
+     */
+    public function getVatPercentage($order)
+    {
+        if (is_a($order, 'WC_Order')) {
+            $order_rate_percentages = array_map(
+                function( $order_item ) {
+                    return $order_item->get_rate_percent();
+                },
+                $order->get_items( 'tax' )
+            );
+
+            return max($order_rate_percentages);
+        } else {
+            return null;
+        }
+    }
 }
