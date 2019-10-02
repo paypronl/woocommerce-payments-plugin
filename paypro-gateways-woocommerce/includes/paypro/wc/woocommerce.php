@@ -278,7 +278,7 @@ class PayPro_WC_Woocommerce
      */
     public function getVatPercentage($order)
     {
-        if (is_a($order, 'WC_Order')) {
+        if (PayPro_WC_Plugin::$settings->vatPercentageDynamic() && is_a($order, 'WC_Order')) {
             $order_rate_percentages = array_map(
                 function( $order_item ) {
                     return $order_item->get_rate_percent();

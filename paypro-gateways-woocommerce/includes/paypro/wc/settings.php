@@ -57,4 +57,12 @@ class PayPro_WC_Settings
     {
         return trim(get_option(PayPro_WC_Plugin::getSettingId('payment-complete-status')));
     }
+
+    /**
+     * Returns the vat percentage dynamic setting
+     */
+    public function vatPercentageDynamic()
+    {
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('vat-percentage-dynamic'))) === 'yes';
+    }
 }
