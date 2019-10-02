@@ -59,10 +59,22 @@ class PayPro_WC_Settings
     }
 
     /**
-     * Returns the vat percentage dynamic setting
+     * Returns the vat percentage setting
      */
-    public function vatPercentageDynamic()
+    public function vatPercentageSetting()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('vat-percentage-dynamic'))) === 'yes';
+        return trim(get_option(PayPro_WC_Plugin::getSettingId('vat-percentage-setting')));
+    }
+
+    /**
+     * Returns the vat percentage fixed value
+     */
+    public function vatPercentageFixedValue()
+    {
+        if ($this->vatPercentageSetting() == 'fixed') {
+            return trim(get_option(PayPro_WC_Plugin::getSettingId('vat-percentage-fixed')));
+        } else {
+            return null;
+        }
     }
 }

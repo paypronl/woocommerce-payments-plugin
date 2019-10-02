@@ -278,7 +278,13 @@ class PayPro_WC_Woocommerce
      */
     public function getVatPercentage($order)
     {
-        if (PayPro_WC_Plugin::$settings->vatPercentageDynamic() && is_a($order, 'WC_Order')) {
+        $vatPercentageSetting = PayPro_WC_Plugin::$settings->vatPercentageSetting();
+
+        if (!is_a($order, 'WC_Order')) {
+            return null;
+        } elseif ($vatPercentageSetting == 'fixed' && is_numeric(PayPro_WC_Plugin::$settings->vatPercentageFixedValue())) {
+            return PayPro_WC_Plugin::$settings->vatPercentageFixedValue();
+        } elseif ($vatPercentageSetting == 'highest_in_order') {
             $order_rate_percentages = array_map(
                 function( $order_item ) {
                     return $order_item->get_rate_percent();

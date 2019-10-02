@@ -37,14 +37,12 @@ class PayPro_WC_Plugin
 
         // Add filters and actions
         add_filter('woocommerce_payment_gateways_settings',   array(__CLASS__, 'addSettingsFields'));
-
         add_filter('woocommerce_payment_gateways',            array(__CLASS__, 'addGateways'));
 
         add_action('woocommerce_api_paypro_return',           array(__CLASS__, 'onReturn'));
-
         add_action('woocommerce_api_paypro_cancel',           array(__CLASS__, 'onCancel'));
-
         add_action('admin_notices',                           array(__CLASS__, 'addApiKeyReminder'));
+        add_action('admin_enqueue_scripts',                   array(__CLASS__, 'adminEnqueueScripts'));
 
         // Initialize all PayPro classes we need
         self::$settings = new PayPro_WC_Settings();
@@ -161,10 +159,21 @@ class PayPro_WC_Plugin
                 'css'        => 'width: 350px',
             ),
             array(
-                'id'         => self::getSettingId('vat-percentage-dynamic'),
-                'title'      => __('Dynamic VAT percentage', 'paypro-gateways-woocommerce'),
-                'type'       => 'checkbox',
-                'desc_tip'   => __('Post the highest VAT percentage from the order to PayPro. When disabled, the VAT percentage of the PayPro product (if provided) or the merchant will be used.', 'paypro-gateways-woocommerce')
+                'id'         => self::getSettingId('vat-percentage-setting'),
+                'title'      => __('VAT percentage to use in PayPro', 'paypro-gateways-woocommerce'),
+                'type'       => 'select',
+                'options'    => array(
+                    'default' => __('Let PayPro decide (default)', 'paypro-gateways-woocommerce'),
+                    'fixed' => __('Fixed value', 'paypro-gateways-woocommerce'),
+                    'highest_in_order' => __('Use highest used VAT percentage from order', 'paypro-gateways-woocommerce'),
+                ),
+                'desc_tip'   => __('How to handle the VAT percentage posted to PayPro', 'paypro-gateways-woocommerce')
+            ),
+            array(
+                'id'         => self::getSettingId('vat-percentage-fixed'),
+                'title'      => __('Fixed VAT percentage value', 'paypro-gateways-woocommerce'),
+                'type'       => 'text',
+                'desc_tip'   => __('Fixed VAT percentage to post to PayPro', 'paypro-gateways-woocommerce')
             ),
             array(
                 'id'         => self::getSettingId('payment-complete-status'),
@@ -287,5 +296,10 @@ class PayPro_WC_Plugin
                     'paypro-gateways-woocommerce')
             );
         }
+    }
+
+    public static function adminEnqueueScripts()
+    {
+        wp_enqueue_script(self::PLUGIN_ID, plugins_url(self::PLUGIN_ID . '/assets/js/' . self::PLUGIN_ID . '.js'));
     }
 }
