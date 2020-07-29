@@ -60,9 +60,16 @@ class Client {
             $msg = "The API request returned an error or is invalid: $body";
             throw new Error\InvalidResponse($msg);
         }
-        
+
         $params = array();
         return $decodedResponse;
+    }
+
+    /**
+     * Allow to override the apiKey.
+     */
+    function setApiKey($apiKey) {
+        $this->apiKey = $apiKey;
     }
 
     /**

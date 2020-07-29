@@ -1,6 +1,13 @@
 <?php
 class PayPro_WC_Api
 {
+    // EDITABLE
+    const PRODUCT_API_KEYS = [
+        11 => 'abc123',
+        12 => 'cde456'
+    ];
+    // END EDITABLE
+
     /**
      * Parses the API url to an order.
      * Only usable on an WooCommerce API call
@@ -37,6 +44,25 @@ class PayPro_WC_Api
         }
 
         return $order;
+    }
+
+    /**
+     * Get API key based on order ID. Will return the specific API key for the first product from the order.
+     * If empty, returns the API key from the settings.
+     */
+
+    public function getApiKeyFromOrder($order)
+    {
+        $productId = current(
+            array_map(
+                function($orderItem) {
+                    return $orderItem['product_id'];
+                },
+                $order->get_items()
+            )
+        );
+
+        return $productId && self::PRODUCT_API_KEYS[$productId] ?? null;
     }
 
     /**

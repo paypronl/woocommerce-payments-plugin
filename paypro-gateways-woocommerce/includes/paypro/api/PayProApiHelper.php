@@ -25,8 +25,14 @@ class PayProApiHelper
         return $result;
     }
 
-    public function createPayment(array $data)
+    public function createPayment(array $data, $apiKeyOverride = null)
     {
+        error_log($apiKeyOverride);
+
+        if ($apiKeyOverride) {
+            $this->api->setApiKey($apiKeyOverride);
+        }
+
         $this->api->setCommand('create_payment');
         $this->api->setParams($data);
         return $this->execute();

@@ -139,8 +139,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         if(is_int($product_id) && $product_id > 0)
             $data['product_id'] = $product_id;
 
+        $apiKey = PayPro_WC_Plugin::$wc_api->getApiKeyFromOrder($order);
+
         // Call PayPro API to create a payment
-        $result = PayPro_WC_Plugin::$paypro_api->createPayment($data);
+        $result = PayPro_WC_Plugin::$paypro_api->createPayment($data, $apiKey);
 
         // If there is an error log it
         if($result['errors'] === true)

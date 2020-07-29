@@ -25,7 +25,6 @@ class PayPro_WC_Settings
     {
         return trim(get_option(PayPro_WC_Plugin::getSettingId('api-key')));
     }
-
     /**
      * Returns the product id
      */
