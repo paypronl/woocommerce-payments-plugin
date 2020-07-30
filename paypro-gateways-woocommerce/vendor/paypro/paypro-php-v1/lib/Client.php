@@ -69,7 +69,7 @@ class Client {
      * Allow to override the apiKey.
      */
     function setApiKey($apiKey) {
-        $this->apiKey = $apiKey;
+        $this->apikey = $apiKey;
     }
 
     /**
