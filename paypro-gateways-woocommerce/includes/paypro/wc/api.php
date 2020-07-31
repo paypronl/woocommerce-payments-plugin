@@ -4,8 +4,8 @@ class PayPro_WC_Api
     // EDITABLE API KEYS
     // woocommerce_product_id => paypro_api_key
     const PRODUCT_API_KEYS = [
-        11 => 'abc123',
-        12 => 'def456'
+        11 => '83827ac0eaa430a39d94e49eb5376b26',
+        12 => '6a8517e80fda90c04d39f982f992541e'
     ];
     // END EDITABLE API KEYS
 

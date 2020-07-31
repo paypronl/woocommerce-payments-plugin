@@ -9,7 +9,7 @@ namespace PayPro;
  */
 class PayPro {
     // @var string Base url of the API
-    public static $apiUrl = 'http://pp.test:3000/post_api';
+    public static $apiUrl = 'https://www.paypro.nl/post_api';
 
     // @var string File location of the certificate bundle
     public static $caBundleFile = '../data/ca-bundle.crt';
