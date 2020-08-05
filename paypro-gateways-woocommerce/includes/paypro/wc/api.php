@@ -2,10 +2,10 @@
 class PayPro_WC_Api
 {
     // EDITABLE API KEYS
-    // woocommerce_product_id => paypro_api_key
+    // WooCommerce category_slug => paypro_api_key
     const PRODUCT_API_KEYS = [
-        11 => '123',
-        12 => '456'
+        'cat-1' => '123',
+        'cat-2' => '456'
     ];
     // END EDITABLE API KEYS
 
@@ -54,16 +54,22 @@ class PayPro_WC_Api
 
     public function getApiKeyFromOrder($order)
     {
-        $productId = current(
+        // Get the slug from the first category of the first orderItem.
+        // With this, we can override the correct API key.
+        $categorySlug = current(
             array_map(
                 function($orderItem) {
-                    return $orderItem['product_id'];
+                    $terms = get_the_terms($orderItem['product_id'], 'product_cat');
+
+                    if ($terms && !is_wp_error($terms)) {
+                        return $terms[0]->slug;
+                    }
                 },
                 $order->get_items()
             )
         );
 
-        return self::PRODUCT_API_KEYS[$productId] ?? null;
+        return self::PRODUCT_API_KEYS[$categorySlug] ?? null;
     }
 
     /**
