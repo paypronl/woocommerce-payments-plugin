@@ -148,11 +148,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order_id . ' - Message: ' .$result['message']);
 
             // display error to check out
-            switch ($result['message']) {
+            switch ($result['errors']) {
                 case "Not subscribed to money transfer service":
-                    $error_msg = __( 'Can\'t use banktransfer, please try another method.', 'paypro-gateways-woocommerce');
+                    $error_msg = get_bloginfo('name') . ' ' . __( 'is not subscribed to this payment method, please try different method.', 'paypro-gateways-woocommerce');
                     break;
-                default: $error_msg = "Couldn't use payment method, please try again.";
+                default: $error_msg = __("Could not use this payment method, please try again.", 'paypro-gateways-woocommerce');
             }
             wc_add_notice($error_msg,'error');
 
