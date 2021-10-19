@@ -14,6 +14,6 @@ class PayPro {
     // @var string File location of the certificate bundle
     public static $caBundleFile = '../data/ca-bundle.crt';
 
-    const VERSION = '1.0.3';
+    const VERSION = '1.0.2';
     const API_VERSION = 'v1';
 }
