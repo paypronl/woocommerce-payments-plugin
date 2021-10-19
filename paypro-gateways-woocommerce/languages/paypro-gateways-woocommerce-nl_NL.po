@@ -59,6 +59,10 @@ msgstr "Wachtend op betaling"
 msgid "%s payment in process (%s)"
 msgstr "%s betaling in gang (%s)"
 
+#: includes/paypro/wc/gateway/abstract.php:158
+msgid "Can't use banktransfer, please try another method."
+msgstr "Kan SEPA Overboeking niet gebruiken, probeer een andere methode."
+
 #: includes/paypro/wc/gateway/afterpay.php:19
 msgid "Afterpay"
 msgstr "Afterpay"

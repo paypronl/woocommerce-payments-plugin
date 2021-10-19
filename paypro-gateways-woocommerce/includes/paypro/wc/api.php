@@ -8,7 +8,7 @@ class PayPro_WC_Api
     public function getOrderFromApiUrl()
     {
         // Check if the request has valid query params
-        if(!isset($_GET['order_id']) || empty($_GET['order_id']) || !isset($_GET['order_key']) || empty($_GET['order_key']))
+        if(empty($_GET['order_id']) || empty($_GET['order_key']))
         {
             header(' ', true, 400);
             PayPro_WC_Plugin::debug(__CLASS__ . ': Invalid PayPro return url.');
