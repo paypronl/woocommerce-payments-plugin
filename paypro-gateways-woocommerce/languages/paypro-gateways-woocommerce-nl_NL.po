@@ -59,6 +59,14 @@ msgstr "Wachtend op betaling"
 msgid "%s payment in process (%s)"
 msgstr "%s betaling in gang (%s)"
 
+#: includes/paypro/wc/gateway/abstract.php:153
+msgid "is not subscribed to this payment method, please try different method."
+msgstr "is niet geabonneerd op deze betaalmethode, probeer een andere methode."
+
+#: includes/paypro/wc/gateway/abstract.php:155
+msgid "Could not use this payment method, please try again."
+msgstr "Kan deze betaalmethode niet gebruiken, probeer het opnieuw."
+
 #: includes/paypro/wc/gateway/afterpay.php:19
 msgid "Afterpay"
 msgstr "Afterpay"

@@ -9,7 +9,7 @@ class PayPro_WC_Autoload
      */ 
     public static function register()
     {
-        if(self::$registered === true)
+        if(self::$registered)
             return false;
 
         return spl_autoload_register(array(__CLASS__, 'autoload')); 
