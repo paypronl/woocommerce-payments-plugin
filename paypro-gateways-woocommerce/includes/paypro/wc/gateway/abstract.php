@@ -306,10 +306,16 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key,), $callback_url);
     }
 
+    /**
+     * Returns the title for this gateway
+     */
     public function getTitle() {
         return $this->gateway_title;
     } 
 
+    /**
+     * Returns the description for this gateway
+     */
     public function getDescription() {
         return $this->gateway_description;
     }
