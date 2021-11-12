@@ -16,8 +16,6 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
     protected const PAYPROAPIRES_NOTSUBSCRIPTED = "Not subscribed to money transfer service";
 
-    protected const PAYPROAPIRES_INVALIDAMOUNT = "Invalid amount";
-
     /**
      * Constructs a Payment Gateway
      */ 
@@ -159,9 +157,6 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             switch ($result['message']) {
                 case self::PAYPROAPIRES_NOTSUBSCRIPTED:
                     $error_msg = get_bloginfo('name') . ' ' . __( 'is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce');
-                    break;
-                case self::PAYPROAPIRES_INVALIDAMOUNT:
-                    $error_msg = __('Using this payment method requires a transaction above 1 euro');
                     break;
                 default: 
                     $error_msg = __("Could not use this payment method, please try again.", 'paypro-gateways-woocommerce');
