@@ -8,19 +8,10 @@ class PayPro_WC_Gateway_Sofort extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'sofort/digital';
-        $this->has_fields = FALSE;
+        $this->issuer = 'sofort/physical';
+
+        $this->gateway_title = __('Sofort', 'paypro-gateways-woocommerce');
 
         parent::__construct();
-    }
-
-    public function getTitle()
-    {
-        return __('Sofort', 'paypro-gateways-woocommerce');
-    }
-
-    public function getDescription()
-    {
-        return __('', 'paypro-gateways-woocommerce');
     }
 }

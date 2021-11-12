@@ -9,18 +9,9 @@ class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract
         );
 
         $this->issuer = 'paypal/direct';
-        $this->has_fields = FALSE;
+
+        $this->gateway_title = __('Paypal', 'paypro-gateways-woocommerce');
 
         parent::__construct();
-    }
-
-    public function getTitle()
-    {
-        return __('Paypal', 'paypro-gateways-woocommerce');
-    }
-
-    public function getDescription()
-    {
-        return __('', 'paypro-gateways-woocommerce');
     }
 }

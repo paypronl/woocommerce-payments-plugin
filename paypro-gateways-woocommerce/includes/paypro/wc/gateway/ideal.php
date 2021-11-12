@@ -8,19 +8,13 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
+        $this->gateway_title = __('iDEAL', 'paypro-gateways-woocommerce');
+        
+        $this->gateway_description = __('Select your bank', 'paypro-gateways-woocommerce');
+        
         $this->has_fields = TRUE;
 
         parent::__construct();
-    }
-
-    public function getTitle()
-    {
-        return __('iDEAL', 'paypro-gateways-woocommerce');
-    }
-
-    public function getDescription()
-    {
-        return __('Select your bank', 'paypro-gateways-woocommerce');
     }
 
     public function payment_fields()
@@ -32,7 +26,7 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract
         $selected_issuer = $this->getSelectedIssuer();
 
         $html = '<select name="' . PayPro_WC_Plugin::PLUGIN_ID . '_issuer_' . $this->id . '">';
-        $html .= '<option value=""></option>';
+        $html .= '<option value="" hidden></option>';
 
         foreach($ideal_issuers['issuers'] as $issuer)
         {

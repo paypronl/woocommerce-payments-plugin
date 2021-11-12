@@ -41,7 +41,7 @@ class PayProApiHelper
 
     private function execute()
     {
-        if($this->testMode) $this->api->setParam('test_mode', 'true'); else $this->api->setParam('test_mode', 'false');
+        $this->api->setParam('test_mode', ($this->testMode ? 'true' : 'false'));
 
         $result = $this->api->execute();
 

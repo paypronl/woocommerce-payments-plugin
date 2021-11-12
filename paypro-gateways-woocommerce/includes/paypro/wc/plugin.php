@@ -208,27 +208,27 @@ class PayPro_WC_Plugin
      */
     public static function debug($message)
     {
+        // gaurd return if debug is not active
+        if(!self::$settings->debugMode()) return;
+
         // Convert not strings to strings
         if(!is_string($message))
             $message = print_r($message, true);
 
-        // Only write log if debug mode enabled
-        if(self::$settings->debugMode())
-        {
-            if(self::$woocommerce->woocommerce3()) {
-                $logger = wc_get_logger();
-                $context = array('source' => 'paypro-gateways-woocommerce');
+        if(self::$woocommerce->woocommerce3()) {
+            $logger = wc_get_logger();
+            $context = array('source' => 'paypro-gateways-woocommerce');
 
-                $logger->debug($message, $context);
-            } else {
-                static $logger;
+            $logger->debug($message, $context);
+        } else {
+            static $logger;
 
-                if(empty($logger))
-                    $logger = new WC_Logger();
+            if(empty($logger))
+                $logger = new WC_Logger();
 
-                $logger->add(self::PLUGIN_ID . '-' . date('Y-m-d'), $message);
-            }
+            $logger->add(self::PLUGIN_ID . '-' . date('Y-m-d'), $message);
         }
+        
     }
 
     /** 

@@ -86,9 +86,7 @@ class PayPro_WC_Woocommerce
      */
     public function woocommerce3()
     {
-        if(version_compare(WC()->version, '3.0', '>='))
-            return true;
-        return false;
+        return version_compare(WC()->version, '3.0', '>=');
     }
 
     /**

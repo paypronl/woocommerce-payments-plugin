@@ -9,18 +9,9 @@ class PayPro_WC_Gateway_Mastercard extends PayPro_WC_Gateway_Abstract
         );
 
         $this->issuer = 'creditcard/mastercard';
-        $this->has_fields = FALSE;
+
+        $this->gateway_title = __('Mastercard', 'paypro-gateways-woocommerce');
 
         parent::__construct();
-    }
-
-    public function getTitle()
-    {
-        return __('Mastercard', 'paypro-gateways-woocommerce');
-    }
-
-    public function getDescription()
-    {
-        return __('', 'paypro-gateways-woocommerce');
     }
 }

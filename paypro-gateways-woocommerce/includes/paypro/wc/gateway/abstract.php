@@ -4,11 +4,19 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 {
     protected $default_title;
 
-    protected $default_description;
-
     protected $default_logo;
 
     protected $issuer;
+
+    public $has_fields = FALSE;
+
+    protected $gateway_title = '';
+
+    protected $gateway_description = '';
+
+    protected const PAYPROAPIRES_NOTSUBSCRIPTED = "Not subscribed to money transfer service";
+
+    protected const PAYPROAPIRES_INVALIDAMOUNT = "Invalid amount";
 
     /**
      * Constructs a Payment Gateway
@@ -146,13 +154,18 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         if($result['errors'])
         {
             PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order_id . ' - Message: ' .$result['message']);
-
+            var_dump($data);
             // display error to check out
-            switch ($result['errors']) {
-                case "Not subscribed to money transfer service":
-                    $error_msg = get_bloginfo('name') . ' ' . __( 'is not subscribed to this payment method, please try different method.', 'paypro-gateways-woocommerce');
+            switch ($result['message']) {
+                case self::PAYPROAPIRES_NOTSUBSCRIPTED:
+                    $error_msg = get_bloginfo('name') . ' ' . __( 'is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce');
                     break;
-                default: $error_msg = __("Could not use this payment method, please try again.", 'paypro-gateways-woocommerce');
+                case self::PAYPROAPIRES_INVALIDAMOUNT:
+                    $error_msg = __('Using this payment method requires a transaction above 1 euro');
+                    break;
+                default: 
+                    $error_msg = __("Could not use this payment method, please try again.", 'paypro-gateways-woocommerce');
+                    break;
             }
             wc_add_notice($error_msg,'error');
 
@@ -293,7 +306,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key,), $callback_url);
     }
 
-    abstract public function getTitle();  
+    public function getTitle() {
+        return $this->gateway_title;
+    } 
 
-    abstract public function getDescription();
+    public function getDescription() {
+        return $this->gateway_description;
+    }
 }

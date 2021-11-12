@@ -9,18 +9,9 @@ class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway_Abstract
         );
 
         $this->issuer = 'afterpay/giro';
-        $this->has_fields = FALSE;
+
+        $this->gateway_title = __('Afterpay', 'paypro-gateways-woocommerce');
 
         parent::__construct();
-    }
-
-    public function getTitle()
-    {
-        return __('Afterpay', 'paypro-gateways-woocommerce');
-    }
-
-    public function getDescription()
-    {
-        return __('', 'paypro-gateways-woocommerce');
     }
 }
