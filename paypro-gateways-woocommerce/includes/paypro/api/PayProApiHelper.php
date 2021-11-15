@@ -7,6 +7,8 @@ class PayProApiHelper
 
     var $testMode;
 
+    const RESPONSEAPI_KEYINVALID = "API key not valid";
+
     public function __construct() {}
 
     public function init($apiKey, $testMode = false)
@@ -19,7 +21,7 @@ class PayProApiHelper
     {
         $this->api->setCommand('get_all_pay_methods');
         $result = $this->execute();
-
+       
         $result['issuers'] = $result['data']['data']['ideal']['methods'];
         unset($result['data']);
         return $result;
@@ -44,6 +46,11 @@ class PayProApiHelper
         $this->api->setParam('test_mode', ($this->testMode ? 'true' : 'false'));
 
         $result = $this->api->execute();
+
+        if($result['return'] == self::RESPONSEAPI_KEYINVALID) {
+            $result['errors'] = 'true';
+            PayPro_WC_Plugin::debug('Paypro - ' . $result['return']);
+        }
 
         if(isset($result['errors']))
         {
