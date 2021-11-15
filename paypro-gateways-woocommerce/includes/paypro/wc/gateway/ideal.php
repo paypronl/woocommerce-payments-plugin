@@ -22,13 +22,13 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract
         parent::payment_fields();
 
         $ideal_issuers = PayPro_WC_Plugin::$paypro_api->getIdealIssuers();
-
+        
         $selected_issuer = $this->getSelectedIssuer();
 
         $html = '<select name="' . PayPro_WC_Plugin::PLUGIN_ID . '_issuer_' . $this->id . '">';
         $html .= '<option value="" hidden></option>';
 
-        foreach($ideal_issuers['issuers'] as $issuer)
+        foreach($ideal_issuers['issuers'] ?? [] as $issuer)
         {
             $html .= '<option value="' . esc_attr($issuer['id']) . '"' . ($selected_issuer == $issuer['id'] ? ' selected="selected"' : '') .  '>' . esc_html($issuer['name']) . '</option>';
         }
