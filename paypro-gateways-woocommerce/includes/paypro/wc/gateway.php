@@ -156,7 +156,7 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
             // display error to check out
             switch ($result['message']) {
                 case self::PAYPROAPIRES_NOTSUBSCRIPTED:
-                    $error_msg = get_bloginfo('name') . ' ' . __( 'is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce');
+                    $error_msg = sprintf(__( '%s is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce'), get_bloginfo('name'));
                     break;
                 default:
                     $error_msg = __("Could not use this payment method, please try again.", 'paypro-gateways-woocommerce');

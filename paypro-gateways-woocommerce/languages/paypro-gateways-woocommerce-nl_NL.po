@@ -60,8 +60,8 @@ msgid "%s payment in process (%s)"
 msgstr "%s betaling in gang (%s)"
 
 #: includes/paypro/wc/gateway/abstract.php:153
-msgid "is not subscribed to this payment method, please try a different method."
-msgstr "is niet geabonneerd op deze betaalmethode, probeer een andere methode."
+msgid "%s is not subscribed to this payment method, please try a different method."
+msgstr "%s is niet geabonneerd op deze betaalmethode, probeer een andere methode."
 
 #: includes/paypro/wc/gateway/abstract.php:155
 msgid "Could not use this payment method, please try again."
