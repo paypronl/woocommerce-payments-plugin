@@ -25,7 +25,7 @@ class PayPro_WC_Autoload
         if(stripos($class_name, 'PayPro_WC') === 0)
         {
             $class_path = $base_path . '/' . str_replace('_', '/', strtolower($class_name)) . '.php';
-            
+
             if(file_exists($class_path))
             {
                 require_once($class_path); 
