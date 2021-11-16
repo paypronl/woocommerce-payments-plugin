@@ -1,6 +1,6 @@
 <?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class PayPro_WC_Gateway_Mistercash extends PayPro_WC_Gateway_Abstract
+class PayPro_WC_Gateway_Mistercash extends PayPro_WC_Gateway
 {
     public function __construct()
     {

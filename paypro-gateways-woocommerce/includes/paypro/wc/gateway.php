@@ -1,24 +1,24 @@
 <?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
 
-abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
+class PayPro_WC_Gateway extends WC_Payment_Gateway
 {
+	/**
+	 * panther restapi responses
+	 */
+	protected const PAYPROAPIRES_NOTSUBSCRIPTED = "Not subscribed to money transfer service";
+
     protected $default_title;
 
     protected $default_logo;
 
     protected $issuer;
-
-    public $has_fields = FALSE;
-
     protected $gateway_title = '';
-
     protected $gateway_description = '';
-
-    protected const PAYPROAPIRES_NOTSUBSCRIPTED = "Not subscribed to money transfer service";
+    public $has_fields = FALSE;
 
     /**
      * Constructs a Payment Gateway
-     */ 
+     */
     public function __construct()
     {
         $this->plugin_id = 'paypro';
@@ -97,7 +97,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         // Update order to default status
         $order->update_status($this->default_status, __('Awaiting payment confirmation', 'woocommerce-paypro'));
-        
+
         $paymentDescription = PayPro_WC_Plugin::$settings->paymentDescription();
         $product_id = PayPro_WC_Plugin::$settings->productId();
 
@@ -158,7 +158,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
                 case self::PAYPROAPIRES_NOTSUBSCRIPTED:
                     $error_msg = get_bloginfo('name') . ' ' . __( 'is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce');
                     break;
-                default: 
+                default:
                     $error_msg = __("Could not use this payment method, please try again.", 'paypro-gateways-woocommerce');
                     break;
             }
@@ -291,7 +291,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
     /**
      * Returns the callback url used for settings order statuses
-     */ 
+     */
     protected function getCallbackUrl(WC_Order $order)
     {
         $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
@@ -301,16 +301,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key,), $callback_url);
     }
 
-    /**
-     * Returns the title for this gateway
-     */
     public function getTitle() {
         return $this->gateway_title;
-    } 
+    }
 
-    /**
-     * Returns the description for this gateway
-     */
     public function getDescription() {
         return $this->gateway_description;
     }
