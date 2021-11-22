@@ -7,7 +7,7 @@ class PayProApiHelper
 
     var $testMode;
 
-    protected const RES_API_APIKEYINVALID = "API key not valid";
+    protected const PAYPRO_RES_API_APIKEY_INVALID = "API key not valid";
 
     public function __construct() {}
 
@@ -47,7 +47,7 @@ class PayProApiHelper
 
         $result = $this->api->execute();
         
-        if($result['return'] == self::RES_API_APIKEYINVALID) {
+        if($result['return'] == self::PAYPRO_RES_API_APIKEY_INVALID) {
             $result['errors'] = 'true';
             PayPro_WC_Plugin::debug('Paypro - ' . $result['return']);
         }

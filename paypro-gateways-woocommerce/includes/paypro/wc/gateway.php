@@ -5,7 +5,7 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
 	/**
 	 * panther restapi responses
 	 */
-	protected const PAYPROAPIRES_NOTSUBSCRIPTED = "Not subscribed to money transfer service";
+	protected const PAYPRO_API_RES_NOT_SUBSCRIBED = "Not subscribed to money transfer service";
 
     protected $issuer;
     protected $gateway_title = '';
@@ -151,7 +151,7 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
 
             // display error to check out
             switch ($result['message']) {
-                case self::PAYPROAPIRES_NOTSUBSCRIPTED:
+                case self::PAYPRO_API_RES_NOT_SUBSCRIBED:
                     $error_msg = sprintf(__( '%s is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce'), get_bloginfo('name'));
                     break;
                 default:
