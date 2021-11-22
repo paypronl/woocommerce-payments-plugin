@@ -2,10 +2,10 @@
 
 class PayPro_WC_Gateway extends WC_Payment_Gateway
 {
-	/**
-	 * panther restapi responses
-	 */
-	protected const PAYPRO_API_RES_NOT_SUBSCRIBED = "Not subscribed to money transfer service";
+    /**
+    * panther restapi responses
+    */
+    protected const PAYPRO_API_RES_NOT_SUBSCRIBED = "Not subscribed to money transfer service";
 
     protected $issuer;
     protected $gateway_title = '';
