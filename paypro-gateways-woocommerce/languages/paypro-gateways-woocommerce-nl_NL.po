@@ -14,36 +14,36 @@ msgstr ""
 "Language: nl_NL\n"
 "X-Generator: Poedit 2.0.3\n"
 
-#: includes/paypro/wc/gateway/abstract.php:48
+#: includes/paypro/wc/gateway.php:50
 msgid "Enable/Disable"
 msgstr "Activeer/Deactiveer"
 
-#: includes/paypro/wc/gateway/abstract.php:50
+#: includes/paypro/wc/gateway.php:52
 msgid "Enable %s"
 msgstr "Activeer %s"
 
-#: includes/paypro/wc/gateway/abstract.php:54
+#: includes/paypro/wc/gateway.php:56
 msgid "Title"
 msgstr "Titel"
 
-#: includes/paypro/wc/gateway/abstract.php:56
+#: includes/paypro/wc/gateway.php:58
 msgid "This controls the title which the user sees during checkout. Default <code>%s</code>"
 msgstr ""
 "Dit is de titel die de klant te zien krijgt tijdens de betaling.Standaard <code>%s</code>"
 
-#: includes/paypro/wc/gateway/abstract.php:61
+#: includes/paypro/wc/gateway.php:63
 msgid "Display logo"
 msgstr "Toon logo"
 
-#: includes/paypro/wc/gateway/abstract.php:63
+#: includes/paypro/wc/gateway.php:65
 msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr "Toon logo op betalings pagina. Stadaard <code>geactiveerd</code>"
 
-#: includes/paypro/wc/gateway/abstract.php:67 includes/paypro/wc/plugin.php:155
+#: includes/paypro/wc/gateway.php:69 includes/paypro/wc/plugin.php:155
 msgid "Description"
 msgstr "Beschrijving"
 
-#: includes/paypro/wc/gateway/abstract.php:69
+#: includes/paypro/wc/gateway.php:71
 msgid ""
 "Payment method description that the customer will see on your checkout. Default <code>%s</"
 "code>"
@@ -51,21 +51,21 @@ msgstr ""
 "Betalings methode beschrijving die de gebruiker te zien krijgt bij de betaling. Standaard "
 "<code>%s</code>"
 
-#: includes/paypro/wc/gateway/abstract.php:93
+#: includes/paypro/wc/gateway.php:95
 msgid "Awaiting payment confirmation"
 msgstr "Wachtend op betaling"
 
-#: includes/paypro/wc/gateway/abstract.php:145
-msgid "%s payment in process (%s)"
-msgstr "%s betaling in gang (%s)"
-
-#: includes/paypro/wc/gateway/abstract.php:153
+#: includes/paypro/wc/gateway.php:155
 msgid "%s is not subscribed to this payment method, please try a different method."
 msgstr "%s is niet geabonneerd op deze betaalmethode, probeer een andere methode."
 
-#: includes/paypro/wc/gateway/abstract.php:155
+#: includes/paypro/wc/gateway.php:158
 msgid "Could not use this payment method, please try again."
 msgstr "Kan deze betaalmethode niet gebruiken, probeer het opnieuw."
+
+#: includes/paypro/wc/gateway.php:178
+msgid "%s payment in process (%s)"
+msgstr "%s betaling in gang (%s)"
 
 #: includes/paypro/wc/gateway/afterpay.php:19
 msgid "Afterpay"
