@@ -7,10 +7,6 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
 	 */
 	protected const PAYPROAPIRES_NOTSUBSCRIPTED = "Not subscribed to money transfer service";
 
-    protected $default_title;
-
-    protected $default_logo;
-
     protected $issuer;
     protected $gateway_title = '';
     protected $gateway_description = '';

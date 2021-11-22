@@ -46,7 +46,7 @@ class PayProApiHelper
         $this->api->setParam('test_mode', ($this->testMode ? 'true' : 'false'));
 
         $result = $this->api->execute();
-
+        
         if($result['return'] == self::RES_API_APIKEYINVALID) {
             $result['errors'] = 'true';
             PayPro_WC_Plugin::debug('Paypro - ' . $result['return']);
