@@ -143,10 +143,10 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
         if($result['errors'])
         {
             PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order_id . ' - Message: ' .$result['message']);
-
+            
             // display error to check out
             switch ($result['message']) {
-                case PayPro_WC_Plugin::$paypro_api->PAYPRO_API_RES_NOT_SUBSCRIBED:
+                case PayPro_WC_Plugin::$paypro_api::PAYPRO_API_RES_NOT_SUBSCRIBED:
                     $error_msg = sprintf(__( '%s is not subscribed to this payment method, please try a different method.', 'paypro-gateways-woocommerce'), get_bloginfo('name'));
                     break;
                 default:
