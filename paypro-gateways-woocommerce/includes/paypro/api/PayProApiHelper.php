@@ -7,7 +7,11 @@ class PayProApiHelper
 
     var $testMode;
 
+    /**
+     * Paypro API Responses
+     */
     protected const PAYPRO_RES_API_APIKEY_INVALID = "API key not valid";
+    protected const PAYPRO_API_RES_NOT_SUBSCRIBED = "Not subscribed to money transfer service";
 
     public function __construct() {}
 
@@ -46,7 +50,7 @@ class PayProApiHelper
         $this->api->setParam('test_mode', ($this->testMode ? 'true' : 'false'));
 
         $result = $this->api->execute();
-        
+
         if($result['return'] == self::PAYPRO_RES_API_APIKEY_INVALID) {
             $result['errors'] = 'true';
             PayPro_WC_Plugin::debug('Paypro - ' . $result['return']);
