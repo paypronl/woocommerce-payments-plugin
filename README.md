@@ -11,8 +11,7 @@ With this plugin you easily add all PayPro payment gateways to your WooCommerce 
 - Sofort
 - Afterpay
 - SEPA Overboeking
-- Mastercard
-- Visa
+- Creditcard
 
 
 ## Requirements

@@ -67,45 +67,41 @@ msgstr "Kan deze betaalmethode niet gebruiken, probeer het opnieuw."
 msgid "%s payment in process (%s)"
 msgstr "%s betaling in gang (%s)"
 
-#: includes/paypro/wc/gateway/afterpay.php:19
+#: includes/paypro/wc/gateway/afterpay.php:13
 msgid "Afterpay"
 msgstr "Afterpay"
 
-#: includes/paypro/wc/gateway/banktransfer.php:19
+#: includes/paypro/wc/gateway/banktransfer.php:13
 msgid "Bank Transfer"
 msgstr "SEPA Overboeking"
 
-#: includes/paypro/wc/gateway/ideal.php:18
+#: includes/paypro/wc/gateway/ideal.php:11
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#: includes/paypro/wc/gateway/ideal.php:23
+#: includes/paypro/wc/gateway/ideal.php:13
 msgid "Select your bank"
 msgstr "Selecteer uw bank"
 
-#: includes/paypro/wc/gateway/idealqr.php:18
+#: includes/paypro/wc/gateway/idealqr.php:11
 msgid "iDEAL QR"
 msgstr "iDEAL QR"
 
-#: includes/paypro/wc/gateway/mastercard.php:19
-msgid "Mastercard"
-msgstr "Mastercard"
+#: includes/paypro/wc/gateway/creditcard.php:13
+msgid "Creditcard"
+msgstr "Creditcard"
 
-#: includes/paypro/wc/gateway/mistercash.php:19
+#: includes/paypro/wc/gateway/mistercash.php:13
 msgid "Bancontact"
 msgstr "Bancontact"
 
-#: includes/paypro/wc/gateway/paypal.php:19
+#: includes/paypro/wc/gateway/paypal.php:13
 msgid "Paypal"
 msgstr "PayPal"
 
-#: includes/paypro/wc/gateway/sofort.php:19
+#: includes/paypro/wc/gateway/sofort.php:13
 msgid "Sofort"
 msgstr "Sofort"
-
-#: includes/paypro/wc/gateway/visa.php:19
-msgid "Visa"
-msgstr "Visa"
 
 #: includes/paypro/wc/plugin.php:114
 msgid "PayPro - Customer cancelled payment. Redirected him back to his cart."
