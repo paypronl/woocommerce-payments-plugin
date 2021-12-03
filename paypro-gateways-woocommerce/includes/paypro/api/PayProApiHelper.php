@@ -51,10 +51,16 @@ class PayProApiHelper
 
         $result = $this->api->execute();
 
-        if($result['return'] == self::PAYPRO_API_RES_APIKEY_INVALID) {
-            $result['errors'] = 'true';
-            PayPro_WC_Plugin::debug('Paypro - ' . $result['return']);
+
+        try {
+            if($result['return'] == self::PAYPRO_API_RES_APIKEY_INVALID) {
+                $result['errors'] = 'true';
+                PayPro_WC_Plugin::debug('Paypro - ' . $result['return']);
+            }
+        } catch (\Exception $exception) {
+            $result = array('errors' => 'true', 'return' => 'Invalid return from the API.');
         }
+
 
         if(isset($result['errors']))
         {
