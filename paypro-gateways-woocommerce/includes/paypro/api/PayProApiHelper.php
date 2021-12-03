@@ -25,7 +25,7 @@ class PayProApiHelper
     {
         $this->api->setCommand('get_all_pay_methods');
         $result = $this->execute();
-        
+
         $result['issuers'] = $result['data']['data']['ideal']['methods'];
         unset($result['data']);
         return $result;
