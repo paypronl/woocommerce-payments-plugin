@@ -14,7 +14,7 @@ class PayPro_WC_Plugin
         'PayPro_WC_Gateway_Afterpay',
         'PayPro_WC_Gateway_BankTransfer',
         'PayPro_WC_Gateway_Sofort',
-        'PayPro_WC_Gateway_Creditcard',
+        'PayPro_WC_Gateway_Mastercard',
     );
 
     public static $paypro_api;

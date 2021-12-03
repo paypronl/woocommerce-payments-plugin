@@ -1,6 +1,6 @@
 <?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway
+class PayPro_WC_Gateway_Mastercard extends PayPro_WC_Gateway
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway
             'products',
         );
 
-        $this->issuer = 'creditcard';
+        $this->issuer = 'creditcard/mastercard';
 
         $this->gateway_title = __('Creditcard', 'paypro-gateways-woocommerce');
 
