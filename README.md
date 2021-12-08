@@ -48,7 +48,7 @@ Do you need help installing the PayPro plugin, please contact support@paypro.nl.
 You can find your PayPro API key at [https://www.paypro.nl/api](https://www.paypro.nl/api) or in your dashboard at 'Webshop Koppelen'
 
 #### When do I need to add a product ID?
-When you use affiliate marketing or you want to use the mastercard or visa gateway, you have to add a product ID.
+Only needed for Affiliate marketing.
 
 #### Where do I find my product ID?
 You can find your product ID at 'Webshop Koppelen'.
