@@ -140,7 +140,7 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
         $result = PayPro_WC_Plugin::$paypro_api->createPayment($data);
 
         // If there is an error log it
-        if($result['errors'])
+        if($result['errors'] == true)
         {
             PayPro_WC_Plugin::debug($this->id . ': Failed to create payment for order ' . $order_id . ' - Message: ' .$result['message']);
 
