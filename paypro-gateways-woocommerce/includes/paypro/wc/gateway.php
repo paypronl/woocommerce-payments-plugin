@@ -55,7 +55,7 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
                 'desc_tip'    => true,
             ),
             'display_logo' => array(
-                'title'       => __('Display logo', 'woocommerce-paypro'),
+                'title'       => sprintf(__('Display logo <a href="%s" class="thickbox">[Preview]</a>', 'woocommerce-paypro'), $this->getIconUrl()),
                 'type'        => 'checkbox',
                 'label'       => __('Display logo on checkout page. Default <code>enabled</code>', 'paypro-payments-gateways-woocommerce'),
                 'default'     => 'yes'
