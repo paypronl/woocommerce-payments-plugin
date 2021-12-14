@@ -7,10 +7,12 @@ class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway
         $this->supports = array(
             'products',
         );
+        
+        $this->icon = 'https://cdn.myafterpay.com/logo/AfterPay_logo_checkout.svg';
 
         $this->issuer = 'afterpay/giro';
 
-        $this->gateway_title = __('Afterpay', 'paypro-gateways-woocommerce');
+        $this->gateway_title = __('AfterPay', 'paypro-gateways-woocommerce');
 
         parent::__construct();
     }

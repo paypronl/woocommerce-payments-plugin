@@ -238,7 +238,8 @@ class PayPro_WC_Gateway extends WC_Payment_Gateway
      */
     protected function getIconUrl()
     {
-        return PayPro_WC_Plugin::getPluginUrl('assets/images/' . $this->id . '.png');
+        return isset($this->icon_url) ? $this->icon_url : 
+            PayPro_WC_Plugin::getPluginUrl('assets/images/' . $this->id . '.png');
     }
 
     /**
