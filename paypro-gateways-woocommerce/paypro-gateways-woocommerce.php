@@ -17,6 +17,8 @@ require_once('includes/paypro/wc/autoload.php');
 
 load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
 
+add_action('init', 'add_thickbox');
+
 /**
  * Entry point of the plugin.
  * Checks if Woocommerce is active, autoloads classes and initializes the plugin.
