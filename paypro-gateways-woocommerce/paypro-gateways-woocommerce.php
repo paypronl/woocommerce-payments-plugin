@@ -28,7 +28,19 @@ function paypro_plugin_init()
     {
         PayPro_WC_Autoload::register();
         PayPro_WC_Plugin::init();
+        // add links that requires woocommerce to be active
+        add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'paypro_plugin_wc_action_links');
     }
+}
+
+/**
+ * Add action links to paypro plugin 
+ */
+function paypro_plugin_wc_action_links($links) {
+    $paypro_links = array(
+        '<a href="'.admin_url('admin.php?page=wc-settings&tab=checkout').'"> Settings </a>'
+        );
+    return array_merge($paypro_links, $links);
 }
 
 /**
