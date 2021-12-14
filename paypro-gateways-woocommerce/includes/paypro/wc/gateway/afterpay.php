@@ -7,8 +7,8 @@ class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway
         $this->supports = array(
             'products',
         );
-        
-        $this->icon = 'https://cdn.myafterpay.com/logo/AfterPay_logo_checkout.svg';
+
+        $this->icon_url = 'https://cdn.myafterpay.com/logo/AfterPay_logo_checkout.svg';
 
         $this->issuer = 'afterpay/giro';
 
