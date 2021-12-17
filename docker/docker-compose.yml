@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  wordpress:
+    build: 
+      context: .
+      dockerfile: Dockerfile.wordpress
+    restart: always
+    ports:
+      - 8080:80
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: paypro_wc_db
+      MYSQL_USER: paypro_wc_user
+      MYSQL_PASSWORD: paypro
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  wordpress:
+  db:

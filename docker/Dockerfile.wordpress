@@ -1,0 +1,14 @@
+FROM wordpress
+
+ENV WORDPRESS_DB_HOST=db
+ENV WORDPRESS_DB_NAME=paypro_wc_db
+ENV WORDPRESS_DB_USER=paypro_wc_user
+ENV WORDPRESS_DB_PASSWORD=paypro
+
+VOLUME /var/www/html
+COPY ./.install_wc.sh /.install_wc.sh
+
+RUN apt-get update && apt-get install -y \
+        libzip-dev \
+        zip \
+  && docker-php-ext-install zip
