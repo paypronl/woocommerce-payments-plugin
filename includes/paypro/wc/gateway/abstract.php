@@ -1,4 +1,6 @@
-<?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
+<?php
+
+defined('ABSPATH') || exit;
 
 abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 {

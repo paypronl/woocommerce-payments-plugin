@@ -1,6 +1,8 @@
-<?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
+<?php
 
-class PayPro_WC_Gateway_Visa extends PayPro_WC_Gateway_Abstract
+defined('ABSPATH') || exit;
+
+class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway_Abstract
 {
     public function __construct()
     {
@@ -8,7 +10,7 @@ class PayPro_WC_Gateway_Visa extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'creditcard/visa';
+        $this->issuer = 'afterpay/giro';
         $this->has_fields = FALSE;
 
         parent::__construct();
@@ -16,11 +18,11 @@ class PayPro_WC_Gateway_Visa extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Visa', 'paypro-gateways-woocommerce');
+        return __('Afterpay', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()
     {
-    return __('', 'paypro-gateways-woocommerce');
+        return __('', 'paypro-gateways-woocommerce');
     }
 }

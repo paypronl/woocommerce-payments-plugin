@@ -101,6 +101,19 @@ function paypro_wc_plugin_activation()
     }
 }
 
+add_action('woocommerce_blocks_loaded', 'paypro_woocommerce_blocks_support');
+
+function paypro_woocommerce_blocks_support() {
+    if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
+        add_action(
+            'woocommerce_blocks_payment_method_type_registration',
+            function(Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
+                $payment_method_registry->register(new PayPro_WC_Blocks_Support());
+            }
+        );
+    }
+}
+
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');
 
 add_action('init', 'paypro_plugin_init');

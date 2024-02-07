@@ -1,6 +1,8 @@
-<?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
+<?php
 
-class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract
+defined('ABSPATH') || exit;
+
+class PayPro_WC_Gateway_Sofort extends PayPro_WC_Gateway_Abstract
 {
     public function __construct()
     {
@@ -8,7 +10,7 @@ class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'paypal/direct';
+        $this->issuer = 'sofort/digital';
         $this->has_fields = FALSE;
 
         parent::__construct();
@@ -16,7 +18,7 @@ class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Paypal', 'paypro-gateways-woocommerce');
+        return __('Sofort', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()

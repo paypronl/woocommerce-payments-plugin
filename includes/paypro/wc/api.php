@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') || exit;
+
 class PayPro_WC_Api
 {
     /**

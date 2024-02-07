@@ -1,6 +1,8 @@
-<?php if(!defined('ABSPATH')) exit; // Exit if accessed directly
+<?php
 
-class PayPro_WC_Gateway_Mastercard extends PayPro_WC_Gateway_Abstract
+defined('ABSPATH') || exit;
+
+class PayPro_WC_Gateway_Idealqr extends PayPro_WC_Gateway_Abstract
 {
     public function __construct()
     {
@@ -8,7 +10,7 @@ class PayPro_WC_Gateway_Mastercard extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'creditcard/mastercard';
+        $this->issuer = 'ideal_qr';
         $this->has_fields = FALSE;
 
         parent::__construct();
@@ -16,7 +18,7 @@ class PayPro_WC_Gateway_Mastercard extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Mastercard', 'paypro-gateways-woocommerce');
+        return __('iDEAL QR', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()
