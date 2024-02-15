@@ -33,38 +33,38 @@ class PayPro_WC_Woocommerce
     /**
      * Adds a payment hashes to the order post meta
      */
-    public function addOrderPaymentHash($order_id, $payment_hash)
+    public function addOrderPaymentHash(WC_Order $order, $payment_hash)
     {
-        add_post_meta($order_id, $this->post_data_key, $payment_hash, false);
+        $order->add_meta_data($this->post_data_key, $payment_hash, false);
     }
 
     /**
      * Gets all payment hashes for an order from the post meta
      */
-    public function getOrderPaymentHashes($order_id)
+    public function getOrderPaymentHashes(WC_Order $order)
     {
-        return get_post_meta($order_id, $this->post_data_key, false);
+        return $order->get_meta($this->post_data_key, false);
     }
 
     /**
      * Removes all payments hashes for an order from the post meta
      */
-    public function removeOrderPaymentHashes($order_id)
+    public function removeOrderPaymentHashes(WC_Order $order)
     {
-        delete_post_meta($order_id, $this->post_data_key);
+        $order->delete_meta_data($this->post_data_key);
     }
 
     /**
      * Cancel a WooCommerce order
      */
-    public function cancelOrder($order, $payment_hash)
+    public function cancelOrder(WC_Order $order, $payment_hash)
     {
         if(PayPro_WC_Plugin::$settings->automaticCancellation())
             $order->cancel_order(sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
         else
             $order->add_order_note(sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
 
-        $this->removeOrderPaymentHash($this->getOrderId($order));
+        $this->removeOrderPaymentHash($order);
     }
 
     /**
@@ -77,46 +77,10 @@ class PayPro_WC_Woocommerce
             $status = 'wc-processing';
 
         $order->update_status($status, sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
-        $this->woocommerce3() ? wc_reduce_stock_levels($this->getOrderId($order)) : $order->reduce_order_stock();
+        wc_reduce_stock_levels($order->get_id());
         $order->payment_complete();
 
-        $this->removeOrderPaymentHashes($this->getOrderId($order));
-    }
-
-    /**
-     * Checks if this is woocommerce 3.0+
-     */
-    public function woocommerce3()
-    {
-        if(version_compare(WC()->version, '3.0', '>='))
-            return true;
-        return false;
-    }
-
-    /**
-     * Gets the order id
-     */
-    public function getOrderId($order)
-    {
-        if(is_a($order, 'WC_Order'))
-            $order_id = $this->woocommerce3() ? $order->get_id() : $order->id;
-        else
-            $order_id = NULL;
-
-        return $order_id;
-    }
-
-    /**
-     * Gets the order key
-     */
-    public function getOrderKey($order)
-    {
-        if(is_a($order, 'WC_Order'))
-            $order_key = $this->woocommerce3() ? $order->get_order_key() : $order->order_key;
-        else
-            $order_key = NULL;
-
-        return $order_key;
+        $this->removeOrderPaymentHashes($order);
     }
 
     /**
@@ -125,7 +89,7 @@ class PayPro_WC_Woocommerce
     public function getFirstname($order)
     {
         if(is_a($order, 'WC_Order'))
-            $first_name = $this->woocommerce3() ? $order->get_billing_first_name() : $order->billing_first_name;
+            $first_name = $order->get_billing_first_name();
         else
             $first_name = NULL;
 
@@ -138,7 +102,7 @@ class PayPro_WC_Woocommerce
     public function getLastName($order)
     {
         if(is_a($order, 'WC_Order'))
-            $order_key = $this->woocommerce3() ? $order->get_billing_last_name() : $order->billing_last_name;
+            $order_key = $order->get_billing_last_name();
         else
             $order_key = NULL;
 
@@ -151,7 +115,7 @@ class PayPro_WC_Woocommerce
     public function getAddress($order)
     {
         if(is_a($order, 'WC_Order'))
-            $address = $this->woocommerce3() ? $order->get_billing_address_1() : $order->billing_address_1;
+            $address = $order->get_billing_address_1();
         else
             $address = NULL;
 
@@ -164,7 +128,7 @@ class PayPro_WC_Woocommerce
     public function getShippingAddress($order)
     {
         if(is_a($order, 'WC_Order'))
-            $address = $this->woocommerce3() ? $order->get_shipping_address_1() : $order->shipping_address_1;
+            $address = $order->get_shipping_address_1();
         else
             $address = NULL;
 
@@ -177,7 +141,7 @@ class PayPro_WC_Woocommerce
     public function getPostcode($order)
     {
         if(is_a($order, 'WC_Order'))
-            $postcode = $this->woocommerce3() ? $order->get_billing_postcode() : $order->billing_postcode;
+            $postcode = $order->get_billing_postcode();
         else
             $postcode = NULL;
 
@@ -190,7 +154,7 @@ class PayPro_WC_Woocommerce
     public function getShippingPostcode($order)
     {
         if(is_a($order, 'WC_Order'))
-            $postcode = $this->woocommerce3() ? $order->get_shipping_postcode() : $order->shipping_postcode;
+            $postcode = $order->get_shipping_postcode();
         else
             $postcode = NULL;
 
@@ -203,7 +167,7 @@ class PayPro_WC_Woocommerce
     public function getCity($order)
     {
         if(is_a($order, 'WC_Order'))
-            $city = $this->woocommerce3() ? $order->get_billing_city() : $order->billing_city;
+            $city = $order->get_billing_city();
         else
             $city = NULL;
 
@@ -216,7 +180,7 @@ class PayPro_WC_Woocommerce
     public function getShippingCity($order)
     {
         if(is_a($order, 'WC_Order'))
-            $city = $this->woocommerce3() ? $order->get_shipping_city() : $order->shipping_city;
+            $city = $order->get_shipping_city();
         else
             $city = NULL;
 
@@ -229,7 +193,7 @@ class PayPro_WC_Woocommerce
     public function getCountry($order)
     {
         if(is_a($order, 'WC_Order'))
-            $country = $this->woocommerce3() ? $order->get_billing_country() : $order->billing_country;
+            $country = $order->get_billing_country();
         else
             $country = NULL;
 
@@ -242,7 +206,7 @@ class PayPro_WC_Woocommerce
     public function getShippingCountry($order)
     {
         if(is_a($order, 'WC_Order'))
-            $country = $this->woocommerce3() ? $order->get_shipping_country() : $order->shipping_country;
+            $country = $order->get_shipping_country();
         else
             $country = NULL;
 
@@ -255,7 +219,7 @@ class PayPro_WC_Woocommerce
     public function getPhonenumber($order)
     {
         if(is_a($order, 'WC_Order'))
-            $phonenumber = $this->woocommerce3() ? $order->get_billing_phone() : $order->billing_phone;
+            $phonenumber = $order->get_billing_phone();
         else
             $phonenumber = NULL;
 
@@ -268,7 +232,7 @@ class PayPro_WC_Woocommerce
     public function getEmail($order)
     {
         if(is_a($order, 'WC_Order'))
-            $email = $this->woocommerce3() ? $order->get_billing_email() : $order->billing_email;
+            $email = $order->get_billing_email();
         else
             $email = NULL;
 

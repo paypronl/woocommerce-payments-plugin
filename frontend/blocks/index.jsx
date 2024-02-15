@@ -4,6 +4,8 @@ import { registerPaymentMethod } from '@woocommerce/blocks-registry';
 import { decodeEntities } from '@wordpress/html-entities';
 import { getSetting } from '@woocommerce/settings';
 
+import { PAYMENT_METHODS } from './constants';
+
 import './index.scss';
 
 const IdealContent = (props) => {
@@ -60,9 +62,24 @@ const Content = () => {
   return '';
 };
 
-['paypro_wc_gateway_ideal', 'paypro_wc_gateway_mistercash'].forEach((name) => {
+const Label = (props) => {
+  return (
+    <span
+      className="pp-woocommerce-label"
+    >
+      { props.title }
+      <img
+        className="pp-woocommerce-icon"
+        src={ props.iconUrl }
+        alt={ props.title }
+      />
+    </span>
+  );
+};
+
+PAYMENT_METHODS.forEach((name) => {
   const settings = getSetting(`${name}_data`, {} );
-  const label = decodeEntities(settings.title);
+  const title = decodeEntities(settings.title);
 
   let content;
   if (name == 'paypro_wc_gateway_ideal') {
@@ -71,34 +88,13 @@ const Content = () => {
     content = <Content />
   }
 
-  /**
-   * Label component
-   *
-   * @param {*} props Props from payment API.
-   */
-  const Label = (props) => {
-    const { PaymentMethodLabel } = props.components;
-    return <PaymentMethodLabel text={ label } />;
-  };
-
   const PaymentMethod = {
     name: name,
-    label: (
-      <span
-        className="pp-woocommerce-label"
-      >
-        { settings.title }
-        <img
-          className="pp-woocommerce-icon"
-          src={ settings.iconUrl }
-          alt={ decodeEntities(settings.title) }
-        />
-      </span>
-    ),
+    label: <Label title={title} iconUrl={settings.iconUrl} />,
     content: content,
     edit: content,
     canMakePayment: () => true,
-    ariaLabel: label,
+    ariaLabel: title,
     supports: {
       features: settings.supports,
     }

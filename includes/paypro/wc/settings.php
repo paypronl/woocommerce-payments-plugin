@@ -4,12 +4,16 @@ defined('ABSPATH') || exit;
 
 class PayPro_WC_Settings
 {
+    public static function getId($setting) {
+        return PayPro_WC_Plugin::PLUGIN_ID . '_' . trim($setting);
+    }
+
     /**
      * Returns if plugin is in test mode
      */
     public function testMode()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('test-mode'))) === 'yes';
+        return trim(get_option(self::getId('test-mode'))) === 'yes';
     }
 
     /**
@@ -17,7 +21,7 @@ class PayPro_WC_Settings
      */
     public function debugMode()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('debug-mode'))) === 'yes';
+        return trim(get_option(self::getId('debug-mode'))) === 'yes';
     }
 
     /**
@@ -25,7 +29,7 @@ class PayPro_WC_Settings
      */
     public function apiKey()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('api-key')));
+        return trim(get_option(self::getId('api-key')));
     }
 
     /**
@@ -33,7 +37,7 @@ class PayPro_WC_Settings
      */
     public function productId()
     {
-        return intval(trim(get_option(PayPro_WC_Plugin::getSettingId('product-id'))));
+        return intval(trim(get_option(self::getId('product-id'))));
     }
 
     /**
@@ -41,7 +45,7 @@ class PayPro_WC_Settings
      */
     public function paymentDescription()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('payment-description')));
+        return trim(get_option(self::getId('payment-description')));
     }
 
     /**
@@ -49,7 +53,7 @@ class PayPro_WC_Settings
      */
     public function automaticCancellation()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('automatic-cancellation'))) === 'yes';
+        return trim(get_option(self::getId('automatic-cancellation'))) === 'yes';
     }
 
     /**
@@ -57,6 +61,6 @@ class PayPro_WC_Settings
      */
     public function paymentCompleteStatus()
     {
-        return trim(get_option(PayPro_WC_Plugin::getSettingId('payment-complete-status')));
+        return trim(get_option(self::getId('payment-complete-status')));
     }
 }

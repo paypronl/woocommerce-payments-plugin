@@ -4,12 +4,15 @@
  * Plugin Name: PayPro Gateways - WooCommerce
  * Plugin URI: https://www.paypro.nl/
  * Description: With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop.
- * Version: 1.3.3
+ * Version: 2.0.0
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
+ * Requires at least: 5.0
+ * Tested up to: 6.4
  * Text Domain: paypro-gateways-woocommerce
- *
- * @author PayPro BV
+ * WC requires at least: 3.9
+ * WC tested up to: 8.5
+ * Requires PHP: 7.2
  */
 
 define('PAYPRO_WC_PLUGIN_FILE', __FILE__);
@@ -105,22 +108,6 @@ function paypro_wc_plugin_activation()
     }
 }
 
-add_action('woocommerce_blocks_loaded', 'paypro_woocommerce_blocks_support');
-
-function paypro_woocommerce_blocks_support() {
-    if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
-        require_once('includes/paypro/wc/blocks.php');
-
-        add_action(
-            'woocommerce_blocks_payment_method_type_registration',
-            function(Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
-                $payment_method_registry->register(new PayPro_WC_Blocks_Support('paypro_wc_gateway_ideal', 'iDEAL', PAYPRO_WC_PLUGIN_URL . 'assets/images/paypro_wc_gateway_ideal.png'));
-                $payment_method_registry->register(new PayPro_WC_Blocks_Support('paypro_wc_gateway_mistercash', 'Bancontact', PAYPRO_WC_PLUGIN_URL . 'assets/images/paypro_wc_gateway_mistercash.png'));
-            }
-        );
-    }
-}
-
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');
 
-add_action('init', 'paypro_plugin_init');
+add_action('plugins_loaded', 'paypro_plugin_init');

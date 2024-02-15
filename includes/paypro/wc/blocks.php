@@ -4,14 +4,11 @@ use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodTyp
 defined('ABSPATH') || exit;
 
 final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
-    private $title;
+    private $gateway;
 
-    private $iconUrl;
-
-    public function __construct($name, $title, $iconUrl) {
-        $this->name = $name;
-        $this->title = $title;
-        $this->iconUrl = $iconUrl;
+    public function __construct($gateway) {
+        $this->gateway = $gateway;
+        $this->name = $gateway->id;
     }
 
     public function initialize() {
@@ -19,7 +16,7 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
     }
 
     public function is_active() {
-        return true;
+        return $this->gateway->isValid();
     }
 
     public function get_payment_method_script_handles() {
@@ -50,10 +47,12 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
     }
 
     public function get_payment_method_data() {
+        $issuers = $this->name == 'paypro_wc_gateway_ideal' ? PayPro_WC_Plugin::$paypro_api->getIdealIssuers()['issuers'] : [];
+
         return [
-            'title' => $this->title,
-            'iconUrl' => $this->iconUrl,
-            'issuers' => PayPro_WC_Plugin::$paypro_api->getIdealIssuers()['issuers']
+            'title' => $this->gateway->getTitle(),
+            'iconUrl' => $this->gateway->getIconUrl(),
+            'issuers' => $issuers
         ];
     }
 }

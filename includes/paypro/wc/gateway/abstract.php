@@ -4,12 +4,6 @@ defined('ABSPATH') || exit;
 
 abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 {
-    protected $default_title;
-
-    protected $default_description;
-
-    protected $default_logo;
-
     protected $default_status;
 
     protected $display_logo;
@@ -105,7 +99,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
             $paymentDescription = 'Order ' . $order->get_order_number();
 
         // Get all order information
-        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+        $order_key = $order->get_order_key();
         $first_name = PayPro_WC_Plugin::$woocommerce->getFirstName($order);
         $last_name = PayPro_WC_Plugin::$woocommerce->getLastName($order);
         $address = PayPro_WC_Plugin::$woocommerce->getAddress($order);
@@ -178,7 +172,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         // Set order information
         $order->add_order_note(sprintf(__('%s payment in process (%s)', 'woocommerce-paypro'), $this->method_title, $payment_hash));
-        PayPro_WC_Plugin::$woocommerce->addOrderPaymentHash($order_id, $result['data']['payment_hash']);
+        PayPro_WC_Plugin::$woocommerce->addOrderPaymentHash($order, $result['data']['payment_hash']);
 
         return array('result' => 'success', 'redirect' => esc_url_raw($result['data']['payment_url']));
     }
@@ -192,7 +186,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         // Get order from 
         $order = PayPro_WC_Plugin::$wc_api->getOrderFromApiUrl();
-        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
+        $order_id = $order->get_id();
 
         // Only handle order if it is still pending
         if(PayPro_WC_Plugin::$woocommerce->hasOrderStatus($order, 'pending'))
@@ -229,7 +223,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
     /**
      * Checks if the gateway is valid and ready for use
      */
-    protected function isValid()
+    public function isValid()
     {
         if((!PayPro_WC_Plugin::$settings->apiKey()) && $this->enabled === 'yes')
         {
@@ -243,9 +237,9 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
     /**
      * Returns the icon url for this gateway
      */
-    protected function getIconUrl()
+    public function getIconUrl()
     {
-        return PayPro_WC_Plugin::getPluginUrl('assets/images/' . $this->id . '.png');
+        return PAYPRO_WC_PLUGIN_URL . 'assets/images/' . $this->id . '.png';
     }
 
     /**
@@ -276,8 +270,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
      */
     protected function getReturnUrl(WC_Order $order)
     {
-        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
-        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+        $order_id = $order->get_id();
+        $order_key = $order->get_order_key();
 
         $return_url = WC()->api_request_url('paypro_return');
         return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key), $return_url);
@@ -288,8 +282,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
      */
     protected function getCancelUrl(WC_Order $order)
     {
-        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
-        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+        $order_id = $order->get_id();
+        $order_key = $order->get_order_key();
 
         $cancel_url = WC()->api_request_url('paypro_cancel');
         return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key), $cancel_url);
@@ -300,8 +294,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
      */ 
     protected function getCallbackUrl(WC_Order $order)
     {
-        $order_id = PayPro_WC_Plugin::$woocommerce->getOrderId($order);
-        $order_key = PayPro_WC_Plugin::$woocommerce->getOrderKey($order);
+        $order_id = $order->get_id();
+        $order_key = $order->get_order_key();
 
         $callback_url = WC()->api_request_url(strtolower(get_class($this)));
         return add_query_arg(array('order_id' => $order_id, 'order_key' => $order_key,), $callback_url);

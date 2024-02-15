@@ -21,6 +21,6 @@ module.exports = {
   },
 
   entry: {
-    index: './frontend/blocks/index.js'
+    index: './frontend/blocks/index.jsx'
   }
 };
