@@ -126,7 +126,7 @@ class PayPro_WC_Plugin
     /**
      * Adds all PayPro gateways to the list of gateways
      */
-    public static function addGateways (array $gateways)
+    public static function addGateways(array $gateways)
     {
         return array_merge($gateways, self::$paypro_gateways);
     }

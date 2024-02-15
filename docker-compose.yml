@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  wordpress:
+    image: wordpress:apache
+    container_name: paypro_woocommerce_wordpress
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db:mysql
+    ports:
+      - "8082:80"
+    env_file:
+      - default.env
+    volumes:
+      - ./docker/wordpress:/var/www/html
+      - ./docker/logs/apache2/:/var/log/apache2
+      - .:/var/www/html/wp-content/plugins/paypro-gateways-woocommerce
+    extra_hosts:
+      - "www.paypro.test:host-gateway"
+  db:
+    image: mariadb:11.2.3
+    container_name: paypro_woocommerce_mysql
+    restart: always
+    env_file:
+      - default.env
+    ports:
+      - "5678:3306"

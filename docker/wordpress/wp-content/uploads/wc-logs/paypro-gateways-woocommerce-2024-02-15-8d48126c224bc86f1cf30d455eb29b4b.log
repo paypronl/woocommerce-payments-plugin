@@ -1,0 +1,16 @@
+2024-02-15T10:14:48+00:00 DEBUG paypro_wc_gateway_ideal: Selected issuer - 
+2024-02-15T10:14:48+00:00 DEBUG paypro_wc_gateway_ideal: Payment created for 57 - Payment hash: e89aacfd05e7701b6f27ef974fdeae9e43aa6d00
+2024-02-15T10:16:00+00:00 DEBUG Array
+(
+    [selectedissuer] => ideal/INGBNL2A
+    [wc-paypro_wc_gateway_ideal-new-payment-method] => 
+)
+
+2024-02-15T10:16:00+00:00 DEBUG paypro_wc_gateway_ideal: Payment created for 57 - Payment hash: 664787be3bfbf1ba7031a97fd812693e3d906445
+2024-02-15T10:17:08+00:00 DEBUG Array
+(
+    [selected_issuer] => ideal/ABNANL2A
+    [wc-paypro_wc_gateway_ideal-new-payment-method] => 
+)
+
+2024-02-15T10:17:08+00:00 DEBUG paypro_wc_gateway_ideal: Payment created for 57 - Payment hash: 1a277d16c7011226993ae437ff72c9e2c66599c1

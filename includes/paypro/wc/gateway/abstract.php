@@ -10,6 +10,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
     protected $default_logo;
 
+    protected $default_status;
+
+    protected $display_logo;
+
     protected $issuer;
 
     /**
@@ -245,7 +249,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
     }
 
     /**
-     * Return the selected issuer
+     * Return the selected issuer. In the case of iDEAL it will try to find the issuer based on the
+     * issuer selected by the customer.
+     *
+     * It checks in the following order:
+     *  - Old checkout iDEAL issuer
+     *  - Block based checkout iDEAL issuer
+     *  - Take the issuer from the Gateway
      */
     protected function getSelectedIssuer()
     {
@@ -253,6 +263,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         if(!empty($_POST[$issuer_id]))
            return strval($_POST[$issuer_id]);
+        elseif(!empty($_POST['selected_issuer']))
+            return strval($_POST['selected_issuer']);
         elseif(!empty($this->issuer))
             return $this->issuer;
         else

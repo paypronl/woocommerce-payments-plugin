@@ -1,0 +1,1337 @@
+[14-Feb-2024 13:00:31 UTC] PHP Warning:  exif_read_data(vnech-tee-green-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 13:00:32 UTC] PHP Warning:  exif_read_data(vnech-tee-blue-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 13:00:33 UTC] PHP Warning:  exif_read_data(hoodie-blue-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 13:00:33 UTC] PHP Warning:  exif_read_data(hoodie-green-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 13:00:39 UTC] PHP Warning:  exif_read_data(single-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 13:01:56 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php on line 138
+[14-Feb-2024 13:01:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-admin/includes/misc.php on line 1431
+[14-Feb-2024 13:01:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-includes/functions.php on line 7049
+[14-Feb-2024 13:01:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-admin/admin-header.php on line 9
+[14-Feb-2024 13:01:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-includes/option.php on line 1478
+[14-Feb-2024 13:01:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-includes/option.php on line 1479
+[14-Feb-2024 13:02:12 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php on line 138
+[14-Feb-2024 14:37:03 UTC] PHP Fatal error:  Declaration of PayPro_WC_Blocks_Support::initialize($name) must be compatible with Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface::initialize() in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/wc/blocks.php on line 7
+[14-Feb-2024 14:37:04 UTC] PHP Fatal error:  Declaration of PayPro_WC_Blocks_Support::initialize($name) must be compatible with Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface::initialize() in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/wc/blocks.php on line 7
+[14-Feb-2024 14:37:04 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 14:37:04 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 14:37:04 UTC] PHP Fatal error:  Declaration of PayPro_WC_Blocks_Support::initialize($name) must be compatible with Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface::initialize() in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/wc/blocks.php on line 7
+[14-Feb-2024 14:37:54 UTC] PHP Fatal error:  Declaration of PayPro_WC_Blocks_Support::initialize($name) must be compatible with Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface::initialize() in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/wc/blocks.php on line 7
+[14-Feb-2024 14:41:37 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 14:46:05 UTC] PHP Deprecated:  Creation of dynamic property WC_Order_Item_Product::$legacy_values is deprecated in /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php on line 520
+[14-Feb-2024 14:46:05 UTC] PHP Deprecated:  Creation of dynamic property WC_Order_Item_Product::$legacy_cart_item_key is deprecated in /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php on line 521
+[14-Feb-2024 15:37:31 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:40:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:41:36 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:41:49 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:42:06 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:42:32 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:44:00 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:45:55 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:46:32 UTC] PHP Warning:  exif_read_data(vnech-tee-green-1-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 15:46:33 UTC] PHP Warning:  exif_read_data(vnech-tee-blue-1-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 15:46:34 UTC] PHP Warning:  exif_read_data(hoodie-blue-1-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 15:46:35 UTC] PHP Warning:  exif_read_data(hoodie-green-1-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 15:46:40 UTC] PHP Warning:  exif_read_data(single-1-1.jpg): Incorrect APP1 Exif Identifier Code in /var/www/html/wp-admin/includes/image.php on line 856
+[14-Feb-2024 15:47:06 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php on line 138
+[14-Feb-2024 15:47:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-admin/includes/misc.php on line 1431
+[14-Feb-2024 15:47:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-includes/functions.php on line 7049
+[14-Feb-2024 15:47:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-admin/admin-header.php on line 9
+[14-Feb-2024 15:47:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-includes/option.php on line 1478
+[14-Feb-2024 15:47:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php:138) in /var/www/html/wp-includes/option.php on line 1479
+[14-Feb-2024 15:47:07 UTC] PHP Deprecated:  Automatic conversion of false to array is deprecated in /var/www/html/wp-content/plugins/woocommerce/src/Admin/DataSourcePoller.php on line 138
+[14-Feb-2024 15:47:37 UTC] PHP Deprecated:  Creation of dynamic property WC_Order_Item_Product::$legacy_values is deprecated in /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php on line 520
+[14-Feb-2024 15:47:37 UTC] PHP Deprecated:  Creation of dynamic property WC_Order_Item_Product::$legacy_cart_item_key is deprecated in /var/www/html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php on line 521
+[14-Feb-2024 15:52:01 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Connection refused in /var/www/html/wp-includes/class-wpdb.php on line 1987
+[14-Feb-2024 15:59:40 UTC] PHP Fatal error:  Uncaught Error: Class "PayProApiHelper" not found in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php:25
+Stack trace:
+#0 /var/www/html/wp-settings.php(473): include_once()
+#1 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#2 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#4 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php on line 25
+[14-Feb-2024 15:59:40 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 15:59:40 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:00:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function setCommand() on null in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php:20
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(28): PayProApiHelper->getIdealIssuers()
+#1 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#2 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#5 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php on line 20
+[14-Feb-2024 16:00:33 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:00:33 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function setCommand() on null in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php:20
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(28): PayProApiHelper->getIdealIssuers()
+#1 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#2 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#6 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php on line 20
+[14-Feb-2024 16:01:12 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:12 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:22 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to www.paypro.test port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:01:22 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:22 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:57 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to localhost port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:01:57 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:57 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:59 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to localhost port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:01:59 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:01:59 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:38 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:38 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:38 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:40 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:40 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:40 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:41 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:41 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:41 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:41 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:41 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:41 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to host.docker.internal port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:02:42 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:56 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:03:56 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:56 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:57 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:03:57 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:57 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:58 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:03:58 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:58 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:58 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:03:58 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:58 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:58 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:03:58 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:03:58 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:37 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:04:37 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:37 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:38 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:39 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 7]: Failed to connect to 172.17.0.1 port 3000 after 0 ms: Couldn't connect to server in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:04:39 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:39 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:52 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:04:52 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:04:52 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:32 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:32 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:32 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:34 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:34 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:34 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:35 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:35 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:35 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:35 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:35 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:35 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:36 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:36 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:36 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:36 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:36 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:36 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:36 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:06:36 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:06:36 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:24 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:24 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:24 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:25 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:25 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:25 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:25 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:25 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:25 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:25 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:25 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:25 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:26 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:27 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:28 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:28 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:28 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:42 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:42 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:42 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:43 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:43 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:43 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:44 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:07:44 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:07:44 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:08:35 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:08:35 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:08:35 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:08:48 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:08:48 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:08:48 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:37 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:09:37 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:37 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:39 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:09:39 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:39 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:40 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:09:40 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:40 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:40 UTC] PHP Fatal error:  Uncaught PayPro\Error\InvalidResponse: The API request returned an error or is invalid: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>404 Not Found</title>
+</head><body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.52 (Ubuntu) Server at 172.17.0.1 Port 80</address>
+</body></html>
+ in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:61
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 61
+[14-Feb-2024 16:09:40 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:09:40 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:10:17 UTC] PHP Warning:  Undefined array key "data" in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php on line 23
+[14-Feb-2024 16:10:17 UTC] PHP Warning:  Trying to access array offset on value of type null in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php on line 23
+[14-Feb-2024 16:14:31 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:14:31 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:14:31 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:07 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:07 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:07 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:08 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:08 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:08 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:08 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:08 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:08 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:08 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:08 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:08 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:09 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:09 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:09 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:09 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:09 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:09 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:22 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:22 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:22 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:23 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:23 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:23 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:24 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:15:24 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:15:24 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:24:19 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:24:19 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:24:19 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:24:19 UTC] PHP Fatal error:  Uncaught PayPro\Error\Connection: Could not connect to the PayPro API - [errno: 6]: Could not resolve host: app.payro.test in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php:52
+Stack trace:
+#0 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(46): PayPro\Client->execute()
+#1 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/includes/paypro/api/PayProApiHelper.php(21): PayProApiHelper->execute()
+#2 /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/paypro-gateways-woocommerce.php(29): PayProApiHelper->getIdealIssuers()
+#3 /var/www/html/wp-settings.php(473): include_once('/var/www/html/w...')
+#4 /var/www/html/wp-config.php(137): require_once('/var/www/html/w...')
+#5 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-admin/admin.php(34): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-admin/index.php(10): require_once('/var/www/html/w...')
+#8 {main}
+  thrown in /var/www/html/wp-content/plugins/paypro-gateways-woocommerce/vendor/paypro/paypro-php-v1/lib/Client.php on line 52
+[14-Feb-2024 16:24:19 UTC] PHP Notice:  Function is_embed was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031
+[14-Feb-2024 16:24:19 UTC] PHP Notice:  Function is_search was called incorrectly. Conditional query tags do not work before the query is run. Before then, they always return false. Please see <a>Debugging in WordPress</a> for more information. (This message was added in version 3.1.0.) in /var/www/html/wp-includes/functions.php on line 6031

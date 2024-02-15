@@ -12,6 +12,10 @@
  * @author PayPro BV
  */
 
+define('PAYPRO_WC_PLUGIN_FILE', __FILE__);
+define('PAYPRO_WC_PLUGIN_PATH', plugin_dir_path(PAYPRO_WC_PLUGIN_FILE));
+define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
+
 require_once('vendor/autoload.php');
 require_once('includes/paypro/wc/autoload.php');
 
@@ -22,7 +26,7 @@ load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-wo
  * Checks if Woocommerce is active, autoloads classes and initializes the plugin.
  */
 function paypro_plugin_init()
-{   
+{
     // Check if WooCommerce is active
     if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option( 'active_plugins'))) || class_exists('WooCommerce')) 
     {
@@ -105,10 +109,13 @@ add_action('woocommerce_blocks_loaded', 'paypro_woocommerce_blocks_support');
 
 function paypro_woocommerce_blocks_support() {
     if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
+        require_once('includes/paypro/wc/blocks.php');
+
         add_action(
             'woocommerce_blocks_payment_method_type_registration',
             function(Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
-                $payment_method_registry->register(new PayPro_WC_Blocks_Support());
+                $payment_method_registry->register(new PayPro_WC_Blocks_Support('paypro_wc_gateway_ideal', 'iDEAL', PAYPRO_WC_PLUGIN_URL . 'assets/images/paypro_wc_gateway_ideal.png'));
+                $payment_method_registry->register(new PayPro_WC_Blocks_Support('paypro_wc_gateway_mistercash', 'Bancontact', PAYPRO_WC_PLUGIN_URL . 'assets/images/paypro_wc_gateway_mistercash.png'));
             }
         );
     }
