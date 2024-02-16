@@ -59,10 +59,13 @@ class PayPro_WC_Woocommerce
      */
     public function cancelOrder(WC_Order $order, $payment_hash)
     {
+        /* translators: %s contains the payment hash of the PayPro payment */
+        $message = sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash);
+
         if(PayPro_WC_Plugin::$settings->automaticCancellation())
-            $order->cancel_order(sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
+            $order->cancel_order($message);
         else
-            $order->add_order_note(sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
+            $order->add_order_note($message);
 
         $this->removeOrderPaymentHash($order);
     }
@@ -76,7 +79,10 @@ class PayPro_WC_Woocommerce
         if(empty($status))
             $status = 'wc-processing';
 
-        $order->update_status($status, sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash));
+        /* translators: %s contains the payment hash of the PayPro payment */
+        $message = sprintf(__('PayPro payment succeeded (%s)', 'paypro-gateways-woocommerce'), $payment_hash);
+        $order->update_status($status, $message);
+
         wc_reduce_stock_levels($order->get_id());
         $order->payment_complete();
 

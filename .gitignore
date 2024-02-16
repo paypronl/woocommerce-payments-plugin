@@ -2,5 +2,6 @@
 
 build/
 docker/
+vendor/
 
 /node_modules/

@@ -38,5 +38,13 @@ npm run down
 To build the JS and CSS assets you can use the following command:
 
 ```shell
-npm run build
+npm run build:assets
+```
+
+### Generate translations
+
+To generate the translations into .mo files you can use the following command:
+
+```shell
+npm run build:i18n
 ```

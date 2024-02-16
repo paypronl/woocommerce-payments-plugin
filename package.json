@@ -8,7 +8,12 @@
     "webpack": "^5.90.1"
   },
   "scripts": {
-    "build": "wp-scripts build",
+    "build": "npm run build:i18n && npm run build:assets",
+    "build:i18n": "npm run i18n:make-pot && npm run i18n:update-po && npm run i18n:make-mo",
+    "build:assets": "wp-scripts build",
+    "i18n:make-pot": "./vendor/bin/wp i18n make-pot . languages/paypro-gateways-woocommerce.pot --exclude=assets,bin,build,docker,node_modules,vendor",
+    "i18n:update-po": "./vendor/bin/wp i18n update-po languages/paypro-gateways-woocommerce.pot languages/",
+    "i18n:make-mo": "./vendor/bin/wp i18n make-mo languages/",
     "up": "docker compose up --build --force-recreate -d && ./bin/docker-setup.sh",
     "stop": "docker compose stop",
     "down": "docker compose down"
