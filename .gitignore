@@ -2,6 +2,7 @@
 
 build/
 docker/
+release/
 vendor/
 
 /node_modules/

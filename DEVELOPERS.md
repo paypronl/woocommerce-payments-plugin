@@ -4,7 +4,8 @@ This is a guide for developers who wish to develop the plugin on their local mac
 ## Environment requirements
 
 1. Node 18+
-2. Docker compose
+2. PHP 7.2+
+3. Docker compose
 
 ## Commands
 
@@ -48,3 +49,21 @@ To generate the translations into .mo files you can use the following command:
 ```shell
 npm run build:i18n
 ```
+
+### Create release files
+
+To create the release files you can run:
+
+```shell
+npm run build:release
+```
+
+This will create a release folder with the release files and a zip file of that folder.
+
+You can also run:
+
+```shell
+npm run build
+```
+
+This will run all build tasks before running the build:release task.
