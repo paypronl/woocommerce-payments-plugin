@@ -11,7 +11,7 @@
  * Tested up to: 6.4
  * Text Domain: paypro-gateways-woocommerce
  * Domain Path: /languages
- * WC requires at least: 3.9
+ * WC requires at least: 5.0
  * WC tested up to: 8.5
  * Requires PHP: 7.2
  */

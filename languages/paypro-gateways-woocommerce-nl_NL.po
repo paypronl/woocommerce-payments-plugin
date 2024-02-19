@@ -12,7 +12,7 @@ msgstr ""
 "Language: nl_NL\n"
 "X-Generator: Poedit 2.0.3\n"
 
-#: includes/paypro/wc/settingspage.php:36
+#: includes/paypro/wc/settingspage.php:41
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -64,63 +64,63 @@ msgstr "Sofort"
 msgid "Visa"
 msgstr "Visa"
 
-#: includes/paypro/wc/settingspage.php:19
+#: includes/paypro/wc/settingspage.php:24
 msgid "PayPro settings"
 msgstr "PayPro Instellingen"
 
-#: includes/paypro/wc/settingspage.php:20
+#: includes/paypro/wc/settingspage.php:25
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr "De volgende opties zijn nodig voor de plugin en worden door alle betaal methoden gebruikt."
 
-#: includes/paypro/wc/settingspage.php:24
+#: includes/paypro/wc/settingspage.php:29
 msgid "PayPro API key"
 msgstr "PayPro API sleutel"
 
-#: includes/paypro/wc/settingspage.php:26
+#: includes/paypro/wc/settingspage.php:31
 msgid "API key used by the PayPro API."
 msgstr "API sleutel voor de PayPro API"
 
-#: includes/paypro/wc/settingspage.php:30
+#: includes/paypro/wc/settingspage.php:35
 msgid "PayPro Product ID"
 msgstr "PayPro Product ID"
 
-#: includes/paypro/wc/settingspage.php:32
+#: includes/paypro/wc/settingspage.php:37
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr "Product ID om een order aan een product te koppelen. Niet verplicht."
 
-#: includes/paypro/wc/settingspage.php:38
+#: includes/paypro/wc/settingspage.php:43
 msgid "Payment description send to PayPro."
 msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
 
-#: includes/paypro/wc/settingspage.php:43
+#: includes/paypro/wc/settingspage.php:48
 msgid "Payment Complete Status"
 msgstr "Betaling succesvol afgerond status"
 
-#: includes/paypro/wc/settingspage.php:47
+#: includes/paypro/wc/settingspage.php:52
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr "Bepaald de status van een order als er een succesvolle betaling is gedaan. Standaard: In Behandeling"
 
-#: includes/paypro/wc/settingspage.php:51
+#: includes/paypro/wc/settingspage.php:56
 msgid "Enable automatic cancellation"
 msgstr "Activeer automatisch afkeuren."
 
-#: includes/paypro/wc/settingspage.php:53
+#: includes/paypro/wc/settingspage.php:58
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr "Als een betaling geannuleerd is automatisch de order ook afkeuren."
 
-#: includes/paypro/wc/settingspage.php:57
+#: includes/paypro/wc/settingspage.php:62
 msgid "Enable test mode"
 msgstr "Activeer test modus"
 
-#: includes/paypro/wc/settingspage.php:59
+#: includes/paypro/wc/settingspage.php:64
 msgid "Puts the API in test mode."
 msgstr "Zet de API in test modus."
 
-#: includes/paypro/wc/settingspage.php:63
+#: includes/paypro/wc/settingspage.php:68
 msgid "Enable debug mode"
 msgstr "Activeer debug modus"
 
-#: includes/paypro/wc/settingspage.php:65
+#: includes/paypro/wc/settingspage.php:70
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
 

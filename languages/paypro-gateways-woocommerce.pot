@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-16T12:50:46+01:00\n"
+"POT-Creation-Date: 2024-02-19T14:29:01+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -92,67 +92,67 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:19
+#: includes/paypro/wc/settingspage.php:24
 msgid "PayPro settings"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:20
+#: includes/paypro/wc/settingspage.php:25
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:24
+#: includes/paypro/wc/settingspage.php:29
 msgid "PayPro API key"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:26
+#: includes/paypro/wc/settingspage.php:31
 msgid "API key used by the PayPro API."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:30
+#: includes/paypro/wc/settingspage.php:35
 msgid "PayPro Product ID"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:32
+#: includes/paypro/wc/settingspage.php:37
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:36
+#: includes/paypro/wc/settingspage.php:41
 msgid "Description"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:38
+#: includes/paypro/wc/settingspage.php:43
 msgid "Payment description send to PayPro."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:43
+#: includes/paypro/wc/settingspage.php:48
 msgid "Payment Complete Status"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:47
+#: includes/paypro/wc/settingspage.php:52
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:51
+#: includes/paypro/wc/settingspage.php:56
 msgid "Enable automatic cancellation"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:53
+#: includes/paypro/wc/settingspage.php:58
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:57
+#: includes/paypro/wc/settingspage.php:62
 msgid "Enable test mode"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:59
+#: includes/paypro/wc/settingspage.php:64
 msgid "Puts the API in test mode."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:63
+#: includes/paypro/wc/settingspage.php:68
 msgid "Enable debug mode"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:65
+#: includes/paypro/wc/settingspage.php:70
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr ""
 

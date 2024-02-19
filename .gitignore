@@ -2,6 +2,7 @@
 
 build/
 docker/
+docker-old/
 release/
 vendor/
 

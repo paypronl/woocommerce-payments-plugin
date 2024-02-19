@@ -11,8 +11,13 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
         parent::__construct();
     }
 
-    protected function get_settings_for_default_section() {
-        $settings = [
+    public function get_settings() {
+        $settings = $this->getPayproSettings();
+        return apply_filters('woocommerce_get_settings_' . $this->id, $settings);
+    }
+
+    private function getPayproSettings() {
+        return [
             [
                 'id'         => $this->getSettingId('title'),
                 'type'       => 'title',
@@ -69,8 +74,6 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
                 'type'       => 'sectionend',
             ]
         ];
-
-        return apply_filters('woocommerce_paypro_wc_settings_settings', $settings);
     }
 
     private function getSettingId($setting) {
