@@ -36,6 +36,7 @@ class PayPro_WC_Woocommerce
     public function addOrderPaymentHash(WC_Order $order, $payment_hash)
     {
         $order->add_meta_data($this->post_data_key, $payment_hash, false);
+        $order->save();
     }
 
     /**

@@ -48,15 +48,13 @@ class PayPro_WC_Api
      */
     public function getPaymentHashesFromOrder($order)
     {
-        $order_id =$order->get_id();
-
         // Get payment hash
-        $payment_hashes = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHashes($order_id);
+        $payment_hashes = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHashes($order);
 
         if(empty($payment_hashes))
         {
             header(' ', true, 401);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Not a valid payment hash found for this order - id: ' . $order_id);
+            PayPro_WC_Plugin::debug(__CLASS__ . ': Not a valid payment hash found for this order - id: ' . $order->get_id());
             exit;
         }
 
