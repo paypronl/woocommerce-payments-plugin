@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 
 class PayPro_WC_Woocommerce
 {
-    var $post_data_key = '_paypro_payment_hash';
+    var $payment_hash_meta_data_key = '_paypro_payment_hash';
 
     /**
      * Returns a WooCommerce order by id
@@ -35,7 +35,7 @@ class PayPro_WC_Woocommerce
      */
     public function addOrderPaymentHash(WC_Order $order, $payment_hash)
     {
-        $order->add_meta_data($this->post_data_key, $payment_hash, false);
+        $order->add_meta_data($this->payment_hash_meta_data_key, $payment_hash, false);
         $order->save();
     }
 
@@ -44,7 +44,8 @@ class PayPro_WC_Woocommerce
      */
     public function getOrderPaymentHashes(WC_Order $order)
     {
-        return $order->get_meta($this->post_data_key, false);
+        $meta_data_entries = $order->get_meta($this->payment_hash_meta_data_key, false);
+        return array_map(fn($meta_data) => $meta_data->value, $meta_data_entries);
     }
 
     /**
@@ -52,7 +53,8 @@ class PayPro_WC_Woocommerce
      */
     public function removeOrderPaymentHashes(WC_Order $order)
     {
-        $order->delete_meta_data($this->post_data_key);
+        $order->delete_meta_data($this->payment_hash_meta_data_key);
+        $order->save();
     }
 
     /**

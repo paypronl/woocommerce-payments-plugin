@@ -14,14 +14,11 @@ With this plugin you easily add all PayPro payment gateways to your WooCommerce 
 - Mastercard
 - Visa
 
-
 ## Requirements
 
-- PHP version 5.3 or greater
-- PHP extension cUrl
-- PHP extension OpenSSL
-- Wordpress 3.8 or greater
-- WooCommerce 2.2 or greater
+- PHP version 7.2 or greater
+- Wordpress 5.0 or greater
+- WooCommerce 5.0 or greater
 
 ## Installation
 
