@@ -18,7 +18,7 @@ class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Afterpay', 'paypro-gateways-woocommerce');
+        return __('Riverty', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()
