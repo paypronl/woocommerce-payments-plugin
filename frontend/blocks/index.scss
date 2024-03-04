@@ -1,0 +1,12 @@
+.pp-woocommerce {
+  &-label {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-icon {
+    padding-right: 1em;
+  }
+}

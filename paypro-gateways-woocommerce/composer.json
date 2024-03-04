@@ -1,8 +1,0 @@
-{
-  "require": {
-    "paypro/paypro-php-v1": "~1.0"
-  },
-  "config": {
-    "preferred-install": "dist"
-  }
-}

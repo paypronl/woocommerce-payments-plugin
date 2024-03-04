@@ -1,0 +1,9 @@
+.DS_Store
+
+build/
+docker/
+docker-old/
+release/
+vendor/
+
+/node_modules/

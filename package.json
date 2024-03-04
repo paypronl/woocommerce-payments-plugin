@@ -1,0 +1,25 @@
+{
+  "name": "woocommerce-payments-plugin",
+  "title": "PayPro Gateways WooCommerce",
+  "version": "2.0.0",
+  "devDependencies": {
+    "@woocommerce/dependency-extraction-webpack-plugin": "^2.3.0",
+    "@wordpress/scripts": "^27.1.0",
+    "archiver": "^6.0.1",
+    "colors": "^1.4.0",
+    "webpack": "^5.90.1",
+    "zx": "^7.2.3"
+  },
+  "scripts": {
+    "build": "npm run build:i18n && npm run build:assets && npm run build:release",
+    "build:release": "npx zx ./tasks/release.mjs",
+    "build:i18n": "npm run i18n:make-pot && npm run i18n:update-po && npm run i18n:make-mo",
+    "build:assets": "wp-scripts build",
+    "i18n:make-pot": "./vendor/bin/wp i18n make-pot . languages/paypro-gateways-woocommerce.pot --exclude=assets,bin,build,docker,node_modules,release,vendor",
+    "i18n:update-po": "./vendor/bin/wp i18n update-po languages/paypro-gateways-woocommerce.pot languages/",
+    "i18n:make-mo": "./vendor/bin/wp i18n make-mo languages/",
+    "up": "docker compose up --build --force-recreate -d && npx zx ./tasks/docker-setup.mjs",
+    "stop": "docker compose stop",
+    "down": "docker compose down"
+  }
+}
