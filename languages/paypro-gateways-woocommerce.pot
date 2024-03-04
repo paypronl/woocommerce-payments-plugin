@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-19T14:29:01+01:00\n"
+"POT-Creation-Date: 2024-03-04T10:09:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -157,12 +157,12 @@ msgid "Enables the PayPro plugin to output debug information to the Woocommerce 
 msgstr ""
 
 #. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:63
+#: includes/paypro/wc/woocommerce.php:66
 msgid "PayPro payment cancelled (%s)"
 msgstr ""
 
 #. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:83
+#: includes/paypro/wc/woocommerce.php:86
 msgid "PayPro payment succeeded (%s)"
 msgstr ""
 

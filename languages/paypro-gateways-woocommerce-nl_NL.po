@@ -129,12 +129,12 @@ msgid "PayPro API key not set. PayPro payment methods will not be displayed in t
 msgstr "PayPro API sleutel niet ingevuld. PayPro betaalmethoden worden niet getoond in het betalingsproces."
 
 #. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:63
+#: includes/paypro/wc/woocommerce.php:66
 msgid "PayPro payment cancelled (%s)"
 msgstr "PayPro betaling geannulleerd (%s)"
 
 #. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:83
+#: includes/paypro/wc/woocommerce.php:86
 msgid "PayPro payment succeeded (%s)"
 msgstr "PayPro betaling succesvol (%s)"
 
