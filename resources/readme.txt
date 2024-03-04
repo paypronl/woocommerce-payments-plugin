@@ -2,7 +2,7 @@
 Contributors: paypro
 Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
 Requires at least: 5.0
-Tested up to: 6.4
+Tested up to: 6.4.3
 Stable tag: 2.0.0
 Requires PHP: 7.2
 License: GPLv2
@@ -48,10 +48,8 @@ In order to use this plugin you need to have an approved PayPro account.
 = Requirements =
 
 * PHP version 7.2 or greater
-* PHP extension cURL
-* PHP extension OpenSSL
-* WordPress 3.8 or greater
-* WooCommerce 3.9 or greater
+* WordPress 5.0 or greater
+* WooCommerce 5.0 or greater
 
 = Automatic installation =
 
@@ -96,9 +94,9 @@ You can find your product id at 'Webshop Koppelen' in the PayPro dashboard.
 IMPORTANT 2.0.0 is a major update and changes the versions of WordPress, PHP and WooCommerce that are supported. Make sure before upgrading to validate your webshop is up-to-date.
 
 * Drop support for WordPress below 5.0
-* Drop support for WooCommerce below 3.9
+* Drop support for WooCommerce below 5.0
 * Drop support for PHP below 7.2
-* Update plugin to be tested with WordPress 6.4.2
+* Update plugin to be tested with WordPress 6.4.3
 * Update plugin to be compatible with WooCommerce 8.5
 * Add WooCommerce checkout blocks support
 * Add WooCommerce HPOS support
