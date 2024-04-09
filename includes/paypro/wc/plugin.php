@@ -129,6 +129,9 @@ class PayPro_WC_Plugin
         $order->add_order_note(__('PayPro - Customer cancelled payment. Redirected him back to his cart.'));
         self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order_id . '. Redirecting back to cart.');
 
+        $payment_hashes = self::$wc_api->getPaymentHashesFromOrder($order);
+        self::$woocommerce->cancelOrder($order, end($payment_hashes));
+
         wp_safe_redirect(wc_get_cart_url());
         exit;
     }
