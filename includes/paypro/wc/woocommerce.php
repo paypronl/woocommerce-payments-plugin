@@ -66,11 +66,11 @@ class PayPro_WC_Woocommerce
         $message = sprintf(__('PayPro payment cancelled (%s)', 'paypro-gateways-woocommerce'), $payment_hash);
 
         if(PayPro_WC_Plugin::$settings->automaticCancellation())
-            $order->cancel_order($message);
+            $order->update_status('cancelled', $message);
         else
             $order->add_order_note($message);
 
-        $this->removeOrderPaymentHash($order);
+        $this->removeOrderPaymentHashes($order);
     }
 
     /**
