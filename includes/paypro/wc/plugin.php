@@ -6,7 +6,7 @@ class PayPro_WC_Plugin
 {
     const PLUGIN_ID = 'paypro-gateways-woocommerce';
     const PLUGIN_TITLE = 'PayPro Gateways - WooCommerce';
-    const PLUGIN_VERSION = '2.0.0';
+    const PLUGIN_VERSION = '2.0.1';
 
     public static $paypro_api;
     public static $settings;
