@@ -126,13 +126,19 @@ class PayPro_WC_Plugin
         $order = self::$wc_api->getOrderFromApiUrl();
         $order_id = $order->get_id();
 
-        $order->add_order_note(__('PayPro - Customer cancelled payment. Redirected him back to his cart.'));
-        self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order_id . '. Redirecting back to cart.');
+        $order->add_order_note(__('PayPro - Customer cancelled payment.'));
+        self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order_id);
 
-        $payment_hashes = self::$wc_api->getPaymentHashesFromOrder($order);
-        self::$woocommerce->cancelOrder($order, end($payment_hashes));
-
-        wp_safe_redirect(wc_get_cart_url());
+        if(PayPro_WC_Plugin::$settings->automaticCancellation())
+        {
+            $payment_hashes = self::$wc_api->getPaymentHashesFromOrder($order);
+            self::$woocommerce->cancelOrder($order, end($payment_hashes));
+            wp_safe_redirect($order->get_cancel_order_url());
+        }
+        else
+        {
+            wp_safe_redirect(wc_get_cart_url());
+        }
         exit;
     }
 
