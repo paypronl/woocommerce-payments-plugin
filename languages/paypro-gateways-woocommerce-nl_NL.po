@@ -120,7 +120,7 @@ msgstr "Activeer debug modus"
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
 
-#: includes/paypro/wc/plugin.php:179
+#: includes/paypro/wc/plugin.php:188
 msgid "PayPro API key not set. PayPro payment methods will not be displayed in the checkout process."
 msgstr "PayPro API sleutel niet ingevuld. PayPro betaalmethoden worden niet getoond in het betalingsproces."
 
@@ -130,7 +130,7 @@ msgid "PayPro payment cancelled (%s)"
 msgstr "PayPro betaling geannulleerd (%s)"
 
 #. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:86
+#: includes/paypro/wc/woocommerce.php:91
 msgid "PayPro payment succeeded (%s)"
 msgstr "PayPro betaling succesvol (%s)"
 
@@ -160,7 +160,7 @@ msgstr "Een plugin voor WooCommerce die gemakkelijk alle PayPro betaalmogelijkhe
 msgid "PayPro"
 msgstr "PayPro"
 
-#: includes/paypro/wc/plugin.php:218
+#: includes/paypro/wc/plugin.php:227
 msgid "Settings"
 msgstr "Instellingen"
 
