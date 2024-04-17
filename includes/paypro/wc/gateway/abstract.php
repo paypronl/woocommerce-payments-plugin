@@ -218,6 +218,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         }
 
         PayPro_WC_Plugin::debug($this->id . ': Callback - Order is not pending, so leaving it alone');
+
+        header( 'HTTP/1.1 200 OK' );
+            echo 'ok';
+            die();
     }
 
     /**
