@@ -92,6 +92,7 @@ You can find your product id at 'Webshop Koppelen' in the PayPro dashboard.
 = 2.0.1 =
 
 * Fixed a bug where order would not be automatically cancelled when payment is cancelled
+* Return 'ok' in the callback response body
 
 = 2.0.0 =
 
