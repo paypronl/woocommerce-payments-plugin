@@ -33,6 +33,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
 
         add_action('woocommerce_api_' . $this->id, array($this, 'callback'));
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
+        add_action('wp_enqueue_scripts', array($this, 'addCheckoutStyles'));
 
         if(!$this->isValid())
             $this->enabled = 'no';
@@ -222,6 +223,20 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway
         status_header(200);
         echo 'ok';
         die();
+    }
+
+    /**
+     * Adds the checkout styles to the checkout page
+     */
+    public function addCheckoutStyles() {
+        wp_register_style(
+            'paypro-checkout',
+            PAYPRO_WC_PLUGIN_URL . 'assets/styles/paypro-checkout.css',
+            [],
+            PAYPRO_WC_VERSION
+        );
+
+        wp_enqueue_style('paypro-checkout');
     }
 
     /**
