@@ -15,7 +15,7 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 function dr(command) {
   const args = Array.isArray(command) ? command : command.split(' ');
-  return $`docker run -it --env-file default.env --rm --user xfs --volumes-from ${WP_CONTAINER} --network container:${WP_CONTAINER} wordpress:cli ${args}`;
+  return $`docker run -it --env-file default.env --rm --user 33:33 --volumes-from ${WP_CONTAINER} --network container:${WP_CONTAINER} wordpress:cli ${args}`;
 }
 
 result = await dr('wp db check --path=/var/www/html').exitCode;
