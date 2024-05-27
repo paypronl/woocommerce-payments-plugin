@@ -8,7 +8,7 @@
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Requires at least: 5.0
- * Tested up to: 6.4.3
+ * Tested up to: 6.5.3
  * Text Domain: paypro-gateways-woocommerce
  * Domain Path: /languages
  * WC requires at least: 5.0
