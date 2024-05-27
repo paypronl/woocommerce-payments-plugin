@@ -2,7 +2,7 @@
 Contributors: paypro
 Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
 Requires at least: 5.0
-Tested up to: 6.4.3
+Tested up to: 6.5.3
 Stable tag: 2.0.1
 Requires PHP: 7.2
 License: GPLv2
@@ -88,6 +88,10 @@ You can find your product id at 'Webshop Koppelen' in the PayPro dashboard.
 3. Example of the checkout payment method selection.
 
 == Changelog == 
+
+= 2.0.2 =
+
+* Fixed large icons in the legacy checkout for some themes
 
 = 2.0.1 =
 

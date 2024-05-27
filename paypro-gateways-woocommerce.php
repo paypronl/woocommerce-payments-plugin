@@ -19,7 +19,7 @@
 define('PAYPRO_WC_PLUGIN_FILE', __FILE__);
 define('PAYPRO_WC_PLUGIN_PATH', plugin_dir_path(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
-define('PAYPRO_WC_VERSION', '2.0.1');
+define('PAYPRO_WC_VERSION', '2.0.2');
 
 require_once('vendor/autoload.php');
 require_once('includes/paypro/wc/autoload.php');
