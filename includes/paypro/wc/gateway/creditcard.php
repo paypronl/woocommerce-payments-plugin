@@ -18,7 +18,7 @@ class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Creditcard', 'paypro-gateways-woocommerce');
+        return __('Credit card', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()

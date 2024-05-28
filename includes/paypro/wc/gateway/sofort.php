@@ -18,7 +18,7 @@ class PayPro_WC_Gateway_Sofort extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Klarna - Pay now', 'paypro-gateways-woocommerce');
+        return __('Sofort', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()

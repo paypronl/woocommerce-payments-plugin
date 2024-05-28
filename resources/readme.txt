@@ -22,7 +22,7 @@ Currently the plugin supports the following payment methods:
 * Sofort
 * Afterpay
 * SEPA Credit Transfer
-* Creditcard
+* Credit card (Visa and Mastercard)
 
 = Features =
 

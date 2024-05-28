@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b72df76f6c9227c96f96a273c9a14db",
+    "content-hash": "1b6680984ab19f7818ed9ba4084db64f",
     "packages": [
         {
             "name": "paypro/paypro-php",
