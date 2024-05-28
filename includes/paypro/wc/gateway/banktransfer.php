@@ -10,7 +10,7 @@ class PayPro_WC_Gateway_BankTransfer extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'banktransfer/sepa';
+        $this->issuer = 'bank-transfer';
         $this->has_fields = FALSE;
 
         parent::__construct();

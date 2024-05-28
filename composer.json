@@ -1,6 +1,7 @@
 {
   "require": {
-    "paypro/paypro-php-v1": "~1.0"
+    "paypro/paypro-php-v1": "~1.0",
+    "paypro/paypro-php": "^1.0"
   },
   "require-dev": {
     "wp-cli/wp-cli-bundle": "2.10.0"
