@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f35489c60b0d9e557dc2ce25b12bd335",
+    "content-hash": "1b6680984ab19f7818ed9ba4084db64f",
     "packages": [
+        {
+            "name": "paypro/paypro-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypronl/paypro-php.git",
+                "reference": "942d9916d58a732c9e0e608804b2a40b0f608683"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypronl/paypro-php/zipball/942d9916d58a732c9e0e608804b2a40b0f608683",
+                "reference": "942d9916d58a732c9e0e608804b2a40b0f608683",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.48",
+                "phpstan/phpstan": "^1.4",
+                "phpunit/phpunit": "^8.5 || ^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PayPro\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PayPro BV",
+                    "email": "support@paypro.nl"
+                }
+            ],
+            "description": "PayPro PHP library",
+            "homepage": "https://www.paypro.nl",
+            "keywords": [
+                "api",
+                "payment processing",
+                "paypro"
+            ],
+            "time": "2024-05-13T08:30:13+00:00"
+        },
         {
             "name": "paypro/paypro-php-v1",
             "version": "1.0.2",
@@ -849,12 +898,12 @@
             "version": "v5.2.13",
             "source": {
                 "type": "git",
-                "url": "https://github.com/justinrainbow/json-schema.git",
+                "url": "https://github.com/jsonrainbow/json-schema.git",
                 "reference": "fbbe7e5d79f618997bc3332a6f49246036c45793"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/fbbe7e5d79f618997bc3332a6f49246036c45793",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/fbbe7e5d79f618997bc3332a6f49246036c45793",
                 "reference": "fbbe7e5d79f618997bc3332a6f49246036c45793",
                 "shasum": ""
             },

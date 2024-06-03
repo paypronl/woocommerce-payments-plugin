@@ -10,7 +10,7 @@ class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->issuer = 'paypal/direct';
+        $this->issuer = 'paypal';
         $this->has_fields = FALSE;
 
         parent::__construct();
@@ -18,7 +18,7 @@ class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract
 
     public function getTitle()
     {
-        return __('Paypal', 'paypro-gateways-woocommerce');
+        return __('PayPal', 'paypro-gateways-woocommerce');
     }
 
     public function getDescription()

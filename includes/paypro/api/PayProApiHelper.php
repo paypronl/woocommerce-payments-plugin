@@ -17,10 +17,15 @@ class PayProApiHelper
 
     public function getIdealIssuers()
     {
-        $this->api->setCommand('get_all_pay_methods');
-        $result = $this->execute();
+        $result = $this->api->payMethods->list();
 
-        $result['issuers'] = $result['data']['data']['ideal']['methods'];
+        $result = array_filter($result['data'], function($method) {
+            return $method->id === 'ideal';
+        });
+
+        $result = array_values($result);
+
+        $result['issuers'] = $result[0]['details']['issuers'];
         unset($result['data']);
         return $result;
     }

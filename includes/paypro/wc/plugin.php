@@ -15,14 +15,12 @@ class PayPro_WC_Plugin
 
     private static $gateway_classes = [
         'PayPro_WC_Gateway_Ideal',
-        'PayPro_WC_Gateway_Idealqr',
         'PayPro_WC_Gateway_Paypal',
-        'PayPro_WC_Gateway_Mistercash',
+        'PayPro_WC_Gateway_Bancontact',
         'PayPro_WC_Gateway_Afterpay',
         'PayPro_WC_Gateway_BankTransfer',
         'PayPro_WC_Gateway_Sofort',
-        'PayPro_WC_Gateway_Mastercard',
-        'PayPro_WC_Gateway_Visa',
+        'PayPro_WC_Gateway_Creditcard',
     ];
 
     private static $gateways = [];
