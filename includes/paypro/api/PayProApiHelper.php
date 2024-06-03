@@ -15,6 +15,22 @@ class PayProApiHelper
         $this->testMode = $testMode ? true : false;
     }
 
+    public function getWebhook($reference) {
+        return $this->api->webhooks->get($reference);
+    }
+
+    public function createWebhook() {
+        $webhook_url = WC()->api_request_url('paypro_wc_plugin');
+
+        return $this->api->webhooks->create(
+            [
+                'name' => 'WooCommerce',
+                'description' => 'WooCommerce webhook',
+                'url' => $webhook_url
+            ]
+        );
+    }
+
     public function getIdealIssuers()
     {
         $result = $this->api->payMethods->list();
