@@ -9,14 +9,6 @@ class PayPro_WC_Settings
     }
 
     /**
-     * Returns if plugin is in test mode
-     */
-    public function testMode()
-    {
-        return trim(get_option(self::getId('test-mode'))) === 'yes';
-    }
-
-    /**
      * Returns if plugin is in debug mode
      */
     public function debugMode()

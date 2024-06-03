@@ -22,21 +22,22 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
             $hide_save_button = true;
 
             try {
-              $webhook_id = get_option('paypro_webhook_id', true);
+                $webhook_id = get_option('paypro-webhook-id', true);
 
-              $webhook = PayPro_WC_Plugin::$paypro_api->getWebhook($webhook_id);
+                $webhook = PayPro_WC_Plugin::$paypro_api->getWebhook($webhook_id);
 
-              echo '<table>
-                      <tr>
-                        <td><strong>Webhook ID</strong></td>
-                        <td style="padding: 5px 15px"><code>' . $webhook->id . '</code></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Webhook Name</strong></td>
-                        <td style="padding: 5px 15px">' . $webhook->name . '</td>
-                      </tr>
-                    </table>';
-            } catch(\PayPro\Exception\ApiErrorException $e) {
+                echo '<table>
+                        <tr>
+                          <td><strong>Webhook ID</strong></td>
+                          <td style="padding: 5px 15px"><code>' . $webhook?->id . '</code></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Webhook Name</strong></td>
+                          <td style="padding: 5px 15px">' . $webhook?->name . '</td>
+                        </tr>
+                      </table>';
+            }
+            catch(\PayPro\Exception\ApiErrorException $e) {
                 echo sprintf(
                     '<div class="error"><p><strong>PayPro</strong> - %s</p></div>',
                     __($e->getMessage(), 'paypro-gateways-woocommerce')
@@ -50,16 +51,24 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
     public function save() {
         global $current_section;
 
-        $settings = $this->get_settings();
-
-        WC_Admin_Settings::save_fields($settings);
-
         if ($current_section == 'webhook') {
-            $webhook_id = PayPro_WC_Plugin::$paypro_api->createWebhook()->id;
+            try {
+                $webhook_id = PayPro_WC_Plugin::$paypro_api->createWebhook()->id;
 
-            update_option('paypro_webhook_id', $webhook_id);
+                update_option('paypro-webhook-id', $webhook_id);
 
-            WC_Admin_Settings::add_message(__('PayPro webhook was created successfully!', 'paypro-gateways-woocommerce'));
+                WC_Admin_Settings::add_message(__('PayPro webhook was created successfully!', 'paypro-gateways-woocommerce'));
+            }
+            catch(\PayPro\Exception\ApiErrorException $e) {
+                echo sprintf(
+                    '<div class="error"><p><strong>PayPro</strong> - %s</p></div>',
+                    __($e->getMessage(), 'paypro-gateways-woocommerce')
+                );
+            }
+        } else {
+            $settings = $this->get_settings();
+
+            WC_Admin_Settings::save_fields($settings);
         }
     }
 
@@ -126,12 +135,6 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
                 'title'      => __('Enable automatic cancellation', 'paypro-gateways-woocommerce'),
                 'type'       => 'checkbox',
                 'desc_tip'   => __('If a payment is cancelled automatically set the order on cancelled too.', 'paypro-gateways-woocommerce'),
-            ],
-            [
-                'id'         => $this->getSettingId('test-mode'),
-                'title'      => __('Enable test mode', 'paypro-gateways-woocommerce'),
-                'type'       => 'checkbox',
-                'desc_tip'   => __('Puts the API in test mode.', 'paypro-gateways-woocommerce'),
             ],
             [
                 'id'         => $this->getSettingId('debug-mode'),

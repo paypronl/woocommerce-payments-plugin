@@ -5,27 +5,25 @@ class PayProApiHelper
     var $apiKey;
     var $api;
 
-    var $testMode;
-
     public function __construct() {}
 
-    public function init($apiKey, $testMode = false)
-    {
-        $this->api = new \PayPro\Client($apiKey);
-        $this->testMode = $testMode ? true : false;
+    public function init($apiKey) {
+        try {
+            $this->api = new \PayPro\Client($apiKey);
+        } catch(\Exception $e) {}
     }
 
     public function getWebhook($reference) {
-        return $this->api->webhooks->get($reference);
+        return $this->api?->webhooks->get($reference);
     }
 
     public function createWebhook() {
         $webhook_url = WC()->api_request_url('paypro_wc_plugin');
 
-        return $this->api->webhooks->create(
+        return $this->api?->webhooks->create(
             [
                 'name' => 'WooCommerce',
-                'description' => 'WooCommerce webhook',
+                'description' => 'Webhook for WooCommerce PayPro plugin.',
                 'url' => $webhook_url
             ]
         );
@@ -33,16 +31,19 @@ class PayProApiHelper
 
     public function getIdealIssuers()
     {
-        $result = $this->api->payMethods->list();
+        $result = $this->api?->payMethods->list();
 
-        $result = array_filter($result['data'], function($method) {
-            return $method->id === 'ideal';
-        });
+        if ($result) {
+            $result = array_filter($result['data'], function($method) {
+                return $method->id === 'ideal';
+            });
 
-        $result = array_values($result);
+            $result = array_values($result);
 
-        $result['issuers'] = $result[0]['details']['issuers'];
-        unset($result['data']);
+            $result['issuers'] = $result[0]['details']['issuers'];
+            unset($result['data']);
+        }
+
         return $result;
     }
 
@@ -62,8 +63,6 @@ class PayProApiHelper
 
     private function execute()
     {
-        if($this->testMode) $this->api->setParam('test_mode', 'true'); else $this->api->setParam('test_mode', 'false');
-
         $result = $this->api->execute();
 
         if(isset($result['errors']))
