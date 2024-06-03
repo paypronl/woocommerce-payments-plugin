@@ -73,8 +73,7 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
     }
 
     public function get_settings() {
-        global $current_section, $hide_save_button;;
-        $prefix = 'paypro_';
+        global $current_section, $hide_save_button;
 
         switch ($current_section) {
             case 'webhook':
