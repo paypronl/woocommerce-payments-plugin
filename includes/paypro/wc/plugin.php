@@ -9,9 +9,6 @@ class PayPro_WC_Plugin
     const PLUGIN_VERSION = '2.0.2';
 
     public static $paypro_api;
-    public static $settings;
-    public static $woocommerce;
-    public static $wc_api;
 
     private static $gateway_classes = [
         'PayPro_WC_Gateway_Ideal',
@@ -48,96 +45,24 @@ class PayPro_WC_Plugin
 
         add_filter('woocommerce_get_settings_pages',          [__CLASS__, 'setupSettingsPage']);
 
-        add_action('woocommerce_api_paypro_return',           [__CLASS__, 'onReturn']);
-
-        add_action('woocommerce_api_paypro_cancel',           [__CLASS__, 'onCancel']);
-
         add_action('admin_notices',                           [__CLASS__, 'addApiKeyReminder']);
 
-        // Initialize all PayPro classes we need
-        self::$settings = new PayPro_WC_Settings();
-        self::$woocommerce = new PayPro_WC_Woocommerce();
-        self::$wc_api = new PayPro_WC_Api();
+        // Setup all classes
         self::$paypro_api = new PayProApiHelper();
-        self::$paypro_api->init(self::$settings->apiKey(), self::$settings->testMode());
+
+        if (PayPro_WC_Settings::apiKey()) {
+            self::$paypro_api->init(PayPro_WC_Settings::apiKey(), PayPro_WC_Settings::testMode());
+        }
+
+        $payment_handler = new PayPro_WC_PaymentHandler();
+        $payment_handler->init();
+
+        $webhook_handler = new PayPro_WC_WebhookHandler();
+        $webhook_handler->init();
 
         self::setupGateways();
 
         $initialized = true;
-    }
-
-    /**
-     * Callback function that gets called when PayPro redirects back to the site
-     */
-    public static function onReturn()
-    {
-        self::debug(__CLASS__ . ': OnReturn - URL: http' . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-
-        $order = self::$wc_api->getOrderFromApiUrl();
-        $order_id = $order->get_id();
-
-        // Only handle order if it is still pending
-        if(self::$woocommerce->hasOrderStatus($order, 'pending'))
-        {
-            $payment_hashes = self::$wc_api->getPaymentHashesFromOrder($order);
-            $sale = self::$wc_api->getSaleStatusFromPaymentHashes($payment_hashes);
-
-            // Check status and do appropiate response
-            if(strcasecmp($sale['status'], 'cancelled') === 0)
-            {
-                self::$woocommerce->cancelOrder($order, $sale['hash']);
-                self::debug(__CLASS__ . ': OnReturn - Payment cancelled for order: ' . $order_id);
-
-                wp_safe_redirect($order->get_cancel_order_url());
-                exit;
-            } 
-            else
-            {
-                if(strcasecmp($sale['status'], 'open') !== 0)
-                {
-                    self::$woocommerce->completeOrder($order, $sale['hash']);
-                    self::debug(__CLASS__ . ': OnReturn - Payment completed for order: ' . $order_id);
-                }
-                else
-                {
-                    $order->add_order_note(__('PayPro payment pending (' .  $sale['hash'] . ')'));
-                    self::debug(__CLASS__ . ': OnReturn - Payment still open for order: ' . $order_id);
-                }
-
-                wp_safe_redirect($order->get_checkout_order_received_url());
-                exit;
-            }
-        }
-
-        self::debug(__CLASS__ . ': OnReturn - Order is not pending, redirect to order received page');
-        wp_safe_redirect($order->get_checkout_order_received_url());
-        exit;
-    }
-
-    /**
-     * Callback function that gets called when a customer cancels the payment directly
-     */
-    public static function onCancel()
-    {
-        self::debug(__CLASS__ . ': OnCancel - URL: http' . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-
-        $order = self::$wc_api->getOrderFromApiUrl();
-        $order_id = $order->get_id();
-
-        $order->add_order_note(__('PayPro - Customer cancelled payment.'));
-        self::debug(__CLASS__ . ': OnCancel - Payment cancelled by customer for order: ' . $order_id);
-
-        if(PayPro_WC_Plugin::$settings->automaticCancellation())
-        {
-            $payment_hashes = self::$wc_api->getPaymentHashesFromOrder($order);
-            self::$woocommerce->cancelOrder($order, end($payment_hashes));
-            wp_safe_redirect($order->get_cancel_order_url());
-        }
-        else
-        {
-            wp_safe_redirect(wc_get_cart_url());
-        }
-        exit;
     }
 
     /**
@@ -146,24 +71,6 @@ class PayPro_WC_Plugin
     public static function addGateways(array $gateways)
     {
         return array_merge($gateways, self::$gateway_classes);
-    }
-
-    /**
-     * Writes a debug line to the WooCommerce logger
-     */
-    public static function debug($message)
-    {
-        // Only write log if debug mode enabled
-        if(!self::$settings->debugMode()) return;
-
-        // Convert not strings to strings
-        if(!is_string($message))
-            $message = print_r($message, true);
-
-        $logger = wc_get_logger();
-        $context = ['source' => 'paypro-gateways-woocommerce'];
-
-        $logger->debug($message, $context);
     }
 
     /**
@@ -179,7 +86,7 @@ class PayPro_WC_Plugin
      */
     public static function addApiKeyReminder()
     {
-        if(!self::$settings->apiKey())
+        if(!PayPro_WC_Settings::apiKey())
         {
             echo sprintf(
                 '<div class="error"><p><strong>PayPro</strong> - %s</p></div>', 
@@ -211,7 +118,7 @@ class PayPro_WC_Plugin
      * Adds the plugin settings to the WooCommerce settings
      */
     public static function setupSettingsPage($settings) {
-        $settings_page = new PayPro_WC_Settingspage();
+        $settings_page = include 'settings-page.php';
         $settings[] = $settings_page;
 
         return $settings;

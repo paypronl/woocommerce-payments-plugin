@@ -11,7 +11,7 @@ class PayPro_WC_Settings
     /**
      * Returns if plugin is in test mode
      */
-    public function testMode()
+    public static function testMode()
     {
         return trim(get_option(self::getId('test-mode'))) === 'yes';
     }
@@ -19,7 +19,7 @@ class PayPro_WC_Settings
     /**
      * Returns if plugin is in debug mode
      */
-    public function debugMode()
+    public static function debugMode()
     {
         return trim(get_option(self::getId('debug-mode'))) === 'yes';
     }
@@ -27,7 +27,7 @@ class PayPro_WC_Settings
     /**
      * Returns the API key
      */
-    public function apiKey()
+    public static function apiKey()
     {
         return trim(get_option(self::getId('api-key')));
     }
@@ -35,7 +35,7 @@ class PayPro_WC_Settings
     /**
      * Returns the product id
      */
-    public function productId()
+    public static function productId()
     {
         return intval(trim(get_option(self::getId('product-id'))));
     }
@@ -43,7 +43,7 @@ class PayPro_WC_Settings
     /**
      * Returns the payment description
      */
-    public function paymentDescription()
+    public static function paymentDescription()
     {
         return trim(get_option(self::getId('payment-description')));
     }
@@ -51,7 +51,7 @@ class PayPro_WC_Settings
     /**
      * Returns if plugin has automatic cancellation enabled
      */
-    public function automaticCancellation()
+    public static function automaticCancellation()
     {
         return trim(get_option(self::getId('automatic-cancellation'))) === 'yes';
     }
@@ -59,7 +59,7 @@ class PayPro_WC_Settings
     /**
      * Returns the order status setting for when a payment has been completed
      */
-    public function paymentCompleteStatus()
+    public static function paymentCompleteStatus()
     {
         return trim(get_option(self::getId('payment-complete-status')));
     }

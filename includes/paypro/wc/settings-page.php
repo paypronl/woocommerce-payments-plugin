@@ -2,7 +2,7 @@
 
 defined('ABSPATH') || exit;
 
-class PayPro_WC_Settingspage extends WC_Settings_Page
+class PayPro_WC_SettingsPage extends WC_Settings_Page
 {
     public function __construct() {
         $this->id = 'paypro_wc_settings';
@@ -80,3 +80,5 @@ class PayPro_WC_Settingspage extends WC_Settings_Page
         return PayPro_WC_Settings::getId($setting);
     }
 }
+
+return new PayPro_WC_Settingspage();

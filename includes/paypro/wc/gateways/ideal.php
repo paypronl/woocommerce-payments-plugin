@@ -10,7 +10,8 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract
             'products',
         );
 
-        $this->has_fields = TRUE;
+        $this->issuer = 'ideal';
+        $this->has_fields = true;
 
         parent::__construct();
     }
@@ -23,6 +24,11 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract
     public function getDescription()
     {
         return __('Select your bank', 'paypro-gateways-woocommerce');
+    }
+
+    public function getAdditionalPaymentData()
+    {
+        return ['issuer' => $this->getIssuer()];
     }
 
     public function payment_fields()
@@ -44,5 +50,24 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract
         $html .= '</select>';
 
         echo wpautop(wptexturize($html));
+    }
+
+    /**
+     * Returns the selected issuer.
+     *
+     * It checks in the following order:
+     *  - Old checkout iDEAL issuer
+     *  - Block based checkout iDEAL issuer
+     */
+    private function getIssuer()
+    {
+        $issuer_id = PayPro_WC_Plugin::PLUGIN_ID . '_issuer_' . $this->id;
+
+        if(!empty($_POST[$issuer_id]))
+           return strval($_POST[$issuer_id]);
+        elseif(!empty($_POST['selected_issuer']))
+            return strval($_POST['selected_issuer']);
+        else
+            return null;
     }
 }

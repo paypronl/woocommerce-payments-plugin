@@ -14,7 +14,7 @@ const IdealContent = (props) => {
 
   const [issuer, setIssuer] = useState('');
 
-  const options = issuers.map((issuer) => <option value={issuer.id} key={issuer.id}>{issuer.name}</option>);
+  const options = issuers.map((issuer) => <option value={issuer.code} key={issuer.code}>{issuer.name}</option>);
 
   const updateSelect = (event) => {
     setIssuer(event.target.value)

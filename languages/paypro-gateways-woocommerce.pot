@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PayPro Gateways - WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: PayPro Gateways - WooCommerce 2.0.1\n"
+"Project-Id-Version: PayPro Gateways - WooCommerce 2.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-payments-plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-11T09:59:52+00:00\n"
+"POT-Creation-Date: 2024-06-05T16:14:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -32,141 +32,125 @@ msgstr ""
 
 #. Author of the plugin
 #: paypro-gateways-woocommerce.php
-#: includes/paypro/wc/settingspage.php:9
+#: includes/paypro/wc/settings-page.php:9
 msgid "PayPro"
 msgstr ""
 
-#: includes/paypro/wc/gateway/abstract.php:153
-msgid "is not subscribed to this payment method, please try different method."
-msgstr ""
-
-#: includes/paypro/wc/gateway/abstract.php:155
-msgid "Could not use this payment method, please try again."
-msgstr ""
-
-#: includes/paypro/wc/gateway/afterpay.php:21
+#: includes/paypro/wc/gateways/afterpay.php:21
 msgid "Riverty"
 msgstr ""
 
-#: includes/paypro/wc/gateway/banktransfer.php:21
-msgid "Bank Transfer"
-msgstr ""
-
-#: includes/paypro/wc/gateway/ideal.php:20
-msgid "iDEAL"
-msgstr ""
-
-#: includes/paypro/wc/gateway/ideal.php:25
-msgid "Select your bank"
-msgstr ""
-
-#: includes/paypro/wc/gateway/idealqr.php:21
-msgid "iDEAL QR"
-msgstr ""
-
-#: includes/paypro/wc/gateway/mastercard.php:21
-msgid "Mastercard"
-msgstr ""
-
-#: includes/paypro/wc/gateway/mistercash.php:21
+#: includes/paypro/wc/gateways/bancontact.php:21
 msgid "Bancontact"
 msgstr ""
 
-#: includes/paypro/wc/gateway/paypal.php:21
-msgid "Paypal"
+#: includes/paypro/wc/gateways/banktransfer.php:21
+msgid "Bank Transfer"
 msgstr ""
 
-#: includes/paypro/wc/gateway/sofort.php:21
+#: includes/paypro/wc/gateways/creditcard.php:21
+msgid "Credit card"
+msgstr ""
+
+#: includes/paypro/wc/gateways/ideal.php:21
+msgid "iDEAL"
+msgstr ""
+
+#: includes/paypro/wc/gateways/ideal.php:26
+msgid "Select your bank"
+msgstr ""
+
+#: includes/paypro/wc/gateways/paypal.php:21
+msgid "PayPal"
+msgstr ""
+
+#: includes/paypro/wc/gateways/sofort.php:21
 msgid "Sofort"
 msgstr ""
 
-#: includes/paypro/wc/gateway/visa.php:21
-msgid "Visa"
+#. translators: %s contains the payment id of the PayPro payment
+#: includes/paypro/wc/order.php:79
+msgid "PayPro payment (%s) succeeded"
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:188
+#. translators: %s contains the payment id of the PayPro payment
+#: includes/paypro/wc/order.php:91
+msgid "PayPro payment (%s) cancelled "
+msgstr ""
+
+#: includes/paypro/wc/plugin.php:93
 msgid "PayPro API key not set. PayPro payment methods will not be displayed in the checkout process."
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:227
+#: includes/paypro/wc/plugin.php:132
 msgid "Settings"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:24
+#: includes/paypro/wc/settings-page.php:24
 msgid "PayPro settings"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:25
+#: includes/paypro/wc/settings-page.php:25
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:29
+#: includes/paypro/wc/settings-page.php:29
 msgid "PayPro API key"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:31
+#: includes/paypro/wc/settings-page.php:31
 msgid "API key used by the PayPro API."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:35
+#: includes/paypro/wc/settings-page.php:35
 msgid "PayPro Product ID"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:37
+#: includes/paypro/wc/settings-page.php:37
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:41
+#: includes/paypro/wc/settings-page.php:41
 msgid "Description"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:43
+#: includes/paypro/wc/settings-page.php:43
 msgid "Payment description send to PayPro."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:48
+#: includes/paypro/wc/settings-page.php:48
 msgid "Payment Complete Status"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:52
+#: includes/paypro/wc/settings-page.php:52
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:56
+#: includes/paypro/wc/settings-page.php:56
 msgid "Enable automatic cancellation"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:58
+#: includes/paypro/wc/settings-page.php:58
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:62
+#: includes/paypro/wc/settings-page.php:62
 msgid "Enable test mode"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:64
+#: includes/paypro/wc/settings-page.php:64
 msgid "Puts the API in test mode."
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:68
+#: includes/paypro/wc/settings-page.php:68
 msgid "Enable debug mode"
 msgstr ""
 
-#: includes/paypro/wc/settingspage.php:70
+#: includes/paypro/wc/settings-page.php:70
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr ""
 
-#. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:66
-msgid "PayPro payment cancelled (%s)"
-msgstr ""
-
-#. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:91
-msgid "PayPro payment succeeded (%s)"
-msgstr ""
-
-#: paypro-gateways-woocommerce.php:105
+#: paypro-gateways-woocommerce.php:120
 msgid "Could not activate plugin WooCommerce PayPro"
 msgstr ""
 

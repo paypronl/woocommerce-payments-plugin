@@ -19,6 +19,7 @@ services:
       - .:/var/www/html/wp-content/plugins/paypro-gateways-woocommerce
     extra_hosts:
       - "www.paypro.test:host-gateway"
+      - "api.paypro.test:host-gateway"
   db:
     image: mariadb:11.2.3
     container_name: paypro_woocommerce_mysql

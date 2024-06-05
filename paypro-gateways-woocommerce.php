@@ -22,20 +22,34 @@ define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_VERSION', '2.0.2');
 
 require_once('vendor/autoload.php');
-require_once('includes/paypro/wc/autoload.php');
 
 load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
 
 /**
  * Entry point of the plugin.
- * Checks if Woocommerce is active, autoloads classes and initializes the plugin.
+ * Checks if Woocommerce is active, loads classes and initializes the plugin.
  */
 function paypro_plugin_init()
 {
     // Check if WooCommerce is active
-    if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option( 'active_plugins'))) || class_exists('WooCommerce')) 
+    if(in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) || class_exists('WooCommerce'))
     {
-        PayPro_WC_Autoload::register();
+        require_once dirname(__FILE__) . '/includes/paypro/api/PayProApiHelper.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/logger.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/order.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/plugin.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/settings.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/webhook-handler.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/payment-handler.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/abstract.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/afterpay.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/bancontact.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/banktransfer.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/creditcard.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/ideal.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/paypal.php';
+        require_once dirname(__FILE__) . '/includes/paypro/wc/gateways/sofort.php';
+
         PayPro_WC_Plugin::init();
     }
 }
@@ -81,8 +95,8 @@ function paypro_wc_plugin_activation()
 
         $error_list .= '</tr><tr>';
 
-        // Check if WooCommerce is the correct version (>= 2.2)
-        if (WC()->version >= '2.2.0')
+        // Check if WooCommerce is the correct version (>= 5.0.0)
+        if (WC()->version >= '5.0.0')
         {
             $error_list .= '<td>WooCommerce version is good</td><td style="color: green;">Ok</td>';
         }

@@ -2,10 +2,10 @@
 
 class PayProApiHelper
 {
-    var $apiKey;
-    var $api;
+    public $apiKey;
+    public $api;
 
-    var $testMode;
+    public $testMode;
 
     public function __construct() {}
 
@@ -30,36 +30,23 @@ class PayProApiHelper
         return $result;
     }
 
+    public function getCustomer($id)
+    {
+        return $this->api->customers->get($id);
+    }
+
+    public function createCustomer(array $data = [])
+    {
+        return $this->api->customers->create($data);
+    }
+
+    public function getPayment($id)
+    {
+        return $this->api->payments->get($id);
+    }
+
     public function createPayment(array $data)
     {
-        $this->api->setCommand('create_payment');
-        $this->api->setParams($data);
-        return $this->execute();
-    }
-
-    public function getSaleStatus($payment_hash)
-    {
-        $this->api->setCommand('get_sale');
-        $this->api->setParam('payment_hash', $payment_hash);
-        return $this->execute();
-    }
-
-    private function execute()
-    {
-        if($this->testMode) $this->api->setParam('test_mode', 'true'); else $this->api->setParam('test_mode', 'false');
-
-        $result = $this->api->execute();
-
-        if(isset($result['errors']))
-        {
-            if(strcmp($result['errors'], 'false') === 0)
-                return array('errors' => false, 'data' => $result['return']);
-            else
-                return array('errors' => true, 'message' => $result['return']);
-        }
-        else
-        {
-            return array('errors' => true, 'message' => 'Invalid return from the API');
-        }
+        return $this->api->payments->create($data);
     }
 }

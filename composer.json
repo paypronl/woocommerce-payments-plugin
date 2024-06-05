@@ -1,6 +1,5 @@
 {
   "require": {
-    "paypro/paypro-php-v1": "~1.0",
     "paypro/paypro-php": "^1.0.0"
   },
   "require-dev": {
