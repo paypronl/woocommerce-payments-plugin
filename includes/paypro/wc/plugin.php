@@ -51,7 +51,7 @@ class PayPro_WC_Plugin
         self::$paypro_api = new PayProApiHelper();
 
         if (PayPro_WC_Settings::apiKey()) {
-            self::$paypro_api->init(PayPro_WC_Settings::apiKey(), PayPro_WC_Settings::testMode());
+            self::$paypro_api->init(PayPro_WC_Settings->apiKey());
         }
 
         $payment_handler = new PayPro_WC_PaymentHandler();

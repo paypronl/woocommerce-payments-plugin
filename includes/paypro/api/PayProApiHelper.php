@@ -5,28 +5,45 @@ class PayProApiHelper
     public $apiKey;
     public $api;
 
-    public $testMode;
-
     public function __construct() {}
 
-    public function init($apiKey, $testMode = false)
-    {
-        $this->api = new \PayPro\Client($apiKey);
-        $this->testMode = $testMode ? true : false;
+    public function init($apiKey) {
+        try {
+            $this->api = new \PayPro\Client($apiKey);
+        } catch(\Exception $e) {}
+    }
+
+    public function getWebhook($reference) {
+        return $this->api?->webhooks->get($reference);
+    }
+
+    public function createWebhook() {
+        $webhook_url = WC()->api_request_url('paypro_wc_plugin');
+
+        return $this->api?->webhooks->create(
+            [
+                'name' => 'WooCommerce',
+                'description' => 'Webhook for WooCommerce PayPro plugin.',
+                'url' => $webhook_url
+            ]
+        );
     }
 
     public function getIdealIssuers()
     {
-        $result = $this->api->payMethods->list();
+        $result = $this->api?->payMethods->list();
 
-        $result = array_filter($result['data'], function($method) {
-            return $method->id === 'ideal';
-        });
+        if ($result) {
+            $result = array_filter($result['data'], function($method) {
+                return $method->id === 'ideal';
+            });
 
-        $result = array_values($result);
+            $result = array_values($result);
 
-        $result['issuers'] = $result[0]['details']['issuers'];
-        unset($result['data']);
+            $result['issuers'] = $result[0]['details']['issuers'];
+            unset($result['data']);
+        }
+
         return $result;
     }
 
