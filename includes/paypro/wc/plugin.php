@@ -59,7 +59,7 @@ class PayPro_WC_Plugin
         self::$woocommerce = new PayPro_WC_Woocommerce();
         self::$wc_api = new PayPro_WC_Api();
         self::$paypro_api = new PayProApiHelper();
-        self::$paypro_api->init(self::$settings->apiKey(), self::$settings->testMode());
+        self::$paypro_api->init(self::$settings->apiKey());
 
         self::setupGateways();
 
