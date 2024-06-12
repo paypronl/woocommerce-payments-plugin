@@ -2,26 +2,27 @@
 
 defined('ABSPATH') || exit;
 
-class PayPro_WC_WebhookHandler
-{
-    public function init()
-    {
-        add_action('woocommerce_api_paypro_webhook', [$this, 'onWebhookRequest']);
+/**
+ * Class to handle the webhook requests.
+ */
+class PayPro_WC_WebhookHandler {
+    /**
+     * Initializes the action for the webhook endpoint.
+     */
+    public function init() {
+        add_action('woocommerce_api_paypro_webhook', [ $this, 'onWebhookRequest' ]);
     }
 
-    public function onWebhookRequest()
-    {
-        PayPro_WC_Logger::log("onWehookRequest - URL: {$this->currentUrl()}");
+    /**
+     * Called when the webhook endpoint is called.
+     */
+    public function onWebhookRequest() {
+        $current_url = PayPro_WC_Helper::currentUrl();
+        PayPro_WC_Logger::log("onWehookRequest - URL: {$current_url}");
 
-        // Implement webhook handeling
+        // Implement webhook handeling.
 
         status_header(200);
         exit;
-    }
-
-    private function currentUrl()
-    {
-        $protocol = is_ssl() ? 'https://' : 'http://';
-        return "$protocol {$_SERVER["HTTP_HOST"]}{$_SERVER["REQUEST_URI"]}";
     }
 }

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-05T16:14:54+00:00\n"
+"POT-Creation-Date: 2024-06-12T11:16:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -32,125 +32,192 @@ msgstr ""
 
 #. Author of the plugin
 #: paypro-gateways-woocommerce.php
-#: includes/paypro/wc/settings-page.php:9
+#: includes/paypro/wc/settings-page.php:14
 msgid "PayPro"
 msgstr ""
 
-#: includes/paypro/wc/gateways/afterpay.php:21
+#: includes/paypro/wc/gateways/abstract.php:65
+msgid "Enable/Disable"
+msgstr ""
+
+#. translators: %s contains the title of the gateway
+#: includes/paypro/wc/gateways/abstract.php:68
+msgid "Enable %s"
+msgstr ""
+
+#: includes/paypro/wc/gateways/abstract.php:72
+msgid "Title"
+msgstr ""
+
+#. translators: %s contains the default title for the gateway
+#: includes/paypro/wc/gateways/abstract.php:75
+msgid "This controls the title which the user sees during checkout. Default <code>%s</code>"
+msgstr ""
+
+#: includes/paypro/wc/gateways/abstract.php:80
+msgid "Display logo"
+msgstr ""
+
+#: includes/paypro/wc/gateways/abstract.php:82
+msgid "Display logo on checkout page. Default <code>enabled</code>"
+msgstr ""
+
+#: includes/paypro/wc/gateways/abstract.php:86
+#: includes/paypro/wc/settings-page.php:179
+msgid "Description"
+msgstr ""
+
+#. translators: %s contains the default description for the gateway
+#: includes/paypro/wc/gateways/abstract.php:89
+msgid "Payment method description that the customer will see on your checkout. Default <code>%s</code>"
+msgstr ""
+
+#: includes/paypro/wc/gateways/abstract.php:113
+msgid "Awaiting payment confirmation"
+msgstr ""
+
+#: includes/paypro/wc/gateways/abstract.php:136
+msgid "Could not use this payment method, please try again."
+msgstr ""
+
+#. translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment
+#: includes/paypro/wc/gateways/abstract.php:147
+msgid "%1$s payment in process (%2$s)"
+msgstr ""
+
+#: includes/paypro/wc/gateways/afterpay.php:29
 msgid "Riverty"
 msgstr ""
 
-#: includes/paypro/wc/gateways/bancontact.php:21
+#: includes/paypro/wc/gateways/bancontact.php:29
 msgid "Bancontact"
 msgstr ""
 
-#: includes/paypro/wc/gateways/banktransfer.php:21
+#: includes/paypro/wc/gateways/banktransfer.php:29
 msgid "Bank Transfer"
 msgstr ""
 
-#: includes/paypro/wc/gateways/creditcard.php:21
+#: includes/paypro/wc/gateways/creditcard.php:29
 msgid "Credit card"
 msgstr ""
 
-#: includes/paypro/wc/gateways/ideal.php:21
+#: includes/paypro/wc/gateways/ideal.php:29
 msgid "iDEAL"
 msgstr ""
 
-#: includes/paypro/wc/gateways/ideal.php:26
+#: includes/paypro/wc/gateways/ideal.php:38
 msgid "Select your bank"
 msgstr ""
 
-#: includes/paypro/wc/gateways/paypal.php:21
+#: includes/paypro/wc/gateways/paypal.php:29
 msgid "PayPal"
 msgstr ""
 
-#: includes/paypro/wc/gateways/sofort.php:21
+#: includes/paypro/wc/gateways/sofort.php:29
 msgid "Sofort"
 msgstr ""
 
 #. translators: %s contains the payment id of the PayPro payment
-#: includes/paypro/wc/order.php:79
+#: includes/paypro/wc/order.php:97
 msgid "PayPro payment (%s) succeeded"
 msgstr ""
 
 #. translators: %s contains the payment id of the PayPro payment
-#: includes/paypro/wc/order.php:91
+#: includes/paypro/wc/order.php:113
 msgid "PayPro payment (%s) cancelled "
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:93
-msgid "PayPro API key not set. PayPro payment methods will not be displayed in the checkout process."
-msgstr ""
-
-#: includes/paypro/wc/plugin.php:132
+#: includes/paypro/wc/plugin.php:178
+#: includes/paypro/wc/settings-page.php:120
 msgid "Settings"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:24
+#: includes/paypro/wc/plugin.php:208
+msgid "API key not set. PayPro payment methods will not be displayed in the checkout process. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
+msgstr ""
+
+#: includes/paypro/wc/plugin.php:223
+msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
+msgstr ""
+
+#. translators: %s contains the webhook id of the PayPro webhook
+#: includes/paypro/wc/settings-page.php:74
+msgid "Failed to load the saved webhook (%s)"
+msgstr ""
+
+#: includes/paypro/wc/settings-page.php:96
+msgid "PayPro webhook was created successfully!"
+msgstr ""
+
+#: includes/paypro/wc/settings-page.php:105
+msgid "Failed to create the webhook"
+msgstr ""
+
+#: includes/paypro/wc/settings-page.php:121
+msgid "Webhook"
+msgstr ""
+
+#: includes/paypro/wc/settings-page.php:162
 msgid "PayPro settings"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:25
+#: includes/paypro/wc/settings-page.php:163
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:29
+#: includes/paypro/wc/settings-page.php:167
 msgid "PayPro API key"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:31
+#: includes/paypro/wc/settings-page.php:169
 msgid "API key used by the PayPro API."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:35
+#: includes/paypro/wc/settings-page.php:173
 msgid "PayPro Product ID"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:37
+#: includes/paypro/wc/settings-page.php:175
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:41
-msgid "Description"
-msgstr ""
-
-#: includes/paypro/wc/settings-page.php:43
+#: includes/paypro/wc/settings-page.php:181
 msgid "Payment description send to PayPro."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:48
+#: includes/paypro/wc/settings-page.php:186
 msgid "Payment Complete Status"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:52
+#: includes/paypro/wc/settings-page.php:190
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:56
+#: includes/paypro/wc/settings-page.php:194
 msgid "Enable automatic cancellation"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:58
+#: includes/paypro/wc/settings-page.php:196
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:62
-msgid "Enable test mode"
-msgstr ""
-
-#: includes/paypro/wc/settings-page.php:64
-msgid "Puts the API in test mode."
-msgstr ""
-
-#: includes/paypro/wc/settings-page.php:68
+#: includes/paypro/wc/settings-page.php:200
 msgid "Enable debug mode"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:70
+#: includes/paypro/wc/settings-page.php:202
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr ""
 
-#: paypro-gateways-woocommerce.php:120
+#: includes/paypro/wc/settings-page.php:219
+msgid "PayPro webhook data"
+msgstr ""
+
+#: includes/paypro/wc/settings-page.php:220
+msgid "Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page."
+msgstr ""
+
+#: paypro-gateways-woocommerce.php:116
 msgid "Could not activate plugin WooCommerce PayPro"
 msgstr ""
 
