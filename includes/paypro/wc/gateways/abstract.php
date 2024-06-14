@@ -28,6 +28,20 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     protected $issuer;
 
     /**
+     * The method used for recurring payments.
+     * 
+     * @var string $subscription_method
+     */
+    protected $subscription_method;
+
+    /**
+     * Indicates if the gateway supports subscriptions.
+     * 
+     * @var boolean $supports_subscriptions
+     */
+    protected $supports_subscriptions = false;
+
+    /**
      * Constructs a Payment Gateway
      */
     public function __construct() {
@@ -50,6 +64,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [ $this, 'process_admin_options' ]);
         add_action('wp_enqueue_scripts', [ $this, 'addCheckoutStyles' ]);
+
+        $this->initSubscriptions();
 
         if (!$this->isValid()) {
             $this->enabled = 'no';
@@ -109,6 +125,12 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
             return [ 'result' => 'failure' ];
         }
 
+        // Check if order has a subscription and if the gateway supports it.
+        if ($order->hasSubscription() && !$this->supportsSubscriptions()) {
+            PayPro_WC_Logger::log("$this->id: Subscriptions are not supported for this gateway.");
+            return [ 'result' => 'failure' ];
+        }
+
         // Update order to default status.
         $order->updateStatus($this->default_status, __('Awaiting payment confirmation', 'paypro-gateways-woocommerce'));
 
@@ -128,6 +150,15 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         $payment_data['pay_methods'] = [ $this->issuer ];
         $payment_data                = array_merge_recursive($payment_data, $this->getAdditionalPaymentData());
 
+        if ($order->hasSubscription()) {
+            $payment_data = array_merge_recursive(
+                $payment_data,
+                [
+                    'setup_mandate' => true
+                ]
+            );
+        }
+
         try {
             $payment = PayPro_WC_Plugin::$paypro_api->createPayment($payment_data);
         } catch (\PayPro\Exception\ApiErrorException $e) {
@@ -145,8 +176,11 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         // Set order information.
         /* translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment */
         $message = sprintf(__('%1$s payment in process (%2$s)', 'paypro-gateways-woocommerce'), $this->method_title, $payment->id);
+
         $order->addOrderNote($message);
         $order->addPayment($payment->id);
+        $order->setMetaData();
+
 
         return [
             'result'   => 'success',
@@ -194,6 +228,29 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         return [];
     }
 
+    protected function supportsSubscriptions() {
+        return $this->supports_subscriptions && isset($this->subscription_method);
+    }
+
+    public function processRenewalPayment($amount, WC_Order $wc_order) {
+        $order = new PayPro_WC_Order($wc_order->get_id());
+
+        if (!$order->exists()) {
+            PayPro_WC_Logger::log($this->id . ': Cannot load renewal order.');
+            return [ 'result' => 'failure' ];
+        }
+
+        $subscriptions = $order->getSubscriptionsForRenewal();
+        $subscription = array_pop($subscriptions);
+
+        var_dump($subscription);
+
+        PayPro_WC_Logger::log($this->id . ': Found subscription ' . var_dump($subscription));
+
+        return [ 'result' => 'failure' ];
+    }
+
+
     /**
      * Returns the title of the gateway.
      */
@@ -203,4 +260,26 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
      * Returns the description of the gateway.
      */
     abstract public function getDescription();
+
+    /**
+     * Initializes subscriptions support for this gateway.
+     */
+    private function initSubscriptions() {
+        if (PayPro_WC_Helper::subscriptionsEnabled() && $this->supportsSubscriptions()) {
+            $this->supports = array_merge(
+                $this->supports,
+                [
+                    'subscriptions',
+                    'subscription_cancellation', 
+                    'subscription_suspension', 
+                    'subscription_reactivation',
+                    'subscription_amount_changes',
+                    'subscription_date_changes',
+                    'multiple_subscriptions',
+                ]
+            );
+        }
+
+        add_action("woocommerce_scheduled_subscription_payment_{$this->id}", [ $this, 'processRenewalPayment' ], 10, 2);
+    }
 }

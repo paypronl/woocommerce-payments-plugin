@@ -24,6 +24,13 @@ class PayPro_WC_Order {
     private $customer;
 
     /**
+     * If the order is part of a subscription
+     * 
+     * @var boolean $has_subscription
+     */
+    private $has_subscription;
+
+    /**
      * Constructor
      *
      * @param int $order_id The ID of the WC order.
@@ -120,6 +127,24 @@ class PayPro_WC_Order {
         }
 
         $this->removeAllPayments();
+    }
+
+    /**
+     * Checks if this order contains a subscription.
+     */
+    public function hasSubscription() {
+        if (!isset($this->has_subscription)) {
+            $this->has_subscription = function_exists('wcs_order_contains_subscription') && wcs_order_contains_subscription($this->getId());
+        } 
+
+        return $this->has_subscription;
+    }
+
+    /**
+     * Returns the subscriptions as part of the renewal of this order.
+     */
+    public function getSubscriptionsForRenewal() {
+        return wcs_get_subscriptions_for_renewal_order($this->getId());
     }
 
     /**

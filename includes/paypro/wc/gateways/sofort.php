@@ -14,8 +14,10 @@ class PayPro_WC_Gateway_Sofort extends PayPro_WC_Gateway_Abstract {
             'products',
         ];
 
-        $this->issuer     = 'klarna-paynow';
-        $this->has_fields = false;
+        $this->issuer                 = 'klarna-paynow';
+        $this->subscription_method    = 'directdebit';
+        $this->supports_subscriptions = true;
+        $this->has_fields             = false;
 
         parent::__construct();
     }

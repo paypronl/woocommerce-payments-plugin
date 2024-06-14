@@ -30,6 +30,10 @@ class PayPro_WC_PaymentMethods {
     public function getIdealIssuers() {
         $payment_methods = $this->getPaymentMethods();
 
+        if (empty($payment_methods)) {
+            return [];
+        }
+
         $ideal_pay_methods = array_filter(
             $payment_methods['data'],
             function ($method) {

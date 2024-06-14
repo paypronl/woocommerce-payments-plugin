@@ -18,4 +18,12 @@ class PayPro_WC_Helper {
 
         return "$protocol {$host}{$uri}";
     }
+
+
+    /**
+     * Checks if WooCommerce subscription plugin is active
+     */
+    public static function subscriptionsEnabled() {
+        return class_exists('WC_Subscriptions') && class_exists('WC_Subscription');
+    }
 }

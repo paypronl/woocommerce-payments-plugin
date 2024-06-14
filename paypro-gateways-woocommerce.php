@@ -50,12 +50,15 @@ function paypro_plugin_init() {
         require_once __DIR__ . '/includes/paypro/wc/payment-methods.php';
         require_once __DIR__ . '/includes/paypro/wc/plugin.php';
         require_once __DIR__ . '/includes/paypro/wc/settings.php';
+        require_once __DIR__ . '/includes/paypro/wc/subscription-handler.php';
         require_once __DIR__ . '/includes/paypro/wc/webhook-handler.php';
+
         require_once __DIR__ . '/includes/paypro/wc/gateways/abstract.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/afterpay.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/bancontact.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/banktransfer.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/creditcard.php';
+        require_once __DIR__ . '/includes/paypro/wc/gateways/directdebit.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/ideal.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/paypal.php';
         require_once __DIR__ . '/includes/paypro/wc/gateways/sofort.php';
