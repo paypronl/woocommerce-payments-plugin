@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ruleset name="PayPro">
+  <description>PayPro</description>
+
+  <file>./includes</file>
+
+  <exclude-pattern>*\.(?!php$)</exclude-pattern>
+
+  <config name="testVersion" value="7.2" />
+
+  <config name="minimum_supported_wp_version" value="5.0" />
+
+  <rule ref="WooCommerce-Core">
+    <!-- We don't use tabs indents -->
+    <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed"/>
+
+    <!-- We don't use WordPress class file name convention -->
+    <exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+
+    <!-- We like the short syntax more -->
+    <exclude name="Universal.Arrays.DisallowShortArraySyntax" />
+
+    <!-- File level comments are not necessary -->
+    <exclude name="Squiz.Commenting.FileComment.Missing" />
+
+    <!-- Disable all spacing around -->
+    <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen" />
+    <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose" />
+
+    <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterStructureOpen" />
+    <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis" />
+
+    <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeOpenParenthesis" />
+    <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis" />
+    
+    <exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceBefore" />
+    <exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceAfter" />
+
+    <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.NoSpacesAroundArrayKeys" />
+
+    <!-- Disable WordPress method naming convention -->
+    <exclude name="WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid" />
+  </rule>
+
+  <!-- Enforce short array syntax -->
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+  <!-- Don't use spaces around function parentheses -->
+  <rule ref="PEAR.Functions.FunctionCallSignature">
+    <properties>
+      <property name="requiredSpacesAfterOpen" value="0" />
+      <property name="requiredSpacesBeforeClose" value="0" />
+    </properties>
+  </rule>
+
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array" value="paypro-gateways-woocommerce" />
+    </properties>
+  </rule>
+</ruleset>

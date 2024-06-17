@@ -2,107 +2,92 @@
 
 defined('ABSPATH') || exit;
 
-class PayPro_WC_Api
-{
+/**
+ * Helper class to call the PayPro API.
+ */
+class PayPro_WC_Api {
     /**
-     * Parses the API url to an order.
-     * Only usable on an WooCommerce API call
+     * The PayPro API client
+     *
+     * @var \PayPro\Client $api_client
      */
-    public function getOrderFromApiUrl()
-    {
-        // Check if the request has valid query params
-        if(empty($_GET['order_id']) || empty($_GET['order_key']))
-        {
-            header(' ', true, 400);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Invalid PayPro return url.');
-            exit;
-        }
+    public $api_client;
 
-        $order_id = intval($_GET['order_id']);
-        $order_key = sanitize_text_field($_GET['order_key']);
-
-        // Check if order_id is a known order
-        $order = PayPro_WC_Plugin::$woocommerce->getOrder($order_id);
-
-        if(!$order)
-        {
-            header(' ', true, 404);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Order not found - id: ' . $order_key);
-            exit;
-        }
-
-        // Check if order_key is valid
-        if(!$order->key_is_valid($order_key))
-        {
-            header(' ', true, 401);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Invalid ' . $order_key . ' for ' . $order_id);
-            exit;
-        }
-
-        return $order;
+    /**
+     * Sets the API key by creating a new client with the correct key.
+     *
+     * @param string $api_key The API key to be used for API calls.
+     */
+    public function setApiKey($api_key) {
+        $this->api_client = new \PayPro\Client($api_key);
     }
 
     /**
-     * Returns all payment hashes by order
-     * Only usable on an WooCommerce API call
+     * Get the webhook by ID from the API.
+     *
+     * @param string $id The ID of the webhook.
      */
-    public function getPaymentHashesFromOrder($order)
-    {
-        // Get payment hash
-        $payment_hashes = PayPro_WC_Plugin::$woocommerce->getOrderPaymentHashes($order);
-
-        if(empty($payment_hashes))
-        {
-            header(' ', true, 401);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Not a valid payment hash found for this order - id: ' . $order->get_id());
-            exit;
-        }
-
-        return $payment_hashes;
+    public function getWebhook($id) {
+        return $this->api_client->webhooks->get($id);
     }
 
     /**
-     * Get PayPro sale status from payment hash
-     * Only usable on an WooCommerce API call
+     * Create a new Webhook resource.
+     *
+     * @param string $name The name for the webhook.
+     * @param string $description The description for the webhook.
+     * @param string $url The URL of the endpoint for the webhook.
      */
-    public function getSaleStatusFromPaymentHashes($payment_hashes)
-    {   
-        // Get status of this order from PayPro API
-        $results = array();
-        foreach($payment_hashes as $payment_hash)
-        {
-            $result = PayPro_WC_Plugin::$paypro_api->getSaleStatus($payment_hash);
-            if($result['errors'])
-                PayPro_WC_Plugin::debug(__CLASS__ . ': Failed to get sale status from PayPro API - message: ' . $result['message'] . ', payment_hash: ' . $payment_hash);
-            else
-                array_push($results, array('hash' => $payment_hash, 'status' => $result['data']['current_status']));
-        }
-
-        // Could not get status, so throw and log
-        if(empty($results))
-        {
-            header(' ', true, 500);
-            PayPro_WC_Plugin::debug(__CLASS__ . ': Could not get the status for these payment hashes: ' . implode(', ', $payment_hashes));
-            exit;
-        }
-
-        return $this->determineSaleStatus($results);
+    public function createWebhook($name, $description, $url) {
+        return $this->api_client->webhooks->create(
+            [
+                'name'        => $name,
+                'description' => $description,
+                'url'         => $url,
+            ]
+        );
     }
 
     /**
-     * Determines what the order status should be, based on the payment statuses
-     * Returns an array with the status and the payment_hash
+     * Get all pay methods from the API.
      */
-    private function determineSaleStatus($sale_statuses)
-    {
-        foreach($sale_statuses as $sale)
-        {
-            if($sale['status'] != 'open')
-                return array('hash' => $sale['hash'], 'status' => 'completed');
-            else
-                $result = $sale;
-        }
+    public function getPayMethods() {
+        return $this->api_client->payMethods->list();
+    }
 
-        return empty($result) ? array('status' => 'open', 'hash' => 'unknown') : $result;
+    /**
+     *  Get a customer from the API.
+     *
+     * @param string $id The ID of the customer.
+     */
+    public function getCustomer($id) {
+        return $this->api_client->customers->get($id);
+    }
+
+    /**
+     * Create a new Customer resource.
+     *
+     * @param array $data The data to be passed when creating the Customer.
+     */
+    public function createCustomer(array $data = []) {
+        return $this->api_client->customers->create($data);
+    }
+
+    /**
+     * Get a payment from the API.
+     *
+     * @param string $id The ID of the payment.
+     */
+    public function getPayment($id) {
+        return $this->api_client->payments->get($id);
+    }
+
+    /**
+     * Create a new Payment resource.
+     *
+     * @param array $data The data to be passed when creating the Payment.
+     */
+    public function createPayment(array $data) {
+        return $this->api_client->payments->create($data);
     }
 }

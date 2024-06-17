@@ -1,0 +1,245 @@
+<?php
+
+defined('ABSPATH') || exit;
+
+/**
+ * Class to render the PayPro plugin settings.
+ */
+class PayPro_WC_SettingsPage extends WC_Settings_Page {
+    /**
+     * Constuctor
+     */
+    public function __construct() {
+        $this->id    = 'paypro_wc_settings';
+        $this->label = __('PayPro', 'paypro-gateways-woocommerce');
+
+        parent::__construct();
+    }
+
+    /**
+     * Override method to render the ouput of the settings page.
+     */
+    public function output() {
+        global $current_section, $hide_save_button;
+
+        $settings = $this->get_settings($current_section);
+
+        WC_Admin_Settings::output_fields($settings);
+
+        if ('webhook' === $current_section) {
+            $hide_save_button = true;
+
+            $webhook_id = PayPro_WC_Settings::webhookId();
+
+            if (empty($webhook_id)) {
+                submit_button('Create a webhook', 'secondary', 'save');
+            } else {
+                try {
+                    $webhook = PayPro_WC_Plugin::$paypro_api->getWebhook($webhook_id);
+
+                    $html = '<table>
+                        <tr>
+                          <td><strong>Webhook ID</strong></td>
+                          <td style="padding: 5px 15px"><code>' . $webhook?->id . '</code></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Webhook Name</strong></td>
+                          <td style="padding: 5px 15px">' . $webhook?->name . '</td>
+                        </tr>
+                    </table>';
+
+                    echo wp_kses(
+                        $html,
+                        [
+                            'table'  => [],
+                            'tr'     => [],
+                            'td'     => [
+                                'style' => [],
+                            ],
+                            'strong' => [],
+                            'code'   => [],
+                        ]
+                    );
+                } catch (\PayPro\Exception\ApiErrorException $e) {
+                    $debug_message = sprintf(
+                        'Failed to load the webhook %1$s - Message: %2$s',
+                        $webhook_id,
+                        $e->getMessage()
+                    );
+
+                    PayPro_WC_Logger::log($debug_message);
+
+                    $message = sprintf(
+                        /* translators: %s contains the webhook id of the PayPro webhook */
+                        __('Failed to load the saved webhook (%s)', 'paypro-gateways-woocommerce'),
+                        $webhook_id
+                    );
+
+                    PayPro_WC_Plugin::addAdminNotice('error', $message);
+                }
+            }
+        }
+    }
+
+    /**
+     * Do the relevant save action for a specific section.
+     */
+    public function save() {
+        global $current_section;
+
+        if ('webhook' === $current_section) {
+            try {
+                $webhook_url = WC()->api_request_url('paypro_webhook');
+
+                $webhook_id = PayPro_WC_Plugin::$paypro_api->createWebhook(
+                    'WooCommerce',
+                    'Webhook for WooCommerce PayPro plugin',
+                    $webhook_url
+                )->id;
+
+                update_option($this->getSettingId('webhook-id'), $webhook_id);
+
+                WC_Admin_Settings::add_message(__('PayPro webhook was created successfully!', 'paypro-gateways-woocommerce'));
+            } catch (\PayPro\Exception\ApiErrorException $e) {
+                $debug_message = sprintf(
+                    'Failed to create the webhook - Message %s',
+                    $e->getMessage()
+                );
+
+                PayPro_WC_Logger::log($debug_message);
+
+                $message = __('Failed to create the webhook', 'paypro-gateways-woocommerce');
+                PayPro_WC_Plugin::addAdminNotice('error', $message);
+            }
+        } else {
+            $settings = $this->get_settings();
+
+            WC_Admin_Settings::save_fields($settings);
+        }
+    }
+
+    /**
+     * Pass the PayPro setting sections to WC.
+     */
+    public function get_sections() {
+        $sections = [
+            ''        => __('Settings', 'paypro-gateways-woocommerce'),
+            'webhook' => __('Webhook', 'paypro-gateways-woocommerce'),
+        ];
+
+        /**
+         * Add the PayPro setting sections to the WC settings.
+         *
+         * @since 1.0.0
+         */
+        return apply_filters('woocommerce_get_sections_' . $this->id, $sections);
+    }
+
+    /**
+     * Get the settings for the current PayPro section.
+     */
+    public function get_settings() {
+        global $current_section, $hide_save_button;
+
+        switch ($current_section) {
+            case 'webhook':
+                $settings = $this->getPayproWebhookSection();
+                break;
+            default:
+                $settings = $this->getPayproSettingsSection();
+        }
+
+        /**
+         * Add the PayPro settings to the WC settings.
+         *
+         * @since 1.0.0
+         */
+        return apply_filters('woocommerce_get_settings_' . $this->id, $settings, $current_section);
+    }
+
+    /**
+     * Returns the PayPro settings to be added to the WC settings.
+     */
+    private function getPayproSettingsSection() {
+        return [
+            [
+                'id'    => $this->getSettingId('title'),
+                'type'  => 'title',
+                'title' => __('PayPro settings', 'paypro-gateways-woocommerce'),
+                'desc'  => __('The following options are required to use the plugin and are used by all PayPro payment methods', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'       => $this->getSettingId('api-key'),
+                'title'    => __('PayPro API key', 'paypro-gateways-woocommerce'),
+                'type'     => 'text',
+                'desc_tip' => __('API key used by the PayPro API.', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'       => $this->getSettingId('product-id'),
+                'title'    => __('PayPro Product ID', 'paypro-gateways-woocommerce'),
+                'type'     => 'text',
+                'desc_tip' => __('Product ID to connect a sale to a product. Not required.', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'       => $this->getSettingId('payment-description'),
+                'title'    => __('Description', 'paypro-gateways-woocommerce'),
+                'type'     => 'text',
+                'desc_tip' => __('Payment description send to PayPro.', 'paypro-gateways-woocommerce'),
+                'css'      => 'width: 350px',
+            ],
+            [
+                'id'       => $this->getSettingId('payment-complete-status'),
+                'title'    => __('Payment Complete Status', 'paypro-gateways-woocommerce'),
+                'type'     => 'select',
+                'default'  => 'wc-processing',
+                'options'  => wc_get_order_statuses(),
+                'desc_tip' => __('Set the status of the order after a completed payment. Default: Processing', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'       => $this->getSettingId('automatic-cancellation'),
+                'title'    => __('Enable automatic cancellation', 'paypro-gateways-woocommerce'),
+                'type'     => 'checkbox',
+                'desc_tip' => __('If a payment is cancelled automatically set the order on cancelled too.', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'       => $this->getSettingId('debug-mode'),
+                'title'    => __('Enable debug mode', 'paypro-gateways-woocommerce'),
+                'type'     => 'checkbox',
+                'desc_tip' => __('Enables the PayPro plugin to output debug information to the Woocommerce logs.', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'   => $this->getSettingId('sectionend'),
+                'type' => 'sectionend',
+            ],
+        ];
+    }
+
+    /**
+     * Returns the PayPro webhook settings to be added to the WC settings.
+     */
+    private function getPayproWebhookSection() {
+        return [
+            [
+                'id'    => $this->getSettingId('title'),
+                'type'  => 'title',
+                'title' => __('PayPro webhook data', 'paypro-gateways-woocommerce'),
+                'desc'  => __('Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page.', 'paypro-gateways-woocommerce'),
+            ],
+            [
+                'id'   => $this->getSettingId('sectionend'),
+                'type' => 'sectionend',
+            ],
+        ];
+    }
+
+    /**
+     * Gets the setting ID used by the plugin for all settings.
+     *
+     * @param string $setting Name of the setting.
+     */
+    private function getSettingId($setting) {
+        return PayPro_WC_Settings::getId($setting);
+    }
+}
+
+return new PayPro_WC_Settingspage();
