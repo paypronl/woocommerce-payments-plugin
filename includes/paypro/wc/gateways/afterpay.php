@@ -12,6 +12,7 @@ class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway_Abstract {
     public function __construct() {
         $this->supports = [
             'products',
+            'refunds',
         ];
 
         $this->issuer     = 'afterpay';

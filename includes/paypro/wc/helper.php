@@ -18,4 +18,15 @@ class PayPro_WC_Helper {
 
         return "$protocol {$host}{$uri}";
     }
+
+    /**
+     * Transforms decimal WC amount to cents.
+     *
+     * @param string $amount Decimal amount string.
+     *
+     * @return int Amount in cents.
+     */
+    public static function decimalToCents($amount) {
+        return (int) round($amount * 100);
+    }
 }
