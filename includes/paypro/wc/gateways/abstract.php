@@ -249,7 +249,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         PayPro_WC_Logger::log($debug_message);
 
         $message = sprintf(
-            /* translators: %1$s contains the refund amoun, %2$s contains the payment id, %3$s contains the refund id */
+            /* translators: %1$s contains the refund amount, %2$s contains the payment id, %3$s contains the refund id */
             __('Refunded %1$s - Payment %2$s, Refund %3$s', 'paypro-gateways-woocommerce'),
             $amount,
             $payment->id,
