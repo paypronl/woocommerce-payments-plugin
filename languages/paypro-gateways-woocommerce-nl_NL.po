@@ -12,28 +12,28 @@ msgstr ""
 "Language: nl_NL\n"
 "X-Generator: Poedit 2.0.3\n"
 
-#: includes/paypro/wc/gateways/abstract.php:93
+#: includes/paypro/wc/gateways/abstract.php:95
 #: includes/paypro/wc/settings-page.php:186
 msgid "Description"
 msgstr "Beschrijving"
 
-#: includes/paypro/wc/gateways/banktransfer.php:30
+#: includes/paypro/wc/gateways/banktransfer.php:25
 msgid "Bank Transfer"
 msgstr "SEPA Overboeking"
 
-#: includes/paypro/wc/gateways/ideal.php:30
+#: includes/paypro/wc/gateways/ideal.php:25
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#: includes/paypro/wc/gateways/ideal.php:39
+#: includes/paypro/wc/gateways/ideal.php:34
 msgid "Select your bank"
 msgstr "Selecteer uw bank"
 
-#: includes/paypro/wc/gateways/bancontact.php:33
+#: includes/paypro/wc/gateways/bancontact.php:29
 msgid "Bancontact"
 msgstr "Bancontact"
 
-#: includes/paypro/wc/gateways/sofort.php:30
+#: includes/paypro/wc/gateways/sofort.php:25
 msgid "Sofort"
 msgstr "Sofort"
 
@@ -72,15 +72,15 @@ msgstr "Instellingen"
 msgid "Please select your bank"
 msgstr "Kies aub je bank"
 
-#: includes/paypro/wc/gateways/afterpay.php:30
+#: includes/paypro/wc/gateways/afterpay.php:25
 msgid "Riverty"
 msgstr "Riverty"
 
-#: includes/paypro/wc/gateways/creditcard.php:30
+#: includes/paypro/wc/gateways/creditcard.php:25
 msgid "Credit card"
 msgstr "Creditcard"
 
-#: includes/paypro/wc/gateways/paypal.php:30
+#: includes/paypro/wc/gateways/paypal.php:25
 msgid "PayPal"
 msgstr "PayPal"
 
@@ -94,43 +94,43 @@ msgstr "PayPro betaling (%s) gelukt"
 msgid "PayPro payment (%s) cancelled "
 msgstr "PayPro betaling (%s) geannuleerd"
 
-#: includes/paypro/wc/gateways/abstract.php:72
+#: includes/paypro/wc/gateways/abstract.php:74
 msgid "Enable/Disable"
 msgstr "In-/uitschakelen"
 
 #. translators: %s contains the title of the gateway
-#: includes/paypro/wc/gateways/abstract.php:75
+#: includes/paypro/wc/gateways/abstract.php:77
 msgid "Enable %s"
 msgstr "Activeer %s"
 
-#: includes/paypro/wc/gateways/abstract.php:79
+#: includes/paypro/wc/gateways/abstract.php:81
 msgid "Title"
 msgstr "Titel"
 
 #. translators: %s contains the default title for the gateway
-#: includes/paypro/wc/gateways/abstract.php:82
+#: includes/paypro/wc/gateways/abstract.php:84
 msgid "This controls the title which the user sees during checkout. Default <code>%s</code>"
 msgstr "Dit bepaalt de titel van de betaalmethode op de checkout pagina. Standaard <code>%s</code>"
 
-#: includes/paypro/wc/gateways/abstract.php:87
+#: includes/paypro/wc/gateways/abstract.php:89
 msgid "Display logo"
 msgstr "Logo"
 
 #. translators: %s contains the default description for the gateway
-#: includes/paypro/wc/gateways/abstract.php:96
+#: includes/paypro/wc/gateways/abstract.php:98
 msgid "Payment method description that the customer will see on your checkout. Default <code>%s</code>"
 msgstr "Betaalmethode omschrijving die de klant ziet op de checkout pagina. Standaard <code>%s</code>"
 
-#: includes/paypro/wc/gateways/abstract.php:120
+#: includes/paypro/wc/gateways/abstract.php:122
 msgid "Awaiting payment confirmation"
 msgstr "Wachten op betalings bevestiging"
 
-#: includes/paypro/wc/gateways/abstract.php:143
+#: includes/paypro/wc/gateways/abstract.php:145
 msgid "Could not use this payment method, please try again."
 msgstr "Kan deze betaalmethode op dit moment niet gebruiken, probeer nogmaals."
 
 #. translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment
-#: includes/paypro/wc/gateways/abstract.php:154
+#: includes/paypro/wc/gateways/abstract.php:156
 msgid "%1$s payment in process (%2$s)"
 msgstr "%1$s betaling in behandeling (%2$s)"
 
@@ -147,7 +147,7 @@ msgstr "API key is ongeldig. Geef een geldige PayPro API key op.  Je kunt je API
 msgid "Failed to load the saved webhook (%s)"
 msgstr "Kon de opgeslagen webhook (%s) niet ophalen"
 
-#: includes/paypro/wc/gateways/abstract.php:89
+#: includes/paypro/wc/gateways/abstract.php:91
 msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr "Logo op de checkout pagina. Standaard <code>geactiveerd</code>"
 
@@ -223,32 +223,32 @@ msgstr "PayPro webhook data"
 msgid "Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page."
 msgstr "Het aanmaken van een webhook is nodig om gebruik te maken van de plugin. Als een webhook is aangemaakt, zie je de info op deze pagina."
 
-#: includes/paypro/wc/gateways/abstract.php:178
+#: includes/paypro/wc/gateways/abstract.php:180
 msgid "This payment method does not support refunds"
 msgstr "Deze betaalmethode ondersteunt geen terugbetalingen"
 
 #. translators: %1$s contains the order id.
-#: includes/paypro/wc/gateways/abstract.php:192
+#: includes/paypro/wc/gateways/abstract.php:194
 msgid "Could not find the order: %1$s"
 msgstr "Kan order %1$s niet vinden"
 
-#: includes/paypro/wc/gateways/abstract.php:206
+#: includes/paypro/wc/gateways/abstract.php:208
 msgid "Cannot refund for zero, please refund at least 1 cent"
 msgstr "Kan geen terugbetalingen van nul doen, kies minimaal 1 cent of hoger"
 
-#: includes/paypro/wc/gateways/abstract.php:217
+#: includes/paypro/wc/gateways/abstract.php:219
 msgid "Failed to refund, no PayPro payment found."
 msgstr "Terugbetaling mislukt, geen PayPro betaling gevonden"
 
-#: includes/paypro/wc/gateways/abstract.php:228
+#: includes/paypro/wc/gateways/abstract.php:230
 msgid "Failed to refund, could not retrieve PayPro payment details."
 msgstr "Terugbetaling mislukt, kon PayPro betaling details niet ophalen"
 
-#: includes/paypro/wc/gateways/abstract.php:244
+#: includes/paypro/wc/gateways/abstract.php:246
 msgid "Failed to refund, could not create PayPro refund."
 msgstr "Terugbetaling mislukt, kon de PayPro terugbetaling niet aanmaken"
 
 #. translators: %1$s contains the refund amount, %2$s contains the payment id, %3$s contains the refund id
-#: includes/paypro/wc/gateways/abstract.php:253
+#: includes/paypro/wc/gateways/abstract.php:255
 msgid "Refunded %1$s - Payment %2$s, Refund %3$s"
 msgstr "Terugbetaald %1$s - Betaling %2$s, Terugbetaling %3$s"

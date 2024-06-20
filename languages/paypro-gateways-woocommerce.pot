@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-17T12:28:51+00:00\n"
+"POT-Creation-Date: 2024-06-20T09:09:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -36,114 +36,114 @@ msgstr ""
 msgid "PayPro"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:72
+#: includes/paypro/wc/gateways/abstract.php:74
 msgid "Enable/Disable"
 msgstr ""
 
 #. translators: %s contains the title of the gateway
-#: includes/paypro/wc/gateways/abstract.php:75
+#: includes/paypro/wc/gateways/abstract.php:77
 msgid "Enable %s"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:79
+#: includes/paypro/wc/gateways/abstract.php:81
 msgid "Title"
 msgstr ""
 
 #. translators: %s contains the default title for the gateway
-#: includes/paypro/wc/gateways/abstract.php:82
+#: includes/paypro/wc/gateways/abstract.php:84
 msgid "This controls the title which the user sees during checkout. Default <code>%s</code>"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:87
+#: includes/paypro/wc/gateways/abstract.php:89
 msgid "Display logo"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:89
+#: includes/paypro/wc/gateways/abstract.php:91
 msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:93
+#: includes/paypro/wc/gateways/abstract.php:95
 #: includes/paypro/wc/settings-page.php:186
 msgid "Description"
 msgstr ""
 
 #. translators: %s contains the default description for the gateway
-#: includes/paypro/wc/gateways/abstract.php:96
+#: includes/paypro/wc/gateways/abstract.php:98
 msgid "Payment method description that the customer will see on your checkout. Default <code>%s</code>"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:120
+#: includes/paypro/wc/gateways/abstract.php:122
 msgid "Awaiting payment confirmation"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:143
+#: includes/paypro/wc/gateways/abstract.php:145
 msgid "Could not use this payment method, please try again."
 msgstr ""
 
 #. translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment
-#: includes/paypro/wc/gateways/abstract.php:154
+#: includes/paypro/wc/gateways/abstract.php:156
 msgid "%1$s payment in process (%2$s)"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:178
+#: includes/paypro/wc/gateways/abstract.php:180
 msgid "This payment method does not support refunds"
 msgstr ""
 
 #. translators: %1$s contains the order id.
-#: includes/paypro/wc/gateways/abstract.php:192
+#: includes/paypro/wc/gateways/abstract.php:194
 msgid "Could not find the order: %1$s"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:206
+#: includes/paypro/wc/gateways/abstract.php:208
 msgid "Cannot refund for zero, please refund at least 1 cent"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:217
+#: includes/paypro/wc/gateways/abstract.php:219
 msgid "Failed to refund, no PayPro payment found."
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:228
+#: includes/paypro/wc/gateways/abstract.php:230
 msgid "Failed to refund, could not retrieve PayPro payment details."
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:244
+#: includes/paypro/wc/gateways/abstract.php:246
 msgid "Failed to refund, could not create PayPro refund."
 msgstr ""
 
 #. translators: %1$s contains the refund amount, %2$s contains the payment id, %3$s contains the refund id
-#: includes/paypro/wc/gateways/abstract.php:253
+#: includes/paypro/wc/gateways/abstract.php:255
 msgid "Refunded %1$s - Payment %2$s, Refund %3$s"
 msgstr ""
 
-#: includes/paypro/wc/gateways/afterpay.php:30
+#: includes/paypro/wc/gateways/afterpay.php:25
 msgid "Riverty"
 msgstr ""
 
-#: includes/paypro/wc/gateways/bancontact.php:33
+#: includes/paypro/wc/gateways/bancontact.php:29
 msgid "Bancontact"
 msgstr ""
 
-#: includes/paypro/wc/gateways/banktransfer.php:30
+#: includes/paypro/wc/gateways/banktransfer.php:25
 msgid "Bank Transfer"
 msgstr ""
 
-#: includes/paypro/wc/gateways/creditcard.php:30
+#: includes/paypro/wc/gateways/creditcard.php:25
 msgid "Credit card"
 msgstr ""
 
-#: includes/paypro/wc/gateways/ideal.php:30
+#: includes/paypro/wc/gateways/ideal.php:25
 msgid "iDEAL"
 msgstr ""
 
-#: includes/paypro/wc/gateways/ideal.php:39
+#: includes/paypro/wc/gateways/ideal.php:34
 msgid "Select your bank"
 msgstr ""
 
-#: includes/paypro/wc/gateways/paypal.php:30
+#: includes/paypro/wc/gateways/paypal.php:25
 msgid "PayPal"
 msgstr ""
 
-#: includes/paypro/wc/gateways/sofort.php:30
+#: includes/paypro/wc/gateways/sofort.php:25
 msgid "Sofort"
 msgstr ""
 
