@@ -35,6 +35,13 @@ class PayPro_WC_Settings {
     }
 
     /**
+     * Returns the webhook secret
+     */
+    public static function webhookSecret() {
+        return trim(get_option(self::getId('webhook-secret')));
+    }
+
+    /**
      * Returns the payment description
      */
     public static function paymentDescription() {

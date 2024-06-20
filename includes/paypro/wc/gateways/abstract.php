@@ -41,6 +41,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
      */
     protected $supports_subscriptions = false;
 
+    /*
+     * Indicates if the gateway supports refunds.
+     *
+     * @var boolean $supports_refunds
+     */
+    protected $supports_refunds = true;
+
     /**
      * Constructs a Payment Gateway
      */
@@ -51,6 +58,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
         $this->init_form_fields();
         $this->init_settings();
+
+        $this->initSupports();
 
         $this->title        = $this->get_option('title');
         $this->display_logo = 'yes' === $this->get_option('display_logo');
@@ -189,6 +198,106 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     }
 
     /**
+     * Overrides the process refund function. This is were we process the refund request created by
+     * WC.
+     *
+     * @param int    $order_id ID of the WC order.
+     * @param string $amount   Amount to refund.
+     * @param string $reason   The given reason for the refund.
+     */
+    public function process_refund($order_id, $amount = null, $reason = '') {
+        // Check if the gateway supports refunds.
+        if (!$this->supportsRefunds()) {
+            $debug_message = "$this->id: This payment method does not support refunds, id: {$order_id}";
+            PayPro_WC_Logger::log($debug_message);
+
+            $message = __('This payment method does not support refunds', 'paypro-gateways-woocommerce');
+            return new WP_Error('1', $message);
+        }
+
+        // Get order from Woocommerce.
+        $order = new PayPro_WC_Order($order_id);
+
+        // Check if order is found, otherwise debug and failure.
+        if (!$order->exists()) {
+            $debug_message = "$this->id: Could not find order, id: $order_id";
+            PayPro_WC_Logger::log($debug_message);
+
+            $message = sprintf(
+                /* translators: %1$s contains the order id. */
+                __('Could not find the order: %1$s', 'paypro-gateways-woocommerce'),
+                $order_id
+            );
+
+            return new WP_Error('1', $message);
+        }
+
+        $refund_amount = PayPro_WC_Helper::decimalToCents($amount);
+
+        // Don't allow refund amount of 0.
+        if (0 === $refund_amount) {
+            $debug_message = "$this->id: Cannot refund for 0, id: $order_id";
+            PayPro_WC_Logger::log($debug_message);
+
+            $message = __('Cannot refund for zero, please refund at least 1 cent', 'paypro-gateways-woocommerce');
+            return new WP_Error('1', $message);
+        }
+
+        // Check if there is an active payment for the WC order.
+        $payment_id = $order->getActivePayment();
+
+        if (!$payment_id) {
+            $debug_message = "$this->id: No active payment found for the order ({$order_id}), cannot refund";
+            PayPro_WC_Logger::log($debug_message);
+
+            $message = __('Failed to refund, no PayPro payment found.', 'paypro-gateways-woocommerce');
+            return new WP_Error('1', $message);
+        }
+
+        // Retrieve the payment from the PayPro API.
+        try {
+            $payment = PayPro_WC_Plugin::$paypro_api->getPayment($payment_id);
+        } catch (\PayPro\Exception\ApiErrorException $e) {
+            $debug_message = "$this->id: Retrieving PayPro payment failed. Message: {$e->getMessage()}";
+            PayPro_WC_Logger::log($debug_message);
+
+            $message = __('Failed to refund, could not retrieve PayPro payment details.', 'paypro-gateways-woocommerce');
+            return new WP_Error('1', $message);
+        }
+
+        // Refund the PayPro payment.
+        try {
+            $refund = $payment->refund(
+                [
+                    'amount' => $refund_amount,
+                    'reason' => $reason,
+                ]
+            );
+        } catch (\PayPro\Exception\ApiErrorException $e) {
+            $debug_message = "$this->id: Failed to create the PayPro refund. Message: {$e->getMessage()}";
+            PayPro_WC_Logger::log($debug_message);
+
+            $message = __('Failed to refund, could not create PayPro refund.', 'paypro-gateways-woocommerce');
+            return new WP_Error('1', $message);
+        }
+
+        $debug_message = "$this->id: Refund created - refund: $refund->id, payment: $payment->id, order: {$order->getId()}";
+        PayPro_WC_Logger::log($debug_message);
+
+        $message = sprintf(
+            /* translators: %1$s contains the refund amount, %2$s contains the payment id, %3$s contains the refund id */
+            __('Refunded %1$s - Payment %2$s, Refund %3$s', 'paypro-gateways-woocommerce'),
+            $amount,
+            $payment->id,
+            $refund->id
+        );
+
+        $order->addOrderNote($message);
+
+        return true;
+    }
+
+    /**
      * Adds the checkout styles to the checkout page
      */
     public function addCheckoutStyles() {
@@ -222,14 +331,24 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     }
 
     /**
+     * Check if the gateway supports refunds.
+     */
+    public function supportsRefunds() {
+        return $this->supports_refunds;
+    }
+
+    /**
+     * Check if the gateway supports subscriptions.
+     */
+    public function supportsSubscriptions() {
+        return $this->supports_subscriptions && isset($this->subscription_method);
+    }
+
+    /**
      * Returns additional payment data
      */
     protected function getAdditionalPaymentData() {
         return [];
-    }
-
-    protected function supportsSubscriptions() {
-        return $this->supports_subscriptions && isset($this->subscription_method);
     }
 
     public function processRenewalPayment($amount, WC_Order $wc_order) {
@@ -250,7 +369,6 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         return [ 'result' => 'failure' ];
     }
 
-
     /**
      * Returns the title of the gateway.
      */
@@ -262,12 +380,18 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     abstract public function getDescription();
 
     /**
-     * Initializes subscriptions support for this gateway.
+     * Sets the supports array of the gateway.
      */
-    private function initSubscriptions() {
+    private function initSupports() {
+        $supports = [ 'products' ];
+
+        if ($this->supportsRefunds()) {
+            $supports[] = 'refunds';
+        }
+
         if (PayPro_WC_Helper::subscriptionsEnabled() && $this->supportsSubscriptions()) {
-            $this->supports = array_merge(
-                $this->supports,
+            $supports = array_merge(
+                $supports,
                 [
                     'subscriptions',
                     'subscription_cancellation', 
@@ -278,8 +402,10 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
                     'multiple_subscriptions',
                 ]
             );
+
+            add_action("woocommerce_scheduled_subscription_payment_{$this->id}", [ $this, 'processRenewalPayment' ], 10, 2);
         }
 
-        add_action("woocommerce_scheduled_subscription_payment_{$this->id}", [ $this, 'processRenewalPayment' ], 10, 2);
+        $this->supports = $supports;
     }
 }

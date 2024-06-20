@@ -19,11 +19,23 @@ class PayPro_WC_Helper {
         return "$protocol {$host}{$uri}";
     }
 
-
     /**
      * Checks if WooCommerce subscription plugin is active
+     * 
+     * @return boolean If subscription plugin is enabled.
      */
     public static function subscriptionsEnabled() {
         return class_exists('WC_Subscriptions') && class_exists('WC_Subscription');
+    }
+
+    /**
+     * Transforms decimal WC amount to cents.
+     *
+     * @param string $amount Decimal amount string.
+     *
+     * @return int Amount in cents.
+     */
+    public static function decimalToCents($amount) {
+        return (int) round($amount * 100);
     }
 }

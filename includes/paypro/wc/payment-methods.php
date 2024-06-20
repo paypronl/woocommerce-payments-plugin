@@ -6,7 +6,7 @@ defined('ABSPATH') || exit;
  * Class to handle the payment methods.
  */
 class PayPro_WC_PaymentMethods {
-    const TRANSIENT_KEY = 'paypro-wc';
+    const TRANSIENT_KEY = 'paypro-wc-pay-methods';
 
     /**
      * The API class object
@@ -53,19 +53,20 @@ class PayPro_WC_PaymentMethods {
      */
     public function getPaymentMethods() {
         try {
-            $transient_id = self::TRANSIENT_KEY . '-pay-methods';
-
-            $pay_methods = get_transient($transient_id);
+            $pay_methods = get_transient(self::TRANSIENT_KEY);
 
             if (is_array($pay_methods)) {
                 return $pay_methods;
             }
 
             $pay_methods = $this->api->getPayMethods();
-            set_transient($transient_id, $pay_methods, HOUR_IN_SECONDS);
+            set_transient(self::TRANSIENT_KEY, $pay_methods, HOUR_IN_SECONDS);
 
             return $pay_methods;
         } catch (\PayPro\Exception\ApiErrorException $e) {
+            // Set the transient to an empty array for 5 min to avoid calling the API too often.
+            set_transient(self::TRANSIENT_KEY, [], MINUTE_IN_SECONDS * 5);
+
             PayPro_WC_Logger::log("Failed to load payment methods from API - Message: {$e->getMessage()}");
         }
 

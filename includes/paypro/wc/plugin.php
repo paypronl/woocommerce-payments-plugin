@@ -106,7 +106,7 @@ class PayPro_WC_Plugin {
         $payment_handler = new PayPro_WC_PaymentHandler();
         $payment_handler->init();
 
-        $webhook_handler = new PayPro_WC_WebhookHandler();
+        $webhook_handler = new PayPro_WC_WebhookHandler(PayPro_WC_Settings::webhookSecret());
         $webhook_handler->init();
 
         $subscription_handler = new PayPro_WC_SubscriptionHandler();

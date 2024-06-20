@@ -6,8 +6,9 @@ defined('ABSPATH') || exit;
  * Wrapper for a WC order.
  */
 class PayPro_WC_Order {
-    const CUSTOMER_META_DATA_KEY = '_paypro_customer_id';
-    const PAYMENT_META_DATA_KEY  = '_paypro_payment_id';
+    const ACTIVE_PAYMENT_META_DATA_KEY = '_paypro_active_payment_id';
+    const CUSTOMER_META_DATA_KEY       = '_paypro_customer_id';
+    const PAYMENT_META_DATA_KEY        = '_paypro_payment_id';
 
     /**
      * WooCommerce Order
@@ -108,6 +109,7 @@ class PayPro_WC_Order {
         $this->order->payment_complete();
 
         $this->removeAllPayments();
+        $this->setActivePayment($payment_id);
     }
 
     /**
@@ -199,6 +201,23 @@ class PayPro_WC_Order {
     public function getPayments() {
         $meta_data_entries = $this->order->get_meta(self::PAYMENT_META_DATA_KEY, false);
         return array_map(fn($meta_data) => $meta_data->value, $meta_data_entries);
+    }
+
+    /**
+     * Set active payment.
+     *
+     * @param string $payment_id The ID of the payment.
+     */
+    public function setActivePayment($payment_id) {
+        $this->order->add_meta_data(self::ACTIVE_PAYMENT_META_DATA_KEY, $payment_id, true);
+        $this->order->save();
+    }
+
+    /**
+     * Get active payment.
+     */
+    public function getActivePayment() {
+        return $this->order->get_meta(self::ACTIVE_PAYMENT_META_DATA_KEY, true);
     }
 
     /**
@@ -294,7 +313,7 @@ class PayPro_WC_Order {
      * Returns the WC order amount in cents.
      */
     public function getAmountInCents() {
-        return round($this->order->get_total() * 100);
+        return PayPro_WC_Helper::decimalToCents($this->order->get_total());
     }
 
     /**

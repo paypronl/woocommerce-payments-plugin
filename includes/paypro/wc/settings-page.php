@@ -91,13 +91,14 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
             try {
                 $webhook_url = WC()->api_request_url('paypro_webhook');
 
-                $webhook_id = PayPro_WC_Plugin::$paypro_api->createWebhook(
+                $webhook = PayPro_WC_Plugin::$paypro_api->createWebhook(
                     'WooCommerce',
                     'Webhook for WooCommerce PayPro plugin',
                     $webhook_url
-                )->id;
+                );
 
-                update_option($this->getSettingId('webhook-id'), $webhook_id);
+                update_option($this->getSettingId('webhook-id'), $webhook->id);
+                update_option($this->getSettingId('webhook-secret'), $webhook->secret);
 
                 WC_Admin_Settings::add_message(__('PayPro webhook was created successfully!', 'paypro-gateways-woocommerce'));
             } catch (\PayPro\Exception\ApiErrorException $e) {

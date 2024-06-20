@@ -10,10 +10,6 @@ class PayPro_WC_Gateway_BankTransfer extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->supports = [
-            'products',
-        ];
-
         $this->issuer                 = 'bank-transfer';
         $this->subscription_method    = 'directdebit';
         $this->supports_subscriptions = true;
