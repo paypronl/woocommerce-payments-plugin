@@ -10,10 +10,6 @@ class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->supports = [
-            'products',
-        ];
-
         $this->issuer     = 'creditcard';
         $this->has_fields = false;
 

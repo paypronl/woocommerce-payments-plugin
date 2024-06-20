@@ -10,10 +10,6 @@ class PayPro_WC_Gateway_Sofort extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->supports = [
-            'products',
-        ];
-
         $this->issuer     = 'klarna-paynow';
         $this->has_fields = false;
 
