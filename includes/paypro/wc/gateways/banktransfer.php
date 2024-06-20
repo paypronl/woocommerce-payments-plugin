@@ -10,11 +10,6 @@ class PayPro_WC_Gateway_BankTransfer extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->supports = [
-            'products',
-            'refunds',
-        ];
-
         $this->issuer     = 'bank-transfer';
         $this->has_fields = false;
 

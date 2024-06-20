@@ -45,6 +45,8 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         $this->init_form_fields();
         $this->init_settings();
 
+        $this->initSupports();
+
         $this->title        = $this->get_option('title');
         $this->display_logo = 'yes' === $this->get_option('display_logo');
 
@@ -317,4 +319,17 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
      * Returns the description of the gateway.
      */
     abstract public function getDescription();
+
+    /**
+     * Sets the supports array of the gateway.
+     */
+    private function initSupports() {
+        $supports = [ 'products' ];
+
+        if ($this->supportsRefunds()) {
+            $supports[] = 'refunds';
+        }
+
+        $this->supports = $supports;
+    }
 }

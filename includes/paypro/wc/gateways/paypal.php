@@ -10,11 +10,6 @@ class PayPro_WC_Gateway_Paypal extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->supports = [
-            'products',
-            'refunds',
-        ];
-
         $this->issuer     = 'paypal';
         $this->has_fields = false;
 
