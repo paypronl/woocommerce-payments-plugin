@@ -50,7 +50,7 @@ function paypro_plugin_init() {
         require_once __DIR__ . '/includes/paypro/wc/payment-methods.php';
         require_once __DIR__ . '/includes/paypro/wc/plugin.php';
         require_once __DIR__ . '/includes/paypro/wc/settings.php';
-        require_once __DIR__ . '/includes/paypro/wc/subscription-handler.php';
+        require_once __DIR__ . '/includes/paypro/wc/subscription.php';
         require_once __DIR__ . '/includes/paypro/wc/webhook-handler.php';
 
         require_once __DIR__ . '/includes/paypro/wc/gateways/abstract.php';

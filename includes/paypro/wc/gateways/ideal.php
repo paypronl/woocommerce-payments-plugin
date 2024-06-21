@@ -11,7 +11,6 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract {
      */
     public function __construct() {
         $this->issuer                 = 'ideal';
-        $this->subscription_method    = 'directdebit';
         $this->supports_subscriptions = true;
         $this->has_fields             = true;
 

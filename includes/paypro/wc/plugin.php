@@ -37,17 +37,7 @@ class PayPro_WC_Plugin {
         'PayPro_WC_Gateway_BankTransfer',
         'PayPro_WC_Gateway_Sofort',
         'PayPro_WC_Gateway_Creditcard',
-        'PayPro_WC_Gateway_Directdebit'
-    ];
-
-    /**
-     * Gateways that support renewal without checkout.
-     * 
-     * @var array $renewal_gateway_classes
-     */
-    public static $renewal_gateway_classes = [
-        'PayPro_WC_Gateway_Creditcard',
-        'PayPro_WC_Gateway_Directdebit'
+        'PayPro_WC_Gateway_DirectDebit',
     ];
 
     /**
@@ -108,9 +98,6 @@ class PayPro_WC_Plugin {
 
         $webhook_handler = new PayPro_WC_WebhookHandler(PayPro_WC_Settings::webhookSecret());
         $webhook_handler->init();
-
-        $subscription_handler = new PayPro_WC_SubscriptionHandler();
-        $subscription_handler->init();
 
         self::setupGateways();
 

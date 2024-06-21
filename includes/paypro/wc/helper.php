@@ -21,7 +21,7 @@ class PayPro_WC_Helper {
 
     /**
      * Checks if WooCommerce subscription plugin is active
-     * 
+     *
      * @return boolean If subscription plugin is enabled.
      */
     public static function subscriptionsEnabled() {
@@ -37,5 +37,59 @@ class PayPro_WC_Helper {
      */
     public static function decimalToCents($amount) {
         return (int) round($amount * 100);
+    }
+
+    /**
+     * Returns the PayPro recurring pay method for the PayPro pay method
+     *
+     * @param string $pay_method The PayPro pay method.
+     *
+     * @return string The PayPro recurring pay method
+     */
+    public static function getRecurringPayMethod($pay_method) {
+        return [
+            'ideal'         => 'direct-debit',
+            'bank-transfer' => 'direct-debit',
+            'klarna-paynow' => 'direct-debit',
+            'direct-debit'  => 'direct-debit',
+            'creditcard'    => 'creditcard',
+        ][$pay_method];
+    }
+
+    /**
+     * Returns the WC recurring pay method for the WC pay method
+     *
+     * @param string $payment_method The WC pay method.
+     *
+     * @return string The WC recurring pay method.
+     */
+    public static function getWCRecurringPayMethod($payment_method) {
+        return [
+            'paypro_wc_gateway_ideal'        => 'paypro_wc_gateway_directdebit',
+            'paypro_wc_gateway_banktransfer' => 'paypro_wc_gateway_directdebit',
+            'paypro_wc_gateway_sofort'       => 'paypro_wc_gateway_directdebit',
+            'paypro_wc_gateway_directdebit'  => 'paypro_wc_gateway_directdebit',
+            'paypro_wc_gateway_creditcard'   => 'paypro_wc_gateway_creditcard',
+        ][$payment_method];
+    }
+
+    /**
+     * Returns he PayPro pay method based on the WC payment method
+     *
+     * @param string $wc_payment_method The WC payment method.
+     *
+     * @return string The PayPro pay method.
+     */
+    public static function getPayProPayMethod($wc_payment_method) {
+        return [
+            'paypro_wc_gateway_afterpay'     => 'afterpay',
+            'paypro_wc_gateway_bancontact'   => 'bancontact',
+            'paypro_wc_gateway_banktransfer' => 'bank-transfer',
+            'paypro_wc_gateway_creditcard'   => 'creditcard',
+            'paypro_wc_gateway_directdebit'  => 'direct-debit',
+            'paypro_wc_gateway_ideal'        => 'ideal',
+            'paypro_wc_gateway_paypal'       => 'paypal',
+            'paypro_wc_gateway_sofort'       => 'klarna-paynow',
+        ][$wc_payment_method];
     }
 }

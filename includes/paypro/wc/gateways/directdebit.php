@@ -5,13 +5,12 @@ defined('ABSPATH') || exit;
 /**
  * Gateway to handle Direct debit on the checkout.
  */
-class PayPro_WC_Gateway_Directdebit extends PayPro_WC_Gateway_Abstract {
+class PayPro_WC_Gateway_DirectDebit extends PayPro_WC_Gateway_Abstract {
     /**
      * Constructor
      */
     public function __construct() {
         $this->issuer                 = 'direct-debit';
-        $this->subscription_method    = 'directdebit';
         $this->supports_subscriptions = true;
         $this->has_fields             = false;
 

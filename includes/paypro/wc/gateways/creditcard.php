@@ -11,7 +11,6 @@ class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway_Abstract {
      */
     public function __construct() {
         $this->issuer                 = 'creditcard';
-        $this->subscription_method    = 'creditcard';
         $this->supports_subscriptions = true;
         $this->has_fields             = false;
 

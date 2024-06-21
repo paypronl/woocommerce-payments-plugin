@@ -9,6 +9,7 @@ class PayPro_WC_Order {
     const ACTIVE_PAYMENT_META_DATA_KEY = '_paypro_active_payment_id';
     const CUSTOMER_META_DATA_KEY       = '_paypro_customer_id';
     const PAYMENT_META_DATA_KEY        = '_paypro_payment_id';
+    const MANDATE_META_DATA_KEY        = '_paypro_mandate_id';
 
     /**
      * WooCommerce Order
@@ -26,7 +27,7 @@ class PayPro_WC_Order {
 
     /**
      * If the order is part of a subscription
-     * 
+     *
      * @var boolean $has_subscription
      */
     private $has_subscription;
@@ -92,9 +93,9 @@ class PayPro_WC_Order {
     /**
      * Complete the WC order and log the results.
      *
-     * @param string $payment_id The ID of the PayPro payment.
+     * @param \PayPro\Entities\Payment $payment The PayPro payment object.
      */
-    public function complete($payment_id) {
+    public function complete($payment) {
         $status = PayPro_WC_Settings::paymentCompleteStatus();
 
         if (empty($status)) {
@@ -102,24 +103,39 @@ class PayPro_WC_Order {
         }
 
         /* translators: %s contains the payment id of the PayPro payment */
-        $message = sprintf(__('PayPro payment (%s) succeeded', 'paypro-gateways-woocommerce'), $payment_id);
+        $message = sprintf(__('PayPro payment (%s) succeeded', 'paypro-gateways-woocommerce'), $payment->id);
         $this->order->update_status($status, $message);
 
         wc_reduce_stock_levels($this->getId());
         $this->order->payment_complete();
 
         $this->removeAllPayments();
-        $this->setActivePayment($payment_id);
+        $this->setActivePayment($payment);
+
+        // Update subscriptions according to payment mandate and pay method.
+        if ($this->hasSubscription()) {
+            $customer = PayPro_WC_Plugin::$paypro_api->getCustomer($payment->customer);
+            $mandate  = $customer->mandates()->first();
+
+            $this->setMandateId($mandate->id);
+
+            $subscriptions = $this->getSubscriptions();
+
+            foreach ($subscriptions as $subscription) {
+                $subscription->setMandateId($mandate->id);
+                $subscription->setCustomerId($customer->id);
+            }
+        }
     }
 
     /**
      * Cancel the WC order and log the results.
      *
-     * @param string $payment_id The ID of the PayPro payment.
+     * @param \PayPro\Entities\Payment $payment The PayPro payment object.
      */
-    public function cancel($payment_id) {
+    public function cancel($payment) {
         /* translators: %s contains the payment id of the PayPro payment */
-        $message = sprintf(__('PayPro payment (%s) cancelled ', 'paypro-gateways-woocommerce'), $payment_id);
+        $message = sprintf(__('PayPro payment (%s) cancelled ', 'paypro-gateways-woocommerce'), $payment->id);
 
         if (PayPro_WC_Settings::automaticCancellation()) {
             WC()->cart->empty_cart();
@@ -137,16 +153,29 @@ class PayPro_WC_Order {
     public function hasSubscription() {
         if (!isset($this->has_subscription)) {
             $this->has_subscription = function_exists('wcs_order_contains_subscription') && wcs_order_contains_subscription($this->getId());
-        } 
+        }
 
         return $this->has_subscription;
     }
 
     /**
-     * Returns the subscriptions as part of the renewal of this order.
+     * Returns the subscriptions as part of the order
      */
-    public function getSubscriptionsForRenewal() {
-        return wcs_get_subscriptions_for_renewal_order($this->getId());
+    public function getSubscriptions() {
+        $wc_subscriptions = wcs_get_subscriptions_for_order($this->getId());
+        return array_map(fn($wc_subscription) => new PayPro_WC_Subscription($wc_subscription->get_id()), $wc_subscriptions);
+    }
+
+    /**
+     * Returns the first subscription of a renewal order. Currently WCS only has one subscription
+     * per renewal order. However by design this is possible, but we ignore it for now.
+     */
+    public function getSubscriptionForRenewal() {
+        $wc_subscriptions = wcs_get_subscriptions_for_renewal_order($this->getId());
+        $wc_subscription  = array_pop($wc_subscriptions);
+
+        $subscription = new PayPro_WC_Subscription($wc_subscription->get_id());
+        return $subscription->exists() ? $subscription : null;
     }
 
     /**
@@ -160,6 +189,13 @@ class PayPro_WC_Order {
     }
 
     /**
+     * Get the customer ID from the WC order metadata.
+     */
+    public function getCustomerId() {
+        return $this->order->get_meta(self::CUSTOMER_META_DATA_KEY, true);
+    }
+
+    /**
      * Set the customer ID in the WC order metadata.
      *
      * @param string $customer_id The ID of the customer.
@@ -170,10 +206,36 @@ class PayPro_WC_Order {
     }
 
     /**
-     * Get the customer ID from the WC order metadata.
+     * Get the mandate ID from the WC order metadata.
      */
-    public function getCustomerId() {
-        return $this->order->get_meta(self::CUSTOMER_META_DATA_KEY, true);
+    public function getMandateId() {
+        return $this->order->get_meta(self::MANDATE_META_DATA_KEY, true);
+    }
+
+    /**
+     * Set the mandate ID in the WC order metadata.
+     *
+     * @param string $mandate_id The ID of the mandate.
+     */
+    public function setMandateId($mandate_id) {
+        $this->order->add_meta_data(self::MANDATE_META_DATA_KEY, $mandate_id, true);
+        $this->order->save();
+    }
+
+    /**
+     * Returns the payment method of the WC order
+     */
+    public function getPaymentMethod() {
+        return $this->order->get_payment_method();
+    }
+
+    /**
+     * Sets the payment method of the WC order
+     *
+     * @param string $payment_method The WC payment method.
+     */
+    public function setPaymentMethod($payment_method) {
+        return $this->order->set_payment_method($payment_method);
     }
 
     /**
@@ -206,10 +268,10 @@ class PayPro_WC_Order {
     /**
      * Set active payment.
      *
-     * @param string $payment_id The ID of the payment.
+     * @param \PayPro\Entities\Payment $payment The PayPro payment object.
      */
-    public function setActivePayment($payment_id) {
-        $this->order->add_meta_data(self::ACTIVE_PAYMENT_META_DATA_KEY, $payment_id, true);
+    public function setActivePayment($payment) {
+        $this->order->add_meta_data(self::ACTIVE_PAYMENT_META_DATA_KEY, $payment->id, true);
         $this->order->save();
     }
 

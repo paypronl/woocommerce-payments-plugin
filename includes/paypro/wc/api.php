@@ -19,12 +19,7 @@ class PayPro_WC_Api {
      * @param string $api_key The API key to be used for API calls.
      */
     public function setApiKey($api_key) {
-        $this->api_client = new \PayPro\Client(
-            [
-                'api_key' => $api_key,
-                'api_url' => 'http://api.paypro.test:3000',
-            ]
-        );
+        $this->api_client = new \PayPro\Client($api_key);
     }
 
     /**
@@ -94,5 +89,14 @@ class PayPro_WC_Api {
      */
     public function createPayment(array $data) {
         return $this->api_client->payments->create($data);
+    }
+
+    /**
+     * Get a mandate from the API.
+     *
+     * @param string $id The ID of the mandate.
+     */
+    public function getMandate($id) {
+        return $this->api_client->mandates->get($id);
     }
 }

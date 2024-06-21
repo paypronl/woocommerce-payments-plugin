@@ -51,25 +51,25 @@ class PayPro_WC_PaymentHandler {
             foreach ($payments as $payment) {
                 if ('paid' === $payment->state || 'completed' === $payment->state) {
                     $result = [
-                        'id'    => $payment->id,
-                        'state' => 'order_completed',
+                        'payment' => $payment,
+                        'state'   => 'order_completed',
                     ];
 
                     break;
                 } elseif ('canceled' === $payment->state) {
                     $result = [
-                        'id'    => $payment->id,
-                        'state' => 'order_canceled',
+                        'payment' => $payment,
+                        'state'   => 'order_canceled',
                     ];
                 } elseif ('processing' === $payment->state) {
                     $result = [
-                        'id'    => $payment->id,
-                        'state' => 'order_received',
+                        'payment' => $payment,
+                        'state'   => 'order_received',
                     ];
                 } else {
                     $result = [
-                        'id'    => $payment->id,
-                        'state' => 'order_failed',
+                        'payment' => $payment,
+                        'state'   => 'order_failed',
                     ];
                 }
             }
@@ -78,7 +78,7 @@ class PayPro_WC_PaymentHandler {
 
             // Handle WC order states and redirect the customer.
             if ('order_completed' === $result['state']) {
-                $order->complete($result['id']);
+                $order->complete($result['payment']);
 
                 PayPro_WC_Logger::log("onReturn - Payment ({$result['id']}) paid for order: {$order->getId()}");
                 $redirect_url = $order->getOrderReceivedUrl();
