@@ -90,4 +90,13 @@ class PayPro_WC_Api {
     public function createPayment(array $data) {
         return $this->api_client->payments->create($data);
     }
+
+    /**
+     * Get a mandate from the API.
+     *
+     * @param string $id The ID of the mandate.
+     */
+    public function getMandate($id) {
+        return $this->api_client->mandates->get($id);
+    }
 }

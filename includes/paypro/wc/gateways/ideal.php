@@ -10,8 +10,9 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->issuer     = 'ideal';
-        $this->has_fields = true;
+        $this->issuer                 = 'ideal';
+        $this->supports_subscriptions = true;
+        $this->has_fields             = true;
 
         parent::__construct();
     }
@@ -49,15 +50,15 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract {
     public function payment_fields() {
         parent::payment_fields();
 
-        $ideal_issuers   = PayPro_WC_Plugin::$paypro_api->getIdealIssuers();
-        $selected_issuer = $this->getSelectedIssuer();
+        $ideal_issuers   = PayPro_WC_Plugin::$ideal_issuers;
+        $selected_issuer = $this->getIssuer();
         $html            = '<select name="' . PayPro_WC_Plugin::PLUGIN_ID . '_issuer_' . $this->id . '">';
 
         $html .= '<option value=""></option>';
 
-        foreach ($ideal_issuers['issuers'] as $issuer) {
-            $selected = $selected_issuer === $issuer['id'] ? ' selected="selected"' : '';
-            $html    .= '<option value="' . esc_attr($issuer['id']) . '"' . $selected . '>' . esc_html($issuer['name']) . '</option>';
+        foreach ($ideal_issuers as $issuer) {
+            $selected = $selected_issuer === $issuer['code'] ? ' selected="selected"' : '';
+            $html    .= '<option value="' . esc_attr($issuer['code']) . '"' . $selected . '>' . esc_html($issuer['name']) . '</option>';
         }
 
         $html .= '</select>';

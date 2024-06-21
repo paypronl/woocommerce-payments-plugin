@@ -82,9 +82,10 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
         $issuers = 'paypro_wc_gateway_ideal' === $this->name ? $this->ideal_issuers : [];
 
         return [
-            'title'   => $this->gateway->getTitle(),
-            'iconUrl' => $this->gateway->getIconUrl(),
-            'issuers' => $issuers,
+            'title'    => $this->gateway->getTitle(),
+            'iconUrl'  => $this->gateway->getIconUrl(),
+            'issuers'  => $issuers,
+            'supports' => $this->gateway->supports,
         ];
     }
 }
