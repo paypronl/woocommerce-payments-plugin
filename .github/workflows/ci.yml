@@ -26,4 +26,4 @@ jobs:
         run: composer update --prefer-dist --no-progress
 
       - name: Run PHP CS
-        run: npm run ./vendor/bin/phpcs --parallel=4 -s
+        run: ./vendor/bin/phpcs --parallel=4 -s
