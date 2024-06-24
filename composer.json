@@ -1,5 +1,15 @@
 {
+  "name": "paypro/woocommerce-payments-plugin",
+  "description": "PayPro payments for WooCommerce",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "PayPro BV",
+      "email": "support@paypro.nl"
+    }
+  ],
   "require": {
+    "php": ">= 7.2",
     "paypro/paypro-php": "^1.0.0"
   },
   "require-dev": {
