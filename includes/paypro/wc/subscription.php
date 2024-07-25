@@ -40,6 +40,16 @@ class PayPro_WC_Subscription {
     }
 
     /**
+     * Updates the status of the WC subscription.
+     *
+     * @param string $status The status to change to.
+     * @param string $message The message to be logged.
+     */
+    public function updateStatus($status, $message) {
+        $this->subscription->update_status($status, $message);
+    }
+
+    /**
      * Get the customer ID from the WC subscription metadata.
      */
     public function getCustomerId() {

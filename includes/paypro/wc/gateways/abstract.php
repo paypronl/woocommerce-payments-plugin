@@ -366,6 +366,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
                 'currency'    => $order->getCurrency(),
                 'description' => $order->getDescription(),
                 'mandate'     => $chosen_mandate->id,
+                'customer'    => $chosen_mandate->customer,
                 'metadata'    => [
                     'order_id'  => $order->getId(),
                     'order_key' => $order->getKey(),
@@ -381,7 +382,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
                 $order->setPaymentMethod($recurring_wc_payment_method);
             }
 
-            // Succesfull payment created, lets log it and add a note to the payment.
+            // Payment created successfully, lets log it and add a note to the payment.
             PayPro_WC_Logger::log("$this->id: Payment created for {$order->getId()} - Payment ID: $payment->id");
 
             // Set order information.
@@ -390,6 +391,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
             $order->addOrderNote($message);
             $order->addPayment($payment->id);
+
+            // Update subscription to 'Active' when using SEPA Direct Debit. This ensures the subscription is still usable
+            // while the payment still processes.
+            if ($recurring_wc_payment_method === 'paypro_wc_gateway_directdebit') {
+                $message = __("Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process.", 'paypro-gateways-woocommerce');
+                $subscription->updateStatus('active', $message);
+            }
 
             return [ 'result' => 'success' ];
         } catch (\PayPro\Exception\ApiErrorException $e) {
