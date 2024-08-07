@@ -393,9 +393,9 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
             // Update subscription to 'Active' when using SEPA Direct Debit. This ensures the subscription is still usable
             // while the payment still processes.
-            if ($recurring_wc_payment_method === 'paypro_wc_gateway_directdebit' && $subscription->getStatus() !== 'active') {
+            if ('paypro_wc_gateway_directdebit' === $recurring_wc_payment_method && 'active' !== $subscription->getStatus()) {
 
-                // If the WooCommerce subscription uses the retry system don't update it
+                // If the WooCommerce subscription uses the retry system don't update it.
                 if (class_exists('WCS_Retry_Manager') && WCS_Retry_Manager::is_retry_enabled() && $subscription->getRetryDays() > 0) {
                     PayPro_WC_Logger::log("$this->id: Not updating subscription status to active. Subscription retry system is in use");
                 } else {
