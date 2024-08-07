@@ -10,11 +10,11 @@ defined('ABSPATH') || exit;
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Requires at least: 5.0
- * Tested up to: 6.5.3
+ * Tested up to: 6.6.1
  * Text Domain: paypro-gateways-woocommerce
  * Domain Path: /languages
  * WC requires at least: 5.0
- * WC tested up to: 8.9.3
+ * WC tested up to: 9.1.4
  * Requires PHP: 7.2
  */
 

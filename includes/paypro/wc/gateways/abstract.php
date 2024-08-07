@@ -366,7 +366,6 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
                 'currency'    => $order->getCurrency(),
                 'description' => $order->getDescription(),
                 'mandate'     => $chosen_mandate->id,
-                'customer'    => $chosen_mandate->customer,
                 'metadata'    => [
                     'order_id'  => $order->getId(),
                     'order_key' => $order->getKey(),
@@ -394,9 +393,15 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
             // Update subscription to 'Active' when using SEPA Direct Debit. This ensures the subscription is still usable
             // while the payment still processes.
-            if ($recurring_wc_payment_method === 'paypro_wc_gateway_directdebit') {
-                $message = __("Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process.", 'paypro-gateways-woocommerce');
-                $subscription->updateStatus('active', $message);
+            if ($recurring_wc_payment_method === 'paypro_wc_gateway_directdebit' && $subscription->getStatus() !== 'active') {
+
+                // If the WooCommerce subscription uses the retry system don't update it
+                if (class_exists('WCS_Retry_Manager') && WCS_Retry_Manager::is_retry_enabled() && $subscription->getRetryDays() > 0) {
+                    PayPro_WC_Logger::log("$this->id: Not updating subscription status to active. Subscription retry system is in use");
+                } else {
+                    $message = __("Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process.", 'paypro-gateways-woocommerce');
+                    $subscription->updateStatus('active', $message);
+                }
             }
 
             return [ 'result' => 'success' ];

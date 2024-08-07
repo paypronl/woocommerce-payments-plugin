@@ -135,7 +135,7 @@ class PayPro_WC_WebhookHandler {
         }
 
         PayPro_WC_Logger::log("onWehookRequest - Order is pending and payment paid so complete order for payment ({$payment->id})");
-        $order->complete($payment->id);
+        $order->complete($payment);
     }
 
     /**

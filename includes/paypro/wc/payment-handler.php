@@ -76,22 +76,24 @@ class PayPro_WC_PaymentHandler {
 
             $redirect_url = null;
 
+            ['payment' => $payment, 'state' => $state] = $result;
+
             // Handle WC order states and redirect the customer.
-            if ('order_completed' === $result['state']) {
-                $order->complete($result['payment']);
+            if ('order_completed' === $state) {
+                $order->complete($payment);
 
-                PayPro_WC_Logger::log("onReturn - Payment ({$result['id']}) paid for order: {$order->getId()}");
+                PayPro_WC_Logger::log("onReturn - Payment ({$payment->id}) paid for order: {$order->getId()}");
                 $redirect_url = $order->getOrderReceivedUrl();
-            } elseif ('order_canceled' === $result['state']) {
-                $order->cancel($result['id']);
+            } elseif ('order_canceled' === $state) {
+                $order->cancel($payment);
 
-                PayPro_WC_Logger::log("onReturn - Payment ({$result['id']}) canceled for order: {$order->getId()}");
+                PayPro_WC_Logger::log("onReturn - Payment ({$payment->id}) canceled for order: {$order->getId()}");
                 $redirect_url = $order->getCancelOrderUrl();
-            } elseif ('order_received' === $result['state']) {
-                PayPro_WC_Logger::log("onReturn - Payment ({$result['id']}) processing for order: {$order->getId()}");
+            } elseif ('order_received' === $state) {
+                PayPro_WC_Logger::log("onReturn - Payment ({$payment->id}) processing for order: {$order->getId()}");
                 $redirect_url = $order->getOrderReceivedUrl();
             } else {
-                PayPro_WC_Logger::log("onReturn - Payment failed ({$result['id']}) for order: {$order->getId()}");
+                PayPro_WC_Logger::log("onReturn - Payment failed ({$payment->id}) for order: {$order->getId()}");
                 $redirect_url = WC()->cart->get_checkout_url();
             }
 

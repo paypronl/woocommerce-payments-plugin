@@ -89,4 +89,18 @@ class PayPro_WC_Subscription {
     public function getId() {
         return $this->subscription->get_id();
     }
+
+    /**
+     * Returns the subscription status of the WC subscription.
+     */
+    public function getStatus() {
+        return $this->subscription->get_status();
+    }
+
+    /**
+     * Returns the retry date in days from now.
+     */
+    public function getRetryDays() {
+        $this->subscription->get_date('payment_retry');
+    }
 }
