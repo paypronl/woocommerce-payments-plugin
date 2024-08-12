@@ -375,14 +375,14 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
             $payment = PayPro_WC_Plugin::$paypro_api->createPayment($payment_data);
 
             $order->setMandateId($chosen_mandate->id);
-            $subscription->setMandateId($chose_mandate->id);
+            $subscription->setMandateId($chosen_mandate->id);
 
             if ($order->getPaymentMethod() !== $recurring_wc_payment_method) {
                 $order->setPaymentMethod($recurring_wc_payment_method);
             }
 
             // Payment created successfully, lets log it and add a note to the payment.
-            PayPro_WC_Logger::log("$this->id: Payment created for {$order->getId()} - Payment ID: $payment->id");
+            PayPro_WC_Logger::log("$this->id: Payment created for order {$order->getId()} - Payment ID: $payment->id");
 
             // Set order information.
             /* translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment */
