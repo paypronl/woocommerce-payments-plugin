@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0628b795dd3e7956b5aa2c0ed4957b9f",
+    "content-hash": "8f42cdfa2cad15e24ed273e8f540178c",
     "packages": [
         {
             "name": "paypro/paypro-php",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypronl/paypro-php.git",
-                "reference": "942d9916d58a732c9e0e608804b2a40b0f608683"
+                "reference": "4b148c9260b6c16dd6a7b504268095b3a76fe535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypronl/paypro-php/zipball/942d9916d58a732c9e0e608804b2a40b0f608683",
-                "reference": "942d9916d58a732c9e0e608804b2a40b0f608683",
+                "url": "https://api.github.com/repos/paypronl/paypro-php/zipball/4b148c9260b6c16dd6a7b504268095b3a76fe535",
+                "reference": "4b148c9260b6c16dd6a7b504268095b3a76fe535",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,11 @@
                 "payment processing",
                 "paypro"
             ],
-            "time": "2024-05-13T08:30:13+00:00"
+            "support": {
+                "issues": "https://github.com/paypronl/paypro-php/issues",
+                "source": "https://github.com/paypronl/paypro-php/tree/1.1.0"
+            },
+            "time": "2024-08-12T10:18:00+00:00"
         }
     ],
     "packages-dev": [
@@ -5010,5 +5014,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.6.0"
 }
