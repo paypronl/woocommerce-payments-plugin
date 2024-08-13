@@ -3,14 +3,14 @@
 defined('ABSPATH') || exit;
 
 /**
- * Gateway to handle Credit card on the checkout.
+ * Gateway to handle Direct debit on the checkout.
  */
-class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway_Abstract {
+class PayPro_WC_Gateway_DirectDebit extends PayPro_WC_Gateway_Abstract {
     /**
      * Constructor
      */
     public function __construct() {
-        $this->issuer                 = 'creditcard';
+        $this->issuer                 = 'direct-debit';
         $this->supports_subscriptions = true;
         $this->has_fields             = false;
 
@@ -23,7 +23,7 @@ class PayPro_WC_Gateway_Creditcard extends PayPro_WC_Gateway_Abstract {
      * @return string Title of the gateway
      */
     public function getTitle() {
-        return __('Credit card', 'paypro-gateways-woocommerce');
+        return __('SEPA Direct Debit', 'paypro-gateways-woocommerce');
     }
 
     /**

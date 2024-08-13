@@ -29,7 +29,7 @@ class PayPro_WC_Plugin {
      *
      * @var array $gateway_classes
      */
-    private static $gateway_classes = [
+    public static $gateway_classes = [
         'PayPro_WC_Gateway_Ideal',
         'PayPro_WC_Gateway_Paypal',
         'PayPro_WC_Gateway_Bancontact',
@@ -37,6 +37,7 @@ class PayPro_WC_Plugin {
         'PayPro_WC_Gateway_BankTransfer',
         'PayPro_WC_Gateway_Sofort',
         'PayPro_WC_Gateway_Creditcard',
+        'PayPro_WC_Gateway_DirectDebit',
     ];
 
     /**
@@ -80,6 +81,8 @@ class PayPro_WC_Plugin {
             self::$ideal_issuers     = $payment_methods_service->getIdealIssuers();
         }
 
+        self::setupGateways();
+
         // Add filters and actions.
         add_filter('plugin_action_links_' . PAYPRO_WC_PLUGIN_BASENAME, [ __CLASS__, 'addSettingsActionLink' ]);
 
@@ -98,8 +101,6 @@ class PayPro_WC_Plugin {
         $webhook_handler = new PayPro_WC_WebhookHandler(PayPro_WC_Settings::webhookSecret());
         $webhook_handler->init();
 
-        self::setupGateways();
-
         $initialized = true;
     }
 
@@ -116,7 +117,7 @@ class PayPro_WC_Plugin {
      * @param array $gateways Hook to register the gateways.
      */
     public static function addGateways(array $gateways) {
-        return array_merge($gateways, self::$gateway_classes);
+        return array_merge($gateways, self::$gateways);
     }
 
     /**

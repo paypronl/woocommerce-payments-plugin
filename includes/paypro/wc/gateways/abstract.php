@@ -28,7 +28,14 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     protected $issuer;
 
     /**
-     * The value to check if the gateway supports refunds.
+     * Indicates if the gateway supports subscriptions.
+     *
+     * @var boolean $supports_subscriptions
+     */
+    protected $supports_subscriptions = false;
+
+    /**
+     * Indicates if the gateway supports refunds.
      *
      * @var boolean $supports_refunds
      */
@@ -118,6 +125,12 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
             return [ 'result' => 'failure' ];
         }
 
+        // Check if order has a subscription and if the gateway supports it.
+        if ($order->hasSubscription() && !$this->supportsSubscriptions()) {
+            PayPro_WC_Logger::log("$this->id: Subscriptions are not supported for this gateway.");
+            return [ 'result' => 'failure' ];
+        }
+
         // Update order to default status.
         $order->updateStatus($this->default_status, __('Awaiting payment confirmation', 'paypro-gateways-woocommerce'));
 
@@ -137,6 +150,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         $payment_data['pay_methods'] = [ $this->issuer ];
         $payment_data                = array_merge_recursive($payment_data, $this->getAdditionalPaymentData());
 
+        if ($order->hasSubscription()) {
+            $payment_data = array_merge_recursive(
+                $payment_data,
+                [ 'setup_mandate' => true ]
+            );
+        }
+
         try {
             $payment = PayPro_WC_Plugin::$paypro_api->createPayment($payment_data);
         } catch (\PayPro\Exception\ApiErrorException $e) {
@@ -154,6 +174,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
         // Set order information.
         /* translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment */
         $message = sprintf(__('%1$s payment in process (%2$s)', 'paypro-gateways-woocommerce'), $this->method_title, $payment->id);
+
         $order->addOrderNote($message);
         $order->addPayment($payment->id);
 
@@ -264,6 +285,174 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     }
 
     /**
+     * Action to process a renewal order. It will attempt to create a payment with a mandate.
+     *
+     * @param string   $amount   Amount of the renewal.
+     * @param WC_Order $wc_order The renewal order.
+     */
+    public function processRenewalPayment($amount, WC_Order $wc_order) {
+        $order = new PayPro_WC_Order($wc_order->get_id());
+
+        if (!$order->exists()) {
+            PayPro_WC_Logger::log($this->id . ': Cannot load renewal order.');
+            return [ 'result' => 'failure' ];
+        }
+
+        $subscription = $order->getSubscriptionForRenewal();
+
+        if (empty($subscription)) {
+            PayPro_WC_Logger::log("$this->id: No subscription found for renewal order, order: {$order->getId()}");
+            return [ 'result' => 'failure' ];
+        }
+
+        PayPro_WC_Logger::log("$this->id: Found subscription {$subscription->getId()} for renewal order {$order->getId()}");
+
+        $pay_method                  = PayPro_WC_Helper::getPayProPayMethod($order->getPaymentMethod());
+        $recurring_wc_payment_method = PayPro_WC_Helper::getWCRecurringPayMethod($order->getPaymentMethod());
+        $recurring_pay_method        = PayPro_WC_Helper::getRecurringPayMethod($pay_method);
+        $mandate_id                  = $subscription->getMandateId();
+
+        $chosen_mandate = null;
+
+        // If subscription has a mandate ID try to use it for the renewal order.
+        if (!empty($mandate_id)) {
+            try {
+                $mandate = PayPro_WC_Plugin::$paypro_api->getMandate($mandate_id);
+
+                if ('approved' === $mandate->state && $mandate->pay_method === $recurring_pay_method) {
+                    PayPro_WC_Logger::log("$this->id: Using previous mandate {$mandate_id} for renewal order {$order->getId()}");
+                    $chosen_mandate = $mandate;
+                }
+            } catch (\PayPro\Exception\ApiErrorException $e) {
+                PayPro_WC_Logger::log("$this->id: Failed to load mandate with ID $mandate_id - Message: {$e->getMessage()}");
+            }
+        }
+
+        $customer_id = $subscription->getCustomerId();
+
+        // If previous mandate was not found try to find other mandates for the customer.
+        if (empty($chosen_mandate) && !empty($customer_id)) {
+            PayPro_WC_Logger::log("$this->id: No previous mandate found try to find other mandates with customer {$customer_id} for renewal order {$order->getId()}");
+
+            try {
+                $customer = PayPro_WC_Plugin::$paypro_api->getCustomer($customer_id);
+                $mandates = $customer->mandates();
+
+                foreach ($mandates as $mandate) {
+                    if ('approved' === $mandate->state && $mandate->pay_method === $recurring_pay_method) {
+                        PayPro_WC_Logger::log("$this->id: Found a mandate {$mandate->id} with customer {$customer_id} for renewal order {$order->getId()}");
+                        $chosen_mandate = $mandate;
+                        break;
+                    }
+                }
+            } catch (\PayPro\Exception\ApiErrorException $e) {
+                PayPro_WC_Logger::log("$this->id: Failed to load other mandates with customer {$customer_id} for renewal order {$order->getId()} - Message: {$e->getMessage()}");
+            }
+        }
+
+        // No valid mandate found stop here and report to merchant.
+        if (empty($chosen_mandate)) {
+            PayPro_WC_Logger::log("$this->id: Failed to create a payment because no valid mandate found for renewal order {$order->getId()}");
+
+            $message = __('Failed to create renewal payment. No valid mandate found.', 'paypro-gateways-woocommerce');
+            $order->updateStatus('failed', $message);
+
+            return [ 'result' => 'failure' ];
+        }
+
+        try {
+            $payment_data = [
+                'amount'      => $order->getAmountInCents(),
+                'currency'    => $order->getCurrency(),
+                'description' => $order->getDescription(),
+                'mandate'     => $chosen_mandate->id,
+                'metadata'    => [
+                    'order_id'  => $order->getId(),
+                    'order_key' => $order->getKey(),
+                ],
+            ];
+
+            $payment = PayPro_WC_Plugin::$paypro_api->createPayment($payment_data);
+
+            $order->setMandateId($chosen_mandate->id);
+            $subscription->setMandateId($chosen_mandate->id);
+
+            if ($order->getPaymentMethod() !== $recurring_wc_payment_method) {
+                $order->setPaymentMethod($recurring_wc_payment_method);
+            }
+
+            // Payment created successfully, lets log it and add a note to the payment.
+            PayPro_WC_Logger::log("$this->id: Payment created for order {$order->getId()} - Payment ID: $payment->id");
+
+            // Set order information.
+            /* translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment */
+            $message = sprintf(__('%1$s payment in process (%2$s)', 'paypro-gateways-woocommerce'), $this->method_title, $payment->id);
+
+            $order->addOrderNote($message);
+            $order->addPayment($payment->id);
+
+            // Update subscription to 'Active' when using SEPA Direct Debit. This ensures the subscription is still usable
+            // while the payment still processes.
+            if ('paypro_wc_gateway_directdebit' === $recurring_wc_payment_method && 'active' !== $subscription->getStatus()) {
+
+                // If the WooCommerce subscription uses the retry system don't update it.
+                if (class_exists('WCS_Retry_Manager') && WCS_Retry_Manager::is_retry_enabled() && $subscription->getRetryDays() > 0) {
+                    PayPro_WC_Logger::log("$this->id: Not updating subscription status to active. Subscription retry system is in use");
+                } else {
+                    $message = __("Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process.", 'paypro-gateways-woocommerce');
+                    $subscription->updateStatus('active', $message);
+                }
+            }
+
+            return [ 'result' => 'success' ];
+        } catch (\PayPro\Exception\ApiErrorException $e) {
+            PayPro_WC_Logger::log("$this->id: Failed to create a payment for renewal order {$order->getId()} - Message: {$e->getMessage()}");
+
+            $message = __('Failed to create renewal payment. Payment could not be created.', 'paypro-gateways-woocommerce');
+            $order->updateStatus('failed', $message);
+        }
+
+        return [ 'result' => 'failure' ];
+    }
+
+    /**
+     * Action to update the metadata of a subscription when a customer renews the subscription.
+     *
+     * @param WC_Subscription $wc_subscription The subscription to be updated.
+     * @param WC_Order        $wc_order        The renewal order.
+     */
+    public function updateFailingPaymentMethod($wc_subscription, $wc_order) {
+        $subscription = new PayPro_WC_Subscription($wc_subscription->get_id());
+        $order        = new PayPro_WC_Order($wc_order->get_id());
+
+        $subscription->setCustomerId($order->getCustomerId());
+    }
+
+    /**
+     * Filter to add the PayPro Customer ID as editable meta data for admins. This allows them to
+     * change the customer for a subscription.
+     *
+     * @param array           $payment_meta    Array of metadata settings.
+     * @param WC_Subscription $wc_subscription The WC_Subscription that contains the metadata.
+     */
+    public function addSubscriptionPaymentMeta($payment_meta, $wc_subscription) {
+        $subscription = new PayPro_WC_Subscription($wc_subscription->get_id());
+
+        $customer_id = $subscription->getCustomerId();
+
+        $payment_meta[$this->id] = [
+            'post_meta' => [
+                '_paypro_customer_id' => [
+                    'value' => $customer_id,
+                    'label' => 'PayPro Customer ID',
+                ],
+            ],
+        ];
+
+        return $payment_meta;
+    }
+
+    /**
      * Adds the checkout styles to the checkout page
      */
     public function addCheckoutStyles() {
@@ -304,6 +493,13 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     }
 
     /**
+     * Check if the gateway supports subscriptions.
+     */
+    public function supportsSubscriptions() {
+        return $this->supports_subscriptions;
+    }
+
+    /**
      * Returns additional payment data
      */
     protected function getAdditionalPaymentData() {
@@ -328,6 +524,29 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
         if ($this->supportsRefunds()) {
             $supports[] = 'refunds';
+        }
+
+        if (PayPro_WC_Helper::subscriptionsEnabled() && $this->supportsSubscriptions()) {
+            $supports = array_merge(
+                $supports,
+                [
+                    'subscriptions',
+                    'subscription_cancellation',
+                    'subscription_suspension',
+                    'subscription_reactivation',
+                    'subscription_amount_changes',
+                    'subscription_date_changes',
+                    'multiple_subscriptions',
+                    'subscription_payment_method_change',
+                    'subscription_payment_method_change_admin',
+                ]
+            );
+
+            add_action("woocommerce_scheduled_subscription_payment_{$this->id}", [ $this, 'processRenewalPayment' ], 10, 2);
+
+            add_filter('woocommerce_subscription_payment_meta', [ $this, 'addSubscriptionPaymentMeta' ], 10, 2);
+
+            add_action("woocommerce_subscription_failing_payment_method_updated_{$this->id}", [ $this, 'updateFailingPaymentMethod' ], 10, 2);
         }
 
         $this->supports = $supports;
