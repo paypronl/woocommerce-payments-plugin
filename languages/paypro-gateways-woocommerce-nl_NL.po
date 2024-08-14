@@ -12,129 +12,32 @@ msgstr ""
 "Language: nl_NL\n"
 "X-Generator: Poedit 2.0.3\n"
 
-#: includes/paypro/wc/settingspage.php:41
+#: includes/paypro/wc/gateways/abstract.php:102
+#: includes/paypro/wc/settings-page.php:186
 msgid "Description"
 msgstr "Beschrijving"
 
-#: includes/paypro/wc/gateway/abstract.php:153
-msgid "is not subscribed to this payment method, please try different method."
-msgstr "is niet geabonneerd op deze betaalmethode, probeer een andere methode."
-
-#: includes/paypro/wc/gateway/abstract.php:155
-msgid "Could not use this payment method, please try again."
-msgstr "Kan deze betaalmethode niet gebruiken, probeer het opnieuw."
-
-#: includes/paypro/wc/gateway/banktransfer.php:21
+#: includes/paypro/wc/gateways/banktransfer.php:26
 msgid "Bank Transfer"
 msgstr "SEPA Overboeking"
 
-#: includes/paypro/wc/gateway/ideal.php:20
+#: includes/paypro/wc/gateways/ideal.php:26
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#: includes/paypro/wc/gateway/ideal.php:25
+#: includes/paypro/wc/gateways/ideal.php:35
 msgid "Select your bank"
 msgstr "Selecteer uw bank"
 
-#: includes/paypro/wc/gateway/idealqr.php:21
-msgid "iDEAL QR"
-msgstr "iDEAL QR"
-
-#: includes/paypro/wc/gateway/mastercard.php:21
-msgid "Mastercard"
-msgstr "Mastercard"
-
-#: includes/paypro/wc/gateway/mistercash.php:21
+#: includes/paypro/wc/gateways/bancontact.php:29
 msgid "Bancontact"
 msgstr "Bancontact"
 
-#: includes/paypro/wc/gateway/paypal.php:21
-msgid "Paypal"
-msgstr "PayPal"
-
-#: includes/paypro/wc/gateway/sofort.php:21
+#: includes/paypro/wc/gateways/sofort.php:26
 msgid "Sofort"
 msgstr "Sofort"
 
-#: includes/paypro/wc/gateway/visa.php:21
-msgid "Visa"
-msgstr "Visa"
-
-#: includes/paypro/wc/settingspage.php:24
-msgid "PayPro settings"
-msgstr "PayPro Instellingen"
-
-#: includes/paypro/wc/settingspage.php:25
-msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
-msgstr "De volgende opties zijn nodig voor de plugin en worden door alle betaal methoden gebruikt."
-
-#: includes/paypro/wc/settingspage.php:29
-msgid "PayPro API key"
-msgstr "PayPro API sleutel"
-
-#: includes/paypro/wc/settingspage.php:31
-msgid "API key used by the PayPro API."
-msgstr "API sleutel voor de PayPro API"
-
-#: includes/paypro/wc/settingspage.php:35
-msgid "PayPro Product ID"
-msgstr "PayPro Product ID"
-
-#: includes/paypro/wc/settingspage.php:37
-msgid "Product ID to connect a sale to a product. Not required."
-msgstr "Product ID om een order aan een product te koppelen. Niet verplicht."
-
-#: includes/paypro/wc/settingspage.php:43
-msgid "Payment description send to PayPro."
-msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
-
-#: includes/paypro/wc/settingspage.php:48
-msgid "Payment Complete Status"
-msgstr "Betaling succesvol afgerond status"
-
-#: includes/paypro/wc/settingspage.php:52
-msgid "Set the status of the order after a completed payment. Default: Processing"
-msgstr "Bepaald de status van een order als er een succesvolle betaling is gedaan. Standaard: In Behandeling"
-
-#: includes/paypro/wc/settingspage.php:56
-msgid "Enable automatic cancellation"
-msgstr "Activeer automatisch afkeuren."
-
-#: includes/paypro/wc/settingspage.php:58
-msgid "If a payment is cancelled automatically set the order on cancelled too."
-msgstr "Als een betaling geannuleerd is automatisch de order ook afkeuren."
-
-#: includes/paypro/wc/settingspage.php:62
-msgid "Enable test mode"
-msgstr "Activeer test modus"
-
-#: includes/paypro/wc/settingspage.php:64
-msgid "Puts the API in test mode."
-msgstr "Zet de API in test modus."
-
-#: includes/paypro/wc/settingspage.php:68
-msgid "Enable debug mode"
-msgstr "Activeer debug modus"
-
-#: includes/paypro/wc/settingspage.php:70
-msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
-msgstr "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
-
-#: includes/paypro/wc/plugin.php:188
-msgid "PayPro API key not set. PayPro payment methods will not be displayed in the checkout process."
-msgstr "PayPro API sleutel niet ingevuld. PayPro betaalmethoden worden niet getoond in het betalingsproces."
-
-#. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:66
-msgid "PayPro payment cancelled (%s)"
-msgstr "PayPro betaling geannulleerd (%s)"
-
-#. translators: %s contains the payment hash of the PayPro payment
-#: includes/paypro/wc/woocommerce.php:91
-msgid "PayPro payment succeeded (%s)"
-msgstr "PayPro betaling succesvol (%s)"
-
-#: paypro-gateways-woocommerce.php:105
+#: paypro-gateways-woocommerce.php:119
 msgid "Could not activate plugin WooCommerce PayPro"
 msgstr "Kan de plugin WooCommerce PayPro niet activeren."
 
@@ -156,11 +59,12 @@ msgstr "Een plugin voor WooCommerce die gemakkelijk alle PayPro betaalmogelijkhe
 
 #. Author of the plugin
 #: paypro-gateways-woocommerce.php
-#: includes/paypro/wc/settingspage.php:9
+#: includes/paypro/wc/settings-page.php:14
 msgid "PayPro"
 msgstr "PayPro"
 
-#: includes/paypro/wc/plugin.php:227
+#: includes/paypro/wc/plugin.php:179
+#: includes/paypro/wc/settings-page.php:127
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -168,6 +72,200 @@ msgstr "Instellingen"
 msgid "Please select your bank"
 msgstr "Kies aub je bank"
 
-#: includes/paypro/wc/gateway/afterpay.php:21
+#: includes/paypro/wc/gateways/afterpay.php:25
 msgid "Riverty"
 msgstr "Riverty"
+
+#: includes/paypro/wc/gateways/creditcard.php:26
+msgid "Credit card"
+msgstr "Creditcard"
+
+#: includes/paypro/wc/gateways/paypal.php:25
+msgid "PayPal"
+msgstr "PayPal"
+
+#. translators: %s contains the payment id of the PayPro payment
+#: includes/paypro/wc/order.php:106
+msgid "PayPro payment (%s) succeeded"
+msgstr "PayPro betaling (%s) gelukt"
+
+#. translators: %s contains the payment id of the PayPro payment
+#: includes/paypro/wc/order.php:138
+msgid "PayPro payment (%s) cancelled "
+msgstr "PayPro betaling (%s) geannuleerd"
+
+#: includes/paypro/wc/gateways/abstract.php:81
+msgid "Enable/Disable"
+msgstr "In-/uitschakelen"
+
+#. translators: %s contains the title of the gateway
+#: includes/paypro/wc/gateways/abstract.php:84
+msgid "Enable %s"
+msgstr "Activeer %s"
+
+#: includes/paypro/wc/gateways/abstract.php:88
+msgid "Title"
+msgstr "Titel"
+
+#. translators: %s contains the default title for the gateway
+#: includes/paypro/wc/gateways/abstract.php:91
+msgid "This controls the title which the user sees during checkout. Default <code>%s</code>"
+msgstr "Dit bepaalt de titel van de betaalmethode op de checkout pagina. Standaard <code>%s</code>"
+
+#: includes/paypro/wc/gateways/abstract.php:96
+msgid "Display logo"
+msgstr "Logo"
+
+#. translators: %s contains the default description for the gateway
+#: includes/paypro/wc/gateways/abstract.php:105
+msgid "Payment method description that the customer will see on your checkout. Default <code>%s</code>"
+msgstr "Betaalmethode omschrijving die de klant ziet op de checkout pagina. Standaard <code>%s</code>"
+
+#: includes/paypro/wc/gateways/abstract.php:135
+msgid "Awaiting payment confirmation"
+msgstr "Wachten op betalings bevestiging"
+
+#: includes/paypro/wc/gateways/abstract.php:165
+msgid "Could not use this payment method, please try again."
+msgstr "Kan deze betaalmethode op dit moment niet gebruiken, probeer nogmaals."
+
+#. translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment
+#: includes/paypro/wc/gateways/abstract.php:176
+#: includes/paypro/wc/gateways/abstract.php:389
+msgid "%1$s payment in process (%2$s)"
+msgstr "%1$s betaling in behandeling (%2$s)"
+
+#: includes/paypro/wc/plugin.php:209
+msgid "API key not set. PayPro payment methods will not be displayed in the checkout process. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
+msgstr "API key niet ingevoerd. De PayPro betaalmethoden zullen niet zichtbaar zijn op de checkout pagina. Je kunt je API keys vinden in het <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
+
+#: includes/paypro/wc/plugin.php:224
+msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
+msgstr "API key is ongeldig. Geef een geldige PayPro API key op.  Je kunt je API keys vinden in het <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
+
+#. translators: %s contains the webhook id of the PayPro webhook
+#: includes/paypro/wc/settings-page.php:74
+msgid "Failed to load the saved webhook (%s)"
+msgstr "Kon de opgeslagen webhook (%s) niet ophalen"
+
+#: includes/paypro/wc/gateways/abstract.php:98
+msgid "Display logo on checkout page. Default <code>enabled</code>"
+msgstr "Logo op de checkout pagina. Standaard <code>geactiveerd</code>"
+
+#: includes/paypro/wc/settings-page.php:103
+msgid "PayPro webhook was created successfully!"
+msgstr "PayPro webhook is succesvol aangemaakt!"
+
+#: includes/paypro/wc/settings-page.php:112
+msgid "Failed to create the webhook"
+msgstr "Kon webhook niet aanmaken"
+
+#: includes/paypro/wc/settings-page.php:128
+msgid "Webhook"
+msgstr "Webhook"
+
+#: includes/paypro/wc/settings-page.php:169
+msgid "PayPro settings"
+msgstr "PayPro instellingen"
+
+#: includes/paypro/wc/settings-page.php:170
+msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
+msgstr "De volgende opties zijn nodig voor de plugin en worden door alle betaalmethoden gebruikt."
+
+#: includes/paypro/wc/settings-page.php:174
+msgid "PayPro API key"
+msgstr "PayPro API sleutel"
+
+#: includes/paypro/wc/settings-page.php:176
+msgid "API key used by the PayPro API."
+msgstr "API sleutel voor de PayPro API"
+
+#: includes/paypro/wc/settings-page.php:180
+msgid "PayPro Product ID"
+msgstr "PayPro Product ID"
+
+#: includes/paypro/wc/settings-page.php:182
+msgid "Product ID to connect a sale to a product. Not required."
+msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
+
+#: includes/paypro/wc/settings-page.php:188
+msgid "Payment description send to PayPro."
+msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
+
+#: includes/paypro/wc/settings-page.php:193
+msgid "Payment Complete Status"
+msgstr "Betaling succesvol afgerond status"
+
+#: includes/paypro/wc/settings-page.php:197
+msgid "Set the status of the order after a completed payment. Default: Processing"
+msgstr "Bepaald de status van een order als er een succesvolle betaling is gedaan. Standaard: In Behandeling"
+
+#: includes/paypro/wc/settings-page.php:201
+msgid "Enable automatic cancellation"
+msgstr "Activeer automatisch afkeuren."
+
+#: includes/paypro/wc/settings-page.php:203
+msgid "If a payment is cancelled automatically set the order on cancelled too."
+msgstr "Als een betaling geannuleerd is automatisch de order ook afkeuren."
+
+#: includes/paypro/wc/settings-page.php:207
+msgid "Enable debug mode"
+msgstr "Activeer debug modus"
+
+#: includes/paypro/wc/settings-page.php:209
+msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
+msgstr "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
+
+#: includes/paypro/wc/settings-page.php:226
+msgid "PayPro webhook data"
+msgstr "PayPro webhook data"
+
+#: includes/paypro/wc/settings-page.php:227
+msgid "Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page."
+msgstr "Het aanmaken van een webhook is nodig om gebruik te maken van de plugin. Als een webhook is aangemaakt, zie je de info op deze pagina."
+
+#: includes/paypro/wc/gateways/abstract.php:201
+msgid "This payment method does not support refunds"
+msgstr "Deze betaalmethode ondersteunt geen terugbetalingen"
+
+#. translators: %1$s contains the order id.
+#: includes/paypro/wc/gateways/abstract.php:215
+msgid "Could not find the order: %1$s"
+msgstr "Kan order %1$s niet vinden"
+
+#: includes/paypro/wc/gateways/abstract.php:229
+msgid "Cannot refund for zero, please refund at least 1 cent"
+msgstr "Kan geen terugbetalingen van nul doen, kies minimaal 1 cent of hoger"
+
+#: includes/paypro/wc/gateways/abstract.php:240
+msgid "Failed to refund, no PayPro payment found."
+msgstr "Terugbetaling mislukt, geen PayPro betaling gevonden"
+
+#: includes/paypro/wc/gateways/abstract.php:251
+msgid "Failed to refund, could not retrieve PayPro payment details."
+msgstr "Terugbetaling mislukt, kon PayPro betaling details niet ophalen"
+
+#: includes/paypro/wc/gateways/abstract.php:267
+msgid "Failed to refund, could not create PayPro refund."
+msgstr "Terugbetaling mislukt, kon de PayPro terugbetaling niet aanmaken"
+
+#. translators: %1$s contains the refund amount, %2$s contains the payment id, %3$s contains the refund id
+#: includes/paypro/wc/gateways/abstract.php:276
+msgid "Refunded %1$s - Payment %2$s, Refund %3$s"
+msgstr "Terugbetaald %1$s - Betaling %2$s, Terugbetaling %3$s"
+
+#: includes/paypro/wc/gateways/abstract.php:357
+msgid "Failed to create renewal payment. No valid mandate found."
+msgstr "Kon geen betalingshernieuwing aanmaken. Geen geldig mandaat gevonden.
+
+#: includes/paypro/wc/gateways/abstract.php:402
+msgid "Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process."
+msgstr "Verander abonnement van 'On hold' naar 'Active' totdat de betalig mislukt, dit gebeurd omdat SEPA Incasso langer nodig heeft om te verwerken."
+
+#: includes/paypro/wc/gateways/abstract.php:411
+msgid "Failed to create renewal payment. Payment could not be created."
+msgstr "Kon geen betalingshernieuwing aanmaken. Betaling kon niet aangemaakt worden."
+
+#: includes/paypro/wc/gateways/directdebit.php:26
+msgid "SEPA Direct Debit"
+msgstr "SEPA Incasso"

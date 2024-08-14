@@ -2,7 +2,7 @@
 Contributors: paypro
 Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
 Requires at least: 5.0
-Tested up to: 6.5.3
+Tested up to: 6.6.1
 Stable tag: 2.0.2
 Requires PHP: 7.2
 License: GPLv2
@@ -17,17 +17,12 @@ This plugin is the official PayPro plugin for WooCommerce. It is easy to use, qu
 Currently the plugin supports the following payment methods:
 
 * iDEAL
-* iDEAL QR 
 * PayPal
 * Bancontact
 * Sofort
 * Afterpay
 * SEPA Credit Transfer
-
-Credit cards:
-
-* Visa
-* Mastercard
+* Credit card (Visa and Mastercard)
 
 = Features =
 

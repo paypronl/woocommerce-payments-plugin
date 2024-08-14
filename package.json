@@ -18,6 +18,7 @@
     "i18n:make-pot": "./vendor/bin/wp i18n make-pot . languages/paypro-gateways-woocommerce.pot --exclude=assets,bin,build,docker,node_modules,release,vendor",
     "i18n:update-po": "./vendor/bin/wp i18n update-po languages/paypro-gateways-woocommerce.pot languages/",
     "i18n:make-mo": "./vendor/bin/wp i18n make-mo languages/",
+    "lint:php": "./vendor/bin/phpcs --parallel=8 -s",
     "up": "docker compose up --build --force-recreate -d && npx zx ./tasks/docker-setup.mjs",
     "stop": "docker compose stop",
     "down": "docker compose down"
