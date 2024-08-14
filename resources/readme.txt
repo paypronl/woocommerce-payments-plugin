@@ -3,7 +3,7 @@ Contributors: paypro
 Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
 Requires at least: 5.0
 Tested up to: 6.6.1
-Stable tag: 2.0.2
+Stable tag: 3.0.0
 Requires PHP: 7.2
 License: GPLv2
 License URI: http://opensource.org/licenses/GPL-2.0
@@ -50,31 +50,30 @@ In order to use this plugin you need to have an approved PayPro account.
 
 1. In the WordPress admin panel go to Plugins -> New Plugin. Search for 'PayPro Gateways - WooCommerce'.
 2. Go to Plugins -> Installed Plugins. Activate the plugin named 'PayPro Gateways - WooCommerce'.
-3. Set your PayPro API key at WooCommerce -> Settings -> PayPro.
-4. Now select the payment methods you want to use and enable them.
-5. Your webshop is now ready to accept PayPro payments.
+3. Set your PayPro API key at WooCommerce -> Settings -> PayPro -> Settings
+4. Create a new Webhook at WooCommerce -> Settings -> PayPro -> Webhook
+5. Now select the payment methods you want to use and enable them.
+6. Your webshop is now ready to accept PayPro payments.
 
 = Manual installation =
 
 1. Download the package
 2. Unpack the zip file and upload the 'paypro-gateways-woocommerce' to the plugin directory. You can find the plugin directory in the 'wp-content' directory.
 3. Go to Plugins -> Installed plugins. Activate the plugin named 'PayPro Gateways - WooCommerce'.
-4. Set your PayPro API key at WooCommerce -> Settings -> PayPro.
-5. Now select the PayPro payment methods you want to use at WooCommerce -> Settings -> Payments.
-6. Your webshop is now ready to accept PayPro payments.
+4. Set your PayPro API key at WooCommerce -> Settings -> PayPro -> Settings
+5. Create a new Webhook at WooCommerce -> Settings -> PayPro -> Webhook
+6. Now select the PayPro payment methods you want to use at WooCommerce -> Settings -> Payments.
+7. Your webshop is now ready to accept PayPro payments.
 
 Do you need help installing the PayPro plugin, please contact support@paypro.nl
 
 == Frequently Asked Questions ==
 
 = Where do I find my PayPro API key? =
-You can find your PayPro API key in your dashboard at 'Webshop Koppelen' in the PayPro dashboard.
+You can find your PayPro API key in your dashboard at 'Developers' in the PayPro dashboard.
 
-= When do I need to add a product ID? =
-If you want to make use of affiliate marketing or you want to use the mastercard, visa or sofort gateway you have to supply a product ID.
-
-= Where do I find my product ID? =
-You can find your product id at 'Webshop Koppelen' in the PayPro dashboard.
+= Why do we need to create a Webhook? =
+The Webhook is part of the new notification system the plugin uses to update the orders in your WooCommerce shop.
 
 == Screenshots ==
 
@@ -83,6 +82,17 @@ You can find your product id at 'Webshop Koppelen' in the PayPro dashboard.
 3. Example of the checkout payment method selection.
 
 == Changelog == 
+
+= 3.0.0 =
+
+IMPORTANT 3.0.0 is a major update and implements the new PayPro API and webhook system. This requires you to use a new API key and creating a webhook before you can accept payments again.
+
+* Implement new PayPro API
+* Implement new PayPro webhook system
+* Add WooCommerce subscriptions plugin support
+* Add refund support for most payment methods
+* Removed iDEAL QR
+* Added PayPro webhook settings page to create a new webhook
 
 = 2.0.2 =
 
