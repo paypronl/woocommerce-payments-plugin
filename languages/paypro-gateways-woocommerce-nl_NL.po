@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 
 #: includes/paypro/wc/gateways/abstract.php:102
-#: includes/paypro/wc/settings-page.php:186
+#: includes/paypro/wc/settings-page.php:195
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -64,7 +64,7 @@ msgid "PayPro"
 msgstr "PayPro"
 
 #: includes/paypro/wc/plugin.php:179
-#: includes/paypro/wc/settings-page.php:127
+#: includes/paypro/wc/settings-page.php:129
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -144,7 +144,7 @@ msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can 
 msgstr "API key is ongeldig. Geef een geldige PayPro API key op.  Je kunt je API keys vinden in het <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 
 #. translators: %s contains the webhook id of the PayPro webhook
-#: includes/paypro/wc/settings-page.php:74
+#: includes/paypro/wc/settings-page.php:75
 msgid "Failed to load the saved webhook (%s)"
 msgstr "Kon de opgeslagen webhook (%s) niet ophalen"
 
@@ -152,75 +152,75 @@ msgstr "Kon de opgeslagen webhook (%s) niet ophalen"
 msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr "Logo op de checkout pagina. Standaard <code>geactiveerd</code>"
 
-#: includes/paypro/wc/settings-page.php:103
+#: includes/paypro/wc/settings-page.php:104
 msgid "PayPro webhook was created successfully!"
 msgstr "PayPro webhook is succesvol aangemaakt!"
 
-#: includes/paypro/wc/settings-page.php:112
+#: includes/paypro/wc/settings-page.php:113
 msgid "Failed to create the webhook"
 msgstr "Kon webhook niet aanmaken"
 
-#: includes/paypro/wc/settings-page.php:128
+#: includes/paypro/wc/settings-page.php:130
 msgid "Webhook"
 msgstr "Webhook"
 
-#: includes/paypro/wc/settings-page.php:169
+#: includes/paypro/wc/settings-page.php:178
 msgid "PayPro settings"
 msgstr "PayPro instellingen"
 
-#: includes/paypro/wc/settings-page.php:170
+#: includes/paypro/wc/settings-page.php:167
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr "De volgende opties zijn nodig voor de plugin en worden door alle betaalmethoden gebruikt."
 
-#: includes/paypro/wc/settings-page.php:174
+#: includes/paypro/wc/settings-page.php:183
 msgid "PayPro API key"
 msgstr "PayPro API sleutel"
 
-#: includes/paypro/wc/settings-page.php:176
+#: includes/paypro/wc/settings-page.php:185
 msgid "API key used by the PayPro API."
 msgstr "API sleutel voor de PayPro API"
 
-#: includes/paypro/wc/settings-page.php:180
+#: includes/paypro/wc/settings-page.php:189
 msgid "PayPro Product ID"
 msgstr "PayPro Product ID"
 
-#: includes/paypro/wc/settings-page.php:182
+#: includes/paypro/wc/settings-page.php:191
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
 
-#: includes/paypro/wc/settings-page.php:188
+#: includes/paypro/wc/settings-page.php:197
 msgid "Payment description send to PayPro."
 msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
 
-#: includes/paypro/wc/settings-page.php:193
+#: includes/paypro/wc/settings-page.php:202
 msgid "Payment Complete Status"
 msgstr "Betaling succesvol afgerond status"
 
-#: includes/paypro/wc/settings-page.php:197
+#: includes/paypro/wc/settings-page.php:206
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr "Bepaald de status van een order als er een succesvolle betaling is gedaan. Standaard: In Behandeling"
 
-#: includes/paypro/wc/settings-page.php:201
+#: includes/paypro/wc/settings-page.php:210
 msgid "Enable automatic cancellation"
 msgstr "Activeer automatisch afkeuren."
 
-#: includes/paypro/wc/settings-page.php:203
+#: includes/paypro/wc/settings-page.php:212
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr "Als een betaling geannuleerd is automatisch de order ook afkeuren."
 
-#: includes/paypro/wc/settings-page.php:207
+#: includes/paypro/wc/settings-page.php:216
 msgid "Enable debug mode"
 msgstr "Activeer debug modus"
 
-#: includes/paypro/wc/settings-page.php:209
+#: includes/paypro/wc/settings-page.php:218
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
 
-#: includes/paypro/wc/settings-page.php:226
+#: includes/paypro/wc/settings-page.php:242
 msgid "PayPro webhook data"
 msgstr "PayPro webhook data"
 
-#: includes/paypro/wc/settings-page.php:227
+#: includes/paypro/wc/settings-page.php:231
 msgid "Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page."
 msgstr "Het aanmaken van een webhook is nodig om gebruik te maken van de plugin. Als een webhook is aangemaakt, zie je de info op deze pagina."
 
@@ -256,7 +256,7 @@ msgstr "Terugbetaald %1$s - Betaling %2$s, Terugbetaling %3$s"
 
 #: includes/paypro/wc/gateways/abstract.php:357
 msgid "Failed to create renewal payment. No valid mandate found."
-msgstr "Kon geen betalingshernieuwing aanmaken. Geen geldig mandaat gevonden.
+msgstr "Kon geen betalingshernieuwing aanmaken. Geen geldig mandaat gevonden"
 
 #: includes/paypro/wc/gateways/abstract.php:402
 msgid "Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process."
@@ -269,3 +269,12 @@ msgstr "Kon geen betalingshernieuwing aanmaken. Betaling kon niet aangemaakt wor
 #: includes/paypro/wc/gateways/directdebit.php:26
 msgid "SEPA Direct Debit"
 msgstr "SEPA Incasso"
+
+#. translators: %s contains a link to the PayPro dashboard API keys page
+#: includes/paypro/wc/settings-page.php:263
+msgid "Could not connect with the API. Please, check the API key supplied. You can find your API keys at %s"
+msgstr "Kan niet verbinden met de API. Zorg ervoor dat de API key goed is ingesteld. Je kan je je API keys vinden op %s"
+
+#: includes/paypro/wc/settings-page.php:266
+msgid "Could not connect with the API. Check that your server can connect to https://api.paypro.nl"
+msgstr "Kan niet verinden met de API. Check dat je server kan verbinden met https://api.paypro.nl"

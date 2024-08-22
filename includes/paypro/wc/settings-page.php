@@ -114,8 +114,9 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
                 PayPro_WC_Plugin::addAdminNotice('error', $message);
             }
         } else {
-            $settings = $this->get_settings();
+            $this->updateApiKey();
 
+            $settings = $this->get_settings();
             WC_Admin_Settings::save_fields($settings);
         }
     }
@@ -267,6 +268,27 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
         }
 
         return $content;
+    }
+
+    /**
+     * Update the API key of the client to the newly submitted value. This ensures we use the correct
+     * API key to check conectivity.
+     */
+    private function updateApiKey() {
+        $nonce       = filter_input(INPUT_POST, '_wpnonce', FILTER_SANITIZE_SPECIAL_CHARS);
+        $nonce_valid = $nonce && wp_verify_nonce($nonce, 'woocommerce-settings');
+
+        if (!$nonce_valid) {
+            return;
+        }
+
+        $api_key_name = 'paypro-gateways-woocommerce_api-key';
+        $api_key      = isset($_POST[$api_key_name]) ? sanitize_text_field(wp_unslash($_POST[$api_key_name])) : nil;
+
+        if ($api_key) {
+            PayPro_WC_Logger::log('settings setApiKey - ' . $api_key);
+            PayPro_WC_Plugin::$paypro_api->setApiKey($api_key);
+        }
     }
 
     /**
