@@ -61,6 +61,16 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
                             'code'   => [],
                         ]
                     );
+                } catch (\PayPro\Exception\ResourceNotFoundException $e) {
+                    $debug_message = sprintf(
+                        'Webhook %1$s does not exist. Has the webhook been deleted? - Message: %2$s',
+                        $webhook_id,
+                        $e->getMessage()
+                    );
+
+                    PayPro_WC_Logger::log($debug_message);
+
+                    submit_button('Create a webhook', 'secondary', 'save');
                 } catch (\PayPro\Exception\ApiErrorException $e) {
                     $debug_message = sprintf(
                         'Failed to load the webhook %1$s - Message: %2$s',
