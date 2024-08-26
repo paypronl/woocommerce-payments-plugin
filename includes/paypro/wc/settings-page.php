@@ -35,16 +35,17 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
                 submit_button('Create a webhook', 'secondary', 'save');
             } else {
                 try {
-                    $webhook = PayPro_WC_Plugin::$paypro_api->getWebhook($webhook_id);
+                    $webhook      = PayPro_WC_Plugin::$paypro_api->getWebhook($webhook_id);
+                    $webhook_name = $webhook ? $webhook->name : null;
 
                     $html = '<table>
                         <tr>
                           <td><strong>Webhook ID</strong></td>
-                          <td style="padding: 5px 15px"><code>' . $webhook?->id . '</code></td>
+                          <td style="padding: 5px 15px"><code>' . $webhook_id . '</code></td>
                         </tr>
                         <tr>
                           <td><strong>Webhook Name</strong></td>
-                          <td style="padding: 5px 15px">' . $webhook?->name . '</td>
+                          <td style="padding: 5px 15px">' . $webhook_name . '</td>
                         </tr>
                     </table>';
 
@@ -60,6 +61,16 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
                             'code'   => [],
                         ]
                     );
+                } catch (\PayPro\Exception\ResourceNotFoundException $e) {
+                    $debug_message = sprintf(
+                        'Webhook %1$s does not exist. Has the webhook been deleted? - Message: %2$s',
+                        $webhook_id,
+                        $e->getMessage()
+                    );
+
+                    PayPro_WC_Logger::log($debug_message);
+
+                    submit_button('Create a webhook', 'secondary', 'save');
                 } catch (\PayPro\Exception\ApiErrorException $e) {
                     $debug_message = sprintf(
                         'Failed to load the webhook %1$s - Message: %2$s',
@@ -113,8 +124,9 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
                 PayPro_WC_Plugin::addAdminNotice('error', $message);
             }
         } else {
-            $settings = $this->get_settings();
+            $this->updateApiKey();
 
+            $settings = $this->get_settings();
             WC_Admin_Settings::save_fields($settings);
         }
     }
@@ -162,12 +174,19 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
      * Returns the PayPro settings to be added to the WC settings.
      */
     private function getPayproSettingsSection() {
+        $description = __('The following options are required to use the plugin and are used by all PayPro payment methods', 'paypro-gateways-woocommerce');
+        $content     = "<p>{$description}</p>";
+
+        if (PayPro_WC_Plugin::apiValid()) {
+            $content = $this->checkApiConnectivity($content);
+        }
+
         return [
             [
                 'id'    => $this->getSettingId('title'),
                 'type'  => 'title',
                 'title' => __('PayPro settings', 'paypro-gateways-woocommerce'),
-                'desc'  => __('The following options are required to use the plugin and are used by all PayPro payment methods', 'paypro-gateways-woocommerce'),
+                'desc'  => $content,
             ],
             [
                 'id'       => $this->getSettingId('api-key'),
@@ -219,18 +238,67 @@ class PayPro_WC_SettingsPage extends WC_Settings_Page {
      * Returns the PayPro webhook settings to be added to the WC settings.
      */
     private function getPayproWebhookSection() {
+        $description = __('Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page.', 'paypro-gateways-woocommerce');
+        $content     = "<p>{$description}</p>";
+
+        if (PayPro_WC_Plugin::apiValid()) {
+            $content = $this->checkApiConnectivity($content);
+        }
+
         return [
             [
                 'id'    => $this->getSettingId('title'),
                 'type'  => 'title',
                 'title' => __('PayPro webhook data', 'paypro-gateways-woocommerce'),
-                'desc'  => __('Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page.', 'paypro-gateways-woocommerce'),
+                'desc'  => $content,
             ],
             [
                 'id'   => $this->getSettingId('sectionend'),
                 'type' => 'sectionend',
             ],
         ];
+    }
+
+    /**
+     * Checks if we can connect to the API to determine if all settings are correct.
+     * Appends the content of the settings description if this is not the case.
+     *
+     * @param string $content Content of the settings description.
+     */
+    private function checkApiConnectivity($content) {
+        try {
+            PayPro_WC_Plugin::$paypro_api->getPayMethods();
+        } catch (\PayPro\Exception\AuthenticationException $e) {
+            /* translators: %s contains a link to the PayPro dashboard API keys page */
+            $message  = sprintf(__('Could not connect with the API. Please, check the API key supplied. You can find your API keys at %s', 'paypro-gateways-woocommerce'), '<a href="https://app.paypro.nl/developers/api-keys">https://app.paypro.nl/developers/api-keys</a>');
+            $content .= "<div class=\"notice notice-error\"><p><strong>PayPro</strong> - {$message} </p></div>";
+        } catch (\PayPro\Exception\ApiErrorException $e) {
+            $message  = __('Could not connect with the API. Check that your server can connect to https://api.paypro.nl', 'paypro-gateways-woocommerce');
+            $content .= "<div class=\"notice notice-error\"><p><strong>PayPro</strong> - {$message} </p></div>";
+        }
+
+        return $content;
+    }
+
+    /**
+     * Update the API key of the client to the newly submitted value. This ensures we use the correct
+     * API key to check conectivity.
+     */
+    private function updateApiKey() {
+        $nonce       = filter_input(INPUT_POST, '_wpnonce', FILTER_SANITIZE_SPECIAL_CHARS);
+        $nonce_valid = $nonce && wp_verify_nonce($nonce, 'woocommerce-settings');
+
+        if (!$nonce_valid) {
+            return;
+        }
+
+        $api_key_name = 'paypro-gateways-woocommerce_api-key';
+        $api_key      = isset($_POST[$api_key_name]) ? sanitize_text_field(wp_unslash($_POST[$api_key_name])) : nil;
+
+        if ($api_key) {
+            PayPro_WC_Logger::log('settings setApiKey - ' . $api_key);
+            PayPro_WC_Plugin::$paypro_api->setApiKey($api_key);
+        }
     }
 
     /**
