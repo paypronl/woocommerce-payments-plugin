@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Requires at least: 5.0
- * Tested up to: 6.6.1
+ * Tested up to: 6.7.1
  * Text Domain: paypro-gateways-woocommerce
  * Domain Path: /languages
  * WC requires at least: 5.0
@@ -25,8 +25,6 @@ define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_VERSION', '3.0.0');
 
 require_once 'vendor/autoload.php';
-
-load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
 
 /**
  * Entry point of the plugin.
@@ -47,7 +45,6 @@ function paypro_plugin_init() {
         require_once __DIR__ . '/includes/paypro/wc/logger.php';
         require_once __DIR__ . '/includes/paypro/wc/order.php';
         require_once __DIR__ . '/includes/paypro/wc/payment-handler.php';
-        require_once __DIR__ . '/includes/paypro/wc/payment-methods.php';
         require_once __DIR__ . '/includes/paypro/wc/plugin.php';
         require_once __DIR__ . '/includes/paypro/wc/settings.php';
         require_once __DIR__ . '/includes/paypro/wc/subscription.php';
@@ -65,6 +62,13 @@ function paypro_plugin_init() {
 
         PayPro_WC_Plugin::init();
     }
+}
+
+/**
+ * Load translations
+ */
+function load_translations() {
+    load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
 }
 
 /**
@@ -137,4 +141,5 @@ function paypro_wc_plugin_activation() {
 
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');
 
+add_action('init', 'load_translations');
 add_action('plugins_loaded', 'paypro_plugin_init');
