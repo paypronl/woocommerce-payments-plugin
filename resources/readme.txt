@@ -2,7 +2,7 @@
 Contributors: paypro
 Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
 Requires at least: 5.0
-Tested up to: 6.6.1
+Tested up to: 6.7.1
 Stable tag: 3.0.0
 Requires PHP: 7.2
 License: GPLv2
