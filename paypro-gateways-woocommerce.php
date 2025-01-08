@@ -6,11 +6,11 @@ defined('ABSPATH') || exit;
  * Plugin Name: PayPro Gateways - WooCommerce
  * Plugin URI: https://www.paypro.nl/
  * Description: With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop.
- * Version: 3.0.0
+ * Version: 3.0.1
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Requires at least: 5.0
- * Tested up to: 6.6.1
+ * Tested up to: 6.7.1
  * Text Domain: paypro-gateways-woocommerce
  * Domain Path: /languages
  * WC requires at least: 5.0
@@ -22,11 +22,9 @@ define('PAYPRO_WC_PLUGIN_FILE', __FILE__);
 define('PAYPRO_WC_PLUGIN_BASENAME', plugin_basename(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_PATH', plugin_dir_path(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
-define('PAYPRO_WC_VERSION', '3.0.0');
+define('PAYPRO_WC_VERSION', '3.0.1');
 
 require_once 'vendor/autoload.php';
-
-load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
 
 /**
  * Entry point of the plugin.
@@ -65,6 +63,13 @@ function paypro_plugin_init() {
 
         PayPro_WC_Plugin::init();
     }
+}
+
+/**
+ * Load translations
+ */
+function load_translations() {
+    load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
 }
 
 /**
@@ -137,4 +142,5 @@ function paypro_wc_plugin_activation() {
 
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');
 
+add_action('init', 'load_translations');
 add_action('plugins_loaded', 'paypro_plugin_init');
