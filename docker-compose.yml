@@ -19,7 +19,7 @@ services:
       - "www.paypro.test:host-gateway"
       - "api.paypro.test:host-gateway"
   db:
-    image: mariadb:11.2.3
+    image: mariadb:latest
     container_name: paypro_woocommerce_mysql
     restart: always
     env_file:

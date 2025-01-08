@@ -10,8 +10,8 @@ class PayPro_WC_Gateway_Afterpay extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->issuer     = 'afterpay';
-        $this->has_fields = false;
+        $this->pay_method_code = 'afterpay';
+        $this->has_fields      = false;
 
         parent::__construct();
     }

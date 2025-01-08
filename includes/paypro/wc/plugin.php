@@ -18,13 +18,6 @@ class PayPro_WC_Plugin {
     public static $paypro_api;
 
     /**
-     * The iDEAL issuers list
-     *
-     * @var array $ideal_issuers
-     */
-    public static $ideal_issuers = [];
-
-    /**
      * All available gateways.
      *
      * @var array $gateway_classes
@@ -75,12 +68,6 @@ class PayPro_WC_Plugin {
         }
 
         self::setupApi();
-
-        if (self::apiValid()) {
-            $payment_methods_service = new PayPro_WC_PaymentMethods(self::$paypro_api);
-            self::$ideal_issuers     = $payment_methods_service->getIdealIssuers();
-        }
-
         self::setupGateways();
 
         // Add filters and actions.
@@ -150,7 +137,7 @@ class PayPro_WC_Plugin {
                 'woocommerce_blocks_payment_method_type_registration',
                 function (Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
                     foreach (self::$gateways as $gateway) {
-                        $payment_method_registry->register(new PayPro_WC_Blocks_Support($gateway, self::$ideal_issuers));
+                        $payment_method_registry->register(new PayPro_WC_Blocks_Support($gateway));
                     }
                 }
             );

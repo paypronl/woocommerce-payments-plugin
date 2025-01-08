@@ -10,8 +10,8 @@ class PayPro_WC_Gateway_Bancontact extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->issuer     = 'bancontact';
-        $this->has_fields = false;
+        $this->pay_method_code = 'bancontact';
+        $this->has_fields      = false;
 
         // Bancontact does not support refunds through the plugin until we can pass an IBAN or we
         // can refund directly.

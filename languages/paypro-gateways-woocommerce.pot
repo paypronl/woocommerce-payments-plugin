@@ -1,4 +1,4 @@
-# Copyright (C) 2024 PayPro
+# Copyright (C) 2025 PayPro
 # This file is distributed under the same license as the PayPro Gateways - WooCommerce plugin.
 msgid ""
 msgstr ""
@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-08-22T14:44:45+00:00\n"
+"POT-Creation-Date: 2025-01-07T15:45:48+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
 
 #. Plugin Name of the plugin
@@ -63,7 +63,7 @@ msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr ""
 
 #: includes/paypro/wc/gateways/abstract.php:102
-#: includes/paypro/wc/settings-page.php:195
+#: includes/paypro/wc/settings-page.php:205
 msgid "Description"
 msgstr ""
 
@@ -76,55 +76,55 @@ msgstr ""
 msgid "Awaiting payment confirmation"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:165
+#: includes/paypro/wc/gateways/abstract.php:164
 msgid "Could not use this payment method, please try again."
 msgstr ""
 
 #. translators: %1$s contains title of the gateway, %2$s contains the ID of the PayPro payment
-#: includes/paypro/wc/gateways/abstract.php:176
-#: includes/paypro/wc/gateways/abstract.php:389
+#: includes/paypro/wc/gateways/abstract.php:175
+#: includes/paypro/wc/gateways/abstract.php:388
 msgid "%1$s payment in process (%2$s)"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:201
+#: includes/paypro/wc/gateways/abstract.php:200
 msgid "This payment method does not support refunds"
 msgstr ""
 
 #. translators: %1$s contains the order id.
-#: includes/paypro/wc/gateways/abstract.php:215
+#: includes/paypro/wc/gateways/abstract.php:214
 msgid "Could not find the order: %1$s"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:229
+#: includes/paypro/wc/gateways/abstract.php:228
 msgid "Cannot refund for zero, please refund at least 1 cent"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:240
+#: includes/paypro/wc/gateways/abstract.php:239
 msgid "Failed to refund, no PayPro payment found."
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:251
+#: includes/paypro/wc/gateways/abstract.php:250
 msgid "Failed to refund, could not retrieve PayPro payment details."
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:267
+#: includes/paypro/wc/gateways/abstract.php:266
 msgid "Failed to refund, could not create PayPro refund."
 msgstr ""
 
 #. translators: %1$s contains the refund amount, %2$s contains the payment id, %3$s contains the refund id
-#: includes/paypro/wc/gateways/abstract.php:276
+#: includes/paypro/wc/gateways/abstract.php:275
 msgid "Refunded %1$s - Payment %2$s, Refund %3$s"
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:357
+#: includes/paypro/wc/gateways/abstract.php:356
 msgid "Failed to create renewal payment. No valid mandate found."
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:402
+#: includes/paypro/wc/gateways/abstract.php:401
 msgid "Change subscription from 'On hold' to 'Active' until the payment fails, because SEPA Direct Debit takes a longer time to process."
 msgstr ""
 
-#: includes/paypro/wc/gateways/abstract.php:411
+#: includes/paypro/wc/gateways/abstract.php:410
 msgid "Failed to create renewal payment. Payment could not be created."
 msgstr ""
 
@@ -152,10 +152,6 @@ msgstr ""
 msgid "iDEAL"
 msgstr ""
 
-#: includes/paypro/wc/gateways/ideal.php:35
-msgid "Select your bank"
-msgstr ""
-
 #: includes/paypro/wc/gateways/paypal.php:25
 msgid "PayPal"
 msgstr ""
@@ -174,109 +170,105 @@ msgstr ""
 msgid "PayPro payment (%s) cancelled "
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:179
-#: includes/paypro/wc/settings-page.php:129
+#: includes/paypro/wc/plugin.php:166
+#: includes/paypro/wc/settings-page.php:139
 msgid "Settings"
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:209
+#: includes/paypro/wc/plugin.php:196
 msgid "API key not set. PayPro payment methods will not be displayed in the checkout process. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:224
+#: includes/paypro/wc/plugin.php:211
 msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 msgstr ""
 
 #. translators: %s contains the webhook id of the PayPro webhook
-#: includes/paypro/wc/settings-page.php:75
+#: includes/paypro/wc/settings-page.php:85
 msgid "Failed to load the saved webhook (%s)"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:104
+#: includes/paypro/wc/settings-page.php:114
 msgid "PayPro webhook was created successfully!"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:113
+#: includes/paypro/wc/settings-page.php:123
 msgid "Failed to create the webhook"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:130
+#: includes/paypro/wc/settings-page.php:140
 msgid "Webhook"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:167
+#: includes/paypro/wc/settings-page.php:177
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:178
+#: includes/paypro/wc/settings-page.php:188
 msgid "PayPro settings"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:183
+#: includes/paypro/wc/settings-page.php:193
 msgid "PayPro API key"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:185
+#: includes/paypro/wc/settings-page.php:195
 msgid "API key used by the PayPro API."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:189
+#: includes/paypro/wc/settings-page.php:199
 msgid "PayPro Product ID"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:191
+#: includes/paypro/wc/settings-page.php:201
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:197
+#: includes/paypro/wc/settings-page.php:207
 msgid "Payment description send to PayPro."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:202
+#: includes/paypro/wc/settings-page.php:212
 msgid "Payment Complete Status"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:206
+#: includes/paypro/wc/settings-page.php:216
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:210
+#: includes/paypro/wc/settings-page.php:220
 msgid "Enable automatic cancellation"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:212
+#: includes/paypro/wc/settings-page.php:222
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:216
+#: includes/paypro/wc/settings-page.php:226
 msgid "Enable debug mode"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:218
+#: includes/paypro/wc/settings-page.php:228
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:231
+#: includes/paypro/wc/settings-page.php:241
 msgid "Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page."
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:242
+#: includes/paypro/wc/settings-page.php:252
 msgid "PayPro webhook data"
 msgstr ""
 
 #. translators: %s contains a link to the PayPro dashboard API keys page
-#: includes/paypro/wc/settings-page.php:263
+#: includes/paypro/wc/settings-page.php:273
 msgid "Could not connect with the API. Please, check the API key supplied. You can find your API keys at %s"
 msgstr ""
 
-#: includes/paypro/wc/settings-page.php:266
+#: includes/paypro/wc/settings-page.php:276
 msgid "Could not connect with the API. Check that your server can connect to https://api.paypro.nl"
 msgstr ""
 
-#: paypro-gateways-woocommerce.php:119
+#: paypro-gateways-woocommerce.php:123
 msgid "Could not activate plugin WooCommerce PayPro"
-msgstr ""
-
-#: frontend/blocks/index.jsx:28
-msgid "Please select your bank"
 msgstr ""
