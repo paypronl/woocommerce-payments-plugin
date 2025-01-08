@@ -20,8 +20,8 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
      * @param PayPro_WC_Gateway_Abstract $gateway       Gateway to setup block support for.
      */
     public function __construct($gateway) {
-        $this->gateway       = $gateway;
-        $this->name          = $gateway->id;
+        $this->gateway = $gateway;
+        $this->name    = $gateway->id;
     }
 
     /**
