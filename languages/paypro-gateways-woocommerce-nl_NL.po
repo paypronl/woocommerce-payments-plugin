@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 
 #: includes/paypro/wc/gateways/abstract.php:102
-#: includes/paypro/wc/settings-page.php:195
+#: includes/paypro/wc/settings-page.php:205
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -64,7 +64,7 @@ msgid "PayPro"
 msgstr "PayPro"
 
 #: includes/paypro/wc/plugin.php:179
-#: includes/paypro/wc/settings-page.php:129
+#: includes/paypro/wc/settings-page.php:139
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -144,7 +144,7 @@ msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can 
 msgstr "API key is ongeldig. Geef een geldige PayPro API key op.  Je kunt je API keys vinden in het <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 
 #. translators: %s contains the webhook id of the PayPro webhook
-#: includes/paypro/wc/settings-page.php:75
+#: includes/paypro/wc/settings-page.php:85
 msgid "Failed to load the saved webhook (%s)"
 msgstr "Kon de opgeslagen webhook (%s) niet ophalen"
 
@@ -152,75 +152,75 @@ msgstr "Kon de opgeslagen webhook (%s) niet ophalen"
 msgid "Display logo on checkout page. Default <code>enabled</code>"
 msgstr "Logo op de checkout pagina. Standaard <code>geactiveerd</code>"
 
-#: includes/paypro/wc/settings-page.php:104
+#: includes/paypro/wc/settings-page.php:114
 msgid "PayPro webhook was created successfully!"
 msgstr "PayPro webhook is succesvol aangemaakt!"
 
-#: includes/paypro/wc/settings-page.php:113
+#: includes/paypro/wc/settings-page.php:123
 msgid "Failed to create the webhook"
 msgstr "Kon webhook niet aanmaken"
 
-#: includes/paypro/wc/settings-page.php:130
+#: includes/paypro/wc/settings-page.php:140
 msgid "Webhook"
 msgstr "Webhook"
 
-#: includes/paypro/wc/settings-page.php:178
+#: includes/paypro/wc/settings-page.php:188
 msgid "PayPro settings"
 msgstr "PayPro instellingen"
 
-#: includes/paypro/wc/settings-page.php:167
+#: includes/paypro/wc/settings-page.php:177
 msgid "The following options are required to use the plugin and are used by all PayPro payment methods"
 msgstr "De volgende opties zijn nodig voor de plugin en worden door alle betaalmethoden gebruikt."
 
-#: includes/paypro/wc/settings-page.php:183
+#: includes/paypro/wc/settings-page.php:193
 msgid "PayPro API key"
 msgstr "PayPro API sleutel"
 
-#: includes/paypro/wc/settings-page.php:185
+#: includes/paypro/wc/settings-page.php:195
 msgid "API key used by the PayPro API."
 msgstr "API sleutel voor de PayPro API"
 
-#: includes/paypro/wc/settings-page.php:189
+#: includes/paypro/wc/settings-page.php:199
 msgid "PayPro Product ID"
 msgstr "PayPro Product ID"
 
-#: includes/paypro/wc/settings-page.php:191
+#: includes/paypro/wc/settings-page.php:201
 msgid "Product ID to connect a sale to a product. Not required."
 msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
 
-#: includes/paypro/wc/settings-page.php:197
+#: includes/paypro/wc/settings-page.php:207
 msgid "Payment description send to PayPro."
 msgstr "Beschrijving van de order die naar PayPro gestuurd wordt."
 
-#: includes/paypro/wc/settings-page.php:202
+#: includes/paypro/wc/settings-page.php:212
 msgid "Payment Complete Status"
 msgstr "Betaling succesvol afgerond status"
 
-#: includes/paypro/wc/settings-page.php:206
+#: includes/paypro/wc/settings-page.php:216
 msgid "Set the status of the order after a completed payment. Default: Processing"
 msgstr "Bepaald de status van een order als er een succesvolle betaling is gedaan. Standaard: In Behandeling"
 
-#: includes/paypro/wc/settings-page.php:210
+#: includes/paypro/wc/settings-page.php:220
 msgid "Enable automatic cancellation"
 msgstr "Activeer automatisch afkeuren."
 
-#: includes/paypro/wc/settings-page.php:212
+#: includes/paypro/wc/settings-page.php:222
 msgid "If a payment is cancelled automatically set the order on cancelled too."
 msgstr "Als een betaling geannuleerd is automatisch de order ook afkeuren."
 
-#: includes/paypro/wc/settings-page.php:216
+#: includes/paypro/wc/settings-page.php:226
 msgid "Enable debug mode"
 msgstr "Activeer debug modus"
 
-#: includes/paypro/wc/settings-page.php:218
+#: includes/paypro/wc/settings-page.php:228
 msgid "Enables the PayPro plugin to output debug information to the Woocommerce logs."
 msgstr "Zorgt ervoor dat de plugin debug informatie in de WooCommerce log bestanden zet."
 
-#: includes/paypro/wc/settings-page.php:242
+#: includes/paypro/wc/settings-page.php:252
 msgid "PayPro webhook data"
 msgstr "PayPro webhook data"
 
-#: includes/paypro/wc/settings-page.php:231
+#: includes/paypro/wc/settings-page.php:241
 msgid "Webhook creation is required to use the plugin. If a webhook is created, you can see its info on this page."
 msgstr "Het aanmaken van een webhook is nodig om gebruik te maken van de plugin. Als een webhook is aangemaakt, zie je de info op deze pagina."
 
@@ -271,10 +271,10 @@ msgid "SEPA Direct Debit"
 msgstr "SEPA Incasso"
 
 #. translators: %s contains a link to the PayPro dashboard API keys page
-#: includes/paypro/wc/settings-page.php:263
+#: includes/paypro/wc/settings-page.php:273
 msgid "Could not connect with the API. Please, check the API key supplied. You can find your API keys at %s"
 msgstr "Kan niet verbinden met de API. Zorg ervoor dat de API key goed is ingesteld. Je kan je je API keys vinden op %s"
 
-#: includes/paypro/wc/settings-page.php:266
+#: includes/paypro/wc/settings-page.php:276
 msgid "Could not connect with the API. Check that your server can connect to https://api.paypro.nl"
 msgstr "Kan niet verinden met de API. Check dat je server kan verbinden met https://api.paypro.nl"
