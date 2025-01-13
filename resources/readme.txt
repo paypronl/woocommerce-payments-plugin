@@ -20,7 +20,7 @@ Currently the plugin supports the following payment methods:
 * PayPal
 * Bancontact
 * Sofort
-* Afterpay
+* Riverty
 * SEPA Credit Transfer
 * Credit card (Visa and Mastercard)
 
@@ -65,12 +65,12 @@ In order to use this plugin you need to have an approved PayPro account.
 6. Now select the PayPro payment methods you want to use at WooCommerce -> Settings -> Payments.
 7. Your webshop is now ready to accept PayPro payments.
 
-Do you need help installing the PayPro plugin, please contact support@paypro.nl
+Do you need help installing the PayPro plugin, check our [guide](https://guide.paypro.nl/en/articles/4595222-woocommerce-plugin) or contact support@paypro.nl
 
 == Frequently Asked Questions ==
 
 = Where do I find my PayPro API key? =
-You can find your PayPro API key in your dashboard at 'Developers' in the PayPro dashboard.
+You can find your PayPro API key in your [dashboard](https://app.paypro.nl/developers/api-keys) at 'Developers' in the PayPro dashboard.
 
 = Why do we need to create a Webhook? =
 The Webhook is part of the new notification system the plugin uses to update the orders in your WooCommerce shop.
