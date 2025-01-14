@@ -3,7 +3,7 @@ Contributors: paypro
 Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
 Requires at least: 5.0
 Tested up to: 6.7.1
-Stable tag: 3.0.0
+Stable tag: 3.0.2
 Requires PHP: 7.2
 License: GPLv2
 License URI: http://opensource.org/licenses/GPL-2.0
@@ -20,7 +20,7 @@ Currently the plugin supports the following payment methods:
 * PayPal
 * Bancontact
 * Sofort
-* Afterpay
+* Riverty
 * SEPA Credit Transfer
 * Credit card (Visa and Mastercard)
 
@@ -65,12 +65,12 @@ In order to use this plugin you need to have an approved PayPro account.
 6. Now select the PayPro payment methods you want to use at WooCommerce -> Settings -> Payments.
 7. Your webshop is now ready to accept PayPro payments.
 
-Do you need help installing the PayPro plugin, please contact support@paypro.nl
+Do you need help installing the PayPro plugin, check our [guide](https://guide.paypro.nl/en/articles/4595222-woocommerce-plugin) or contact support@paypro.nl
 
 == Frequently Asked Questions ==
 
 = Where do I find my PayPro API key? =
-You can find your PayPro API key in your dashboard at 'Developers' in the PayPro dashboard.
+You can find your PayPro API key in your [dashboard](https://app.paypro.nl/developers/api-keys) at 'Developers' in the PayPro dashboard.
 
 = Why do we need to create a Webhook? =
 The Webhook is part of the new notification system the plugin uses to update the orders in your WooCommerce shop.
@@ -82,6 +82,16 @@ The Webhook is part of the new notification system the plugin uses to update the
 3. Example of the checkout payment method selection.
 
 == Changelog == 
+
+= 3.0.2 =
+
+* Add missing files
+
+= 3.0.1 =
+
+* Fix incorrect translation loading
+* Update tested up to 6.7.1
+* Update composer files to load properly
 
 = 3.0.0 =
 
