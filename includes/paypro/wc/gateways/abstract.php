@@ -23,9 +23,9 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
     /**
      * The pay method code for the PayPro API.
      *
-     * @var string $issuer
+     * @var string $pay_method_code
      */
-    protected $issuer;
+    protected $pay_method_code;
 
     /**
      * Indicates if the gateway supports subscriptions.
@@ -147,8 +147,7 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
 
         // Create payment.
         $payment_data                = $order->getPaymentData();
-        $payment_data['pay_methods'] = [ $this->issuer ];
-        $payment_data                = array_merge_recursive($payment_data, $this->getAdditionalPaymentData());
+        $payment_data['pay_methods'] = [ $this->pay_method_code ];
 
         if ($order->hasSubscription()) {
             $payment_data = array_merge_recursive(
@@ -497,13 +496,6 @@ abstract class PayPro_WC_Gateway_Abstract extends WC_Payment_Gateway {
      */
     public function supportsSubscriptions() {
         return $this->supports_subscriptions;
-    }
-
-    /**
-     * Returns additional payment data
-     */
-    protected function getAdditionalPaymentData() {
-        return [];
     }
 
     /**

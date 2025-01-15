@@ -15,22 +15,13 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
     private $gateway;
 
     /**
-     * A list of all the iDEAL issuers
-     *
-     * @var $ideal_issuers
-     */
-    private $ideal_issuers;
-
-    /**
      * Constructor
      *
      * @param PayPro_WC_Gateway_Abstract $gateway       Gateway to setup block support for.
-     * @param array                      $ideal_issuers List of all iDEAL issuers.
      */
-    public function __construct($gateway, $ideal_issuers) {
-        $this->gateway       = $gateway;
-        $this->name          = $gateway->id;
-        $this->ideal_issuers = $ideal_issuers;
+    public function __construct($gateway) {
+        $this->gateway = $gateway;
+        $this->name    = $gateway->id;
     }
 
     /**
@@ -79,12 +70,9 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
      * Override method to pass data to the frontend.
      */
     public function get_payment_method_data() {
-        $issuers = 'paypro_wc_gateway_ideal' === $this->name ? $this->ideal_issuers : [];
-
         return [
             'title'    => $this->gateway->getTitle(),
             'iconUrl'  => $this->gateway->getIconUrl(),
-            'issuers'  => $issuers,
             'supports' => $this->gateway->supports,
         ];
     }

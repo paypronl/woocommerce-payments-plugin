@@ -45,7 +45,6 @@ function paypro_plugin_init() {
         require_once __DIR__ . '/includes/paypro/wc/logger.php';
         require_once __DIR__ . '/includes/paypro/wc/order.php';
         require_once __DIR__ . '/includes/paypro/wc/payment-handler.php';
-        require_once __DIR__ . '/includes/paypro/wc/payment-methods.php';
         require_once __DIR__ . '/includes/paypro/wc/plugin.php';
         require_once __DIR__ . '/includes/paypro/wc/settings.php';
         require_once __DIR__ . '/includes/paypro/wc/subscription.php';

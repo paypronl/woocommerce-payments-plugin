@@ -1,6 +1,6 @@
 === PayPro Gateways - WooCommerce ===
 Contributors: paypro
-Tags: paypro, payments, betalingen, psp, gateways, woocommerce, ideal, bank transfer, paypal, afterpay, creditcard, visa, mastercard, mistercash, bancontact, sepa, overboeking, incasso
+Tags: paypro, payments, gateways, woocommerce, ideal
 Requires at least: 5.0
 Tested up to: 6.7.1
 Stable tag: 3.0.2

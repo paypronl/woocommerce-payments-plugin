@@ -10,7 +10,7 @@ class PayPro_WC_Gateway_BankTransfer extends PayPro_WC_Gateway_Abstract {
      * Constructor
      */
     public function __construct() {
-        $this->issuer                 = 'bank-transfer';
+        $this->pay_method_code        = 'bank-transfer';
         $this->supports_subscriptions = true;
         $this->has_fields             = false;
 
