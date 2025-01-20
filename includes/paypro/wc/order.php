@@ -163,7 +163,13 @@ class PayPro_WC_Order {
      */
     public function getSubscriptions() {
         $wc_subscriptions = wcs_get_subscriptions_for_order($this->getId());
-        return array_map(fn($wc_subscription) => new PayPro_WC_Subscription($wc_subscription->get_id()), $wc_subscriptions);
+
+        return array_map(
+            function ($wc_subscription) {
+                return new PayPro_WC_Subscription($wc_subscription->get_id());
+            },
+            $wc_subscriptions
+        );
     }
 
     /**
@@ -262,7 +268,13 @@ class PayPro_WC_Order {
      */
     public function getPayments() {
         $meta_data_entries = $this->order->get_meta(self::PAYMENT_META_DATA_KEY, false);
-        return array_map(fn($meta_data) => $meta_data->value, $meta_data_entries);
+
+        return array_map(
+            function ($meta_data) {
+                return $meta_data->value;
+            },
+            $meta_data_entries
+        );
     }
 
     /**
