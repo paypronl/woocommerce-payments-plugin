@@ -161,7 +161,7 @@ class PayPro_WC_WebhookHandler {
         }
 
         PayPro_WC_Logger::log("onWehookRequest - Order is pending and payment canceled ({$payment->id})");
-        $order->cancel($payment->id);
+        $order->cancel($payment);
     }
 
     /**
