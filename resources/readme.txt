@@ -85,7 +85,7 @@ The Webhook is part of the new notification system the plugin uses to update the
 
 = 3.1.1 =
 
-* Fix a bug where creating a refund would result in an error
+* Fix a bug where processing a cancel webhook would return a 401
 
 = 3.1.0 =
 
