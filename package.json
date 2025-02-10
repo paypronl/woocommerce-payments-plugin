@@ -1,7 +1,7 @@
 {
   "name": "woocommerce-payments-plugin",
   "title": "PayPro Gateways WooCommerce",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "devDependencies": {
     "@woocommerce/dependency-extraction-webpack-plugin": "^2.3.0",
     "@wordpress/scripts": "^27.1.0",
