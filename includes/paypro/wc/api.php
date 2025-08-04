@@ -19,7 +19,7 @@ class PayPro_WC_Api {
      * @param string $api_key The API key to be used for API calls.
      */
     public function setApiKey($api_key) {
-        $this->api_client = new \PayPro\Client(['api_key' => $api_key, 'api_url' => 'http://api.paypro.test:3000']);
+        $this->api_client = new \PayPro\Client($api_key);
     }
 
     /**
