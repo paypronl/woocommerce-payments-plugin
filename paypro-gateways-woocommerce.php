@@ -6,15 +6,15 @@ defined('ABSPATH') || exit;
  * Plugin Name: PayPro Gateways - WooCommerce
  * Plugin URI: https://www.paypro.nl/
  * Description: With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop.
- * Version: 3.1.1
+ * Version: 3.2.0
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Requires at least: 5.0
- * Tested up to: 6.7.1
+ * Tested up to: 6.8.2
  * Text Domain: paypro-gateways-woocommerce
  * Domain Path: /languages
  * WC requires at least: 5.0
- * WC tested up to: 9.1.4
+ * WC tested up to: 10.0.4
  * Requires PHP: 7.2
  */
 
@@ -22,7 +22,8 @@ define('PAYPRO_WC_PLUGIN_FILE', __FILE__);
 define('PAYPRO_WC_PLUGIN_BASENAME', plugin_basename(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_PATH', plugin_dir_path(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
-define('PAYPRO_WC_VERSION', '3.1.1');
+define('PAYPRO_WC_MINIMUM_WC_VERSION', '5.0');
+define('PAYPRO_WC_VERSION', '3.2.0');
 
 require_once 'vendor/autoload.php';
 
@@ -65,13 +66,6 @@ function paypro_plugin_init() {
 }
 
 /**
- * Load translations
- */
-function load_translations() {
-    load_plugin_textdomain('paypro-gateways-woocommerce', false, 'paypro-gateways-woocommerce/languages');
-}
-
-/**
  * Is called when the plugin gets activated. Checks if the the requirments are met and shows errors
  * if not.
  */
@@ -104,10 +98,10 @@ function paypro_wc_plugin_activation() {
         $error_list .= '</tr><tr>';
 
         // Check if WooCommerce is the correct version (>= 5.0.0).
-        if (WC()->version >= '5.0.0') {
+        if (version_compare(WC()->version, PAYPRO_WC_MINIMUM_WC_VERSION, '>=')) {
             $error_list .= '<td>WooCommerce version is good</td><td style="color: green;">Ok</td>';
         } else {
-            $error_list .= '<td>WooCommerce version (' . WC()->version . ') is wrong, should be >=2.2</td><td style="color: red;">Error</td>';
+            $error_list .= '<td>WooCommerce version (' . WC()->version . ') is wrong, should be >= 5.0</td><td style="color: red;">Error</td>';
             $errors      = true;
         }
     } else {
@@ -119,9 +113,9 @@ function paypro_wc_plugin_activation() {
 
     // Show error page if there are errors.
     if ($errors) {
-        $html                 = '<h1><strong>' . $title . '</strong></h1><br />' . $error_list;
-        $message              = __('Could not activate plugin WooCommerce PayPro', 'paypro-gateways-woocommerce');
-        $allowed_html_entiies = [
+        $message              = 'Could not activate PayPro plugin for WooCommerce.<br /><br />';
+        $html                 = '<h1><strong>PayPro Gateways - WooCommerce</strong></h1><br />' . $message . $error_list;
+        $allowed_html_entities = [
             'h1'     => [],
             'strong' => [],
             'br'     => [],
@@ -134,12 +128,18 @@ function paypro_wc_plugin_activation() {
             ],
         ];
 
-        wp_die(wp_kses($html, $allowed_html_entiies), esc_html($message), [ 'back_link' => true ]);
+        wp_die(wp_kses($html, $allowed_html_entities), '', [ 'back_link' => true ]);
         return;
     }
 }
 
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');
 
-add_action('init', 'load_translations');
-add_action('plugins_loaded', 'paypro_plugin_init');
+add_action('init', 'paypro_plugin_init');
+
+// We need to load this before the 'init' action and therefore cannot have it in the main plugin file.
+add_action('before_woocommerce_init', function() {
+    if (class_exists('\Automattic\WooCommerce\Utilities\FeaturesUtil')) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', PAYPRO_WC_PLUGIN_FILE, true);
+    }
+});
