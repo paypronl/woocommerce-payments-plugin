@@ -8,7 +8,7 @@ defined('ABSPATH') || exit;
 class PayPro_WC_Plugin {
     const PLUGIN_ID      = 'paypro-gateways-woocommerce';
     const PLUGIN_TITLE   = 'PayPro Gateways - WooCommerce';
-    const PLUGIN_VERSION = '3.1.1';
+    const PLUGIN_VERSION = '3.2.0';
 
     /**
      * The PayPro API helper class.
@@ -72,8 +72,6 @@ class PayPro_WC_Plugin {
 
         // Add filters and actions.
         add_filter('plugin_action_links_' . PAYPRO_WC_PLUGIN_BASENAME, [ __CLASS__, 'addSettingsActionLink' ]);
-
-        add_action('before_woocommerce_init', [ __CLASS__, 'setupHPOSCompatibility' ]);
 
         add_filter('woocommerce_payment_gateways', [ __CLASS__, 'addGateways' ]);
 
@@ -167,15 +165,6 @@ class PayPro_WC_Plugin {
         ];
 
         return array_merge($links, $plugin_links);
-    }
-
-    /**
-     * Hook to declare that the plugin supports HPOS.
-     */
-    public static function setupHPOSCompatibility() {
-        if (class_exists('\Automattic\WooCommerce\Utilities\FeaturesUtil')) {
-            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', PAYPRO_WC_PLUGIN_FILE, true);
-        }
     }
 
     /**
