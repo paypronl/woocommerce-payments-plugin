@@ -2,8 +2,8 @@
 Contributors: paypro
 Tags: paypro, payments, gateways, woocommerce, ideal
 Requires at least: 5.0
-Tested up to: 6.7.1
-Stable tag: 3.1.1
+Tested up to: 6.8.2
+Stable tag: 3.2.0
 Requires PHP: 7.2
 License: GPLv2
 License URI: http://opensource.org/licenses/GPL-2.0
@@ -82,6 +82,13 @@ The Webhook is part of the new notification system the plugin uses to update the
 3. Example of the checkout payment method selection.
 
 == Changelog == 
+
+= 3.2.0 =
+
+* Fix activation checks to correctly check the WooCommerce plugin version
+* Remove the translation file loading
+* Update tested up to 6.8.2
+* Update WooCommerce compatability to 10.0.4
 
 = 3.1.1 =
 
