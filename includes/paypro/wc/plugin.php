@@ -18,29 +18,6 @@ class PayPro_WC_Plugin {
     public static $paypro_api;
 
     /**
-     * All available gateways.
-     *
-     * @var array $gateway_classes
-     */
-    public static $gateway_classes = [
-        'PayPro_WC_Gateway_Ideal',
-        'PayPro_WC_Gateway_Paypal',
-        'PayPro_WC_Gateway_Bancontact',
-        'PayPro_WC_Gateway_Afterpay',
-        'PayPro_WC_Gateway_BankTransfer',
-        'PayPro_WC_Gateway_Sofort',
-        'PayPro_WC_Gateway_Creditcard',
-        'PayPro_WC_Gateway_DirectDebit',
-    ];
-
-    /**
-     * Array of all the initialized gateway objects.
-     *
-     * @var array $gateways
-     */
-    private static $gateways = [];
-
-    /**
      * If the plugin is initialized. Avoids double initializations.
      *
      * @var boolean $initialized
@@ -68,7 +45,7 @@ class PayPro_WC_Plugin {
         }
 
         self::setupApi();
-        self::setupGateways();
+        PayPro_WC_Gateways::setupGateways();
 
         // Add filters and actions.
         add_filter('plugin_action_links_' . PAYPRO_WC_PLUGIN_BASENAME, [ __CLASS__, 'addSettingsActionLink' ]);
@@ -102,7 +79,7 @@ class PayPro_WC_Plugin {
      * @param array $gateways Hook to register the gateways.
      */
     public static function addGateways(array $gateways) {
-        return array_merge($gateways, self::$gateways);
+        return array_merge($gateways, PayPro_WC_Gateways::getGateways());
     }
 
     /**
@@ -122,24 +99,6 @@ class PayPro_WC_Plugin {
                 <?php
             }
         );
-    }
-
-    /**
-     * Enables WooCommerce blocks support for our gateways
-     */
-    public static function setupBlockSupport() {
-        if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
-            require_once 'blocks.php';
-
-            add_action(
-                'woocommerce_blocks_payment_method_type_registration',
-                function (Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
-                    foreach (self::$gateways as $gateway) {
-                        $payment_method_registry->register(new PayPro_WC_Blocks_Support($gateway));
-                    }
-                }
-            );
-        }
     }
 
     /**
@@ -165,15 +124,6 @@ class PayPro_WC_Plugin {
         ];
 
         return array_merge($links, $plugin_links);
-    }
-
-    /**
-     * Loads all the gateways from the gateway classes array.
-     */
-    private static function setupGateways() {
-        foreach (self::$gateway_classes as $gateway_class) {
-            self::$gateways[] = new $gateway_class();
-        }
     }
 
     /**

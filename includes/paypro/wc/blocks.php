@@ -12,16 +12,15 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
      *
      * @var $gateway
      */
-    private $gateway;
+    private $gateway = null;
 
     /**
      * Constructor
      *
-     * @param PayPro_WC_Gateway_Abstract $gateway       Gateway to setup block support for.
+     * @param String $gateway_id ID of the gateway to use for this block.
      */
-    public function __construct($gateway) {
-        $this->gateway = $gateway;
-        $this->name    = $gateway->id;
+    public function __construct($gateway_id) {
+        $this->name = $gateway_id;
     }
 
     /**
@@ -33,7 +32,7 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
      * Override method to check if the block based checkout is active.
      */
     public function is_active() {
-        return $this->gateway->enabled;
+        return $this->gateway()->enabled;
     }
 
     /**
@@ -70,10 +69,26 @@ final class PayPro_WC_Blocks_Support extends AbstractPaymentMethodType {
      * Override method to pass data to the frontend.
      */
     public function get_payment_method_data() {
+        $gateway = $this->gateway();
+
         return [
-            'title'    => $this->gateway->getTitle(),
-            'iconUrl'  => $this->gateway->getIconUrl(),
-            'supports' => $this->gateway->supports,
+            'title'    => $gateway->getTitle(),
+            'iconUrl'  => $gateway->getIconUrl(),
+            'supports' => $gateway->supports,
         ];
+    }
+
+    /**
+     * Returns an instance of a gateway based on the ID provided.
+     *
+     * If a gateway has already been set we return it.
+     */
+    protected function gateway() {
+        if (null !== $this->gateway) {
+            return $this->gateway;
+        }
+
+        $this->gateway = PayPro_WC_Gateways::getGatewayById($this->name);
+        return $this->gateway;
     }
 }
