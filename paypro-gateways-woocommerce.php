@@ -40,9 +40,10 @@ function paypro_plugin_init() {
     $active_plugins = apply_filters('active_plugins', get_option('active_plugins'));
 
     if (in_array('woocommerce/woocommerce.php', $active_plugins, true) || class_exists('WooCommerce')) {
-        // blocks.php and settings-page.php are loaded seperately.
+        // blocks.php, settings-page.php, gateways.php and all gateways are loaded seperately.
         require_once __DIR__ . '/includes/paypro/wc/api.php';
         require_once __DIR__ . '/includes/paypro/wc/helper.php';
+        require_once __DIR__ . '/includes/paypro/wc/gateways.php';
         require_once __DIR__ . '/includes/paypro/wc/logger.php';
         require_once __DIR__ . '/includes/paypro/wc/order.php';
         require_once __DIR__ . '/includes/paypro/wc/payment-handler.php';
@@ -50,16 +51,6 @@ function paypro_plugin_init() {
         require_once __DIR__ . '/includes/paypro/wc/settings.php';
         require_once __DIR__ . '/includes/paypro/wc/subscription.php';
         require_once __DIR__ . '/includes/paypro/wc/webhook-handler.php';
-
-        require_once __DIR__ . '/includes/paypro/wc/gateways/abstract.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/afterpay.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/bancontact.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/banktransfer.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/creditcard.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/directdebit.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/ideal.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/paypal.php';
-        require_once __DIR__ . '/includes/paypro/wc/gateways/sofort.php';
 
         PayPro_WC_Plugin::init();
     }
@@ -136,6 +127,23 @@ function paypro_wc_plugin_activation() {
 register_activation_hook(__FILE__, 'paypro_wc_plugin_activation');
 
 add_action('init', 'paypro_plugin_init');
+
+// We need to load this before the 'init' action and therefore cannot have it in the main plugin file.
+add_action('woocommerce_blocks_loaded', function() {
+    if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
+        require_once __DIR__ . '/includes/paypro/wc/blocks.php';
+        require_once __DIR__ . '/includes/paypro/wc/gateways.php';
+
+        add_action(
+            'woocommerce_blocks_payment_method_type_registration',
+            function (Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
+                foreach (PayPro_WC_Gateways::getGatewayIds() as $gateway_id) {
+                    $payment_method_registry->register(new PayPro_WC_Blocks_Support($gateway_id));
+                }
+            }
+        );
+    }
+});
 
 // We need to load this before the 'init' action and therefore cannot have it in the main plugin file.
 add_action('before_woocommerce_init', function() {
