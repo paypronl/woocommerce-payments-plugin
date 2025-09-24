@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PayPro Gateways - WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: PayPro Gateways - WooCommerce 3.2.0\n"
+"Project-Id-Version: PayPro Gateways - WooCommerce 3.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-payments-plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-04T13:40:33+00:00\n"
+"POT-Creation-Date: 2025-09-24T13:48:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -170,16 +170,16 @@ msgstr ""
 msgid "PayPro payment (%s) cancelled "
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:164
+#: includes/paypro/wc/plugin.php:123
 #: includes/paypro/wc/settings-page.php:139
 msgid "Settings"
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:185
+#: includes/paypro/wc/plugin.php:135
 msgid "API key not set. PayPro payment methods will not be displayed in the checkout process. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 msgstr ""
 
-#: includes/paypro/wc/plugin.php:200
+#: includes/paypro/wc/plugin.php:150
 msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 msgstr ""
 

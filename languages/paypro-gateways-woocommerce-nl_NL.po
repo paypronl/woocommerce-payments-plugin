@@ -55,7 +55,7 @@ msgstr "Een plugin voor WooCommerce die gemakkelijk alle PayPro betaalmogelijkhe
 msgid "PayPro"
 msgstr "PayPro"
 
-#: includes/paypro/wc/plugin.php:164
+#: includes/paypro/wc/plugin.php:123
 #: includes/paypro/wc/settings-page.php:139
 msgid "Settings"
 msgstr "Instellingen"
@@ -123,11 +123,11 @@ msgstr "Kan deze betaalmethode op dit moment niet gebruiken, probeer nogmaals."
 msgid "%1$s payment in process (%2$s)"
 msgstr "%1$s betaling in behandeling (%2$s)"
 
-#: includes/paypro/wc/plugin.php:185
+#: includes/paypro/wc/plugin.php:135
 msgid "API key not set. PayPro payment methods will not be displayed in the checkout process. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 msgstr "API key niet ingevoerd. De PayPro betaalmethoden zullen niet zichtbaar zijn op de checkout pagina. Je kunt je API keys vinden in het <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 
-#: includes/paypro/wc/plugin.php:200
+#: includes/paypro/wc/plugin.php:150
 msgid "API key is invalid. Make sure you supply a valid PayPro API key. You can find your API keys in the <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 msgstr "API key is ongeldig. Geef een geldige PayPro API key op.  Je kunt je API keys vinden in het <a href=\"https://app.paypro.nl/developers/api-keys\" target=\"_blank\">PayPro Dashboard</a>"
 
