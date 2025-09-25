@@ -6,7 +6,7 @@ defined('ABSPATH') || exit;
  * Plugin Name: PayPro Gateways - WooCommerce
  * Plugin URI: https://www.paypro.nl/
  * Description: With this plugin you easily add all PayPro payment gateways to your WooCommerce webshop.
- * Version: 3.2.1
+ * Version: 3.2.2
  * Author: PayPro
  * Author URI: https://www.paypro.nl/
  * Requires at least: 5.0
@@ -23,7 +23,7 @@ define('PAYPRO_WC_PLUGIN_BASENAME', plugin_basename(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_PATH', plugin_dir_path(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_MINIMUM_WC_VERSION', '5.0');
-define('PAYPRO_WC_VERSION', '3.2.1');
+define('PAYPRO_WC_VERSION', '3.2.2');
 
 require_once 'vendor/autoload.php';
 
