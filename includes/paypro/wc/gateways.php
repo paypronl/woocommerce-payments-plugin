@@ -17,7 +17,6 @@ class PayPro_WC_Gateways {
         'PayPro_WC_Gateway_Bancontact',
         'PayPro_WC_Gateway_Afterpay',
         'PayPro_WC_Gateway_BankTransfer',
-        'PayPro_WC_Gateway_Sofort',
         'PayPro_WC_Gateway_Creditcard',
         'PayPro_WC_Gateway_DirectDebit',
     ];
@@ -41,7 +40,6 @@ class PayPro_WC_Gateways {
         require_once __DIR__ . '/gateways/directdebit.php';
         require_once __DIR__ . '/gateways/ideal.php';
         require_once __DIR__ . '/gateways/paypal.php';
-        require_once __DIR__ . '/gateways/sofort.php';
 
         foreach (self::$gateway_classes as $gateway_class) {
             self::$gateways[] = new $gateway_class();

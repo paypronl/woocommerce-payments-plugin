@@ -19,7 +19,6 @@ Currently the plugin supports the following payment methods:
 * iDEAL
 * PayPal
 * Bancontact
-* Sofort
 * Riverty
 * SEPA Credit Transfer
 * Credit card (Visa and Mastercard)

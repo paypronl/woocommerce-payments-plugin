@@ -50,7 +50,6 @@ class PayPro_WC_Helper {
         return [
             'ideal'         => 'direct-debit',
             'bank-transfer' => 'direct-debit',
-            'klarna-paynow' => 'direct-debit',
             'direct-debit'  => 'direct-debit',
             'creditcard'    => 'creditcard',
         ][$pay_method];
@@ -67,7 +66,6 @@ class PayPro_WC_Helper {
         return [
             'paypro_wc_gateway_ideal'        => 'paypro_wc_gateway_directdebit',
             'paypro_wc_gateway_banktransfer' => 'paypro_wc_gateway_directdebit',
-            'paypro_wc_gateway_sofort'       => 'paypro_wc_gateway_directdebit',
             'paypro_wc_gateway_directdebit'  => 'paypro_wc_gateway_directdebit',
             'paypro_wc_gateway_creditcard'   => 'paypro_wc_gateway_creditcard',
         ][$payment_method];
@@ -89,7 +87,6 @@ class PayPro_WC_Helper {
             'paypro_wc_gateway_directdebit'  => 'direct-debit',
             'paypro_wc_gateway_ideal'        => 'ideal',
             'paypro_wc_gateway_paypal'       => 'paypal',
-            'paypro_wc_gateway_sofort'       => 'klarna-paynow',
         ][$wc_payment_method];
     }
 }
