@@ -29,10 +29,6 @@ msgstr "iDEAL"
 msgid "Bancontact"
 msgstr "Bancontact"
 
-#: includes/paypro/wc/gateways/sofort.php:26
-msgid "Sofort"
-msgstr "Sofort"
-
 #. Plugin Name of the plugin
 #: paypro-gateways-woocommerce.php
 msgid "PayPro Gateways - WooCommerce"

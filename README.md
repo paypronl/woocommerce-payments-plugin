@@ -7,7 +7,6 @@ With this plugin you easily add all PayPro payment gateways to your WooCommerce 
 - iDEAL
 - PayPal
 - Bancontact
-- Sofort
 - Riverty
 - SEPA Credit Transfer
 - Credit card (Visa and Mastercard)
