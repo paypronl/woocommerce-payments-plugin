@@ -149,7 +149,7 @@ msgid "SEPA Direct Debit"
 msgstr ""
 
 #: includes/paypro/wc/gateways/ideal.php:26
-msgid "iDEAL"
+msgid "iDEAL | Wero"
 msgstr ""
 
 #: includes/paypro/wc/gateways/paypal.php:25

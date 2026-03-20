@@ -22,8 +22,8 @@ msgid "Bank Transfer"
 msgstr "SEPA Overboeking"
 
 #: includes/paypro/wc/gateways/ideal.php:26
-msgid "iDEAL"
-msgstr "iDEAL"
+msgid "iDEAL | Wero"
+msgstr "iDEAL | Wero"
 
 #: includes/paypro/wc/gateways/bancontact.php:29
 msgid "Bancontact"

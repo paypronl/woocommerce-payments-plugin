@@ -3,7 +3,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Gateway to handle iDEAL on the checkout.
+ * Gateway to handle iDEAL | Wero on the checkout.
  */
 class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract {
     /**
@@ -23,7 +23,7 @@ class PayPro_WC_Gateway_Ideal extends PayPro_WC_Gateway_Abstract {
      * @return string Title of the gateway
      */
     public function getTitle() {
-        return __('iDEAL', 'paypro-gateways-woocommerce');
+        return __('iDEAL | Wero', 'paypro-gateways-woocommerce');
     }
 
     /**
