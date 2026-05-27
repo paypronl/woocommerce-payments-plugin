@@ -16,7 +16,7 @@ This plugin is the official PayPro plugin for WooCommerce. It is easy to use, qu
 
 Currently the plugin supports the following payment methods:
 
-* iDEAL
+* iDEAL | Wero
 * PayPal
 * Bancontact
 * Riverty
