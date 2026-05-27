@@ -25,7 +25,7 @@ define('PAYPRO_WC_PLUGIN_URL', plugin_dir_url(PAYPRO_WC_PLUGIN_FILE));
 define('PAYPRO_WC_MINIMUM_WC_VERSION', '5.0');
 define('PAYPRO_WC_VERSION', '3.2.2');
 
-require_once 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 /**
  * Entry point of the plugin.
