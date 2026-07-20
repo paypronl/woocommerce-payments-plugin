@@ -12,6 +12,13 @@ class PayPro_WC_Order {
     const MANDATE_META_DATA_KEY        = '_paypro_mandate_id';
 
     /**
+     * Seconds after which a finalization lock is considered stale and can be
+     * reclaimed. Guards against a lock never being released if a process dies
+     * mid-request.
+     */
+    const LOCK_TIMEOUT = 30;
+
+    /**
      * WooCommerce Order
      *
      * @var WC_Order $order
@@ -93,58 +100,136 @@ class PayPro_WC_Order {
     /**
      * Complete the WC order and log the results.
      *
+     * The webhook and return handlers can both reach this method for the same
+     * order at nearly the same time. A lock is used so only one of them can
+     * finalize the order, preventing duplicate status transitions (and the
+     * duplicate notification emails that come with them).
+     *
      * @param \PayPro\Entities\Payment $payment The PayPro payment object.
      */
     public function complete($payment) {
-        $status = PayPro_WC_Settings::paymentCompleteStatus();
-
-        if (empty($status)) {
-            $status = 'wc-processing';
+        if (!$this->acquireLock()) {
+            PayPro_WC_Logger::log("Order {$this->getId()} is already being finalized, skipping duplicate completion for payment ({$payment->id})");
+            return;
         }
 
-        /* translators: %s contains the payment id of the PayPro payment */
-        $message = sprintf(__('PayPro payment (%s) succeeded', 'paypro-gateways-woocommerce'), $payment->id);
-        $this->order->update_status($status, $message);
-
-        wc_reduce_stock_levels($this->getId());
-        $this->order->payment_complete();
-
-        $this->removeAllPayments();
-        $this->setActivePayment($payment);
-
-        // Update subscriptions according to payment mandate and pay method.
-        if ($this->hasSubscription()) {
-            $customer = PayPro_WC_Plugin::$paypro_api->getCustomer($payment->customer);
-            $mandate  = $customer->mandates()->first();
-
-            $this->setMandateId($mandate->id);
-
-            $subscriptions = $this->getSubscriptions();
-
-            foreach ($subscriptions as $subscription) {
-                $subscription->setMandateId($mandate->id);
-                $subscription->setCustomerId($customer->id);
+        try {
+            if (!$this->hasStatus('pending')) {
+                PayPro_WC_Logger::log("Order {$this->getId()} is no longer pending, skipping duplicate completion for payment ({$payment->id})");
+                return;
             }
+
+            $status = PayPro_WC_Settings::paymentCompleteStatus();
+
+            if (empty($status)) {
+                $status = 'wc-processing';
+            }
+
+            /* translators: %s contains the payment id of the PayPro payment */
+            $message = sprintf(__('PayPro payment (%s) succeeded', 'paypro-gateways-woocommerce'), $payment->id);
+            $this->order->update_status($status, $message);
+
+            wc_reduce_stock_levels($this->getId());
+            $this->order->payment_complete();
+
+            $this->removeAllPayments();
+            $this->setActivePayment($payment);
+
+            // Update subscriptions according to payment mandate and pay method.
+            if ($this->hasSubscription()) {
+                $customer = PayPro_WC_Plugin::$paypro_api->getCustomer($payment->customer);
+                $mandate  = $customer->mandates()->first();
+
+                $this->setMandateId($mandate->id);
+
+                $subscriptions = $this->getSubscriptions();
+
+                foreach ($subscriptions as $subscription) {
+                    $subscription->setMandateId($mandate->id);
+                    $subscription->setCustomerId($customer->id);
+                }
+            }
+        } finally {
+            $this->releaseLock();
         }
     }
 
     /**
      * Cancel the WC order and log the results.
      *
+     * Guarded by the same lock as complete() so the webhook and return
+     * handlers can't race to finalize the same order in different directions.
+     *
      * @param \PayPro\Entities\Payment $payment The PayPro payment object.
      */
     public function cancel($payment) {
-        /* translators: %s contains the payment id of the PayPro payment */
-        $message = sprintf(__('PayPro payment (%s) cancelled ', 'paypro-gateways-woocommerce'), $payment->id);
-
-        if (PayPro_WC_Settings::automaticCancellation()) {
-            WC()->cart->empty_cart();
-            $this->order->update_status('cancelled', $message);
-        } else {
-            $this->order->add_order_note($message);
+        if (!$this->acquireLock()) {
+            PayPro_WC_Logger::log("Order {$this->getId()} is already being finalized, skipping duplicate cancellation for payment ({$payment->id})");
+            return;
         }
 
-        $this->removeAllPayments();
+        try {
+            if (!$this->hasStatus('pending')) {
+                PayPro_WC_Logger::log("Order {$this->getId()} is no longer pending, skipping duplicate cancellation for payment ({$payment->id})");
+                return;
+            }
+
+            /* translators: %s contains the payment id of the PayPro payment */
+            $message = sprintf(__('PayPro payment (%s) cancelled ', 'paypro-gateways-woocommerce'), $payment->id);
+
+            if (PayPro_WC_Settings::automaticCancellation()) {
+                WC()->cart->empty_cart();
+                $this->order->update_status('cancelled', $message);
+            } else {
+                $this->order->add_order_note($message);
+            }
+
+            $this->removeAllPayments();
+        } finally {
+            $this->releaseLock();
+        }
+    }
+
+    /**
+     * Attempts to atomically claim this order for finalization.
+     *
+     * Relies on the unique key on wp_options.option_name to make the claim
+     * atomic across concurrent requests/processes, which a non-persistent
+     * object cache cannot guarantee.
+     *
+     * @return bool True if the lock was acquired.
+     */
+    private function acquireLock() {
+        $lock_key = $this->getLockKey();
+        $now      = time();
+
+        if (add_option($lock_key, $now, '', 'no')) {
+            return true;
+        }
+
+        $locked_at = get_option($lock_key);
+
+        // Reclaim a lock left behind by a process that never released it.
+        if ($locked_at && ($now - (int) $locked_at) > self::LOCK_TIMEOUT) {
+            return update_option($lock_key, $now, 'no');
+        }
+
+        return false;
+    }
+
+    /**
+     * Releases the lock acquired via acquireLock().
+     */
+    private function releaseLock() {
+        delete_option($this->getLockKey());
+    }
+
+    /**
+     * Returns the option name used to lock this order against concurrent
+     * finalization.
+     */
+    private function getLockKey() {
+        return '_paypro_order_lock_' . $this->getId();
     }
 
     /**
