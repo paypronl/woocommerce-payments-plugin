@@ -210,7 +210,7 @@ class PayPro_WC_Order {
         $locked_at = get_option($lock_key);
 
         // Reclaim a lock left behind by a process that never released it.
-        if ($locked_at && ($now - (int) $locked_at) > self::LOCK_TIMEOUT) {
+        if ($locked_at && ( $now - (int) $locked_at ) > self::LOCK_TIMEOUT) {
             return update_option($lock_key, $now, 'no');
         }
 
