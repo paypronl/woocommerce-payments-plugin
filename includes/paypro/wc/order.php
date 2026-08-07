@@ -12,13 +12,6 @@ class PayPro_WC_Order {
     const MANDATE_META_DATA_KEY        = '_paypro_mandate_id';
 
     /**
-     * Seconds after which a finalization lock is considered stale and can be
-     * reclaimed. Guards against a lock never being released if a process dies
-     * mid-request.
-     */
-    const LOCK_TIMEOUT = 30;
-
-    /**
      * WooCommerce Order
      *
      * @var WC_Order $order
@@ -193,35 +186,31 @@ class PayPro_WC_Order {
     /**
      * Attempts to atomically claim this order for finalization.
      *
-     * Relies on the unique key on wp_options.option_name to make the claim
-     * atomic across concurrent requests/processes, which a non-persistent
-     * object cache cannot guarantee.
+     * Uses a MySQL named lock (GET_LOCK), which is exclusive and scoped to
+     * the DB connection, so it can't be granted to two concurrent
+     * requests/processes at once. It's also automatically released if the
+     * holding connection dies, so a crashed process can't leave the order
+     * locked forever.
      *
      * @return bool True if the lock was acquired.
      */
     private function acquireLock() {
-        $lock_key = $this->getLockKey();
-        $now      = time();
+        global $wpdb;
 
-        if (add_option($lock_key, $now, '', 'no')) {
-            return true;
-        }
+        $acquired = $wpdb->get_var(
+            $wpdb->prepare('SELECT GET_LOCK(%s, 0)', $this->getLockKey())
+        );
 
-        $locked_at = get_option($lock_key);
-
-        // Reclaim a lock left behind by a process that never released it.
-        if ($locked_at && ( $now - (int) $locked_at ) > self::LOCK_TIMEOUT) {
-            return update_option($lock_key, $now, 'no');
-        }
-
-        return false;
+        return '1' === $acquired;
     }
 
     /**
      * Releases the lock acquired via acquireLock().
      */
     private function releaseLock() {
-        delete_option($this->getLockKey());
+        global $wpdb;
+
+        $wpdb->query($wpdb->prepare('SELECT RELEASE_LOCK(%s)', $this->getLockKey()));
     }
 
     /**
