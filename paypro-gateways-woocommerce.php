@@ -26,13 +26,33 @@ define('PAYPRO_WC_MINIMUM_WC_VERSION', '5.0');
 define('PAYPRO_WC_VERSION', '3.2.2');
 
 /**
+ * Requires a file, throwing an exception instead of a fatal error if it's missing.
+ *
+ * @param string $file Absolute path of the file to require.
+ */
+function paypro_wc_require_or_fail($file) {
+    if (!file_exists($file)) {
+        throw new \Exception("Required file not found: {$file}");
+    }
+
+    require_once $file;
+}
+
+/**
  * Logs a failure to load the plugin's files and shows an admin notice, instead of letting
  * the site crash with an uncaught fatal error.
  *
  * @param \Throwable $e The error or exception that was caught.
  */
 function paypro_wc_handle_load_failure($e) {
+    static $notified = false;
+
     error_log('PayPro Gateways - WooCommerce failed to load: ' . $e->getMessage());
+
+    if ($notified) {
+        return;
+    }
+    $notified = true;
 
     add_action(
         'admin_notices',
@@ -51,7 +71,7 @@ function paypro_wc_handle_load_failure($e) {
 }
 
 try {
-    require_once __DIR__ . '/vendor/autoload.php';
+    paypro_wc_require_or_fail(__DIR__ . '/vendor/autoload.php');
 } catch (\Throwable $e) {
     paypro_wc_handle_load_failure($e);
     return;
@@ -72,16 +92,16 @@ function paypro_plugin_init() {
     if (in_array('woocommerce/woocommerce.php', $active_plugins, true) || class_exists('WooCommerce')) {
         try {
             // blocks.php, settings-page.php, gateways.php and all gateways are loaded seperately.
-            require_once __DIR__ . '/includes/paypro/wc/api.php';
-            require_once __DIR__ . '/includes/paypro/wc/helper.php';
-            require_once __DIR__ . '/includes/paypro/wc/gateways.php';
-            require_once __DIR__ . '/includes/paypro/wc/logger.php';
-            require_once __DIR__ . '/includes/paypro/wc/order.php';
-            require_once __DIR__ . '/includes/paypro/wc/payment-handler.php';
-            require_once __DIR__ . '/includes/paypro/wc/plugin.php';
-            require_once __DIR__ . '/includes/paypro/wc/settings.php';
-            require_once __DIR__ . '/includes/paypro/wc/subscription.php';
-            require_once __DIR__ . '/includes/paypro/wc/webhook-handler.php';
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/api.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/helper.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/gateways.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/logger.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/order.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/payment-handler.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/plugin.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/settings.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/subscription.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/webhook-handler.php');
 
             PayPro_WC_Plugin::init();
         } catch (\Throwable $e) {
@@ -166,8 +186,8 @@ add_action('init', 'paypro_plugin_init');
 add_action('woocommerce_blocks_loaded', function() {
     if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
         try {
-            require_once __DIR__ . '/includes/paypro/wc/blocks.php';
-            require_once __DIR__ . '/includes/paypro/wc/gateways.php';
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/blocks.php');
+            paypro_wc_require_or_fail(__DIR__ . '/includes/paypro/wc/gateways.php');
 
             add_action(
                 'woocommerce_blocks_payment_method_type_registration',
