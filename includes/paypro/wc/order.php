@@ -214,11 +214,12 @@ class PayPro_WC_Order {
     }
 
     /**
-     * Returns the option name used to lock this order against concurrent
-     * finalization.
+     * Returns the lock name used to lock this order against concurrent
+     * finalization. Includes the DB name since GET_LOCK() is scoped to the
+     * whole MySQL server, not per database.
      */
     private function getLockKey() {
-        return '_paypro_order_lock_' . $this->getId();
+        return '_paypro_lock_' . md5(DB_NAME . '_' . $this->getId());
     }
 
     /**
