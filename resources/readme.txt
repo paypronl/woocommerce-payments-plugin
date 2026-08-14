@@ -86,6 +86,8 @@ The Webhook is part of the new notification system the plugin uses to update the
 * Renamed iDEAL payment gateway to iDEAL | Wero.
 * Cleaned up Sofort payment method settings.
 * Fix vendor autoloading path issue.
+* Fix duplicate order processing notifications from the webhook and return payment flows.
+* Prevent a fatal error when plugin files fail to load.
 
 = 3.2.2 =
 
