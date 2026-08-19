@@ -29,7 +29,7 @@ await $`composer install --no-dev`
 
 // Move folders
 for(const directory of directoriesToCopy) {
-  await $`cp -R ${directory}/ ${targetFolder}`;
+  await $`cp -R ${directory} ${targetFolder}`;
 }
 
 // Move files
