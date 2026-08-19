@@ -3,7 +3,7 @@ Contributors: paypro
 Tags: paypro, payments, gateways, woocommerce, ideal
 Requires at least: 5.0
 Tested up to: 6.8.2
-Stable tag: 3.2.2
+Stable tag: 3.2.3
 Requires PHP: 7.2
 License: GPLv2
 License URI: http://opensource.org/licenses/GPL-2.0
@@ -81,6 +81,13 @@ The Webhook is part of the new notification system the plugin uses to update the
 3. Example of the checkout payment method selection.
 
 == Changelog == 
+
+= 3.2.3 =
+* Renamed iDEAL payment gateway to iDEAL | Wero.
+* Cleaned up Sofort payment method settings.
+* Fix vendor autoloading path issue.
+* Fix duplicate order processing notifications from the webhook and return payment flows.
+* Prevent a fatal error when plugin files fail to load.
 
 = 3.2.2 =
 
