@@ -62,6 +62,13 @@ class PayPro_WC_WebhookHandler {
         $signature = $headers['PAYPRO-SIGNATURE'];
         $timestamp = intval($headers['PAYPRO-TIMESTAMP']);
 
+        if (empty($this->secret)) {
+            return [
+                'error'   => true,
+                'message' => 'Webhook secret is not set',
+            ];
+        }
+
         if (empty($signature)) {
             return [
                 'error'   => true,
