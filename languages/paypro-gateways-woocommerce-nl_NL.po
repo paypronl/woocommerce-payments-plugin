@@ -69,12 +69,12 @@ msgid "PayPal"
 msgstr "PayPal"
 
 #. translators: %s contains the payment id of the PayPro payment
-#: includes/paypro/wc/order.php:106
+#: includes/paypro/wc/order.php:122
 msgid "PayPro payment (%s) succeeded"
 msgstr "PayPro betaling (%s) gelukt"
 
 #. translators: %s contains the payment id of the PayPro payment
-#: includes/paypro/wc/order.php:138
+#: includes/paypro/wc/order.php:171
 msgid "PayPro payment (%s) cancelled "
 msgstr "PayPro betaling (%s) geannuleerd"
 

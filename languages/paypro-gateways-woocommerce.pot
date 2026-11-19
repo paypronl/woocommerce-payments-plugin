@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PayPro Gateways - WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: PayPro Gateways - WooCommerce 3.2.3\n"
+"Project-Id-Version: PayPro Gateways - WooCommerce 3.2.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-payments-plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-22T11:31:23+00:00\n"
+"POT-Creation-Date: 2026-11-18T15:10:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: paypro-gateways-woocommerce\n"
@@ -157,12 +157,12 @@ msgid "PayPal"
 msgstr ""
 
 #. translators: %s contains the payment id of the PayPro payment
-#: includes/paypro/wc/order.php:106
+#: includes/paypro/wc/order.php:122
 msgid "PayPro payment (%s) succeeded"
 msgstr ""
 
 #. translators: %s contains the payment id of the PayPro payment
-#: includes/paypro/wc/order.php:138
+#: includes/paypro/wc/order.php:171
 msgid "PayPro payment (%s) cancelled "
 msgstr ""
 
